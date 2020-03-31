@@ -31,16 +31,78 @@ allkeys-lru:查询所有key中最近不长使用的数据进行删除
 ### 基础命令
 
 ```
-
+auth 验证密码
+ping 查看服务是否运行
+quit 关闭当前链接
+select 选择指定数据库
+info 查看数据库统计消息
 ```
+
+| 序号 | 命令及描述                                                   |
+| :--- | :----------------------------------------------------------- |
+| 1    | [BGREWRITEAOF](https://www.runoob.com/redis/server-bgrewriteaof.html) 异步执行一个 AOF（AppendOnly File） 文件重写操作 |
+| 2    | [BGSAVE](https://www.runoob.com/redis/server-bgsave.html) 在后台异步保存当前数据库的数据到磁盘 |
+| 3    | [CLIENT KILL [ip:port\] [ID client-id]](https://www.runoob.com/redis/server-client-kill.html) 关闭客户端连接 |
+| 4    | [CLIENT LIST](https://www.runoob.com/redis/server-client-list.html) 获取连接到服务器的客户端连接列表 |
+| 5    | [CLIENT GETNAME](https://www.runoob.com/redis/server-client-getname.html) 获取连接的名称 |
+| 6    | [CLIENT PAUSE timeout](https://www.runoob.com/redis/server-client-pause.html) 在指定时间内终止运行来自客户端的命令 |
+| 7    | [CLIENT SETNAME connection-name](https://www.runoob.com/redis/server-client-setname.html) 设置当前连接的名称 |
+| 8    | [CLUSTER SLOTS](https://www.runoob.com/redis/server-cluster-slots.html) 获取集群节点的映射数组 |
+| 9    | [COMMAND](https://www.runoob.com/redis/server-command.html) 获取 Redis 命令详情数组 |
+| 10   | [COMMAND COUNT](https://www.runoob.com/redis/server-command-count.html) 获取 Redis 命令总数 |
+| 11   | [COMMAND GETKEYS](https://www.runoob.com/redis/server-command-getkeys.html) 获取给定命令的所有键 |
+| 12   | [TIME](https://www.runoob.com/redis/server-time.html) 返回当前服务器时间 |
+| 13   | [COMMAND INFO command-name [command-name ...\]](https://www.runoob.com/redis/server-command-info.html) 获取指定 Redis 命令描述的数组 |
+| 14   | [CONFIG GET parameter](https://www.runoob.com/redis/server-config-get.html) 获取指定配置参数的值 |
+| 15   | [CONFIG REWRITE](https://www.runoob.com/redis/server-config-rewrite.html) 对启动 Redis 服务器时所指定的 redis.conf 配置文件进行改写 |
+| 16   | [CONFIG SET parameter value](https://www.runoob.com/redis/server-config-set.html) 修改 redis 配置参数，无需重启 |
+| 17   | [CONFIG RESETSTAT](https://www.runoob.com/redis/server-config-resetstat.html) 重置 INFO 命令中的某些统计数据 |
+| 18   | [DBSIZE](https://www.runoob.com/redis/server-dbsize.html) 返回当前数据库的 key 的数量 |
+| 19   | [DEBUG OBJECT key](https://www.runoob.com/redis/server-debug-object.html) 获取 key 的调试信息 |
+| 20   | [DEBUG SEGFAULT](https://www.runoob.com/redis/server-debug-segfault.html) 让 Redis 服务崩溃 |
+| 21   | [FLUSHALL](https://www.runoob.com/redis/server-flushall.html) 删除所有数据库的所有key |
+| 22   | [FLUSHDB](https://www.runoob.com/redis/server-flushdb.html) 删除当前数据库的所有key |
+| 23   | [INFO [section\]](https://www.runoob.com/redis/server-info.html) 获取 Redis 服务器的各种信息和统计数值 |
+| 24   | [LASTSAVE](https://www.runoob.com/redis/server-lastsave.html) 返回最近一次 Redis 成功将数据保存到磁盘上的时间，以 UNIX 时间戳格式表示 |
+| 25   | [MONITOR](https://www.runoob.com/redis/server-monitor.html) 实时打印出 Redis 服务器接收到的命令，调试用 |
+| 26   | [ROLE](https://www.runoob.com/redis/server-role.html) 返回主从实例所属的角色 |
+| 27   | [SAVE](https://www.runoob.com/redis/server-save.html) 同步保存数据到硬盘 |
+| 28   | [SHUTDOWN [NOSAVE\] [SAVE]](https://www.runoob.com/redis/server-shutdown.html) 异步保存数据到硬盘，并关闭服务器 |
+| 29   | [SLAVEOF host port](https://www.runoob.com/redis/server-slaveof.html) 将当前服务器转变为指定服务器的从属服务器(slave server) |
+| 30   | [SLOWLOG subcommand [argument\]](https://www.runoob.com/redis/server-showlog.html) 管理 redis 的慢日志 |
+| 31   | [SYNC](https://www.runoob.com/redis/server-sync.html) 用于复制功能(replication)的内部命令 |
 
 ### 高级命令
 
-```
+#### 事务
+
+Redis 事务可以一次执行多个命令， 并且带有以下三个重要的保证：
+
+- 批量操作在发送 EXEC 命令前被放入队列缓存。
+- 收到 EXEC 命令后进入事务执行，事务中任意命令执行失败，其余的命令依然被执行。
+- 在事务执行过程，其他客户端提交的命令请求不会插入到事务执行命令序列中。
+
+单个 Redis 命令的执行是原子性的，但 Redis 没有在事务上增加任何维持原子性的机制，所以 Redis 事务的执行并不是原子性的。
+
+事务可以理解为一个打包的批量执行脚本，但批量指令并非原子化的操作，中间某条指令的失败不会导致前面已做指令的回滚，也不会造成后续的指令不做。
+
+**MULTI** 开始一个事务， 然后将多个命令入队到事务中， 最后由 **EXEC** 命令触发事务
 
 ```
+multi 标记一个事务块的开始
+exec 执行所有事务块内的命令
+discard 取消事务，放弃事务块内的所有命令
+watch 命令用于监视一个(或多个) key ，如果在事务执行之前这个(或这些)key被其他命令所改动，那么事务将被打断（回滚）
+unwatch 取消watch命令对所有key的监视
+```
 
+#### 安全
 
+```
+save 将在 redis 安装目录中创建dump.rdb文件
+bgsave 后台备份文件
+config get dir 获取 redis 目录
+```
 
 ## 数据类型
 
@@ -164,6 +226,18 @@ srandmember （返回集合中一个或多个随机数）
 同上，s改为z
 ```
 
+### HyperLogLog
+
+数据集 {1, 3, 5, 7, 5, 7, 8}， 那么这个数据集的基数集为 {1, 3, 5 ,7, 8}, 基数(不重复元素)为5。 基数估计就是在误差可接受的范围内，快速计算基数。
+
+HyperLogLog 是用来做基数统计的算法，HyperLogLog 的优点是，在输入元素的数量或者体积非常非常大时，计算基数所需的空间总是固定 的、并且是很小的。每个 HyperLogLog 键只需要花费 12 KB 内存，就可以计算接近 2^64 个不同元素的基 数。
+
+```
+pfadd 添加指定元素到 HyperLogLog 中
+pfcount 返回给定 HyperLogLog 的基数估算值
+pfmerge 将多个 HyperLogLog 合并为一个 HyperLogLog
+```
+
 ## 客户端
 
 jedis lettuce redisson
@@ -248,4 +322,8 @@ JedisPool jedisPool = jedisConfig.redisPoolFactory();
 Jedis resource = jedisPool.getResource();
 resource.set("xuan", "hao123");
 ```
+
+## 集群
+
+redis cluster
 
