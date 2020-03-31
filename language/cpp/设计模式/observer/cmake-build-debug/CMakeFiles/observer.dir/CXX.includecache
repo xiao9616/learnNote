@@ -1,0 +1,42 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/560204/gitee/LearnNote/cpp/设计模式/observer/main.cpp
+iostream
+-
+object.h
+/home/560204/gitee/LearnNote/cpp/设计模式/observer/object.h
+oberver.h
+/home/560204/gitee/LearnNote/cpp/设计模式/observer/oberver.h
+
+/home/560204/gitee/LearnNote/cpp/设计模式/observer/oberver.h
+oberverInterFace.h
+/home/560204/gitee/LearnNote/cpp/设计模式/observer/oberverInterFace.h
+iostream
+-
+
+/home/560204/gitee/LearnNote/cpp/设计模式/observer/oberverInterFace.h
+
+/home/560204/gitee/LearnNote/cpp/设计模式/observer/object.h
+list
+-
+iostream
+-
+objectInterface.h
+/home/560204/gitee/LearnNote/cpp/设计模式/observer/objectInterface.h
+oberverInterFace.h
+/home/560204/gitee/LearnNote/cpp/设计模式/observer/oberverInterFace.h
+
+/home/560204/gitee/LearnNote/cpp/设计模式/observer/objectInterface.h
+iostream
+-
+list
+-
+oberverInterFace.h
+/home/560204/gitee/LearnNote/cpp/设计模式/observer/oberverInterFace.h
+

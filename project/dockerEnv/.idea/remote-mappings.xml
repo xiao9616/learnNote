@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="RemoteMappingsManager">
+    <list>
+      <list>
+        <remote-mappings server-id="python@docker-compose://[/home/user/LearnNote/project/dockerEnv/docker-compose.yml]:web/python">
+          <settings>
+            <list>
+              <mapping local-root="." remote-root="/opt/app" />
+            </list>
+          </settings>
+        </remote-mappings>
+      </list>
+    </list>
+  </component>
+</project>

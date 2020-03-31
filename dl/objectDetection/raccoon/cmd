@@ -1,0 +1,1 @@
+python train.py --logtostderr --pipeline_config_path=/home/560204/SD/sd1/GitHub/raccoon_dataset/training/ssd_mobilenet_v1_pets.config --train_dir=/home/560204/SD/sd1/GitHub/raccoon_dataset/train

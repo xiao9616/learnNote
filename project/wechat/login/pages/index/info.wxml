@@ -1,0 +1,18 @@
+<!--pages/index/info.wxml-->
+<view class='container'>
+ <view bindtap="itemClick">
+  <text>文章1</text>
+ </view>
+ <navigator url='../logs/logs?id=2'>
+  <view>
+   <text>文章2</text>
+ </view>
+ </navigator>
+ 
+ <view>
+  <text>文章3</text>
+ </view>
+ <view>
+  <text>文章4</text>
+ </view>
+</view>

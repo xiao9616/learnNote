@@ -1,0 +1,2360 @@
+<!DOCTYPE html>
+<!-- saved from url=(0038)https://www.jianshu.com/p/87271dc6fa2e -->
+<html><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+
+  <!-- Start of Baidu Transcode -->
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta name="applicable-device" content="pc,mobile">
+  <meta name="MobileOptimized" content="width">
+  <meta name="HandheldFriendly" content="true">
+  <meta name="mobile-agent" content="format=html5;url=https://www.jianshu.com/p/87271dc6fa2e">
+  <!-- End of Baidu Transcode -->
+
+    <meta name="description" content="该系列文章为，观看“吴恩达机器学习”系列视频的学习笔记。虽然每个视频都很简单，但不得不说每一句都非常的简洁扼要，浅显易懂。非常适合我这样的小白入门。 本章含盖 13.1 优化目标 13.2 直观上对大间隔的理解 13.3 大间隔分类器的数学原理 13.4 核函数1 13.5 核函数2 13.6 使用SVM 到目前为止,你已经见过一系列不同的学习算法。在监督学习中，许多学习算法的性能都非常类似...">
+
+  <meta name="360-site-verification" content="604a14b53c6b871206001285921e81d8">
+  <meta property="wb:webmaster" content="294ec9de89e7fadb">
+  <meta property="qc:admins" content="104102651453316562112116375">
+  <meta property="qc:admins" content="11635613706305617">
+  <meta property="qc:admins" content="1163561616621163056375">
+  <meta name="google-site-verification" content="cV4-qkUJZR6gmFeajx_UyPe47GW9vY6cnCrYtCHYNh4">
+  <meta name="google-site-verification" content="HF7lfF8YEGs1qtCE-kPml8Z469e2RHhGajy6JPVy5XI">
+  <meta http-equiv="mobile-agent" content="format=html5; url=https://www.jianshu.com/p/87271dc6fa2e">
+
+  <!-- Apple -->
+  <meta name="apple-mobile-web-app-title" content="简书">
+
+    <!--  Meta for Smart App Banner -->
+  <meta name="apple-itunes-app" content="app-id=888237539, app-argument=jianshu://notes/42623042">
+  <!-- End -->
+
+  <!--  Meta for Twitter Card -->
+  <meta content="summary" property="twitter:card">
+  <meta content="@jianshucom" property="twitter:site">
+  <meta content="第十三章 支持向量机" property="twitter:title">
+  <meta content="该系列文章为，观看“吴恩达机器学习”系列视频的学习笔记。虽然每个视频都很简单，但不得不说每一句都非常的简洁扼要，浅显易懂。非常适合我这样的小白入门。 本章含盖 13.1 优化..." property="twitter:description">
+  <meta content="https://www.jianshu.com/p/87271dc6fa2e" property="twitter:url">
+  <!-- End -->
+
+  <!--  Meta for OpenGraph -->
+  <meta property="fb:app_id" content="865829053512461">
+  <meta property="og:site_name" content="简书">
+  <meta property="og:title" content="第十三章 支持向量机">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://www.jianshu.com/p/87271dc6fa2e">
+  <meta property="og:description" content="该系列文章为，观看“吴恩达机器学习”系列视频的学习笔记。虽然每个视频都很简单，但不得不说每一句都非常的简洁扼要，浅显易懂。非常适合我这样的小白入门。 本章含盖 13.1 优化目标 13.2 直观...">
+  <!-- End -->
+
+  <!--  Meta for Facebook Applinks -->
+  <meta property="al:ios:url" content="jianshu://notes/42623042">
+  <meta property="al:ios:app_store_id" content="888237539">
+  <meta property="al:ios:app_name" content="简书">
+
+  <meta property="al:android:url" content="jianshu://notes/42623042">
+  <meta property="al:android:package" content="com.jianshu.haruki">
+  <meta property="al:android:app_name" content="简书">
+  <!-- End -->
+
+
+    <title>第十三章 支持向量机 - 简书</title>
+
+  <meta name="csrf-param" content="authenticity_token">
+<meta name="csrf-token" content="bUH6bn6t9Ssvm8Tvrf2LzwuewAAeme3UFs9quGTMxesDrPO/BbX6BvSh1qRhUTTDrpu+d/oA8tDadlUNeXwNXA==">
+
+  <link rel="stylesheet" media="all" href="./第十三章 支持向量机 - 简书_files/web-30728a1164102859481d.css">
+  
+  <link rel="stylesheet" media="all" href="./第十三章 支持向量机 - 简书_files/entry-aa75deb505b1b600256a.css">
+
+  <link href="https://cdn2.jianshu.io/assets/favicons/favicon-e743bfb1821442341c3ab15bdbe804f7ad97676bd07a770ccc9483473aa76f06.ico" rel="shortcut icon" type="image/x-icon">
+      <link rel="apple-touch-icon-precomposed" href="https://cdn2.jianshu.io/assets/apple-touch-icons/57-a6f1f1ee62ace44f6dc2f6a08575abd3c3b163288881c78dd8d75247682a4b27.png" sizes="57x57">
+      <link rel="apple-touch-icon-precomposed" href="https://cdn2.jianshu.io/assets/apple-touch-icons/72-fb9834bcfce738fd7b9c5e31363e79443e09a81a8e931170b58bc815387c1562.png" sizes="72x72">
+      <link rel="apple-touch-icon-precomposed" href="https://cdn2.jianshu.io/assets/apple-touch-icons/76-49d88e539ff2489475d603994988d871219141ecaa0b1a7a9a1914f4fe3182d6.png" sizes="76x76">
+      <link rel="apple-touch-icon-precomposed" href="https://cdn2.jianshu.io/assets/apple-touch-icons/114-24252fe693524ed3a9d0905e49bff3cbd0228f25a320aa09053c2ebb4955de97.png" sizes="114x114">
+      <link rel="apple-touch-icon-precomposed" href="https://cdn2.jianshu.io/assets/apple-touch-icons/120-1bb7371f5e87f93ce780a5f1a05ff1b176828ee0d1d130e768575918a2e05834.png" sizes="120x120">
+      <link rel="apple-touch-icon-precomposed" href="https://cdn2.jianshu.io/assets/apple-touch-icons/152-bf209460fc1c17bfd3e2b84c8e758bc11ca3e570fd411c3bbd84149b97453b99.png" sizes="152x152">
+
+  <!-- Start of 访问统计 -->
+    <script src="./第十三章 支持向量机 - 简书_files/push.js"></script><script src="./第十三章 支持向量机 - 简书_files/hm.js"></script><script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?0c0e9d9b1e7d617b3e6842e85b9fb068";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+  <!-- End of 访问统计 -->
+<style type="text/css">@charset "UTF-8";.image-package .image-container .image-view-error:after,.image-package .image-container .image-view-maintain:after{position:absolute;top:50%;left:50%;width:100%;-webkit-transform:translate(-50%,-50%);-ms-transform:translate(-50%,-50%);transform:translate(-50%,-50%);color:#888;font-size:14px}.image-package .image-container{position:relative;z-index:2;background-color:#eee;-webkit-transition:background-color .1s linear;-o-transition:background-color .1s linear;transition:background-color .1s linear;margin:0 auto}body.reader-night-mode .image-package .image-container{background-color:#545454}.image-package .image-container-fill{z-index:1}.image-package .image-container .image-view{position:absolute;top:0;left:0;width:100%;height:100%;overflow:hidden}.image-package .image-container .image-view-error:after{content:"图片获取失败，请点击重试"}.image-package .image-container .image-view-maintain:after{content:"系统维护中，图片暂时无法加载"}.image-package .image-container .image-view img.image-loading{opacity:.3}.image-package .image-container .image-view img{-webkit-transition:all .15s linear;-o-transition:all .15s linear;transition:all .15s linear;z-index:2;opacity:1}</style><style type="text/css">fieldset[disabled] .multiselect {
+  pointer-events: none;
+}
+
+.multiselect__spinner {
+  position: absolute;
+  right: 1px;
+  top: 1px;
+  width: 48px;
+  height: 35px;
+  background: #fff;
+  display: block;
+}
+
+.multiselect__spinner:after,
+.multiselect__spinner:before {
+  position: absolute;
+  content: "";
+  top: 50%;
+  left: 50%;
+  margin: -8px 0 0 -8px;
+  width: 16px;
+  height: 16px;
+  border-radius: 100%;
+  border-color: #41b883 transparent transparent;
+  border-style: solid;
+  border-width: 2px;
+  box-shadow: 0 0 0 1px transparent;
+}
+
+.multiselect__spinner:before {
+  animation: a 2.4s cubic-bezier(.41,.26,.2,.62);
+  animation-iteration-count: infinite;
+}
+
+.multiselect__spinner:after {
+  animation: a 2.4s cubic-bezier(.51,.09,.21,.8);
+  animation-iteration-count: infinite;
+}
+
+.multiselect__loading-enter-active,
+.multiselect__loading-leave-active {
+  transition: opacity .4s ease-in-out;
+  opacity: 1;
+}
+
+.multiselect__loading-enter,
+.multiselect__loading-leave-active {
+  opacity: 0;
+}
+
+.multiselect,
+.multiselect__input,
+.multiselect__single {
+  font-family: inherit;
+  font-size: 14px;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+}
+
+.multiselect {
+  box-sizing: content-box;
+  display: block;
+  position: relative;
+  width: 100%;
+  min-height: 40px;
+  text-align: left;
+  color: #35495e;
+}
+
+.multiselect * {
+  box-sizing: border-box;
+}
+
+.multiselect:focus {
+  outline: none;
+}
+
+.multiselect--disabled {
+  opacity: .6;
+}
+
+.multiselect--active {
+  z-index: 1;
+}
+
+.multiselect--active:not(.multiselect--above) .multiselect__current,
+.multiselect--active:not(.multiselect--above) .multiselect__input,
+.multiselect--active:not(.multiselect--above) .multiselect__tags {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.multiselect--active .multiselect__select {
+  transform: rotate(180deg);
+}
+
+.multiselect--above.multiselect--active .multiselect__current,
+.multiselect--above.multiselect--active .multiselect__input,
+.multiselect--above.multiselect--active .multiselect__tags {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.multiselect__input,
+.multiselect__single {
+  position: relative;
+  display: inline-block;
+  min-height: 20px;
+  line-height: 20px;
+  border: none;
+  border-radius: 5px;
+  background: #fff;
+  padding: 0 0 0 5px;
+  width: 100%;
+  transition: border .1s ease;
+  box-sizing: border-box;
+  margin-bottom: 8px;
+  vertical-align: top;
+}
+
+.multiselect__tag~.multiselect__input,
+.multiselect__tag~.multiselect__single {
+  width: auto;
+}
+
+.multiselect__input:hover,
+.multiselect__single:hover {
+  border-color: #cfcfcf;
+}
+
+.multiselect__input:focus,
+.multiselect__single:focus {
+  border-color: #a8a8a8;
+  outline: none;
+}
+
+.multiselect__single {
+  padding-left: 6px;
+  margin-bottom: 8px;
+}
+
+.multiselect__tags-wrap {
+  display: inline;
+}
+
+.multiselect__tags {
+  min-height: 40px;
+  display: block;
+  padding: 8px 40px 0 8px;
+  border-radius: 5px;
+  border: 1px solid #e8e8e8;
+  background: #fff;
+}
+
+.multiselect__tag {
+  position: relative;
+  display: inline-block;
+  padding: 4px 26px 4px 10px;
+  border-radius: 5px;
+  margin-right: 10px;
+  color: #fff;
+  line-height: 1;
+  background: #41b883;
+  margin-bottom: 5px;
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: 100%;
+  text-overflow: ellipsis;
+}
+
+.multiselect__tag-icon {
+  cursor: pointer;
+  margin-left: 7px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  font-weight: 700;
+  font-style: normal;
+  width: 22px;
+  text-align: center;
+  line-height: 22px;
+  transition: all .2s ease;
+  border-radius: 5px;
+}
+
+.multiselect__tag-icon:after {
+  content: "\D7";
+  color: #266d4d;
+  font-size: 14px;
+}
+
+.multiselect__tag-icon:focus,
+.multiselect__tag-icon:hover {
+  background: #369a6e;
+}
+
+.multiselect__tag-icon:focus:after,
+.multiselect__tag-icon:hover:after {
+  color: #fff;
+}
+
+.multiselect__current {
+  min-height: 40px;
+  overflow: hidden;
+  padding: 8px 12px 0;
+  padding-right: 30px;
+  white-space: nowrap;
+  border-radius: 5px;
+  border: 1px solid #e8e8e8;
+}
+
+.multiselect__current,
+.multiselect__select {
+  line-height: 16px;
+  box-sizing: border-box;
+  display: block;
+  margin: 0;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.multiselect__select {
+  position: absolute;
+  width: 40px;
+  height: 38px;
+  right: 1px;
+  top: 1px;
+  padding: 4px 8px;
+  text-align: center;
+  transition: transform .2s ease;
+}
+
+.multiselect__select:before {
+  position: relative;
+  right: 0;
+  top: 65%;
+  color: #999;
+  margin-top: 4px;
+  border-style: solid;
+  border-width: 5px 5px 0;
+  border-color: #999 transparent transparent;
+  content: "";
+}
+
+.multiselect__placeholder {
+  color: #adadad;
+  display: inline-block;
+  margin-bottom: 10px;
+  padding-top: 2px;
+}
+
+.multiselect--active .multiselect__placeholder {
+  display: none;
+}
+
+.multiselect__content-wrapper {
+  position: absolute;
+  display: block;
+  background: #fff;
+  width: 100%;
+  max-height: 240px;
+  overflow: auto;
+  border: 1px solid #e8e8e8;
+  border-top: none;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  z-index: 1;
+  -webkit-overflow-scrolling: touch;
+}
+
+.multiselect__content {
+  list-style: none;
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+  min-width: 100%;
+  vertical-align: top;
+}
+
+.multiselect--above .multiselect__content-wrapper {
+  bottom: 100%;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  border-bottom: none;
+  border-top: 1px solid #e8e8e8;
+}
+
+.multiselect__content::webkit-scrollbar {
+  display: none;
+}
+
+.multiselect__element {
+  display: block;
+}
+
+.multiselect__option {
+  display: block;
+  padding: 12px;
+  min-height: 40px;
+  line-height: 16px;
+  text-decoration: none;
+  text-transform: none;
+  vertical-align: middle;
+  position: relative;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.multiselect__option:after {
+  top: 0;
+  right: 0;
+  position: absolute;
+  line-height: 40px;
+  padding-right: 12px;
+  padding-left: 20px;
+}
+
+.multiselect__option--highlight {
+  background: #41b883;
+  outline: none;
+  color: #fff;
+}
+
+.multiselect__option--highlight:after {
+  content: attr(data-select);
+  background: #41b883;
+  color: #fff;
+}
+
+.multiselect__option--selected {
+  background: #f3f3f3;
+  color: #35495e;
+  font-weight: 700;
+}
+
+.multiselect__option--selected:after {
+  content: attr(data-selected);
+  color: silver;
+}
+
+.multiselect__option--selected.multiselect__option--highlight {
+  background: #ff6a6a;
+  color: #fff;
+}
+
+.multiselect__option--selected.multiselect__option--highlight:after {
+  background: #ff6a6a;
+  content: attr(data-deselect);
+  color: #fff;
+}
+
+.multiselect--disabled {
+  background: #ededed;
+  pointer-events: none;
+}
+
+.multiselect--disabled .multiselect__current,
+.multiselect--disabled .multiselect__select,
+.multiselect__option--disabled {
+  background: #ededed;
+  color: #a6a6a6;
+}
+
+.multiselect__option--disabled {
+  cursor: text;
+  pointer-events: none;
+}
+
+.multiselect__option--disabled.multiselect__option--highlight {
+  background: #dedede!important;
+}
+
+.multiselect-enter-active,
+.multiselect-leave-active {
+  transition: all .15s ease;
+}
+
+.multiselect-enter,
+.multiselect-leave-active {
+  opacity: 0;
+}
+
+.multiselect__strong {
+  margin-bottom: 8px;
+  line-height: 20px;
+  display: inline-block;
+  vertical-align: top;
+}
+
+[dir=rtl] .multiselect {
+  text-align: right;
+}
+
+[dir=rtl] .multiselect__select {
+  right: auto;
+  left: 1px;
+}
+
+[dir=rtl] .multiselect__tags {
+  padding: 8px 8px 0 40px;
+}
+
+[dir=rtl] .multiselect__content {
+  text-align: right;
+}
+
+[dir=rtl] .multiselect__option:after {
+  right: auto;
+  left: 0;
+}
+
+[dir=rtl] .multiselect__clear {
+  right: auto;
+  left: 12px;
+}
+
+[dir=rtl] .multiselect__spinner {
+  right: auto;
+  left: 1px;
+}
+
+@keyframes a {
+  0% {
+    transform: rotate(0);
+  }
+
+  to {
+    transform: rotate(2turn);
+  }
+}</style><style type="text/css">
+#free-reward-panel .reward-users-modal main {
+  padding: 0;
+}
+</style><style type="text/css">
+@charset "UTF-8";
+/*
+ * 变量
+*/
+.reward-note-modal .v-modal {
+  width: 620px;
+  text-align: center;
+}
+.reward-note-modal .v-modal form {
+    margin: 0 auto 25px auto;
+    padding: 0 40px;
+}
+.reward-note-modal .v-modal .reward-intro {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 16px;
+}
+.reward-note-modal .v-modal .reward-intro .avatar {
+      cursor: default !important;
+      width: 36px;
+      height: 36px;
+      margin-right: 10px;
+      display: inline-block;
+}
+.reward-note-modal .v-modal .reward-intro .intro {
+      margin-right: 5px;
+      font-weight: bold;
+      vertical-align: middle;
+}
+.reward-note-modal .v-modal .reward-intro i {
+      color: #EA6F5A;
+      vertical-align: middle;
+}
+.reward-note-modal .v-modal .main-inputs {
+    margin: 25px 0;
+}
+.reward-note-modal .v-modal .main-inputs .amount-group {
+      margin: 0 -5px;
+}
+.reward-note-modal .v-modal .main-inputs .amount-group input {
+        display: none;
+}
+.reward-note-modal .v-modal .main-inputs .amount-group input:checked + .option {
+        color: #EA6F5A;
+        border-color: #EA6F5A;
+}
+.reward-note-modal .v-modal .main-inputs .amount-group .custom-amount:checked + .option .custom-text {
+        opacity: 0;
+}
+.reward-note-modal .v-modal .main-inputs .amount-group .custom-amount:checked + .option .custom-amount-input {
+        opacity: 1;
+}
+.reward-note-modal .v-modal .main-inputs .amount-group .option {
+        position: relative;
+        margin: 0 5px 15px;
+        width: 156px;
+        height: 56px;
+        line-height: 54px;
+        border: 1px solid #E6E6E6;
+        border-radius: 4px;
+        font-weight: normal;
+        color: #999999;
+        cursor: pointer;
+}
+.reward-note-modal .v-modal .main-inputs .amount-group .option i {
+          font-size: 16px;
+          vertical-align: middle;
+}
+.reward-note-modal .v-modal .main-inputs .amount-group .option .amount {
+          font-size: 28px;
+          vertical-align: middle;
+}
+.reward-note-modal .v-modal .main-inputs .amount-group .option .piece {
+          font-size: 13px;
+          vertical-align: sub;
+}
+.reward-note-modal .v-modal .main-inputs .amount-group .option .custom-amount-input {
+          position: absolute;
+          top: 0;
+          z-index: -1;
+          width: 100%;
+          opacity: 0;
+}
+.reward-note-modal .v-modal .main-inputs .amount-group .option .custom-amount-input i {
+            position: absolute;
+            top: 0;
+            left: 10px;
+}
+.reward-note-modal .v-modal .main-inputs .amount-group .option .custom-amount-input .piece {
+            position: absolute;
+            top: 4px;
+            right: 10px;
+}
+.reward-note-modal .v-modal .main-inputs .amount-group .option .custom-amount-input input {
+            display: block;
+            margin: 0 auto;
+            width: 80px;
+            height: 54px;
+            line-height: 54px;
+            border: none;
+            font-size: 28px;
+            text-align: center;
+            background: transparent;
+            -moz-appearance: textfield;
+}
+.reward-note-modal .v-modal .main-inputs .amount-group .option .custom-amount-input input::-webkit-outer-spin-button, .reward-note-modal .v-modal .main-inputs .amount-group .option .custom-amount-input input::-webkit-inner-spin-button {
+              -webkit-appearance: none !important;
+}
+.reward-note-modal .v-modal .main-inputs .message {
+      padding: 15px 20px;
+      margin-bottom: 0;
+      font-size: 14px;
+      border: 1px solid #E6E6E6;
+      color: #333333;
+      border-radius: 4px;
+      background-color: rgba(180, 180, 180, 0.1);
+}
+.reward-note-modal .v-modal .main-inputs .message textarea {
+        width: 100%;
+        height: 44px;
+        padding: 0;
+        margin: 0;
+        resize: none;
+        background: none !important;
+        border: none !important;
+        -webkit-box-sizing: border-box;
+                box-sizing: border-box;
+        -webkit-box-shadow: none;
+                box-shadow: none;
+}
+.reward-note-modal .v-modal .main-inputs .message textarea:focus {
+          outline: none;
+}
+.reward-note-modal .v-modal .reward-info .amount {
+    font-size: 28px;
+    font-weight: bold;
+    color: #EA6F5A;
+}
+.reward-note-modal .v-modal .reward-info .pay-method {
+    font-size: 14px;
+}
+.reward-note-modal .v-modal .reward-info .pay-method a {
+      color: #3194D0;
+}
+.reward-note-modal .v-modal .choose-pay {
+    margin: 0 -5px;
+}
+.reward-note-modal .v-modal .choose-pay input {
+      display: none;
+}
+.reward-note-modal .v-modal .choose-pay input:checked + .option {
+      color: #EA6F5A;
+      border-color: #EA6F5A;
+}
+.reward-note-modal .v-modal .choose-pay .option {
+      margin: 20px 5px 10px;
+      width: 156px;
+      height: 56px;
+      line-height: 54px;
+      text-align: center;
+      border: 1px solid #E6E6E6;
+      border-radius: 4px;
+      cursor: pointer;
+}
+.reward-note-modal .v-modal .choose-pay .option img {
+        height: 30px;
+}
+.reward-note-modal .v-modal .choose-pay .option img.day.alipay, .reward-note-modal .v-modal .choose-pay .option img.night.alipay {
+        min-width: 85px;
+}
+.reward-note-modal .v-modal .choose-pay .option img.day.wechat, .reward-note-modal .v-modal .choose-pay .option img.night.wechat {
+        min-width: 112px;
+}
+.reward-note-modal .v-modal .choose-pay .option img.night {
+        display: none;
+}
+body.reader-night-mode .reward-note-modal .v-modal .choose-pay .option img.night {
+        display: inline-block;
+}
+body.reader-night-mode .reward-note-modal .v-modal .choose-pay .option img.day {
+        display: none;
+}
+.reward-note-modal .v-modal .choose-pay .tooltip {
+      width: 230px;
+}
+.reward-note-modal .v-modal .modal-footer {
+    padding: 0 15px 20px;
+    border: none;
+    background-color: transparent;
+    text-align: center;
+}
+.reward-note-modal .v-modal .modal-footer .btn {
+      padding: 8px 45px;
+      font-size: 24px;
+}
+.reward-note-modal .v-modal .btn-pay {
+    padding: 8px 25px;
+    font-size: 16px;
+    color: #ffffff;
+    background-color: #F5A623;
+}
+.weixin-pay, .success-pay {
+  text-align: center;
+}
+.weixin-pay .v-modal, .success-pay .v-modal {
+    width: 350px;
+}
+.weixin-pay .ic-successed, .success-pay .ic-successed {
+    font-size: 60px;
+    color: #3db922;
+}
+.weixin-pay h2, .weixin-pay h3, .success-pay h2, .success-pay h3 {
+    margin-bottom: 20px;
+    color: #333333;
+}
+.weixin-pay h2, .success-pay h2 {
+    margin: 0 0 40px 0;
+    font-size: 24px;
+}
+.weixin-pay .bind-text, .success-pay .bind-text {
+    position: relative;
+    margin-bottom: 30px;
+    font-size: 14px;
+    color: #999999;
+}
+.weixin-pay .bind-text:before, .weixin-pay .bind-text:after, .success-pay .bind-text:before, .success-pay .bind-text:after {
+      content: "";
+      border-top: 1px solid #999;
+      display: block;
+      position: absolute;
+      width: 40px;
+      top: 8px;
+}
+.weixin-pay .bind-text:before, .success-pay .bind-text:before {
+      left: 30px;
+}
+.weixin-pay .bind-text:after, .success-pay .bind-text:after {
+      right: 30px;
+}
+.weixin-pay .share-bind, .success-pay .share-bind {
+    display: block;
+    margin-bottom: 30px;
+}
+.weixin-pay .share-bind i, .success-pay .share-bind i {
+      margin-right: 4px;
+      font-size: 22px;
+      vertical-align: middle;
+}
+.weixin-pay .share-bind.wechat i, .success-pay .share-bind.wechat i {
+      color: #00BB29;
+}
+.weixin-pay .share-bind.weibo i, .success-pay .share-bind.weibo i {
+      color: #E05244;
+}
+.weixin-pay .wx-qr-code, .success-pay .wx-qr-code {
+    display: inline-block;
+}
+.weixin-pay .wx-qr-code img, .success-pay .wx-qr-code img {
+      margin: 0 auto;
+      padding: 10px;
+      width: 200px;
+      background-color: #ffffff;
+}
+.weixin-pay .pay-amount, .success-pay .pay-amount {
+    margin: 20px 0;
+    color: #787878;
+}
+.weixin-pay .pay-amount span, .success-pay .pay-amount span {
+      color: #F5A623;
+}
+</style><style type="text/css">
+@charset "UTF-8";
+/*
+ * 变量
+*/
+.v-modal-wrap {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9999;
+  background-color: transparent;
+}
+.v-modal-wrap.modal-leave-active {
+    -webkit-transition: opacity 0.3s;
+    -o-transition: opacity 0.3s;
+    transition: opacity 0.3s;
+}
+.v-modal-wrap.modal-enter-active .v-modal-mask, .v-modal-wrap.modal-leave-active .v-modal-mask {
+    opacity: 0;
+}
+.v-modal-wrap.modal-enter-active .v-modal, .v-modal-wrap.modal-leave-active .v-modal {
+    -webkit-transform: translate(-50%, -70%);
+        -ms-transform: translate(-50%, -70%);
+            transform: translate(-50%, -70%);
+    opacity: 0;
+}
+.v-modal-wrap .v-modal-mask {
+    background-color: rgba(255, 255, 255, 0.7);
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    -webkit-transition: opacity 0.3s;
+    -o-transition: opacity 0.3s;
+    transition: opacity 0.3s;
+    opacity: 1;
+}
+.v-modal-wrap .v-modal {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+    border-radius: 6px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    -webkit-box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+    -webkit-transition: opacity 0.3s, -webkit-transform 0.3s;
+    transition: opacity 0.3s, -webkit-transform 0.3s;
+    -o-transition: opacity 0.3s, transform 0.3s;
+    transition: opacity 0.3s, transform 0.3s;
+    transition: opacity 0.3s, transform 0.3s, -webkit-transform 0.3s;
+    opacity: 1;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    overflow: hidden;
+}
+.v-modal-wrap .v-modal > header:before, .v-modal-wrap .v-modal > header:after, .v-modal-wrap .v-modal > main:before, .v-modal-wrap .v-modal > main:after, .v-modal-wrap .v-modal > footer:before, .v-modal-wrap .v-modal > footer:after {
+      content: '';
+      clear: both;
+      display: table;
+}
+.v-modal-wrap .v-modal > header {
+      padding: 20px;
+      border-bottom: 1px solid #F0F0F0;
+}
+.v-modal-wrap .v-modal > header h4 {
+        margin: 0;
+        color: #333;
+        text-align: left;
+}
+.v-modal-wrap .v-modal .close {
+      position: absolute;
+      right: 16px;
+      top: 20px;
+      font-size: 26px;
+      line-height: 20px;
+      color: rgba(0, 0, 0, 0.8);
+}
+.v-modal-wrap .v-modal .close:hover {
+        color: #000000;
+}
+.v-modal-wrap .v-modal > main {
+      padding: 20px 20px 20px 20px;
+      font-size: 15px;
+      color: #333;
+      -webkit-box-flex: 1;
+      -webkit-flex-grow: 1;
+          -ms-flex-positive: 1;
+              flex-grow: 1;
+      overflow-x: hidden;
+      overflow-y: auto;
+}
+.v-modal-wrap .v-modal > footer {
+      padding: 20px;
+      background-color: #fff;
+}
+.v-modal-wrap .v-modal > footer button {
+        padding: 0;
+        margin: 0;
+        background-color: transparent;
+        border: 0;
+        float: right;
+}
+.v-modal-wrap .v-modal > footer button:focus {
+          outline: 0;
+}
+.v-modal-wrap .v-modal > footer .submit {
+        padding: 4px 12px;
+        border: 1px solid;
+        border-radius: 20px;
+}
+.v-modal-wrap .v-modal > footer .cancel {
+        margin-top: 5px;
+}
+.v-modal-wrap .v-modal > footer .cancel:hover {
+          color: #333333;
+}
+.reader-night-mode .v-modal-wrap .v-modal-mask {
+  background-color: rgba(63, 63, 63, 0.7);
+}
+.reader-night-mode .v-modal-wrap .v-modal {
+  background-color: #3f3f3f;
+}
+.reader-night-mode .v-modal-wrap .v-modal header {
+    border-color: #2F2F2F;
+}
+.reader-night-mode .v-modal-wrap .v-modal header h4 {
+      color: #C8C8C8;
+}
+.reader-night-mode .v-modal-wrap .v-modal .close {
+    color: #C8C8C8;
+}
+.reader-night-mode .v-modal-wrap .v-modal .close:hover {
+      color: #ffffff;
+}
+.reader-night-mode .v-modal-wrap .v-modal main {
+    color: #C8C8C8;
+}
+.reader-night-mode .v-modal-wrap .v-modal footer {
+    background-color: #3f3f3f;
+}
+.reader-night-mode .v-modal-wrap .v-modal footer .cancel:hover {
+      color: #C8C8C8;
+}
+</style><style type="text/css">
+.nqzzJ71pC-jOnJKAfdtr6_0 {
+  float: right;
+  height: 55px;
+  padding: 15px 0px;
+  margin: 0 12px;
+}
+._3tScN0zmSdGLaUAH4SxTbM_0 {
+    width: 100%;
+    height: 100%;
+}
+.nqzzJ71pC-jOnJKAfdtr6_0 ._3f806byixOPpOPWnx8HiQP_0 {
+    height: 25px;
+}
+.nqzzJ71pC-jOnJKAfdtr6_0 ._2MIQ6sBppQZAKea91We0qf_0 {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    opacity: 0.6;
+    z-index: 1000;
+}
+.nqzzJ71pC-jOnJKAfdtr6_0 ._1RppgOJ_CQiXgzd3ke-sbJ_0 {
+    position: fixed;
+    left: -webkit-calc( 50% - 190px);
+    left: calc( 50% - 190px);
+    top: -webkit-calc( 50% - 300px);
+    top: calc( 50% - 300px);
+    width: 380px;
+    height: 425px;
+    background-color: #fff;
+    padding: 40px 72px 0;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    z-index: 1000;
+    text-align: center;
+}
+body.reader-night-mode .nqzzJ71pC-jOnJKAfdtr6_0 ._1RppgOJ_CQiXgzd3ke-sbJ_0 {
+      background-color: #3f3f3f;
+      color: #c8c8c8;
+}
+.nqzzJ71pC-jOnJKAfdtr6_0 ._1RppgOJ_CQiXgzd3ke-sbJ_0 h4 {
+      margin: 0;
+      line-height: 25px;
+}
+.nqzzJ71pC-jOnJKAfdtr6_0 ._1RppgOJ_CQiXgzd3ke-sbJ_0 h4 span {
+        color: #e9634c;
+}
+.nqzzJ71pC-jOnJKAfdtr6_0 ._1RppgOJ_CQiXgzd3ke-sbJ_0 img {
+      width: 190px;
+      height: 190px;
+      margin: 12px 0 8px 0;
+}
+.nqzzJ71pC-jOnJKAfdtr6_0 ._1RppgOJ_CQiXgzd3ke-sbJ_0 p {
+      font-size: 14px;
+      line-height: 20px;
+      margin: 0;
+}
+.nqzzJ71pC-jOnJKAfdtr6_0 ._1RppgOJ_CQiXgzd3ke-sbJ_0 ._2WUz9DZJO5DIC_O5sD1kac_0 {
+      background-color: #e9634c;
+      color: #fff;
+      margin: 25px auto 0;
+      width: 190px;
+      height: 40px;
+      border-radius: 20px;
+      line-height: 40px;
+      font-size: 14px;
+      cursor: pointer;
+      -webkit-user-select: none;
+         -moz-user-select: none;
+          -ms-user-select: none;
+              user-select: none;
+}
+</style><style type="text/css">
+@charset "UTF-8";
+/*
+ * 变量
+*/
+.youdao-fixed-ad {
+  display: block;
+  position: relative;
+  width: 180px;
+  height: 180px;
+  border: 1px solid #e8eae9;
+}
+.youdao-fixed-ad .img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+.youdao-fixed-ad .ad-badge {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    display: block;
+    font-size: 12px;
+    padding: 2px 5px 0 6px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    cursor: pointer;
+}
+.qingteng-ads {
+  border: 1px solid #e8e8e8;
+  width: 180px;
+}
+</style><style type="text/css">
+.yuxi-fixed-ad {
+  position: relative;
+  width: 180px;
+  height: 180px;
+}
+.yuxi-fixed-ad .img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-image: url(//cdn2.jianshu.io/assets/web/yuxi-ads-d73b364baf42dfeca32d518c819a0136.jpg);
+}
+.yuxi-fixed-ad .ad-badge {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    display: block;
+    font-size: 12px;
+    padding: 2px 5px 0 6px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    cursor: pointer;
+}
+</style><style type="text/css">
+@charset "UTF-8";
+/*
+ * 变量
+*/
+.like[data-v-6ddd02c6] {
+  display: inline-block;
+}
+.like .like-group[data-v-6ddd02c6] {
+    position: relative;
+    padding: 13px 0 15px 0;
+    font-size: 0;
+    border: 1px solid #EA6F5A;
+    border-radius: 40px;
+}
+.like .like-group[data-v-6ddd02c6]:hover {
+      background-color: rgba(236, 97, 73, 0.05);
+}
+.like .like-group .btn-like[data-v-6ddd02c6] {
+      display: inline-block;
+      font-size: 19px;
+}
+.like .like-group .btn-like[data-v-6ddd02c6]:before {
+        content: '';
+        position: absolute;
+        left: 12px;
+        top: 2px;
+        width: 50px;
+        height: 50px;
+        background-image: url(//cdn2.jianshu.io/assets/web/like_animation_steps-62a00a7b52377d3069927cdb8e61fd34.png);
+        background-position: left;
+        background-repeat: no-repeat;
+        background-size: 1000px 50px;
+}
+.like .like-group .btn-like a[data-v-6ddd02c6] {
+        position: relative;
+        padding: 18px 30px 18px 55px;
+        color: #EA6F5A;
+}
+.like .like-group .modal-wrap[data-v-6ddd02c6] {
+      font-size: 18px;
+      border-left: 1px solid rgba(236, 97, 73, 0.4);
+      display: inline-block;
+      margin-left: -15px;
+}
+.like .like-group .modal-wrap a[data-v-6ddd02c6] {
+        color: #EA6F5A;
+        padding: 18px 26px 18px 18px;
+}
+.like .like-group.like-animation[data-v-6ddd02c6], .like .like-group.active[data-v-6ddd02c6] {
+      background-color: #EA6F5A;
+}
+.like .like-group.like-animation .btn-like a[data-v-6ddd02c6], .like .like-group.active .btn-like a[data-v-6ddd02c6] {
+        color: white;
+}
+.like .like-group.like-animation .modal-wrap[data-v-6ddd02c6], .like .like-group.active .modal-wrap[data-v-6ddd02c6] {
+        border-left: 1px solid white;
+}
+.like .like-group.like-animation .modal-wrap a[data-v-6ddd02c6], .like .like-group.active .modal-wrap a[data-v-6ddd02c6] {
+          color: white;
+}
+.like .like-group.like-animation .btn-like[data-v-6ddd02c6]:before {
+      -webkit-animation: likeBlast-data-v-6ddd02c6 0.6s 1 steps(19);
+              animation: likeBlast-data-v-6ddd02c6 0.6s 1 steps(19);
+      background-position: right;
+}
+@-webkit-keyframes likeBlast {
+0% {
+    background-position: left;
+}
+100% {
+    background-position: right;
+}
+}
+@keyframes likeBlast-data-v-6ddd02c6 {
+0% {
+    background-position: left;
+}
+100% {
+    background-position: right;
+}
+}
+.like .like-group.active .btn-like[data-v-6ddd02c6]:before {
+      background-position: right;
+}
+</style><style type="text/css">
+@charset "UTF-8";
+/*
+ * 变量
+*/
+.main {
+  position: relative;
+  margin: 0 auto;
+  padding: 0 0 30px 0;
+  width: 620px;
+}
+.main .title {
+    padding-left: 8px;
+    border-left: 3px solid #EA6F5A;
+    line-height: 1;
+    font-size: 15px;
+}
+.main .collection-settings {
+    position: absolute;
+    top: 2px;
+    right: 0;
+    font-size: 13px;
+    color: #A0A0A0;
+}
+.main .collection-settings span {
+      padding-left: 4px;
+}
+.main .include-collection {
+    width: 100%;
+    padding-top: 20px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: start;
+    -webkit-justify-content: flex-start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+}
+.main .include-collection .item {
+      display: inline-block;
+      margin: 0 12px 12px 0;
+      min-height: 32px;
+      background-color: white;
+      border: 1px solid #DCDCDC;
+      border-radius: 4px;
+      vertical-align: top;
+      overflow: hidden;
+}
+.main .include-collection .item img {
+        width: 32px;
+        height: 32px;
+}
+.main .include-collection .item .name {
+        display: inline-block;
+        padding: 0 10px;
+        font-size: 14px;
+}
+.main .include-collection .add-collection-wrap {
+      margin: 0 12px 12px 0;
+}
+.main .include-collection .add-collection {
+      padding: 8px 12px;
+      font-size: 14px;
+      border: 1px solid #DCDCDC;
+      border-radius: 4px;
+}
+.main .include-collection .add-collection i {
+        margin-right: 4px;
+        color: #969696;
+}
+.main .recommend-note a {
+    position: relative;
+    margin: 20px 2px 0 0;
+    width: 200px;
+    height: 160px;
+    display: inline-block;
+}
+.main .recommend-note a:after {
+      content: "";
+      position: absolute;
+      width: 200px;
+      height: 160px;
+      border-radius: 0 0 4px 4px;
+      -webkit-box-shadow: inset 0px -80px 50px -22px rgba(0, 0, 0, 0.6);
+              box-shadow: inset 0px -80px 50px -22px rgba(0, 0, 0, 0.6);
+      top: 0;
+      left: 0;
+      z-index: 1;
+}
+.main .recommend-note .name {
+    position: absolute;
+    bottom: 40px;
+    left: 10px;
+    right: 10px;
+    font-size: 17px;
+    font-weight: bold;
+    color: #ffffff;
+    z-index: 2;
+}
+.main .recommend-note .author {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    right: 10px;
+    z-index: 2;
+}
+.main .recommend-note .avatar {
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+}
+.main .recommend-note .avatar img {
+      border-radius: 50%;
+}
+.main .recommend-note .author-name {
+    font-size: 12px;
+    color: #ffffff;
+    display: inline-block;
+    vertical-align: -1px;
+}
+.main .show-more {
+    margin: 0 12px 12px 0;
+    font-size: 14px;
+    color: #A0A0A0;
+}
+</style><style type="text/css">
+#featured-comment-list {
+  margin-top: 30px;
+  margin-bottom: -15px;
+}
+</style><style type="text/css">
+@charset "UTF-8";
+/*
+ * 变量
+*/
+.pc-bind-phone-modal .modal-content, .pc-bind-phone-modal .modal-body {
+  overflow: visible;
+}
+.pc-bind-phone-modal .modal-body {
+  padding-top: 14px;
+}
+.pc-bind-phone-modal .dropdown-menu {
+  max-height: 300px;
+  overflow: auto;
+}
+.pc-bind-phone-modal .dropdown-menu .tag {
+    background-color: #efefef;
+    color: #4A4A4A;
+    height: 28px;
+    line-height: 28px;
+    padding-left: 25px;
+    font-size: 12px;
+}
+.pc-bind-phone-modal .tips {
+  color: #999999;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 18px;
+  margin-bottom: 14px;
+}
+.pc-bind-phone-modal .tips a {
+    color: #3194D0;
+}
+.reader-night-mode .pc-bind-phone-modal .dropdown-menu .tag {
+  background-color: #2F2F2F;
+  color: #999999;
+}
+</style></head>
+
+  <!-- 只给10%的用户添加代码 -->
+  <!-- ###第四范式-智能推荐：代码直接复制 无需修改参数### -->
+  <!-- ###功能：上报内容并反馈用户行为### -->
+  <!--
+  -->
+  <body lang="zh-CN" class="reader-song-font">
+    <!-- 全局顶部导航栏 -->
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+  <div class="width-limit">
+    <!-- 左上方 Logo -->
+    <a class="logo" href="https://www.jianshu.com/"><img src="./第十三章 支持向量机 - 简书_files/nav-logo-4c7bbafe27adc892f3046e6978459bac.png" alt="Nav logo"></a>
+
+    <!-- 右上角 -->
+      <!-- 登录显示写文章 -->
+      <a class="btn write-btn" target="_blank" href="https://www.jianshu.com/writer#/">
+        <i class="iconfont ic-write"></i>写文章
+</a>
+    <!-- 如果用户登录，显示下拉菜单 -->
+      <div class="user">
+        <div data-hover="dropdown">
+          <a class="avatar" href="https://www.jianshu.com/u/5544cab98f7e"><img src="./第十三章 支持向量机 - 简书_files/cfe0a600-b4a3-4f91-9b77-a9f3d7cd461e" alt="120"></a>
+        </div>
+        <ul class="dropdown-menu">
+          <li>
+            <a href="https://www.jianshu.com/u/5544cab98f7e">
+              <i class="iconfont ic-navigation-profile"></i><span>我的主页</span>
+</a>          </li>
+          <li>
+            <!-- TODO bookmarks_path -->
+            <a href="https://www.jianshu.com/bookmarks">
+              <i class="iconfont ic-navigation-mark"></i><span>收藏的文章</span>
+</a>          </li>
+          <li>
+            <a href="https://www.jianshu.com/users/5544cab98f7e/liked_notes">
+              <i class="iconfont ic-navigation-like"></i><span>喜欢的文章</span>
+</a>          </li>
+          <li>
+            <a href="https://www.jianshu.com/my/paid_notes">
+              <i class="iconfont ic-paid"></i><span>已购内容</span>
+</a>          </li>
+          <li>
+            <a href="https://www.jianshu.com/wallet">
+              <i class="iconfont ic-navigation-wallet"></i><span>我的钱包</span>
+</a>          </li>
+          <li>
+            <a href="https://www.jianshu.com/settings">
+              <i class="iconfont ic-navigation-settings"></i><span>设置</span>
+</a>          </li>
+          <li>
+            <a href="https://www.jianshu.com/faqs">
+              <i class="iconfont ic-navigation-feedback"></i><span>帮助与反馈</span>
+</a>          </li>
+          <li>
+            <a rel="nofollow" data-method="delete" href="https://www.jianshu.com/sign_out">
+              <i class="iconfont ic-navigation-signout"></i><span>退出</span>
+</a>          </li>
+        </ul>
+      </div>
+
+    <div class="nqzzJ71pC-jOnJKAfdtr6_0"><a class="_3tScN0zmSdGLaUAH4SxTbM_0"><img src="./第十三章 支持向量机 - 简书_files/nav_jsds_beta-eeb44d165b8ba37680fdb7e65ae17ae4.png" class="_3f806byixOPpOPWnx8HiQP_0"></a> <!----></div>
+
+    <div class="style-mode"><a class="style-mode-btn"><i class="iconfont ic-navigation-mode"></i></a> <div class="popover-modal" style="left: 0px; display: none;"><div class="meta"><i class="iconfont ic-navigation-night"></i><span>夜间模式</span></div> <div class="switch day-night-group"><a class="switch-btn">开</a> <a class="switch-btn active">关</a></div> <hr> <div class="switch font-family-group"><a class="switch-btn font-song active">宋体</a> <a class="switch-btn font-hei">黑体</a></div> <div class="switch"><a class="switch-btn active">简</a> <a class="switch-btn">繁</a></div></div></div>
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu" aria-expanded="false">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <div class="collapse navbar-collapse" id="menu">
+        <ul class="nav navbar-nav">
+            <li class="tab ">
+              <a href="https://www.jianshu.com/">
+                <span class="menu-text">发现</span><i class="iconfont ic-navigation-discover menu-icon"></i>
+</a>            </li>
+            <li class="tab ">
+              <a href="https://www.jianshu.com/subscriptions">
+                <span class="menu-text">关注</span><i class="iconfont ic-navigation-follow menu-icon"></i>
+</a>            </li>
+            <li class="tab notification"><a data-hover="dropdown" href="https://www.jianshu.com/notifications" class="notification-btn"><span class="menu-text">消息</span> <i class="iconfont ic-navigation-notification menu-icon"></i> <!----> <!----></a> <ul class="dropdown-menu"><li><a href="https://www.jianshu.com/notifications#/comments"><i class="iconfont ic-comments"></i> <span>评论</span> <!----></a></li><li><a href="https://www.jianshu.com/notifications#/chats"><i class="iconfont ic-chats"></i> <span>简信</span> <!----></a></li><li><a href="https://www.jianshu.com/notifications#/requests"><i class="iconfont ic-requests"></i> <span>投稿请求</span> <!----></a></li><li><a href="https://www.jianshu.com/notifications#/likes"><i class="iconfont ic-likes"></i> <span>喜欢和赞</span> <!----></a></li><li><a href="https://www.jianshu.com/notifications#/follows"><i class="iconfont ic-follows"></i> <span>关注</span> <!----></a></li><li><a href="https://www.jianshu.com/notifications#/money"><i class="iconfont ic-money"></i> <span>赞赏和付费</span> <!----></a></li><li><a href="https://www.jianshu.com/notifications#/others"><i class="iconfont ic-others"></i> <span>其它提醒</span> <!----></a></li></ul></li>
+          <li class="search">
+            <form target="_blank" action="https://www.jianshu.com/search" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="✓">
+              <input type="text" name="q" id="q" value="" autocomplete="off" placeholder="搜索" class="search-input">
+              <a class="search-btn" href="javascript:void(null)"><i class="iconfont ic-search"></i></a>
+</form>          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>
+
+    
+<div class="note">
+  <div id="note-fixed-ad-container">
+    <div id="fixed-ad-container">
+      <div id="write-notes-ad"></div>
+      <div><a href="https://log-yex.youdao.com/ct?slot=30edd91dd8637d9f645baa8448ba90b3&amp;youdao_bid=92ae2aa9-3b51-4d87-945e-0da7170962ce&amp;yexi=3642ca7dc59fd739d38641e9b8ea32b2&amp;yexcb=ZfiUmWX_KRYNk8L1RRj8UwfwGVMvB9-ASwaVH9deVP7VW9lDlZRyZdHKGzCBje5N-YE4cJ5g2iO9v_eyI0Io0PXqZo_8Eg-MOfHuhxVFOqvvNkzz88RSUYt8elSocAs1th7wd3iOWLNb19dzTSfy1L8-JYLOPBH9F-wuEOexAU32-lK34vYecyfzc5r7SDfhmthk7Y3GrLsQcAoR0CkzFeZTLe3SZwj0t1YEw86pWog&amp;yexr=https%3A%2F%2Fdsp-click.youdao.com%2Fclk%2Frequest.s%3Fk%3D0FIUWEJ%252FBPXZka5qUn6QRvtQVDDA3dVIg%252Fd1T1q3hvjXxo%252BoRxcJpjjAgKuViCqvIxCHqA9N%252F2c%252F9Be%252FcwcSrxEj6ZWnOryUER%252B%252F2VxZGOM4gN7Rev8L86UcSqntHAthwWXokgXTHMKPJ1Z18knMy82Pnay2eMYiQpxXjRX1Hd1v0yDKGUJ9hEviGVibSX2HEA7md3Hq7BOhGrSke341nqVN6BVwkooxryLvadi1XpsUmDcRLOYhYCSzGsT%252BHryqt%252B0MDz5bXHoJFk0KiyBQH8Bc8hTRkDkpUdNHMN2yVKT%252BEc%252Bd1jbbq9hGJq0XLIGZMHMNk0HBE7d6E4vICqnJAl16Cg%252BsHjwne1fg0d0rY8EN1Mk%252BRh9CWvLwHG4zp6NkL0%252ByluF5kl28Adp8t2WmkN9PPjww6WD4pj%252B2OReHuFa0ckvkITsO1u5zUtRET2JoCUIY1nS%252BU%252BiXpN%252B1mBywm%252BJCvUUbD7ARLgrbV6V7v0Ap3DXt0HuGReB8cXG4v14BvDLGB0rlms2t2kmjw3g3g3tQW%252FRVuaYRauWej6r2RkfFPQxgvCMp4t8sYQNqIYTu5rr8FaMt1jsir%252BNq7CgNeWP%252BA8L4WtKUuP70etPdO9eO6m4yBpQxohm6MsTfDXkyM5x63sKEu1XU3FWGKGmdU3RLYDaEu6hsryEg0hxnvxPHZ3jNfMVb28GCY4QnduZz9RtnTnGA0BziMuiVIZghb4HI%252FriwX6sN7nvkLDz5LvC36UtgI4B%252FWmNAnnivZLsT%252BMTWeKa5erkAcEeNOmSl62q5JkfHg2Cf1nyQwOTyIESxjg0wnnJL4PKSBwZizVUhEYrcFBX6PmYgTQBEGUI3u%252BAHuAQLIlEOGfCA1TsjVrQmHcEAyiw4VOxekei5P2b1CRYnCPwmphhHS9cpOMV6zCEIwV2cwu8Jjs0ukAULKNHhyspwl6fA%252FaQ6zLjP%252FkkAQFN1oggQbTnj7026DwaR2KnL71oZsyqfojVLQtW8gSnXxo%252BoRxcJpjjAgKuViCqv18aPqEcXCaY4wICrlYgqrxnpbdop%252FsBx9%252FG0nRqB8dWy%252FoHIVRFgeQHUtUza3roA%26isrd%3D1%26youdao_bid%3D92ae2aa9-3b51-4d87-945e-0da7170962ce&amp;iid=%7B%22-5554760552944771488%22%3A4%7D&amp;sid=17024" target="_blank" class="youdao-fixed-ad"><div class="img" style="background-image: url(&quot;https://oimageb6.ydstatic.com/image?id=-5554760552944771488&amp;product=adpublish&amp;w=360&amp;h=360&amp;sc=0&amp;rm=2&amp;gsb=0&amp;gsbd=60&quot;);"></div> <span class="ad-badge">广告</span></a> <!----></div>
+      <a href="http://e.cn.miaozhen.com/r/k=2110413&amp;p=7L9Gn&amp;dx=__IPDX__&amp;rt=2&amp;ns=__IP__&amp;ni=__IESID__&amp;v=__LOC__&amp;xa=__ADPLATFORM__&amp;tr=__REQUESTID__&amp;mo=__OS__&amp;m0=__OPENUDID__&amp;m0a=__DUID__&amp;m1=__ANDROIDID1__&amp;m1a=__ANDROIDID__&amp;m2=__IMEI__&amp;m4=__AAID__&amp;m5=__IDFA__&amp;m6=__MAC1__&amp;m6a=__MAC__&amp;vo=3f2e070eb&amp;vr=2&amp;o=https%3A%2F%2Fwww.jianshu.com%2Fp%2Fee05f7eff678" target="_blank" class="yuxi-fixed-ad" style="display: none;"><div class="img"></div> <span class="ad-badge">广告</span></a>
+      <div id="_so_pdsBy_0"></div>
+    </div>
+  </div>
+  <div class="post">
+    <div class="article">
+        <h1 class="title">第十三章 支持向量机</h1>
+
+        <!-- 作者区域 -->
+        <div class="author">
+          <a class="avatar" href="https://www.jianshu.com/u/c4a967f15149">
+            <img src="./第十三章 支持向量机 - 简书_files/08809d18-0a1d-4585-bfe8-8d77e5397bb3.jpeg" alt="96">
+</a>          <div class="info">
+            <span class="name"><a href="https://www.jianshu.com/u/c4a967f15149">tomas家的小拨浪鼓</a></span>
+            <!-- 关注用户按钮 -->
+            <a class="btn btn-default following"><i class="iconfont ic-followed"></i><span>已关注</span></a>
+            <!-- 文章数据信息 -->
+            <div class="meta">
+              <!-- 简书钻 -->
+                <span class="jsd-meta">
+                  <i class="iconfont ic-paid1"></i> 1.0
+                </span>
+              <!-- 如果文章更新时间大于发布时间，那么使用 tooltip 显示更新时间 -->
+                <span class="publish-time">2019.03.11 03:00</span>
+              <span class="wordage">字数 8952</span>
+            <span class="views-count">阅读 323</span><span class="comments-count">评论 0</span><span class="likes-count">喜欢 11</span></div>
+          </div>
+          <!-- 如果是当前作者，加入编辑按钮 -->
+        </div>
+
+
+        <!-- 文章内容 -->
+        <div data-note-content="" class="show-content">
+          <div class="show-content-free">
+            <blockquote>
+<p>该系列文章为，观看<a href="https://study.163.com/course/introduction/1004570029.htm" target="_blank" rel="nofollow">“吴恩达机器学习”</a>系列视频的学习笔记。虽然每个视频都很简单，但不得不说每一句都非常的简洁扼要，浅显易懂。非常适合我这样的小白入门。</p>
+</blockquote>
+<h3>本章含盖</h3>
+<ul>
+<li>13.1 优化目标</li>
+<li>13.2 直观上对大间隔的理解</li>
+<li>13.3 大间隔分类器的数学原理</li>
+<li>13.4 核函数1</li>
+<li>13.5 核函数2</li>
+<li>13.6 使用SVM</li>
+</ul>
+<h3></h3>
+<p>到目前为止,你已经见过一系列不同的学习算法。在监督学习中，许多学习算法的性能都非常类似，因此，重要的不是你该选择使用学习算法A还是学习算法B，而更重要的是，应用这些算法时，所使用的数据量。这就体现你使用这些算法时的技巧了，比如：你为学习算法所设计的特征量的选择，以及如何选择正则化参数，诸如此类的事。</p>
+<p><strong>还有一个更加强大的算法广泛的应用于工业界和学术界，它被称为支持向量机(Support Vector Machine)。与逻辑回归和神经网络相比，支持向量机，或者简称SVM，在学习复杂的非线性方程时提供了一种更为清晰，更加强大的方式。</strong></p>
+<p></p>
+<p></p>
+为了描述支持向量机，事实上，我将会从逻辑回归开始展示我们如何做一点点修改来得到一个支持向量机。<div class="image-package">
+<div class="image-container" style="max-width: 700px; max-height: 389px; background-color: transparent;">
+<div class="image-container-fill" style="padding-bottom: 51.32%;"></div>
+<div class="image-view" data-width="758" data-height="389"><img data-original-src="//upload-images.jianshu.io/upload_images/4235178-8dc1798c58c689e4.png" data-original-width="758" data-original-height="389" data-original-format="image/png" data-original-filesize="98579" class="" style="cursor: zoom-in;" src="./第十三章 支持向量机 - 简书_files/4235178-8dc1798c58c689e4.png"></div>
+</div>
+<div class="image-caption"></div>
+</div><br>
+<div class="image-package">
+<div class="image-container" style="max-width: 700px; max-height: 463px; background-color: transparent;">
+<div class="image-container-fill" style="padding-bottom: 62.23%;"></div>
+<div class="image-view" data-width="744" data-height="463"><img data-original-src="//upload-images.jianshu.io/upload_images/4235178-fe339e209591138a.png" data-original-width="744" data-original-height="463" data-original-format="image/png" data-original-filesize="207475" class="" style="cursor: zoom-in;" src="./第十三章 支持向量机 - 简书_files/4235178-fe339e209591138a.png"></div>
+</div>
+<div class="image-caption"></div>
+</div>
+<p></p>
+<p></p>
+如果你观察logistic回归的代价函数，你会发现每个样本(x, y)都会为总的代价函数增加👇这样一项<div class="image-package">
+<div class="image-container" style="max-width: 449px; max-height: 33px; background-color: transparent;">
+<div class="image-container-fill" style="padding-bottom: 7.35%;"></div>
+<div class="image-view" data-width="449" data-height="33"><img data-original-src="//upload-images.jianshu.io/upload_images/4235178-5dd703a493299628.png" data-original-width="449" data-original-height="33" data-original-format="image/png" data-original-filesize="11951" class="" style="cursor: zoom-in;" src="./第十三章 支持向量机 - 简书_files/4235178-5dd703a493299628.png"></div>
+</div>
+<div class="image-caption"></div>
+</div><br>
+<p>因此对于总的代价函数，我们通常会对所有的训练样本从第1项到第m项进行求和</p>
+
+<ul>
+<li>
+<p>y = 1 的时候</p>
+<br>
+<div class="image-package">
+<div class="image-container" style="max-width: 282px; max-height: 262px; background-color: transparent;">
+<div class="image-container-fill" style="padding-bottom: 92.91%;"></div>
+<div class="image-view" data-width="282" data-height="262"><img data-original-src="//upload-images.jianshu.io/upload_images/4235178-da90e9482c9b8fde.png" data-original-width="282" data-original-height="262" data-original-format="image/png" data-original-filesize="40207" class="" style="cursor: zoom-in;" src="./第十三章 支持向量机 - 简书_files/4235178-da90e9482c9b8fde.png"></div>
+</div>
+<div class="image-caption"></div>
+</div>
+<br>
+<p>新的代价函数，从 z = 1 开始，右边都是平的（紫色的线），然后再画一条和logistic回归幅度相似的一条直线，但是它是一条直线。<br>
+不要太在意左边这条线的斜率，这并不是很重要。这就是当 y = 1 时，我们要使用的新的代价函数。新的代价函数会使支持向量机有计算上的优势，并使得之后的优化问题变得简单。<br>
+新的函数叫 cost_1(z)。这个下标 1 表示，y = 1.</p>
+</li>
+<li>
+<p>当 y = 0 时，我们取 z = -1 开始，左边都是平的</p>
+<br>
+<div class="image-package">
+<div class="image-container" style="max-width: 300px; max-height: 273px; background-color: transparent;">
+<div class="image-container-fill" style="padding-bottom: 91.0%;"></div>
+<div class="image-view" data-width="300" data-height="273"><img data-original-src="//upload-images.jianshu.io/upload_images/4235178-f60f5b8f5ae08d18.png" data-original-width="300" data-original-height="273" data-original-format="image/png" data-original-filesize="48095" class="" style="cursor: zoom-in;" src="./第十三章 支持向量机 - 简书_files/4235178-f60f5b8f5ae08d18.png"></div>
+</div>
+<div class="image-caption"></div>
+</div>
+<p>新的函数叫 cost_0(z)。这个下标 0 表示，y = 0.</p>
+</li>
+</ul>
+<div class="image-package">
+<div class="image-container" style="max-width: 700px; max-height: 423px; background-color: transparent;">
+<div class="image-container-fill" style="padding-bottom: 52.88%;"></div>
+<div class="image-view" data-width="800" data-height="423"><img data-original-src="//upload-images.jianshu.io/upload_images/4235178-c5fec51551527893.png" data-original-width="800" data-original-height="423" data-original-format="image/png" data-original-filesize="255500" class="" style="cursor: zoom-in;" src="./第十三章 支持向量机 - 简书_files/4235178-c5fec51551527893.png"></div>
+</div>
+<div class="image-caption"></div>
+</div><br>
+<p>按照惯例，对于支持向量机来说，一些东西的写法略有不同。比如，代价函数的参数会稍微有些不同。<br>
+首先，我们要除去1/m这一项。这是因为，在使用‘支持向量机’和‘logistic回归’的时候，人们遵循的惯例略有不同。我的意思是，我们仅仅是去除 1/m 这一项，这样同样能得到 θ 的最优值。因为 1/m 只是一个常数项，因此在解决这个最小化问题的时候，前面无论是否有 1/m 这一项，我最后都能得到相同的 θ 最优值。</p>
+
+<p>第二个符号上的变化，同样只是相比于logistic回归，这样的表达在SVM中更常用。<br>
+在logistic回归中，我们的目标函数有两项。<br>
+</p>
+<p></p>
+a）训练样本的代价函数<div class="image-package">
+<div class="image-container" style="max-width: 595px; max-height: 68px; background-color: transparent;">
+<div class="image-container-fill" style="padding-bottom: 11.43%;"></div>
+<div class="image-view" data-width="595" data-height="68"><img data-original-src="//upload-images.jianshu.io/upload_images/4235178-211f96aa4223bb55.png" data-original-width="595" data-original-height="68" data-original-format="image/png" data-original-filesize="32065" class="" style="cursor: zoom-in;" src="./第十三章 支持向量机 - 简书_files/4235178-211f96aa4223bb55.png"></div>
+</div>
+<div class="image-caption"></div>
+</div><br>
+b）正则化项<div class="image-package">
+<div class="image-container" style="max-width: 93px; max-height: 69px; background-color: transparent;">
+<div class="image-container-fill" style="padding-bottom: 74.19%;"></div>
+<div class="image-view" data-width="93" data-height="69"><img data-original-src="//upload-images.jianshu.io/upload_images/4235178-17682cf6bcd7a3ae.png" data-original-width="93" data-original-height="69" data-original-format="image/png" data-original-filesize="4796" class="" style="cursor: zoom-in;" src="./第十三章 支持向量机 - 简书_files/4235178-17682cf6bcd7a3ae.png"></div>
+</div>
+<div class="image-caption"></div>
+</div>
+<p>因此，对于逻辑回归，在目标函数中，我们有两项：第一个是训练样本的代价，第二个是我们的正则化项，我们不得不去用这一项来平衡。这就相当于我们想要最小化A加上正则化参数λ，然后乘以其他项B对吧？这里的A表示这里的第一项，同时我用B表示第二项，但不包括λ，我们不是优化这里的A+λ×B。我们所做的是通过设置不同正则参数λ达到优化目的。这样，我们就能够权衡对应的项，以使得训练样本拟合的更好，即最小化A。还是保证正则参数足够小，也即更多的关注B项。</p>
+<p>对于SVM而言，按照惯例，我们会用一个不同的参数，我们不再用这里的 λ 来控制第一项与第二项的相对权重。而是用一个不同的参数 C，同时改为优化目标为：C×A+B。</p>
+<p>在逻辑回归中，如果给定 λ，一个非常大的值，意味着给予B更大的权重。而这里，就对应于将 C 设定为非常小的值，那么，相应的将会给B比给A更大的权重。因此，这只是一种不同的方式来控制这种权衡或者一种不同的方法，即用参数来决定是更关心第一项的优化，还是更关心第二项的优化。</p>
+<p></p>
+<p></p>
+当然你也可以把这里的参数C 想象成是 1/λ。但并不是说，👇这两个表达式是相等的。不是说 C = 1/λ，并不是这样。而是说明，如果 C = 1/λ，那么这两个优化目标应该得到相同的值，也就是相同的最优值 θ。<div class="image-package">
+<div class="image-container" style="max-width: 282px; max-height: 90px; background-color: transparent;">
+<div class="image-container-fill" style="padding-bottom: 31.91%;"></div>
+<div class="image-view" data-width="282" data-height="90"><img data-original-src="//upload-images.jianshu.io/upload_images/4235178-159bf2dcdefbba31.png" data-original-width="282" data-original-height="90" data-original-format="image/png" data-original-filesize="25959" class="" style="cursor: zoom-in;" src="./第十三章 支持向量机 - 简书_files/4235178-159bf2dcdefbba31.png"></div>
+</div>
+<div class="image-caption"></div>
+</div>
+<p></p>
+<p></p>
+支持向量机的总体优化目标<div class="image-package">
+<div class="image-container" style="max-width: 661px; max-height: 72px; background-color: transparent;">
+<div class="image-container-fill" style="padding-bottom: 10.89%;"></div>
+<div class="image-view" data-width="661" data-height="72"><img data-original-src="//upload-images.jianshu.io/upload_images/4235178-be3e66bdb3b4740a.png" data-original-width="661" data-original-height="72" data-original-format="image/png" data-original-filesize="22116" class="" style="cursor: zoom-in;" src="./第十三章 支持向量机 - 简书_files/4235178-be3e66bdb3b4740a.png"></div>
+</div>
+<div class="image-caption"></div>
+</div>
+<p></p><div class="image-package">
+<div class="image-container" style="max-width: 700px; max-height: 278px; background-color: transparent;">
+<div class="image-container-fill" style="padding-bottom: 38.940000000000005%;"></div>
+<div class="image-view" data-width="714" data-height="278"><img data-original-src="//upload-images.jianshu.io/upload_images/4235178-5c23e8107b013546.png" data-original-width="714" data-original-height="278" data-original-format="image/png" data-original-filesize="50231" class="" style="cursor: zoom-in;" src="./第十三章 支持向量机 - 简书_files/4235178-5c23e8107b013546.png"></div>
+</div>
+<div class="image-caption"></div>
+</div><strong>最后，与logistic回归不同的是，支持向量机并不会输出概率。相对的，我们得到的是，通过优化这个代价函数得到一个参数 θ，而支持向量机的假设函数会直接输出预测结果是 1 或 0.<br>
+所以，如果 θ 的转置乘以 X 大于等于 0，那么假设函数就会输出1。反之，输出 0 。</strong><p></p>
+<h3>13.2 直观上对大间隔的理解</h3>
+<p>有时候，“支持向量机”又被称为“大间距分类器”</p>
+<br>
+<div class="image-package">
+<div class="image-container" style="max-width: 700px; max-height: 400px; background-color: transparent;">
+<div class="image-container-fill" style="padding-bottom: 54.64%;"></div>
+<div class="image-view" data-width="732" data-height="400"><img data-original-src="//upload-images.jianshu.io/upload_images/4235178-3d08d7925018f67c.png" data-original-width="732" data-original-height="400" data-original-format="image/png" data-original-filesize="147473" class="" style="cursor: zoom-in;" src="./第十三章 支持向量机 - 简书_files/4235178-3d08d7925018f67c.png"></div>
+</div>
+<div class="image-caption"></div>
+</div><p>事实上，如果你有一个正样本y=1，则其实我们仅仅要求 θ^T * X 大于等于0，就能将该样本恰当分出，这是因为如果 θ^T * X&gt;0 大的话，我们的模型代价函数值为0，类似地，如果你有一个负样本，则仅需要 θ^T * X&lt;=0 就会将负例正确分离，但是，支持向量机的要求更高，不仅仅要能正确分开输入的样本，即不仅仅要求 θ^T * X&gt;0，我们需要的是比0值大很多，比如大于等于1，我也想这个比0小很多，比如我希望它小于等于-1，这就相当于在支持向量机中嵌入了一个额外的安全因子，或者说安全的间距因子。</p>
+
+<p>当然，逻辑回归做了类似的事情。但是让我们看一下，在支持向量机中，这个因子会导致什么结果。具体而言，我接下来会考虑一个特例。我们将这个常数C设置成一个非常大的值。比如我们假设C的值为100000或者其它非常大的数，然后来观察支持向量机会给出什么结果？</p>
+<div class="image-package">
+<div class="image-container" style="max-width: 700px; max-height: 398px; background-color: transparent;">
+<div class="image-container-fill" style="padding-bottom: 55.43%;"></div>
+<div class="image-view" data-width="718" data-height="398"><img data-original-src="//upload-images.jianshu.io/upload_images/4235178-f9e285bb9f47401c.png" data-original-width="718" data-original-height="398" data-original-format="image/png" data-original-filesize="93109" class="" style="cursor: zoom-in;" src="./第十三章 支持向量机 - 简书_files/4235178-f9e285bb9f47401c.png"></div>
+</div>
+<div class="image-caption"></div>
+</div><br>
+<div class="image-package">
+<div class="image-container" style="max-width: 700px; max-height: 308px; background-color: transparent;">
+<div class="image-container-fill" style="padding-bottom: 43.81%;"></div>
+<div class="image-view" data-width="703" data-height="308"><img data-original-src="//upload-images.jianshu.io/upload_images/4235178-6a7d939da55061f9.png" data-original-width="703" data-original-height="308" data-original-format="image/png" data-original-filesize="134074" class="" style="cursor: zoom-in;" src="./第十三章 支持向量机 - 简书_files/4235178-6a7d939da55061f9.png"></div>
+</div>
+<div class="image-caption"></div>
+</div><p>如果 C非常大，则最小化代价函数的时候，我们迫切希望能找到一个值，使得第一项等于 0。让我们试着在这种情况下，理解优化问题。也就是，要怎么做才能使第一项等于0，当我们把C的值设置成非常大的常数。这个例子能够更直观的让我们感受到，支持向量机模型的直观地理解支持向量机学习得到的假设模型是什么样的。</p>
+
+<p>因此，让我们尝试在代价项的第一项为0的情形下理解该优化问题。<br>
+</p>
+<p></p>
+我们的代码函数会为：<div class="image-package">
+<div class="image-container" style="max-width: 266px; max-height: 51px; background-color: transparent;">
+<div class="image-container-fill" style="padding-bottom: 19.17%;"></div>
+<div class="image-view" data-width="266" data-height="51"><img data-original-src="//upload-images.jianshu.io/upload_images/4235178-9c326774280aa114.png" data-original-width="266" data-original-height="51" data-original-format="image/png" data-original-filesize="14746" class="" style="cursor: zoom-in;" src="./第十三章 支持向量机 - 简书_files/4235178-9c326774280aa114.png"></div>
+</div>
+<div class="image-caption"></div>
+</div><br>
+它的限制条件为：<br>
+<p>当 y^(i) = 1 时，Θ^T * x^(i) &gt;= 1<br>
+当 y^(i) = 0 时，Θ^T * x^(i) &lt;= -1<br>
+这样当你求解这个优化问题的时候，当你最小化这个关于变量θ的函数的时候，你会得到一个非常有趣的决策边界。</p>
+
+<p></p><div class="image-package">
+<div class="image-container" style="max-width: 548px; max-height: 337px; background-color: transparent;">
+<div class="image-container-fill" style="padding-bottom: 61.5%;"></div>
+<div class="image-view" data-width="548" data-height="337"><img data-original-src="//upload-images.jianshu.io/upload_images/4235178-aea13f106ff6ff91.png" data-original-width="548" data-original-height="337" data-original-format="image/png" data-original-filesize="89853" class="" style="cursor: zoom-in;" src="./第十三章 支持向量机 - 简书_files/4235178-aea13f106ff6ff91.png"></div>
+</div>
+<div class="image-caption"></div>
+</div>比如，这就是一个决策边界(绿色)可以把正样本和负样本分开。但是多多少少这个看起来并不是非常自然是么?<br>
+或者我们可以画一条更差的决策界，这是另一条决策边界（粉色），可以将正样本和负样本分开，但仅仅是勉强分开，这些决策边界看起来都不是特别好的选择，支持向量机将会选择这个黑色的决策边界，相较于之前我用粉色或者绿色画的决策界。这条黑色的看起来好得多，黑线看起来是更稳健的决策界。在分离正样本和负样本上它显得的更好。<br>
+<div class="image-package">
+<div class="image-container" style="max-width: 546px; max-height: 375px; background-color: transparent;">
+<div class="image-container-fill" style="padding-bottom: 68.67999999999999%;"></div>
+<div class="image-view" data-width="546" data-height="375"><img data-original-src="//upload-images.jianshu.io/upload_images/4235178-582d825a15bc0254.png" data-original-width="546" data-original-height="375" data-original-format="image/png" data-original-filesize="123634" class="" style="cursor: zoom-in;" src="./第十三章 支持向量机 - 简书_files/4235178-582d825a15bc0254.png"></div>
+</div>
+<div class="image-caption"></div>
+</div><strong>数学上来讲，这是什么意思呢？这条黑线有更大的距离，这个距离叫做间距(margin)。当画出这两条额外的蓝线，我们看到黑色的决策界和训练样本之间有更大的最短距离。<br>
+然而粉线和蓝线离训练样本就非常近，在分离样本的时候就会比黑线表现差。因此，这个距离叫做支持向量机的间距，而这是支持向量机具有鲁棒性的原因，因为它努力用一个最大间距来分离样本。因此支持向量机有时被称为大间距分类器</strong>，而这其实是求解上一页幻灯片上优化问题的结果。<br>
+下一节视频会讲到，为什么👆这样的优化能得到这条更大间距的黑线。<p></p>
+<div class="image-package">
+<div class="image-container" style="max-width: 700px; max-height: 333px; background-color: transparent;">
+<div class="image-container-fill" style="padding-bottom: 45.68%;"></div>
+<div class="image-view" data-width="729" data-height="333"><img data-original-src="//upload-images.jianshu.io/upload_images/4235178-2375bd34dc2dcd37.png" data-original-width="729" data-original-height="333" data-original-format="image/png" data-original-filesize="70044" class="" style="cursor: zoom-in;" src="./第十三章 支持向量机 - 简书_files/4235178-2375bd34dc2dcd37.png"></div>
+</div>
+<div class="image-caption"></div>
+</div><p>在本节课中关于大间距分类器，我想讲最后一点：我们将这个大间距分类器中的正则化因子常数C设置的非常大，我记得我将其设置为了100000，因此对这样的一个数据集，也许我们将选择这样的决策界，从而最大间距地分离开正样本和负样本。</p>
+
+<div class="image-package">
+<div class="image-container" style="max-width: 320px; max-height: 256px; background-color: transparent;">
+<div class="image-container-fill" style="padding-bottom: 80.0%;"></div>
+<div class="image-view" data-width="320" data-height="256"><img data-original-src="//upload-images.jianshu.io/upload_images/4235178-540a726ee36c9254.png" data-original-width="320" data-original-height="256" data-original-format="image/png" data-original-filesize="61859" class="" style="cursor: zoom-in;" src="./第十三章 支持向量机 - 简书_files/4235178-540a726ee36c9254.png"></div>
+</div>
+<div class="image-caption"></div>
+</div><p>事实上，支持向量机现在要比这个大间距分类器所体现得更加复杂，尤其是当你使用大间距分类器的时候，你的学习算法会受异常点(outlier) 的影响。比如我们加入一个额外的正样本。（粉色线）<br>
+在这里，如果你加了这个样本，为了将样本用最大间距分开，也许我最终会得到一条类似这样的决策界，对么？就是这条粉色的线，仅仅基于一个异常值，仅仅基于一个样本，就将我的决策界从这条黑线变到这条粉线，这实在是不明智的。而如果正则化参数C，设置的非常大，那么SVM就会将决策边界从黑线变成这条紫红线。</p>
+
+<div class="image-package">
+<div class="image-container" style="max-width: 396px; max-height: 258px; background-color: transparent;">
+<div class="image-container-fill" style="padding-bottom: 65.14999999999999%;"></div>
+<div class="image-view" data-width="396" data-height="258"><img data-original-src="//upload-images.jianshu.io/upload_images/4235178-a4806b1a08c15c01.png" data-original-width="396" data-original-height="258" data-original-format="image/png" data-original-filesize="69436" class="" style="cursor: zoom-in;" src="./第十三章 支持向量机 - 简书_files/4235178-a4806b1a08c15c01.png"></div>
+</div>
+<div class="image-caption"></div>
+</div><p>但如果，你不把C设得那么大，那么最后你得到的还是这条黑线。</p>
+
+<div class="image-package">
+<div class="image-container" style="max-width: 289px; max-height: 249px; background-color: transparent;">
+<div class="image-container-fill" style="padding-bottom: 86.16%;"></div>
+<div class="image-view" data-width="289" data-height="249"><img data-original-src="//upload-images.jianshu.io/upload_images/4235178-9155212759bae6f4.png" data-original-width="289" data-original-height="249" data-original-format="image/png" data-original-filesize="64956" class="" style="cursor: zoom-in;" src="./第十三章 支持向量机 - 简书_files/4235178-9155212759bae6f4.png"></div>
+</div>
+<div class="image-caption"></div>
+</div><p>当然数据如果不是线性可分的，则支持向量机也会将它们恰当分开。</p>
+
+<p><strong>因此，大间距分类器的描述，只有在正则化参数C非常大的情形，才能让你直观的理解。大间距分类器的作用，同时也提醒你C的作用类似于1/λ，λ是我们之前使用过的正则化参数。这只是C非常大的情形，或者等价地 λ 非常小的情形。你最终会得到类似粉线这样的决策界，但是实际上应用支持向量机的时候，当C不是非常非常大的时候，它可以忽略掉一些异常点的影响，得到更好的决策界。甚至当你的数据不是线性可分的时候，支持向量机也可以给出好的结果。<br>
+回顾 C=1/λ，因此：<br>
+C 较大时，相当于 λ 较小，可能会导致过拟合，高方差。<br>
+C 较小时，相当于 λ 较大，可能会导致低拟合，高偏差。</strong></p>
+<h3>13.3 大间隔分类器的数学原理</h3>
+<p>复习：向量内积的性质</p>
+<br>
+<div class="image-package">
+<div class="image-container" style="max-width: 700px; max-height: 464px; background-color: transparent;">
+<div class="image-container-fill" style="padding-bottom: 55.769999999999996%;"></div>
+<div class="image-view" data-width="832" data-height="464"><img data-original-src="//upload-images.jianshu.io/upload_images/4235178-4de550229379eb30.png" data-original-width="832" data-original-height="464" data-original-format="image/png" data-original-filesize="207802" class="" style="cursor: zoom-in;" src="./第十三章 支持向量机 - 简书_files/4235178-4de550229379eb30.png"></div>
+</div>
+<div class="image-caption"></div>
+</div><br>
+<p></p>
+『 ||u|| 』：u的范数，或长度（即，这个向量的长度）：<div class="image-package">
+<div class="image-container" style="max-width: 278px; max-height: 73px; background-color: transparent;">
+<div class="image-container-fill" style="padding-bottom: 26.26%;"></div>
+<div class="image-view" data-width="278" data-height="73"><img data-original-src="//upload-images.jianshu.io/upload_images/4235178-5c3900ec43d8f16f.png" data-original-width="278" data-original-height="73" data-original-format="image/png" data-original-filesize="25740" class="" style="cursor: zoom-in;" src="./第十三章 支持向量机 - 简书_files/4235178-5c3900ec43d8f16f.png"></div>
+</div>
+<div class="image-caption"></div>
+</div>||u||表示u的范数，即u的长度，即向量u的欧几里得长度。根据毕达哥拉斯定理，||u||=√(u_1^2 + u_2^2 )，这是向量u的长度，它是一个实数。<br>
+<div class="image-package">
+<div class="image-container" style="max-width: 700px; max-height: 274px; background-color: transparent;">
+<div class="image-container-fill" style="padding-bottom: 36.05%;"></div>
+<div class="image-view" data-width="760" data-height="274"><img data-original-src="//upload-images.jianshu.io/upload_images/4235178-c7d5666370ad033f.png" data-original-width="760" data-original-height="274" data-original-format="image/png" data-original-filesize="111564" class="" style="cursor: zoom-in;" src="./第十三章 支持向量机 - 简书_files/4235178-c7d5666370ad033f.png"></div>
+</div>
+<div class="image-caption"></div>
+</div>现在让我们来看看如何计算u和v之间的内积。这就是具体做法，我们将向量v投影到向量u上，我们做一个直角投影，或者说一个90度投影将其投影到u上，接下来我度量这条红线的长度。我称这条红线的长度为p，因此p就是长度，或者说是向量v投影到向量u上的量（即，p是v投影到向量u上的长度）。<br>
+<p>因此可以将u^T * v=p⬝||u||，或者说u的长度。这是计算内积的一种方法。</p>
+<br>
+<div class="image-package">
+<div class="image-container" style="max-width: 397px; max-height: 67px; background-color: transparent;">
+<div class="image-container-fill" style="padding-bottom: 16.88%;"></div>
+<div class="image-view" data-width="397" data-height="67"><img data-original-src="//upload-images.jianshu.io/upload_images/4235178-7a59f7b3864b68a8.png" data-original-width="397" data-original-height="67" data-original-format="image/png" data-original-filesize="29923" class="" style="cursor: zoom-in;" src="./第十三章 支持向量机 - 简书_files/4235178-7a59f7b3864b68a8.png"></div>
+</div>
+<div class="image-caption"></div>
+</div>如果，你弄清楚了p的几何意义。以及u的范数的几何意义，就可以用另一种方法计算出相同的答案。而另一种算法公式是：<br>
+u^T * v = u_1×v_1+u_2×v_2
+<p>u^T * v ：将 v 投影到 u 上。<br>
+v^T * u ：将 u 投影到 v 上。<br>
+得到的结果是一样的。<br>
+申明一点，在这个等式中u的范数是一个实数，p也是一个实数，因此u^T v就是两个实数正常相乘。</p>
+<br>
+<div class="image-package">
+<div class="image-container" style="max-width: 292px; max-height: 214px; background-color: transparent;">
+<div class="image-container-fill" style="padding-bottom: 73.29%;"></div>
+<div class="image-view" data-width="292" data-height="214"><img data-original-src="//upload-images.jianshu.io/upload_images/4235178-7b3f026cfb1b57cc.png" data-original-width="292" data-original-height="214" data-original-format="image/png" data-original-filesize="24827" class="" style="cursor: zoom-in;" src="./第十三章 支持向量机 - 简书_files/4235178-7b3f026cfb1b57cc.png"></div>
+</div>
+<div class="image-caption"></div>
+</div><p>最后一点，需要注意的就是p值，p事实上是有符号的，即它可能是正值，也可能是负值。<br>
+u和v之间的夹角大于90度，则如果将v投影到u上，会得到👆这样的一个投影，这是p的长度，在这个情形下我们仍然有u^T v是等于p乘以u的范数。唯一一点不同的是p在这里是负的。<br>
+在内积计算中，如果u和v之间的夹角小于90度，那么那条红线的长度p是正值。然而如果这个夹角大于90度，则p将会是负的。</p>
+
+<p>我们接下来将会使用这些关于向量内积的性质试图来理解支持向量机中的目标函数。</p>
+<br>
+<div class="image-package">
+<div class="image-container" style="max-width: 700px; max-height: 497px; background-color: transparent;">
+<div class="image-container-fill" style="padding-bottom: 59.95%;"></div>
+<div class="image-view" data-width="829" data-height="497"><img data-original-src="//upload-images.jianshu.io/upload_images/4235178-ebd006806b2a5e6b.png" data-original-width="829" data-original-height="497" data-original-format="image/png" data-original-filesize="241574" class="" style="cursor: zoom-in;" src="./第十三章 支持向量机 - 简书_files/4235178-ebd006806b2a5e6b.png"></div>
+</div>
+<div class="image-caption"></div>
+</div>
+<div class="image-package">
+<div class="image-container" style="max-width: 700px; max-height: 260px; background-color: transparent;">
+<div class="image-container-fill" style="padding-bottom: 34.21%;"></div>
+<div class="image-view" data-width="760" data-height="260"><img data-original-src="//upload-images.jianshu.io/upload_images/4235178-c9161e9032beb403.png" data-original-width="760" data-original-height="260" data-original-format="image/png" data-original-filesize="123361" class="" style="cursor: zoom-in;" src="./第十三章 支持向量机 - 简书_files/4235178-c9161e9032beb403.png"></div>
+</div>
+<div class="image-caption"></div>
+</div><p>为了讲解方便，我做一点简化，令θ_0=0；将特征数n置为2，因此我们仅有两个特征x_1,x_2。<br>
+</p>
+当我们仅有两个特征，即n=2时，这个式子可以写作：<div class="image-package">
+<div class="image-container" style="max-width: 273px; max-height: 48px; background-color: transparent;">
+<div class="image-container-fill" style="padding-bottom: 17.580000000000002%;"></div>
+<div class="image-view" data-width="273" data-height="48"><img data-original-src="//upload-images.jianshu.io/upload_images/4235178-3fad55239850fc8a.png" data-original-width="273" data-original-height="48" data-original-format="image/png" data-original-filesize="5530" class="" style="cursor: zoom-in;" src="./第十三章 支持向量机 - 简书_files/4235178-3fad55239850fc8a.png"></div>
+</div>
+<div class="image-caption"></div>
+</div><p>我们只有两个参数θ_1,θ_2。你可能注意到括号里面的这一项是向量θ的范数，或者说是向量θ的长度。<br>
+当然你可以将其写作θ_0,θ_1,θ_2，如果θ_0=0，那就是θ_1,θ_2的长度。在这里我将忽略θ_0，这样来写θ的范数，它仅仅和θ_1,θ_2有关。但是，数学上不管你是否包含，其实并没有差别，因此在我们接下来的推导中去掉θ_0不会有影响这意味着我们的目标函数是等于 1/2 * ||θ||^2。因此支持向量机做的全部事情，就是极小化参数向量θ范数的平方，或者说长度的平方。</p>
+
+<p></p>
+<p></p>
+现在，考虑一下这些项 θ^T * x^(i)，然后深入理解一下它们的作用<div class="image-package">
+<div class="image-container" style="max-width: 700px; max-height: 228px; background-color: transparent;">
+<div class="image-container-fill" style="padding-bottom: 27.54%;"></div>
+<div class="image-view" data-width="828" data-height="228"><img data-original-src="//upload-images.jianshu.io/upload_images/4235178-d35ea0a223461ee1.png" data-original-width="828" data-original-height="228" data-original-format="image/png" data-original-filesize="111432" class="" style="cursor: zoom-in;" src="./第十三章 支持向量机 - 简书_files/4235178-d35ea0a223461ee1.png"></div>
+</div>
+<div class="image-caption"></div>
+</div><br>
+<p>我们考察一个单一的训练样本，我有一个正样本在这里，用一个叉来表示这个样本x^(i)， 意思是在水平轴上取值为x_1^(i)， 在竖直轴上取值为x_2^(i)。<br>
+我将它称为p^(i)用来表示这是第 i 个训练样本在参数向量θ上的投影。</p>
+
+<div class="image-package">
+<div class="image-container" style="max-width: 700px; max-height: 452px; background-color: transparent;">
+<div class="image-container-fill" style="padding-bottom: 53.36%;"></div>
+<div class="image-view" data-width="847" data-height="452"><img data-original-src="//upload-images.jianshu.io/upload_images/4235178-a006b96eb90cc749.png" data-original-width="847" data-original-height="452" data-original-format="image/png" data-original-filesize="299405" class="" style="cursor: zoom-in;" src="./第十三章 支持向量机 - 简书_files/4235178-a006b96eb90cc749.png"></div>
+</div>
+<div class="image-caption"></div>
+</div><p>这里表达的意思是：这个 θ^T * x^(i) &gt;= 1 或者 θ^T * x^(i) &lt;= -1 的,约束是可以被 p^(i) * x &gt;= 1 这个约束所代替的。因为  θ^T * x^(i) = p^(i) * ||θ||</p>
+<br>
+<div class="image-package">
+<div class="image-container" style="max-width: 351px; max-height: 169px; background-color: transparent;">
+<div class="image-container-fill" style="padding-bottom: 48.15%;"></div>
+<div class="image-view" data-width="351" data-height="169"><img data-original-src="//upload-images.jianshu.io/upload_images/4235178-06a5e2c45926d46e.png" data-original-width="351" data-original-height="169" data-original-format="image/png" data-original-filesize="39684" class="" style="cursor: zoom-in;" src="./第十三章 支持向量机 - 简书_files/4235178-06a5e2c45926d46e.png"></div>
+</div>
+<div class="image-caption"></div>
+</div><p>需要提醒一点，我们之前曾讲过这个优化目标函数可以被写成等于 1/2 * ||θ||^2</p>
+<br>
+<div class="image-package">
+<div class="image-container" style="max-width: 290px; max-height: 181px; background-color: transparent;">
+<div class="image-container-fill" style="padding-bottom: 62.41%;"></div>
+<div class="image-view" data-width="290" data-height="181"><img data-original-src="//upload-images.jianshu.io/upload_images/4235178-c30ee958bf7b8a06.png" data-original-width="290" data-original-height="181" data-original-format="image/png" data-original-filesize="32357" class="" style="cursor: zoom-in;" src="./第十三章 支持向量机 - 简书_files/4235178-c30ee958bf7b8a06.png"></div>
+</div>
+<div class="image-caption"></div>
+</div>现在，继续使用之前的简化，即θ_0=0，我们来看一下为什么支持向量机不会选择它。<br>
+对于👆这样选择的参数θ，可以看到参数向量θ事实上是和决策界是90度正交的。<br>
+<p>因为：夹角大于90度时，内积为整数；夹角小于于90度时，内积为负数；那么，夹角等于90度时，内积为0。这样，代价函数也会为0。<br>
+顺便提一句θ_0=0的简化仅仅意味着决策界必须通过原点(0,0)。</p>
+
+<p></p>
+<p></p>
+现在让我们看一下这对于优化目标函数意味着什么。<div class="image-package">
+<div class="image-container" style="max-width: 394px; max-height: 227px; background-color: transparent;">
+<div class="image-container-fill" style="padding-bottom: 57.60999999999999%;"></div>
+<div class="image-view" data-width="394" data-height="227"><img data-original-src="//upload-images.jianshu.io/upload_images/4235178-2c9194ed01c4e552.png" data-original-width="394" data-original-height="227" data-original-format="image/png" data-original-filesize="90790" class="" style="cursor: zoom-in;" src="./第十三章 支持向量机 - 简书_files/4235178-2c9194ed01c4e552.png"></div>
+</div>
+<div class="image-caption"></div>
+</div><p>我们假设它是我的第一个样本x^(1)， 如果我考察这个样本到参数θ的投影，投影是这个短的红线段，就等于p^(1)， 它非常短。类似地，这个样本如果它恰好是x^(2)， 我的第二个训练样本，则它到θ的投影在这里。我将它画成粉色，这个短的粉色线段是p^(2)， 即第二个样本到我的参数向量θ的投影。因此，这个投影非常短。p^(2) 事实上是一个负值，p^(2) 是在相反的方向，这个向量和参数向量θ的夹角大于90度，p^(2)的值小于0。</p>
+
+<p>我们会发现这些p^(i)将会是非常小的数，因此当我们考察优化目标函数的时候，对于正样本而言，我们需要 p^(i) * ||θ|| &gt;=1 ,但是如果 p^(i)在这里非常小,那就意味着我们需要θ的范数非常大。类似地，对于负样本而言我们需要 p^(i) * ||θ|| &lt;= -1 ，p^(2)会是一个非常小的数，因此唯一的办法就是θ的范数变大。<br>
+但是我们的目标函数是希望找到一个参数θ，它的范数是小的。因此，这看起来不像是一个好的参数向量θ的选择。</p>
+<p>相反的，来看一个不同的决策边界。比如说，支持向量机选择了这个决策界，现在状况会有很大不同。<br>
+</p><div class="image-package">
+<div class="image-container" style="max-width: 373px; max-height: 240px; background-color: transparent;">
+<div class="image-container-fill" style="padding-bottom: 64.34%;"></div>
+<div class="image-view" data-width="373" data-height="240"><img data-original-src="//upload-images.jianshu.io/upload_images/4235178-e4a07d1350da8ce8.png" data-original-width="373" data-original-height="240" data-original-format="image/png" data-original-filesize="78553" class="" style="cursor: zoom-in;" src="./第十三章 支持向量机 - 简书_files/4235178-e4a07d1350da8ce8.png"></div>
+</div>
+<div class="image-caption">垂直线（绿色）是决策界</div>
+</div><br>
+现在如果你考察你的数据在横轴x上的投影，你会注意到现在p^(1) 和p^(2)这些投影长度是长多了。如果我们仍然要满足这些约束， p^(i) * ||θ|| &gt;=1 ，则因为p^(1)变大了，θ的范数就可以变小了。因此这意味着通过选择这个的决策界，而不是前面的那个，支持向量机可以使参数θ的范数变小很多。<br>
+因此，如果我们想令θ的范数变小，从而令θ范数的平方变小，就能让支持向量机选择右边的决策界。这就是支持向量机如何能有效地产生大间距分类的原因。<br>
+<div class="image-package">
+<div class="image-container" style="max-width: 376px; max-height: 252px; background-color: transparent;">
+<div class="image-container-fill" style="padding-bottom: 67.02%;"></div>
+<div class="image-view" data-width="376" data-height="252"><img data-original-src="//upload-images.jianshu.io/upload_images/4235178-86aac07eee7ed9c2.png" data-original-width="376" data-original-height="252" data-original-format="image/png" data-original-filesize="93658" class="" style="cursor: zoom-in;" src="./第十三章 支持向量机 - 简书_files/4235178-86aac07eee7ed9c2.png"></div>
+</div>
+<div class="image-caption"></div>
+</div><br>
+<strong>总结一下，看这条绿线，这个绿色的决策界。我们希望正样本和负样本投影到θ的值足够大。要做到这一点的唯一方式，就是使这条绿线周围保持大间距（这是正样本和负样本之间的间隔）。这个间隔的值就是p^(1), p^(2), p^(3) 等等的值。因此，通过让间距变大，使p^(1), p^(2), p^(3) 的值变大。支持向量机最终可以找到一个较小的θ范数。这正是支持向量机中最小化目标函数的目的。这也就是为什么支持向量机最终会找到大间距分类器的原因。因为它试图极大化这些p^(i)的范数，它们是训练样本到决策边界的距离。</strong><p></p>
+<p></p>
+<p></p>
+最后一点，我们的推导自始至终使用了这个简化假设，就是参数θ_0=0。<div class="image-package">
+<div class="image-container" style="max-width: 263px; max-height: 138px; background-color: transparent;">
+<div class="image-container-fill" style="padding-bottom: 52.470000000000006%;"></div>
+<div class="image-view" data-width="263" data-height="138"><img data-original-src="//upload-images.jianshu.io/upload_images/4235178-3fbda44d4d2d89ba.png" data-original-width="263" data-original-height="138" data-original-format="image/png" data-original-filesize="23001" class="" style="cursor: zoom-in;" src="./第十三章 支持向量机 - 简书_files/4235178-3fbda44d4d2d89ba.png"></div>
+</div>
+<div class="image-caption"></div>
+</div><p>就像我之前提到的。这个的作用是：θ_0=0的意思是我们让决策界通过原点。如果你令θ_0不是0的话，含义就是你希望决策界不通过原点。我将不会做全部的推导。实际上，支持向量机产生大间距分类器的结论，会被证明同样成立，证明方式是非常类似的，是我们刚刚做的证明的推广。</p>
+
+<p>之前视频中说过，即便θ_0不等于0，支持向量机要做的事情都是优化这个目标函数对应着C值非常大的情况，但是可以说明的是，即便θ_0不等于0，支持向量机仍然会找到正样本和负样本之间的大间距分隔。</p>
+<p></p>
+<p></p>
+当C非常大的情况下，为了最小化 SVM 的目标函数：<div class="image-package">
+<div class="image-container" style="max-width: 659px; max-height: 74px; background-color: transparent;">
+<div class="image-container-fill" style="padding-bottom: 11.23%;"></div>
+<div class="image-view" data-width="659" data-height="74"><img data-original-src="//upload-images.jianshu.io/upload_images/4235178-1b0864979a841a14.png" data-original-width="659" data-original-height="74" data-original-format="image/png" data-original-filesize="22147" class="" style="cursor: zoom-in;" src="./第十三章 支持向量机 - 简书_files/4235178-1b0864979a841a14.png"></div>
+</div>
+<div class="image-caption"></div>
+</div><p>我们假设，第一项为0，则，需要的限制条件就是：<br>
+当 y^(i) = 1 时，Θ^T * x^(i) &gt;= 1<br>
+当 y^(i) = 0 时，Θ^T * x^(i) &lt;= -1<br>
+</p>
+而，同时，我们就能将，次情况下 SVM 的代价函数看做是：<div class="image-package">
+<div class="image-container" style="max-width: 299px; max-height: 66px; background-color: transparent;">
+<div class="image-container-fill" style="padding-bottom: 22.07%;"></div>
+<div class="image-view" data-width="299" data-height="66"><img data-original-src="//upload-images.jianshu.io/upload_images/4235178-2a2509fd81b1d366.png" data-original-width="299" data-original-height="66" data-original-format="image/png" data-original-filesize="17160" class="" style="cursor: zoom-in;" src="./第十三章 支持向量机 - 简书_files/4235178-2a2509fd81b1d366.png"></div>
+</div>
+<div class="image-caption"></div>
+</div>
+<h3>13.4 核函数1</h3>
+<p>概述：<br>
+改造支持向量机方法，来构造复杂的非线性分类器。主要的技术就是称之为核的东西。</p>
+<p>非线性分界问题：</p><div class="image-package">
+<div class="image-container" style="max-width: 700px; max-height: 409px; background-color: transparent;">
+<div class="image-container-fill" style="padding-bottom: 53.89000000000001%;"></div>
+<div class="image-view" data-width="759" data-height="409"><img data-original-src="//upload-images.jianshu.io/upload_images/4235178-a5a4b498c0978015.png" data-original-width="759" data-original-height="409" data-original-format="image/png" data-original-filesize="220711" class="" style="cursor: zoom-in;" src="./第十三章 支持向量机 - 简书_files/4235178-a5a4b498c0978015.png"></div>
+</div>
+<div class="image-caption"></div>
+</div>一种方法：使用高级数的多项式模型。<br>
+另一种方式：我们可以用一系列的新的特征 f 来替换模型中的每一项。例如令： f_1=x_1,f_2=x_2,f_3=x_1 x_2,f_4=x_1<sup>2,f_5=x_2</sup>2<br>
+...得到h_θ (x)=f_1+f_2+...+f_n。一种方法：使用高级数的多项式模型。<br>
+另一种方式：我们可以用一系列的新的特征 f 来替换模型中的每一项。例如令： f_1=x_1,f_2=x_2,f_3=x_1 x_2,f_4=x_1<sup>2,f_5=x_2</sup>2<br>
+...得到h_θ (x)=f_1+f_2+...+f_n。<p></p>
+<p>然而，除了对原有的特征进行组合以外，有没有更好的方法来构造f_1,f_2,f_3？我们可以利用核函数来计算出新的特征。<br>
+我们之前看到的这些高阶项是一种得到更多特征的方式。但问题是，我们可以有很多不同的特征选择，或者可能存在比这些高阶多项式更好的特征。因为，我们并不完全清楚这些高阶多项式，是不是我们真正需要的。所以，是否有更好的或不同的特征选择可以放到假设函数中了？</p>
+<p>有一个可以构造新特征f_1,f_2,f_3的方法：<br>
+</p>
+<p></p>
+假设，只有三个特征，同时我们截取x_0（即，x_0 总是等于 1）<div class="image-package">
+<div class="image-container" style="max-width: 700px; max-height: 411px; background-color: transparent;">
+<div class="image-container-fill" style="padding-bottom: 57.32000000000001%;"></div>
+<div class="image-view" data-width="717" data-height="411"><img data-original-src="//upload-images.jianshu.io/upload_images/4235178-7f87cfd5e81a62c5.png" data-original-width="717" data-original-height="411" data-original-format="image/png" data-original-filesize="178636" class="" style="cursor: zoom-in;" src="./第十三章 支持向量机 - 简书_files/4235178-7f87cfd5e81a62c5.png"></div>
+</div>
+<div class="image-caption"></div>
+</div><br>
+给定一个训练实例x，将 f_1 定义为一种相似度的度量，即，度量训练样本 x 与 第一个标志位 l^(1) 的相似度：<div class="image-package">
+<div class="image-container" style="max-width: 379px; max-height: 50px; background-color: transparent;">
+<div class="image-container-fill" style="padding-bottom: 13.19%;"></div>
+<div class="image-view" data-width="379" data-height="50"><img data-original-src="//upload-images.jianshu.io/upload_images/4235178-6fca060e870766ed.png" data-original-width="379" data-original-height="50" data-original-format="image/png" data-original-filesize="8220" class="" style="cursor: zoom-in;" src="./第十三章 支持向量机 - 简书_files/4235178-6fca060e870766ed.png"></div>
+</div>
+<div class="image-caption"></div>
+</div><br>
+<p>『 ||x - l^(i) ||^2 』：点 x 与标记 l^(i) 之间的欧式距离。</p>
+
+<p><strong>相似度函数就是，用数学家的术语来说就是，一个核函数。这里用的核函数，实际上是高斯核函数。</strong><br>
+PS：我们是可以有不同的相识度度量函数的。<br>
+然后，我们一般不这么写 👉 similarity(x，l(1))。而是用这个记号表示核函数：k(x, l(i))</p>
+<p>我们看下核函数到底做了什么？<br>
+</p>
+<p></p>
+我们来看第一个标记 l^(1)<div class="image-package">
+<div class="image-container" style="max-width: 700px; max-height: 357px; background-color: transparent;">
+<div class="image-container-fill" style="padding-bottom: 47.47%;"></div>
+<div class="image-view" data-width="752" data-height="357"><img data-original-src="//upload-images.jianshu.io/upload_images/4235178-f7def810dabef4d0.png" data-original-width="752" data-original-height="357" data-original-format="image/png" data-original-filesize="132609" class="" style="cursor: zoom-in;" src="./第十三章 支持向量机 - 简书_files/4235178-f7def810dabef4d0.png"></div>
+</div>
+<div class="image-caption"></div>
+</div>这些地标的作用是什么？<br>
+<p>如果一个训练实例x与地标L之间的距离近似于0，则新特征 f 近似于𝑒^(−0)=1；即，f 近似于 1.<br>
+如果训练实例𝑥与地标𝐿之间距离较远，则𝑓近似于𝑒−(一个较大的数)=0。即，f 近似于 0.</p>
+
+<p><strong>因此，这些特征做的是衡量 x 到标记 l 的相似度。如果 x 非常接近于标记，那么特征 f 非常接近于 1；如果 x 离标记非常远，那么特征 f 非常接近于 0。</strong></p>
+<p>我们利用x的各个特征与我们预先选定的地标(landmarks) l<sup>(1),l</sup>(2),l^(3)的近似程度来选取新的特征f_1,f_2,f_3。</p>
+<p>假设，我们有两个特征变量 x_1 和 x_2，σ^2 = 1<br>
+f_1 是图中的纵坐标。给定一个特定的样本 x（红色）。在这个高度上可以看到f_1相应的值。即 x 到 l^(1) 的距离。<br>
+l^(1) 即，图中的峰值。<br>
+👇的3D曲线图，即为 给定样本 x 到 l^(1) 的距离。因此，当 x =[3;5]的时候，它就处于峰值，纵坐标的值就为1，即，f_1 = 1<br>
+当它离 [3;5] 越远时，值也就约解决 0。即，f_1 = 0.</p>
+<br>
+<div class="image-package">
+<div class="image-container" style="max-width: 445px; max-height: 425px; background-color: transparent;">
+<div class="image-container-fill" style="padding-bottom: 95.50999999999999%;"></div>
+<div class="image-view" data-width="445" data-height="425"><img data-original-src="//upload-images.jianshu.io/upload_images/4235178-a67db50779e17ebd.png" data-original-width="445" data-original-height="425" data-original-format="image/png" data-original-filesize="98140" class="" style="cursor: zoom-in;" src="./第十三章 支持向量机 - 简书_files/4235178-a67db50779e17ebd.png"></div>
+</div>
+<div class="image-caption"></div>
+</div><p>这就是特征 f_1 ： 它衡量了 x 到第一个标记有多近。这个值在 0 到 1 之间。</p>
+
+<p></p>
+<p></p>
+我们还要讲的内容是：我们可以看到改变 σ^2 的值能产生多大的影响。<div class="image-package">
+<div class="image-container" style="max-width: 700px; max-height: 326px; background-color: transparent;">
+<div class="image-container-fill" style="padding-bottom: 44.11%;"></div>
+<div class="image-view" data-width="739" data-height="326"><img data-original-src="//upload-images.jianshu.io/upload_images/4235178-eb852b5faffe214c.png" data-original-width="739" data-original-height="326" data-original-format="image/png" data-original-filesize="187252" class="" style="cursor: zoom-in;" src="./第十三章 支持向量机 - 简书_files/4235178-eb852b5faffe214c.png"></div>
+</div>
+<div class="image-caption"></div>
+</div><p>σ^2 是高斯函数的参数。当你改变它，你会得到略微不同的结果。<br>
+假设，σ^2 = 0.5 ，你会发现 曲线图还是类似的，只是这个突起的宽度变窄了。因此，当 σ^2 变小时，我们从峰值开始往周围移动，特征 f_1 下降到 0 的速度会变得更快；与此相反，当你增大 σ^2 的值的时候，那么我们从 峰值 开始往周围移动，特征 f_1 下降到 0 的速度会变慢。</p>
+
+<p>因此，讲完特征的定义，我们看看，能得到什么样的预测函数。<br>
+给出一个样本 x ，我们准备计算出三个特征变量。同时假设，我们已经知道 θ 参数的值。</p>
+<br>
+<div class="image-package">
+<div class="image-container" style="max-width: 700px; max-height: 387px; background-color: transparent;">
+<div class="image-container-fill" style="padding-bottom: 50.519999999999996%;"></div>
+<div class="image-view" data-width="766" data-height="387"><img data-original-src="//upload-images.jianshu.io/upload_images/4235178-8372cf49807866cc.png" data-original-width="766" data-original-height="387" data-original-format="image/png" data-original-filesize="191664" class="" style="cursor: zoom-in;" src="./第十三章 支持向量机 - 简书_files/4235178-8372cf49807866cc.png"></div>
+</div>
+<div class="image-caption"></div>
+</div><p>紫红色 样本 得到的 预测结果是 1；蓝色 样本 得到的 预测结果是 0<br>
+实际上，如果你观察这个决策边界，我们会发现，对于接近 l^(1) 和 l^(2) 的点，我们的预测值是1，反之为0.<br>
+最终，我们会得到这个预测函数的判别边界（红线）。这就是我们如何定义 标记点 和 核函数，来训练出非常复杂的非线性决策边界的方法。（我们通过 标记点 和 核函数 来定义新的特征变量，从而训练复杂的非线性边界），我们可以将通过此得到的新的特征变量 f 用在支持向量机中。</p>
+
+<h3>13.5 核函数2</h3>
+<p></p>
+<p></p>
+选择标记点：<div class="image-package">
+<div class="image-container" style="max-width: 700px; max-height: 421px; background-color: transparent;">
+<div class="image-container-fill" style="padding-bottom: 58.550000000000004%;"></div>
+<div class="image-view" data-width="719" data-height="421"><img data-original-src="//upload-images.jianshu.io/upload_images/4235178-af85499c71fc1dc2.png" data-original-width="719" data-original-height="421" data-original-format="image/png" data-original-filesize="123839" class="" style="cursor: zoom-in;" src="./第十三章 支持向量机 - 简书_files/4235178-af85499c71fc1dc2.png"></div>
+</div>
+<div class="image-caption"></div>
+</div><p>在实际应用时，在给定学习问题中，怎么选取标记点？<br>
+我们的数据集中，有一些正样本和一些负样本。我们通常是根据训练集的数量选择地标的数量，即如果训练集中有m个实例，则我们选取m个地标，并且令:l^(1) = x^(1), l^(2) = x^(2), ....., l^(m) = x^(m)。这样做的好处在于：这说明特征函数基本上是在描述每一个样本距离到样本集中其他样本的距离。</p>
+
+<div class="image-package">
+<div class="image-container" style="max-width: 700px; max-height: 424px; background-color: transparent;">
+<div class="image-container-fill" style="padding-bottom: 53.81%;"></div>
+<div class="image-view" data-width="788" data-height="424"><img data-original-src="//upload-images.jianshu.io/upload_images/4235178-062d4ccc16c724c5.png" data-original-width="788" data-original-height="424" data-original-format="image/png" data-original-filesize="246359" class="" style="cursor: zoom-in;" src="./第十三章 支持向量机 - 简书_files/4235178-062d4ccc16c724c5.png"></div>
+</div>
+<div class="image-caption"></div>
+</div><p>给定样本 x ，可以属于 交叉验证集 或者属于 测试集。<br>
+</p>
+现在我们得到的新特征是建立在原有特征与训练集中所有其他特征之间距离的基础之上的，即：<div class="image-package">
+<div class="image-container" style="max-width: 441px; max-height: 248px; background-color: transparent;">
+<div class="image-container-fill" style="padding-bottom: 56.24%;"></div>
+<div class="image-view" data-width="441" data-height="248"><img data-original-src="//upload-images.jianshu.io/upload_images/4235178-3d338df099fb7ee2.png" data-original-width="441" data-original-height="248" data-original-format="image/png" data-original-filesize="56640" class="" style="cursor: zoom-in;" src="./第十三章 支持向量机 - 简书_files/4235178-3d338df099fb7ee2.png"></div>
+</div>
+<div class="image-caption"></div>
+</div>
+<p>那么 f 向量，就是用于描述训练样本的特征向量。<br>
+每个 特征 f 都是一个向量，向量维度就是 m + 1。</p>
+<p></p>
+<p></p>
+当给定核函数（相识度函数）后，我们如何使用简单的支持向量机？<div class="image-package">
+<div class="image-container" style="max-width: 688px; max-height: 117px; background-color: transparent;">
+<div class="image-container-fill" style="padding-bottom: 17.01%;"></div>
+<div class="image-view" data-width="688" data-height="117"><img data-original-src="//upload-images.jianshu.io/upload_images/4235178-a7b47024825dff78.png" data-original-width="688" data-original-height="117" data-original-format="image/png" data-original-filesize="58923" class="" style="cursor: zoom-in;" src="./第十三章 支持向量机 - 简书_files/4235178-a7b47024825dff78.png"></div>
+</div>
+<div class="image-caption"></div>
+</div><br>
+<p>f ∈ R^(m+1) : f 是 m+1 维向量。因为，我们有 m 个样本，再加上一个 f_0.<br>
+Θ ∈ R^(m+1) : 参数向量为 m+1维。是因为，我们有 m 个 特征变量变量 f。<br>
+以上就是，已知参数 θ 时，怎么做出预测的过程。</p>
+
+<p>但是，怎么得到参数 θ 了？<br>
+当你使用 SVM 学习算法，尤其是，当你解决👇这个最小化问题的时候，你已经最小化了参数 θ 。在 C 倍的该代价函数中。<br>
+</p>
+<p></p>
+现在，我们先不使用“ θ^T * x^(i) ”和 “原始特征”，而是用“ θ^T * f^(i) ”代替 来做预测。<div class="image-package">
+<div class="image-container" style="max-width: 700px; max-height: 288px; background-color: transparent;">
+<div class="image-container-fill" style="padding-bottom: 37.8%;"></div>
+<div class="image-view" data-width="762" data-height="288"><img data-original-src="//upload-images.jianshu.io/upload_images/4235178-842b12d9a1e7ef3b.png" data-original-width="762" data-original-height="288" data-original-format="image/png" data-original-filesize="141035" class="" style="cursor: zoom-in;" src="./第十三章 支持向量机 - 简书_files/4235178-842b12d9a1e7ef3b.png"></div>
+</div>
+<div class="image-caption"></div>
+</div>那么通过解决👆这个最小化问题，你就得到了支持向量机的参数。最后的细节就是，因为这个优化问题，我们有 n 个特征，我们实际上有效的特征量就是 f 维度的数量。因此 n = m。<br>
+如果，f 并不是新特征变量，那么 n = m + 1。 这个 +1 来自于 截距。同时，正则化项，并不对 θ_0 进行惩罚，因为 θ_0 始终为 1 。所以，j 从 1 开始。
+<p></p>
+<p></p>
+但是，在支持向量机算法上，我们做👇这样的 修改：<div class="image-package">
+<div class="image-container" style="max-width: 155px; max-height: 35px; background-color: transparent;">
+<div class="image-container-fill" style="padding-bottom: 22.58%;"></div>
+<div class="image-view" data-width="155" data-height="35"><img data-original-src="//upload-images.jianshu.io/upload_images/4235178-3893227b8b2b3f06.png" data-original-width="155" data-original-height="35" data-original-format="image/png" data-original-filesize="4205" class="" style="cursor: zoom-in;" src="./第十三章 支持向量机 - 简书_files/4235178-3893227b8b2b3f06.png"></div>
+</div>
+<div class="image-caption"></div>
+</div><p>，如果我们忽略 θ_0 的话。</p>
+
+<p>同时，大多数支持向量机在实现的时候，我们使用 θ^T * M * θ 替换 θ^T * θ，其中M是根据我们选择的核函数而不同的一个矩阵。这样做的原因是为了简化计算。<br>
+θ^T * M * θ ：这其实是另一种略有区别的距离度量方法。<br>
+我们使用这个略有区别的度量方法来取代 θ 模的平方（ θ^T * θ = || θ ||^2 ）。<br>
+这意味着，我们最小化了一种类似的度量，这个参数 θ 的缩放版本，并取决于核函数。<br>
+👆这个数学细节（即，θ^T * M * θ ），使得支持向量机能够更有效率的运行。</p>
+<p>那，为什么支持向量机做这种修改，可以使它应用更大的训练集？<br>
+因为，比如，当你的训练集有 10000 个样本时，那么我们将会有 10000 个标记点。θ 也就是 10000 维向量。或许，这时这么做还行，但是，当 m 非常非常非常大时，那么求解这么多参数，对于支持向量机的优化程序而言。这时求解这些参数的最小化问题的代价会非常高。而 “M*θ” ，实际上细微改变了最后一项，使得最终的优化目标 与 直接最小化 θ模的平方 略有区别。<br>
+你可以认为，这个具体的实现细节尽管略微的改变了优化目标，但它主要是为了计算效率</p>
+<p>btw，你可能会想为什么我们不将核函数的这个想法应用到其他算法，比如逻辑回归上。<strong>事实证明，如果你愿意的话，确实可以将核函数这个想法应用于定义特征向量，将标记点之类的技术用于逻辑回归算法。<br>
+但是用于支持向量机的计算技巧不能较好的推广到其他算法，诸如逻辑回归上。<br>
+所以，将核函数应用于逻辑回归时会变得非常慢。</strong>相比之下，这些计算技巧（比如，具体化技术 θ^T * M * θ 对这些细节的修改以及支持向量软件的实现细节，使得支持向量机可以和核函数相得益彰。而逻辑回归和核函数则运行得十分缓慢。更何况它们还不稳定，使用那些高级优化技巧，因为这些技巧是人们专门为使用核函数的支持向量机开发的。</p>
+<p>如，前面所说，我不建议自己写矩阵求逆函数，或者平方根函数，以及最小化代价函数的代码。而应该使用人们开发的成熟的软件包。<br>
+</p>
+<p></p>
+另一个值得说明的问题是，在你使用支持向量机时，怎么选择支持向量机中的参数（C）？？<div class="image-package">
+<div class="image-container" style="max-width: 693px; max-height: 111px; background-color: transparent;">
+<div class="image-container-fill" style="padding-bottom: 16.02%;"></div>
+<div class="image-view" data-width="693" data-height="111"><img data-original-src="//upload-images.jianshu.io/upload_images/4235178-9c94c8cffde0da5f.png" data-original-width="693" data-original-height="111" data-original-format="image/png" data-original-filesize="51337" class="" style="cursor: zoom-in;" src="./第十三章 支持向量机 - 简书_files/4235178-9c94c8cffde0da5f.png"></div>
+</div>
+<div class="image-caption"></div>
+</div>C=1/λ<br>
+<p>C 较大时，相当于λ较小，可能会导致过拟合，高方差；<br>
+C 较小时，相当于λ较大，可能会导致低拟合，高偏差；</p>
+
+<p></p>
+<p></p>
+以及，高斯函数中 σ^2 参数的选择：<div class="image-package">
+<div class="image-container" style="max-width: 700px; max-height: 282px; background-color: transparent;">
+<div class="image-container-fill" style="padding-bottom: 38.06%;"></div>
+<div class="image-view" data-width="741" data-height="282"><img data-original-src="//upload-images.jianshu.io/upload_images/4235178-bd041fde500d0b1d.png" data-original-width="741" data-original-height="282" data-original-format="image/png" data-original-filesize="102379" class="" style="cursor: zoom-in;" src="./第十三章 支持向量机 - 简书_files/4235178-bd041fde500d0b1d.png"></div>
+</div>
+<div class="image-caption"></div>
+</div><p>σ较大时，可能会导致低方差，高偏差； （曲线更平滑）<br>
+σ较小时，可能会导致低偏差，高方差。 （曲线更陡）</p>
+
+<h3>13.6 使用SVM</h3>
+<p></p>
+<p></p>
+推荐的高优化软件库：liblinear 和 libsvm<div class="image-package">
+<div class="image-container" style="max-width: 700px; max-height: 410px; background-color: transparent;">
+<div class="image-container-fill" style="padding-bottom: 54.02%;"></div>
+<div class="image-view" data-width="759" data-height="410"><img data-original-src="//upload-images.jianshu.io/upload_images/4235178-c24759fb45b4a505.png" data-original-width="759" data-original-height="410" data-original-format="image/png" data-original-filesize="161253" class="" style="cursor: zoom-in;" src="./第十三章 支持向量机 - 简书_files/4235178-c24759fb45b4a505.png"></div>
+</div>
+<div class="image-caption"></div>
+</div><br>
+<p>尽管你不去写你自己的SVM的优化软件，但是你也需要做几件事：<br>
+1、参数C的选择。我们在之前的视频中讨论过误差/方差在这方面的性质。<br>
+2、你也需要选择内核参数（如果使用核函数的话）或你想要使用的相似函数（核函数），其中一个选择是：我们选择不需要任何内核参数，没有内核参数的理念，也叫线性核函数。因此，如果有人说他使用了线性核的SVM（支持向量机），这就意味这他使用了不带有核函数的SVM（支持向量机）。</p>
+
+<p>如果相较于m而言，n要大许多，即训练集数据量不够支持我们训练一个复杂的非线性模型，我们选用逻辑回归模型或者不带核函数的支持向量机。</p>
+<p></p><div class="image-package">
+<div class="image-container" style="max-width: 700px; max-height: 396px; background-color: transparent;">
+<div class="image-container-fill" style="padding-bottom: 50.38%;"></div>
+<div class="image-view" data-width="786" data-height="396"><img data-original-src="//upload-images.jianshu.io/upload_images/4235178-b913f7f06f399fad.png" data-original-width="786" data-original-height="396" data-original-format="image/png" data-original-filesize="190098" class="" style="cursor: zoom-in;" src="./第十三章 支持向量机 - 简书_files/4235178-b913f7f06f399fad.png"></div>
+</div>
+<div class="image-caption"></div>
+</div>目前，“高斯核函数”和“线性核函数”是两个最常用的核函数<br>
+<div class="image-package">
+<div class="image-container" style="max-width: 700px; max-height: 182px; background-color: transparent;">
+<div class="image-container-fill" style="padding-bottom: 25.82%;"></div>
+<div class="image-view" data-width="705" data-height="182"><img data-original-src="//upload-images.jianshu.io/upload_images/4235178-25442f057b2b1cc2.png" data-original-width="705" data-original-height="182" data-original-format="image/png" data-original-filesize="98622" class="" style="cursor: zoom-in;" src="./第十三章 支持向量机 - 简书_files/4235178-25442f057b2b1cc2.png"></div>
+</div>
+<div class="image-caption"></div>
+</div><strong>一个实现函数的注意事项，如果你有大小很不一样的特征变量。很重要的一件事就是，在使用高斯函数之前，将这些特征变量的大小按比例归一化。</strong><br>
+比如，特征1（x_1）是房屋价格，特征2（x_2）是房间数。如果，你直接这么使用的话，那么在这个式子中 || x-l ||^2 的距离将几乎都是由房子的大小来决定的，从而忽略了卧室的数量。<br>
+因为，为了避免这个情况，就需要进一步的缩放比例。这将会保证SVM能考虑到所有不同的特征变量。<p></p>
+<div class="image-package">
+<div class="image-container" style="max-width: 700px; max-height: 134px; background-color: transparent;">
+<div class="image-container-fill" style="padding-bottom: 18.029999999999998%;"></div>
+<div class="image-view" data-width="743" data-height="134"><img data-original-src="//upload-images.jianshu.io/upload_images/4235178-69487f104a1c681a.png" data-original-width="743" data-original-height="134" data-original-format="image/png" data-original-filesize="60973" class="" style="cursor: zoom-in;" src="./第十三章 支持向量机 - 简书_files/4235178-69487f104a1c681a.png"></div>
+</div>
+<div class="image-caption"></div>
+</div><p>目前，“高斯核函数”和“线性核函数”是两个最常用的核函数。这里有一个警告，不是所有你可能提出来的相似函数都是有效的核函数。高斯函数和线性核函数，以及你有时可能会用到的核函数。这些函数都需要满足一个技术条件，它叫作“Mercer”定理，需要满足这个条件的原因是：因为支持向量机算法或者SVM的实现函数有许多熟练的数值优化技巧。为了有效地求解参数 θ，在最初的设想里，这些决策都用以将我们的注意力仅仅限制在可以满足“Mercer”定理的核函数上。这个定理所做的是，确保所有的SVM包，所有的SVM软件包能够用大类的优化方法并从而迅速得到参数 θ 。因此，大部分人要做的就是用线性核函数或者高斯核函数。但是也有其他的几个核函数也是满足“Mercer”定理。</p>
+
+<p></p>
+<p></p>
+在高斯核函数之外我们还有其他一些选择，如：<div class="image-package">
+<div class="image-container" style="max-width: 700px; max-height: 146px; background-color: transparent;">
+<div class="image-container-fill" style="padding-bottom: 19.11%;"></div>
+<div class="image-view" data-width="764" data-height="146"><img data-original-src="//upload-images.jianshu.io/upload_images/4235178-814c1c7b0a59d421.png" data-original-width="764" data-original-height="146" data-original-format="image/png" data-original-filesize="80584" class="" style="cursor: zoom-in;" src="./第十三章 支持向量机 - 简书_files/4235178-814c1c7b0a59d421.png"></div>
+</div>
+<div class="image-caption"></div>
+</div><p>多项式核函数（Polynomial Kernel） ：<br>
+k(x, l) = ( x ^T * l)^2<br>
+👆 这是多项式核函数的一种形式；上面是 x 与 l 的相识度的估量。如果，x 和 l 相互之间很接近，那么这个内积会很大。<br>
+k(x, l) = ( x ^T * l)^3<br>
+k(x, l) = ( x ^T * l + 1)^3<br>
+k(x, l) = ( x ^T * l + 5)^4<br>
+👆 这是多项式核函数的其他形式；<br>
+多项式内核函数实际上有2个参数。<br>
+一个是 “+”的参数；一个是 “次方数”<br>
+它的一般形式：k(x, l) = ( x ^T * l + constant)^degree<br>
+"多项式核函数”通常情况下效果都比较差，与高斯核函数相比，使用的不多。它通常用在，当数据 x 和 l 都是严格的非负数时。这样以保证，内积永远不会是负数</p>
+
+<p>字符串核函数（String kernel）<br>
+卡方核函数（ chi-square kernel）<br>
+直方图交集核函数（histogram intersection kernel）<br>
+等等...<br>
+这些核函数的目标也都是根据训练集和地标之间的距离来构建新特征，这些核函数需要满足Mercer's定理，才能被支持向量机的优化软件正确处理。</p>
+<h5>多类分类问题</h5>
+<div class="image-package">
+<div class="image-container" style="max-width: 700px; max-height: 414px; background-color: transparent;">
+<div class="image-container-fill" style="padding-bottom: 56.48%;"></div>
+<div class="image-view" data-width="733" data-height="414"><img data-original-src="//upload-images.jianshu.io/upload_images/4235178-18e3d2aaa995fc22.png" data-original-width="733" data-original-height="414" data-original-format="image/png" data-original-filesize="148433" class="" style="cursor: zoom-in;" src="./第十三章 支持向量机 - 简书_files/4235178-18e3d2aaa995fc22.png"></div>
+</div>
+<div class="image-caption"></div>
+</div><p>假设我们利用之前介绍的一对多方法来解决一个多类分类问题。如果一共有k个类，则我们需要k个模型，以及k个参数向量θ。我们同样也可以训练k个支持向量机来解决多类分类问题。但是大多数支持向量机软件包都有内置的多类分类功能，我们只要直接使用即可。<br>
+尽管你不去写你自己的SVM的优化软件，但是你也需要做几件事：<br>
+1、参数C的选择。我们在之前的视频中讨论过误差/方差在这方面的性质。<br>
+2、你也需要选择内核参数（如果使用核函数的话）或你想要使用的相似函数（核函数），其中一个选择是：我们选择不需要任何内核参数，没有内核参数的理念，也叫线性核函数。因此，如果有人说他使用了线性核的SVM（支持向量机），这就意味这他使用了不带有核函数的SVM（支持向量机）。</p>
+
+<h5>逻辑回归 vs SVM</h5>
+<p></p><div class="image-package">
+<div class="image-container" style="max-width: 700px; max-height: 326px; background-color: transparent;">
+<div class="image-container-fill" style="padding-bottom: 41.42%;"></div>
+<div class="image-view" data-width="787" data-height="326"><img data-original-src="//upload-images.jianshu.io/upload_images/4235178-5775f0cd2f4f1818.png" data-original-width="787" data-original-height="326" data-original-format="image/png" data-original-filesize="216110" class="" style="cursor: zoom-in;" src="./第十三章 支持向量机 - 简书_files/4235178-5775f0cd2f4f1818.png"></div>
+</div>
+<div class="image-caption"></div>
+</div>从逻辑回归模型，我们得到了支持向量机模型，在两者之间，我们应该如何选择呢？<br>
+下面是一些普遍使用的准则：<br>
+n为特征数，m为训练样本数。<br>
+<strong>(1)如果相较于m而言，n要大许多，即训练集数据量不够支持我们训练一个复杂的非线性模型，我们选用逻辑回归模型或者不带核函数的支持向量机。<br>
+(2)如果n较小，而且m大小中等，例如n在 1-1000 之间，而m在10-10000之间，使用高斯核函数的支持向量机。<br>
+(3)如果n较小，而m较大，例如n在1-1000之间，而m大于50000，则使用支持向量机会非常慢，解决方案是创造、增加更多的特征，然后使用逻辑回归或不带核函数的支持向量机。</strong><p></p>
+<p>值得一提的是，神经网络在以上三种情况下都可能会有较好的表现，但是训练神经网络可能非常慢，<strong>选择支持向量机的原因主要在于它的代价函数是凸函数，不存在局部最小值。</strong><br>
+今天的SVM包会工作得很好，但是它们仍然会有一些慢。当你有非常非常大的训练集，特别是在使用高斯核函数是在这种情况下。因此，我经常会做的是尝试手动地创建，拥有更多的特征变量，然后用逻辑回归或者不带核函数的支持向量机。如果你看到这个幻灯片，看到了逻辑回归，或者不带核函数的支持向量机。在这个两个地方，我把它们放在一起是有原因的。原因是：逻辑回归和不带核函数的支持向量机它们都是非常相似的算法，不管是逻辑回归还是不带核函数的SVM，通常都会做相似的事情，并给出相似的结果。但是根据你实现的情况，其中一个可能会比另一个更加有效。但是在其中一个算法应用的地方，逻辑回归或不带核函数的SVM另一个也很有可能很有效。但是随着SVM的复杂度增加，当你使用不同的内核函数来学习复杂的非线性函数时，这个体系，你知道的，当你有多达1万（10,000）的样本时，也可能是5万（50,000），你的特征变量的数量这是相当大的。那是一个非常常见的体系，也许在这个体系里，不带核函数的支持向量机就会表现得相当突出。你可以做比这困难得多需要逻辑回归的事情。<br>
+最后，神经网络使用于什么时候呢？ 对于所有的这些问题，对于所有的这些不同体系一个设计得很好的神经网络也很有可能会非常有效。有一个缺点是，或者说是有时可能不会使用神经网络的原因是：对于许多这样的问题，神经网络训练起来可能会特别慢，但是如果你有一个非常好的SVM实现包，它可能会运行得比较快比神经网络快很多，尽管我们在此之前没有展示，但是事实证明，SVM具有的优化问题，是一种凸优化问题。因此，好的SVM优化软件包总是会找到全局最小值，或者接近它的值。对于SVM你不需要担心局部最优。在实际应用中，局部最优不是神经网络所需要解决的一个重大问题，所以这是你在使用SVM的时候不需要太去担心的一个问题。根据你的问题，神经网络可能会比SVM慢，尤其是在这样一个体系中，至于这里给出的参考，看上去有些模糊，如果你在考虑一些问题，这些参考会有一些模糊，但是我仍然不能完全确定，我是该用这个算法还是改用那个算法，这个没有太大关系，当我遇到机器学习问题的时候，有时它确实不清楚这是否是最好的算法，但是就如在之前的视频中看到的算法确实很重要。但是通常更加重要的是：你有多少数据，你有多熟练是否擅长做误差分析和排除学习算法，指出如何设定新的特征变量和找出其他能决定你学习算法的变量等方面，通常这些方面会比你使用逻辑回归还是SVM这方面更加重要。但是，已经说过了，SVM仍然被广泛认为是一种最强大的学习算法，这是一个体系，包含了什么时候一个有效的方法去学习复杂的非线性函数。因此，实际上与逻辑回归、神经网络、SVM一起使用这些方法来提高学习算法，我认为你会很好地建立很有技术的状态。（编者注：当时GPU计算比较慢，神经网络还不流行。）</p>
+
+          </div>
+        </div>
+    </div>
+
+    <!-- 如果是付费文章，未购买，则显示购买按钮 -->
+
+    <!-- 连载目录项 -->
+
+    <!-- 如果是付费文章 -->
+      <!-- 如果是付费连载，已购买，且作者允许赞赏，则显示付费信息和赞赏 -->
+        <div id="free-reward-panel" class="support-author"><p>小礼物走一走，来简书关注我</p> <div class="btn btn-pay">赞赏支持</div> <div class="supporter"><ul class="support-list"></ul> <!----></div> <!----> <!----></div>
+
+      <div class="show-foot">
+        <a class="notebook" href="https://www.jianshu.com/nb/34264197">
+          <i class="iconfont ic-search-notebook"></i>
+          <span>吴恩达-机器学习-笔记</span>
+</a>        <div class="copyright" data-toggle="tooltip" data-html="true" data-original-title="转载请联系作者获得授权，并标注“简书作者”。">
+          © 著作权归作者所有
+        </div>
+        <div class="modal-wrap" data-report-note="">
+          <a id="report-modal">举报文章</a>
+        </div>
+      </div>
+
+      <!-- 文章底部作者信息 -->
+        <div class="follow-detail">
+          <div class="info">
+            <a class="avatar" href="https://www.jianshu.com/u/c4a967f15149">
+              <img src="./第十三章 支持向量机 - 简书_files/08809d18-0a1d-4585-bfe8-8d77e5397bb3.jpeg" alt="96">
+</a>            <a class="btn btn-default following"><i class="iconfont ic-followed"></i><span>已关注</span></a>
+            <a class="title" href="https://www.jianshu.com/u/c4a967f15149">tomas家的小拨浪鼓</a>
+          <p>写了 259321 字，被 1251 人关注，获得了 751 个喜欢</p></div>
+            <div class="signature">以梦为马，诗酒趁年华~
+
+
+邮箱：linling_tomas@qq.com</div>
+        </div>
+
+    <div class="meta-bottom">
+      <div data-v-6ddd02c6="" class="like"><div data-v-6ddd02c6="" class="btn like-group"><div data-v-6ddd02c6="" class="btn-like"><a data-v-6ddd02c6="">喜欢</a></div> <div data-v-6ddd02c6="" class="modal-wrap"><a data-v-6ddd02c6="">11</a></div></div> <!----></div>
+      <div class="share-group">
+        <a class="share-circle" data-action="weixin-share" data-toggle="tooltip" data-original-title="分享到微信">
+          <i class="iconfont ic-wechat"></i>
+        </a>
+        <a class="share-circle" data-action="weibo-share" data-toggle="tooltip" href="javascript:void((function(s,d,e,r,l,p,t,z,c){var%20f=&#39;http://v.t.sina.com.cn/share/share.php?appkey=1881139527&#39;,u=z||d.location,p=[&#39;&amp;url=&#39;,e(u),&#39;&amp;title=&#39;,e(t||d.title),&#39;&amp;source=&#39;,e(r),&#39;&amp;sourceUrl=&#39;,e(l),&#39;&amp;content=&#39;,c||&#39;gb2312&#39;,&#39;&amp;pic=&#39;,e(p||&#39;&#39;)].join(&#39;&#39;);function%20a(){if(!window.open([f,p].join(&#39;&#39;),&#39;mb&#39;,[&#39;toolbar=0,status=0,resizable=1,width=440,height=430,left=&#39;,(s.width-440)/2,&#39;,top=&#39;,(s.height-430)/2].join(&#39;&#39;)))u.href=[f,p].join(&#39;&#39;);};if(/Firefox/.test(navigator.userAgent))setTimeout(a,0);else%20a();})(screen,document,encodeURIComponent,&#39;&#39;,&#39;&#39;,&#39;&#39;, &#39;推荐 tomas家的小拨浪鼓 的文章《第十三章 支持向量机》（ 分享自 @简书 ）&#39;,&#39;https://www.jianshu.com/p/87271dc6fa2e?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=reader_share&amp;utm_source=weibo&#39;,&#39;页面编码gb2312|utf-8默认gb2312&#39;));" data-original-title="分享到微博">
+          <i class="iconfont ic-weibo"></i>
+        </a>
+        <a class="share-circle" data-toggle="tooltip" id="longshare" target="_blank" data-original-title="" title="">
+            <div class="qrcode" id="qrcode">
+             <img src="./第十三章 支持向量机 - 简书_files/download-index-side-qrcode-cb13fc9106a478795f8d10f9f632fccf.png" alt="Download index side qrcode">
+             <p>下载app生成长微博图片</p>
+             </div>
+          <i class="iconfont ic-picture"></i>
+        </a>
+        <a class="share-circle more-share" tabindex="0" data-toggle="popover" data-placement="top" data-html="true" data-trigger="focus" href="javascript:void(0);" data-content="
+          &lt;ul class=&quot;share-list&quot;&gt;
+            &lt;li&gt;&lt;a href=&quot;javascript:void(function(){var d=document,e=encodeURIComponent,r=&#39;http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=&#39;+e(&#39;https://www.jianshu.com/p/87271dc6fa2e?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=reader_share&amp;utm_source=qzone&#39;)+&#39;&amp;title=&#39;+e(&#39;推荐 tomas家的小拨浪鼓 的文章《第十三章 支持向量机》&#39;),x=function(){if(!window.open(r,&#39;qzone&#39;,&#39;toolbar=0,resizable=1,scrollbars=yes,status=1,width=600,height=600&#39;))location.href=r};if(/Firefox/.test(navigator.userAgent)){setTimeout(x,0)}else{x()}})();&quot;&gt;&lt;i class=&quot;social-icon-sprite social-icon-zone&quot;&gt;&lt;/i&gt;&lt;span&gt;分享到QQ空间&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href=&quot;javascript:void(function(){var d=document,e=encodeURIComponent,r=&#39;https://twitter.com/share?url=&#39;+e(&#39;https://www.jianshu.com/p/87271dc6fa2e?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=reader_share&amp;utm_source=twitter&#39;)+&#39;&amp;text=&#39;+e(&#39;推荐 tomas家的小拨浪鼓 的文章《第十三章 支持向量机》（ 分享自 @jianshucom ）&#39;)+&#39;&amp;related=&#39;+e(&#39;jianshucom&#39;),x=function(){if(!window.open(r,&#39;twitter&#39;,&#39;toolbar=0,resizable=1,scrollbars=yes,status=1,width=600,height=600&#39;))location.href=r};if(/Firefox/.test(navigator.userAgent)){setTimeout(x,0)}else{x()}})();&quot;&gt;&lt;i class=&quot;social-icon-sprite social-icon-twitter&quot;&gt;&lt;/i&gt;&lt;span&gt;分享到Twitter&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href=&quot;javascript:void(function(){var d=document,e=encodeURIComponent,r=&#39;https://www.facebook.com/dialog/share?app_id=483126645039390&amp;display=popup&amp;href=https://www.jianshu.com/p/87271dc6fa2e?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=reader_share&amp;utm_source=facebook&#39;,x=function(){if(!window.open(r,&#39;facebook&#39;,&#39;toolbar=0,resizable=1,scrollbars=yes,status=1,width=450,height=330&#39;))location.href=r};if(/Firefox/.test(navigator.userAgent)){setTimeout(x,0)}else{x()}})();&quot;&gt;&lt;i class=&quot;social-icon-sprite social-icon-facebook&quot;&gt;&lt;/i&gt;&lt;span&gt;分享到Facebook&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href=&quot;javascript:void(function(){var d=document,e=encodeURIComponent,r=&#39;https://plus.google.com/share?url=&#39;+e(&#39;https://www.jianshu.com/p/87271dc6fa2e?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=reader_share&amp;utm_source=google_plus&#39;),x=function(){if(!window.open(r,&#39;google_plus&#39;,&#39;toolbar=0,resizable=1,scrollbars=yes,status=1,width=450,height=330&#39;))location.href=r};if(/Firefox/.test(navigator.userAgent)){setTimeout(x,0)}else{x()}})();&quot;&gt;&lt;i class=&quot;social-icon-sprite social-icon-google&quot;&gt;&lt;/i&gt;&lt;span&gt;分享到Google+&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href=&quot;javascript:void(function(){var d=document,e=encodeURIComponent,s1=window.getSelection,s2=d.getSelection,s3=d.selection,s=s1?s1():s2?s2():s3?s3.createRange().text:&#39;&#39;,r=&#39;http://www.douban.com/recommend/?url=&#39;+e(&#39;https://www.jianshu.com/p/87271dc6fa2e?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=reader_share&amp;utm_source=douban&#39;)+&#39;&amp;title=&#39;+e(&#39;第十三章 支持向量机&#39;)+&#39;&amp;sel=&#39;+e(s)+&#39;&amp;v=1&#39;,x=function(){if(!window.open(r,&#39;douban&#39;,&#39;toolbar=0,resizable=1,scrollbars=yes,status=1,width=450,height=330&#39;))location.href=r+&#39;&amp;r=1&#39;};if(/Firefox/.test(navigator.userAgent)){setTimeout(x,0)}else{x()}})()&quot;&gt;&lt;i class=&quot;social-icon-sprite social-icon-douban&quot;&gt;&lt;/i&gt;&lt;span&gt;分享到豆瓣&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+          &lt;/ul&gt;
+        " data-original-title="" title="">更多分享</a>
+      </div>
+    </div>
+
+      <a id="web-note-ad-2" target="_blank" href="https://www.jianshu.com/p/7dd2ad568a69"><img src="./第十三章 支持向量机 - 简书_files/gupao-43e5e6af6d2d1b2639ab8da6cdcdd1ed.png" alt="Gupao"></a>
+
+    <!--
+    <div id="note-comment-above-ad-container">
+      <span id="youdao-comment-ad" class="ad-badge">广告</span>
+    </div>
+    -->
+    <div><div id="comment-list" class="comment-list"><div><form class="new-comment"><a class="avatar"><img src="./第十三章 支持向量机 - 简书_files/cfe0a600-b4a3-4f91-9b77-a9f3d7cd461e(1)"></a> <textarea placeholder="写下你的评论..."></textarea> <!----></form> <!----></div> <!----> <div class="comments-placeholder" style="display: none;"><div class="author"><div class="avatar"></div> <div class="info"><div class="name"></div> <div class="meta"></div></div></div> <div class="text"></div> <div class="text animation-delay"></div> <div class="tool-group"><i class="iconfont ic-zan-active"></i><div class="zan"></div> <i class="iconfont ic-list-comments"></i><div class="zan"></div></div></div> <div id="normal-comment-list" class="normal-comment-list"><div><!----> <div><div class="top-title"><span>评论</span> <a class="close-btn" style="display: none;">关闭评论</a></div> <div class="no-comment"></div> <div class="text">
+            智慧如你，不想<a>发表一点想法</a>咩~
+          </div></div> <!----> <div class="comments-placeholder" style="display: none;"><div class="author"><div class="avatar"></div> <div class="info"><div class="name"></div> <div class="meta"></div></div></div> <div class="text"></div> <div class="text animation-delay"></div> <div class="tool-group"><i class="iconfont ic-zan-active"></i><div class="zan"></div> <i class="iconfont ic-list-comments"></i><div class="zan"></div></div></div> </div></div> <!----> <div><!----></div></div></div>
+  </div>
+
+  <div class="side-tool"><ul><li data-placement="left" data-toggle="tooltip" data-container="body" data-original-title="回到顶部" style=""><a class="function-button"><i class="iconfont ic-backtop"></i></a></li> <!----> <li data-placement="left" data-toggle="tooltip" data-container="body" data-original-title="将文章加入专题"><a class="js-submit-button"><i class="iconfont ic-addcollectionmodal"></i></a> <!----></li> <li data-placement="left" data-toggle="tooltip" data-container="body" data-original-title="收藏文章"><a class="function-button"><i class="iconfont ic-mark"></i></a></li> <li data-placement="left" data-toggle="tooltip" data-container="body" data-original-title="喜欢文章"><a class="function-button"><i class="iconfont ic-like"></i></a></li> <li data-placement="left" data-toggle="tooltip" data-container="body" data-original-title="分享文章" id="share"><a tabindex="0" role="button" data-toggle="popover" data-placement="left" data-html="true" data-trigger="focus" href="javascript:void(0);" data-content="&lt;ul class=&#39;share-list&#39; style=&quot;width:220px&quot;&gt;
+                  &lt;li&gt;&lt;a class=&quot;weixin-share&quot;&gt;&lt;i class=&quot;social-icon-sprite social-icon-weixin&quot;&gt;&lt;/i&gt;&lt;span&gt;分享到微信&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+                  &lt;li&gt;&lt;a href=&quot;javascript:void((function(s,d,e,r,l,p,t,z,c){var%20f=&#39;http://v.t.sina.com.cn/share/share.php?appkey=1881139527&#39;,u=z||d.location,p=[&#39;&amp;url=&#39;,e(u),&#39;&amp;title=&#39;,e(t||d.title),&#39;&amp;source=&#39;,e(r),&#39;&amp;sourceUrl=&#39;,e(l),&#39;&amp;content=&#39;,c||&#39;gb2312&#39;,&#39;&amp;pic=&#39;,e(p||&#39;&#39;)].join(&#39;&#39;);function%20a(){if(!window.open([f,p].join(&#39;&#39;),&#39;mb&#39;,[&#39;toolbar=0,status=0,resizable=1,width=440,height=430,left=&#39;,(s.width-440)/2,&#39;,top=&#39;,(s.height-430)/2].join(&#39;&#39;)))u.href=[f,p].join(&#39;&#39;);};if(/Firefox/.test(navigator.userAgent))setTimeout(a,0);else%20a();})(screen,document,encodeURIComponent,&#39;&#39;,&#39;&#39;,&#39;&#39;, &#39;推荐 tomas家的小拨浪鼓 的文章《第十三章 支持向量机》（ 分享自 @简书 ）&#39;,&#39;https://www.jianshu.com/p/87271dc6fa2e?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=reader_share&amp;utm_source=weibo&#39;,&#39;页面编码gb2312|utf-8默认gb2312&#39;));&quot;&gt;&lt;i class=&#39;social-icon-sprite social-icon-weibo&#39;&gt;&lt;/i&gt;&lt;span&gt;分享到微博&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+                  
+                  &lt;li&gt;&lt;a href=&quot;javascript:void(function(){var d=document,e=encodeURIComponent,r=&#39;http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=&#39;+e(&#39;https://www.jianshu.com/p/87271dc6fa2e?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=reader_share&amp;utm_source=qzone&#39;)+&#39;&amp;title=&#39;+e(&#39;推荐 tomas家的小拨浪鼓 的文章《第十三章 支持向量机》&#39;),x=function(){if(!window.open(r,&#39;qzone&#39;,&#39;toolbar=0,resizable=1,scrollbars=yes,status=1,width=600,height=600&#39;))location.href=r};if(/Firefox/.test(navigator.userAgent)){setTimeout(x,0)}else{x()}})();&quot;&gt;&lt;i class=&#39;social-icon-sprite social-icon-zone&#39;&gt;&lt;/i&gt;&lt;span&gt;分享到QQ空间&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+                  &lt;li&gt;&lt;a href=&quot;javascript:void(function(){var d=document,e=encodeURIComponent,r=&#39;https://twitter.com/share?url=&#39;+e(&#39;https://www.jianshu.com/p/87271dc6fa2e?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=reader_share&amp;utm_source=twitter&#39;)+&#39;&amp;text=&#39;+e(&#39;推荐 tomas家的小拨浪鼓 的文章《第十三章 支持向量机》（ 分享自 @jianshucom ）&#39;)+&#39;&amp;related=&#39;+e(&#39;jianshucom&#39;),x=function(){if(!window.open(r,&#39;twitter&#39;,&#39;toolbar=0,resizable=1,scrollbars=yes,status=1,width=600,height=600&#39;))location.href=r};if(/Firefox/.test(navigator.userAgent)){setTimeout(x,0)}else{x()}})();&quot;&gt;&lt;i class=&#39;social-icon-sprite social-icon-twitter&#39;&gt;&lt;/i&gt;&lt;span&gt;分享到Twitter&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+                  &lt;li&gt;&lt;a href=&quot;javascript:void(function(){var d=document,e=encodeURIComponent,r=&#39;https://www.facebook.com/dialog/share?app_id=483126645039390&amp;display=popup&amp;href=https://www.jianshu.com/p/87271dc6fa2e?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=reader_share&amp;utm_source=facebook&#39;,x=function(){if(!window.open(r,&#39;facebook&#39;,&#39;toolbar=0,resizable=1,scrollbars=yes,status=1,width=450,height=330&#39;))location.href=r};if(/Firefox/.test(navigator.userAgent)){setTimeout(x,0)}else{x()}})();&quot;&gt;&lt;i class=&#39;social-icon-sprite social-icon-facebook&#39;&gt;&lt;/i&gt;&lt;span&gt;分享到Facebook&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+                  &lt;li&gt;&lt;a href=&quot;javascript:void(function(){var d=document,e=encodeURIComponent,r=&#39;https://plus.google.com/share?url=&#39;+e(&#39;https://www.jianshu.com/p/87271dc6fa2e?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=reader_share&amp;utm_source=google_plus&#39;),x=function(){if(!window.open(r,&#39;google_plus&#39;,&#39;toolbar=0,resizable=1,scrollbars=yes,status=1,width=450,height=330&#39;))location.href=r};if(/Firefox/.test(navigator.userAgent)){setTimeout(x,0)}else{x()}})();&quot;&gt;&lt;i class=&#39;social-icon-sprite social-icon-google&#39;&gt;&lt;/i&gt;&lt;span&gt;分享到Google+&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+                  &lt;li&gt;&lt;a href=&quot;javascript:void(function(){var d=document,e=encodeURIComponent,s1=window.getSelection,s2=d.getSelection,s3=d.selection,s=s1?s1():s2?s2():s3?s3.createRange().text:&#39;&#39;,r=&#39;http://www.douban.com/recommend/?url=&#39;+e(&#39;https://www.jianshu.com/p/87271dc6fa2e?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=reader_share&amp;utm_source=douban&#39;)+&#39;&amp;title=&#39;+e(&#39;第十三章 支持向量机&#39;)+&#39;&amp;sel=&#39;+e(s)+&#39;&amp;v=1&#39;,x=function(){if(!window.open(r,&#39;douban&#39;,&#39;toolbar=0,resizable=1,scrollbars=yes,status=1,width=450,height=330&#39;))location.href=r+&#39;&amp;r=1&#39;};if(/Firefox/.test(navigator.userAgent)){setTimeout(x,0)}else{x()}})()&quot;&gt;&lt;i class=&#39;social-icon-sprite social-icon-douban&#39;&gt;&lt;/i&gt;&lt;span&gt;分享到豆瓣&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+                &lt;/ul&gt;" data-original-title="" title="" class="function-button"><i class="iconfont ic-share"></i></a> <!----></li> <!----></ul></div>
+</div>
+<div class="note-bottom">
+  <div><div class="main"><div class="title">被以下专题收入，发现更多相似内容</div> <!----> <div class="include-collection"><div class="modal-wrap add-collection-wrap"><a class="add-collection"><i class="iconfont ic-follow"></i>收入我的专题</a></div> <a href="https://www.jianshu.com/c/86ff829f995f?utm_source=desktop&amp;utm_medium=notes-included-collection" target="_blank" class="item"><img src="./第十三章 支持向量机 - 简书_files/u_2582065815_2360012304_fm_21_gp_0.jpg"><div class="name">大数据，机器学...</div></a><a href="https://www.jianshu.com/c/NEt52a?utm_source=desktop&amp;utm_medium=notes-included-collection" target="_blank" class="item"><img src="./第十三章 支持向量机 - 简书_files/computer_guy.jpg"><div class="name">程序员</div></a><a href="https://www.jianshu.com/c/851c3c1ea1ab?utm_source=desktop&amp;utm_medium=notes-included-collection" target="_blank" class="item"><img src="./第十三章 支持向量机 - 简书_files/1551891463.jpg"><div class="name">机器学习</div></a><a href="https://www.jianshu.com/c/e581bbab97e4?utm_source=desktop&amp;utm_medium=notes-included-collection" target="_blank" class="item"><img src="./第十三章 支持向量机 - 简书_files/20140403130913-11922290901.jpg"><div class="name">机器学习和人工...</div></a><a href="https://www.jianshu.com/c/69a194bb97f8?utm_source=desktop&amp;utm_medium=notes-included-collection" target="_blank" class="item"><img src="./第十三章 支持向量机 - 简书_files/u_2165339305_324506188_fm_26_gp_0.jpg"><div class="name">程序园</div></a><a href="https://www.jianshu.com/c/4b666067832d?utm_source=desktop&amp;utm_medium=notes-included-collection" target="_blank" class="item"><img src="./第十三章 支持向量机 - 简书_files/1555117315.jpg"><div class="name">机器学习</div></a> <!----></div></div> <!----> <!----></div>
+  <div data-vcomp="recommended-notes" data-note-id="42623042"></div>
+
+  <!-- 相关文章 -->
+      <!-- 登录用户 -->
+      <div class="seo-recommended-notes">
+          <!-- % similary_notes = Recsys::SimilarNotesQuery.new(:user => current_user, :note => @note).records.map(&:note) %-->
+
+            <div class="note ">
+                            <a class="title" target="_blank" href="https://www.jianshu.com/p/ed18e9bbfefa?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=seo_notes&amp;utm_source=recommendation">48.旋转图像</a>
+              <p class="description">思路旋转分为两步：1、将矩阵转置，2、翻转当前行</p>
+              <a class="author" target="_blank" href="https://www.jianshu.com/u/4624288117d5?utm_campaign=maleskine&amp;utm_content=user&amp;utm_medium=seo_notes&amp;utm_source=recommendation">
+                <div class="avatar">
+                  <img src="./第十三章 支持向量机 - 简书_files/12-aeeea4bedf10f2a12c0d50d626951489.jpg" alt="48">
+                </div>
+                <span class="name">HITZGD</span>
+</a>            </div>
+
+            <div class="note have-img">
+              <a class="cover" target="_blank" href="https://www.jianshu.com/p/e595304e6ee6?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=seo_notes&amp;utm_source=recommendation">
+                <img src="./第十三章 支持向量机 - 简书_files/10098981-211a755ed3c5fd7d" alt="240">
+</a>              <a class="title" target="_blank" href="https://www.jianshu.com/p/e595304e6ee6?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=seo_notes&amp;utm_source=recommendation">《动物世界》：逻辑思维很强大，却出现了错误的数学运算？</a>
+              <p class="description">电影《动物世界》讲述的是男主角郑开司在贫困潦倒的时候被发小欺骗而欠下几百万的债。为了偿还这个债务，他选择了登上公海的那艘叫做“生命号”的船，开始了“生命之旅”。（以下内容可能会剧透） 电影内容很精彩，情节跌宕起伏，又惊又喜，剧中那些局中局、计中计，令人紧张，扣人心弦。不过小...</p>
+              <a class="author" target="_blank" href="https://www.jianshu.com/u/ad7f0cad2f13?utm_campaign=maleskine&amp;utm_content=user&amp;utm_medium=seo_notes&amp;utm_source=recommendation">
+                <div class="avatar">
+                  <img src="./第十三章 支持向量机 - 简书_files/f8be27d3-a5ec-4637-9943-fdd85aa4e99a.jpg" alt="48">
+                </div>
+                <span class="name">琴欣传意</span>
+</a>            </div>
+
+            <div class="note have-img">
+              <a class="cover" target="_blank" href="https://www.jianshu.com/p/31794e3516c5?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=seo_notes&amp;utm_source=recommendation">
+                <img src="./第十三章 支持向量机 - 简书_files/1451491-a0ca648347088406.jpg" alt="240">
+</a>              <a class="title" target="_blank" href="https://www.jianshu.com/p/31794e3516c5?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=seo_notes&amp;utm_source=recommendation">妈妈，我的疯妈妈</a>
+              <p class="description">妈妈   我的疯妈妈 您就这样走了 不带一丝叮嘱 不带一丝愁容 您就这样走了 走进了那个我遥不可及的世界 与无法亲自孝顺您的天堂 那里一定是您的乐园 不会再有人 歧视您的衣衫褴褛 蓬头垢面 不会再有您拼力的爱我 我也懒得回应您的爱 这霸道的永恒 妈妈    我的疯妈妈呀 面...</p>
+              <a class="author" target="_blank" href="https://www.jianshu.com/u/cf17a93e2623?utm_campaign=maleskine&amp;utm_content=user&amp;utm_medium=seo_notes&amp;utm_source=recommendation">
+                <div class="avatar">
+                  <img src="./第十三章 支持向量机 - 简书_files/29ab037378d1.jpeg" alt="48">
+                </div>
+                <span class="name">以琳</span>
+</a>            </div>
+
+            <div class="note ">
+                            <a class="title" target="_blank" href="https://www.jianshu.com/p/c00b1689a275?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=seo_notes&amp;utm_source=recommendation">什么是知行合一</a>
+              <p class="description">朋友来了有美酒,豺狼来了有猎枪这就是知行合一。 豺狼来了，想吃了你，你还客客气气的跟豺狼说：“我这里有美酒，来我们喝一杯！” 这不是找死呢嘛！ 就要像明朝那些事中讲的王阳明一样，对付坏人，就要不择手段；你用与君子相处的方式来对待十恶不赦之人，把十恶不赦之人与君子摆在同一位置...</p>
+              <a class="author" target="_blank" href="https://www.jianshu.com/u/a6217200e10d?utm_campaign=maleskine&amp;utm_content=user&amp;utm_medium=seo_notes&amp;utm_source=recommendation">
+                <div class="avatar">
+                  <img src="./第十三章 支持向量机 - 简书_files/3a846dc9-ac54-4247-8ed7-775095f5612a.jpg" alt="48">
+                </div>
+                <span class="name">微wx笑</span>
+</a>            </div>
+
+            <div class="note ">
+                            <a class="title" target="_blank" href="https://www.jianshu.com/p/0f2dfb6a9a4f?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=seo_notes&amp;utm_source=recommendation">神童</a>
+              <p class="description">音乐神童、数学神童…… 从来没有哲学神童。 中国人喜欢听琅琅上口的话， 喜欢说琅琅上口的话。 聪明的皇帝就不断想出些琅琅来让百姓上口。 某时期琅琅的东西不多， 无疑是某皇帝不太聪明，百姓也不大开心。 接着有人把不太聪明的皇帝挤掉， 自己做皇帝，当然是比较聪明的琅琅的东西又多...</p>
+              <a class="author" target="_blank" href="https://www.jianshu.com/u/78b0d397c8c7?utm_campaign=maleskine&amp;utm_content=user&amp;utm_medium=seo_notes&amp;utm_source=recommendation">
+                <div class="avatar">
+                  <img src="./第十三章 支持向量机 - 简书_files/1dc38045-0794-4a19-a603-42566e1b23b7.jpg" alt="48">
+                </div>
+                <span class="name">马唐</span>
+</a>            </div>
+      </div>
+</div>
+
+    <script type="application/json" data-name="page-data">{"user_signed_in":true,"locale":"zh-CN","os":"linux","read_mode":"day","read_font":"font1","current_user":{"id":6192558,"nickname":"huifeiyu","slug":"5544cab98f7e","avatar":"http://upload.jianshu.io/users/upload_avatars/6192558/cfe0a600-b4a3-4f91-9b77-a9f3d7cd461e","unread_counts":{"chats":0,"total":0},"is_member":false,"ads_free":false,"has_editable_collection":false},"note_show":{"is_author":false,"is_following_author":true,"is_liked_note":false,"follow_state":2,"uuid":"9e4fdd24-2f6e-4fbe-8964-bc7e9a73bca0"},"note":{"id":42623042,"slug":"87271dc6fa2e","user_id":4235178,"notebook_id":34264197,"commentable":true,"likes_count":11,"views_count":323,"public_wordage":8952,"comments_count":0,"featured_comments_count":0,"total_rewards_count":0,"is_author":false,"paid_type":"free","paid":false,"paid_content_accessible":false,"author":{"nickname":"tomas家的小拨浪鼓","total_wordage":259321,"followers_count":1251,"total_likes_count":751}}}</script>
+    
+    <script src="./第十三章 支持向量机 - 简书_files/babel-polyfill-d171e3dec4b6c15634dd.js" crossorigin="anonymous"></script>
+    <script src="./第十三章 支持向量机 - 简书_files/web-base-84b4bad91c60ae6099bb.js" crossorigin="anonymous"></script>
+<script src="./第十三章 支持向量机 - 简书_files/web-9f18cd5499f0ee408e7c.js" crossorigin="anonymous"></script>
+    
+    <script src="./第十三章 支持向量机 - 简书_files/entry-79f25afb8c7cae826fef.js" crossorigin="anonymous"></script>
+    <script>
+  (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      if (curProtocol === 'https') {
+          bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+      }
+      else {
+          bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+      }
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+  })();
+</script>
+
+  
+
+<!----><!----><!----></body></html>

@@ -1,0 +1,22 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/560204/gitee/LearnNote/cpp/设计模式/strategy/TaxStrategy.h
+
+/home/560204/gitee/LearnNote/cpp/设计模式/strategy/main.cpp
+iostream
+-
+tax.h
+/home/560204/gitee/LearnNote/cpp/设计模式/strategy/tax.h
+
+/home/560204/gitee/LearnNote/cpp/设计模式/strategy/tax.h
+TaxStrategy.h
+/home/560204/gitee/LearnNote/cpp/设计模式/strategy/TaxStrategy.h
+iostream
+-
+

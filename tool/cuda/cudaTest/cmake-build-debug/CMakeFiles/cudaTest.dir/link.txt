@@ -1,0 +1,1 @@
+/usr/bin/c++  -g   CMakeFiles/cudaTest.dir/main.cpp.o  -o cudaTest 

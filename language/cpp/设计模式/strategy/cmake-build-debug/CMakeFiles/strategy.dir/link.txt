@@ -1,0 +1,1 @@
+/usr/bin/c++  -g   CMakeFiles/strategy.dir/main.cpp.o CMakeFiles/strategy.dir/TaxStrategy.cpp.o  -o strategy 

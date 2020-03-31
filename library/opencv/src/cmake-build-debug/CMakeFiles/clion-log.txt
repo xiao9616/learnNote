@@ -1,0 +1,24 @@
+/home/560204/soft/clion-2018.2.4/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/560204/gitee/LearnNote/opencv/src
+-- The C compiler identification is GNU 4.8.5
+-- The CXX compiler identification is GNU 4.8.5
+-- Check for working C compiler: /usr/bin/cc
+-- Check for working C compiler: /usr/bin/cc -- works
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Check for working CXX compiler: /usr/bin/c++
+-- Check for working CXX compiler: /usr/bin/c++ -- works
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Found OpenCV: /home/560204/soft/opencv/build (found suitable version "4.0.0", minimum required is "4.0") 
+-- OpenCV library status:
+--     config: /home/560204/soft/opencv/build
+--     version: 4.0.0
+--     libraries: opencv_calib3d;opencv_core;opencv_dnn;opencv_features2d;opencv_flann;opencv_highgui;opencv_imgcodecs;opencv_imgproc;opencv_ml;opencv_objdetect;opencv_photo;opencv_shape;opencv_stitching;opencv_superres;opencv_video;opencv_videoio;opencv_videostab
+--     include path: /home/560204/soft/opencv/build;/home/560204/soft/opencv/include;/home/560204/soft/opencv/modules/core/include;/home/560204/soft/opencv/modules/flann/include;/home/560204/soft/opencv/modules/imgproc/include;/home/560204/soft/opencv/modules/ml/include;/home/560204/soft/opencv/modules/photo/include;/home/560204/soft/opencv/modules/dnn/include;/home/560204/soft/opencv/modules/imgcodecs/include;/home/560204/soft/opencv/modules/videoio/include;/home/560204/soft/opencv/modules/highgui/include;/home/560204/soft/opencv/modules/ts/include;/home/560204/soft/opencv/modules/features2d/include;/home/560204/soft/opencv/modules/calib3d/include;/home/560204/soft/opencv/modules/objdetect/include;/home/560204/soft/opencv/modules/shape/include;/home/560204/soft/opencv/modules/stitching/include;/home/560204/soft/opencv/modules/video/include;/home/560204/soft/opencv/modules/videostab/include;/home/560204/soft/opencv/modules/superres/include
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/560204/gitee/LearnNote/opencv/src/cmake-build-debug

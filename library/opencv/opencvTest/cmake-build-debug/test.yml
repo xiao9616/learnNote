@@ -1,0 +1,18 @@
+%YAML:1.0
+---
+frameCount: 5
+calibrationDate: "Tue Jun 18 10:46:18 2019\n"
+cameraMatrix: !!opencv-matrix
+   rows: 3
+   cols: 3
+   dt: d
+   data: [ 100., 20., 23., 56., 546., 568., 56., 546., 568. ]
+distMatrix: !!opencv-matrix
+   rows: 3
+   cols: 3
+   dt: d
+   data: [ 100., 20., 23., 56., 546., 568., 56., 546., 568. ]
+features:
+   - { x:103, y:166 }
+   - { x:617, y:115 }
+   - { x:593, y:415 }

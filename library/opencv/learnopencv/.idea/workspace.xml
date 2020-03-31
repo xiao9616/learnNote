@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true" buildAllGenerated="true">
+    <generated>
+      <config projectName="learnopencv" targetName="learnopencv" />
+    </generated>
+  </component>
+  <component name="CMakeSettings">
+    <configurations>
+      <configuration PROFILE_NAME="Debug" CONFIG_NAME="Debug" />
+    </configurations>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="14768ef7-0791-4642-97df-93d3e5449328" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../../dataStruct/java/.idea/.name" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../dataStruct/java/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../dataStruct/java/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../dataStruct/java/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../dataStruct/java/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../dataStruct/java/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../dataStruct/java/dataStructJava.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../dataStruct/java/tree/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../dataStruct/java/tree/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../dataStruct/java/tree/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../dataStruct/java/tree/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../dataStruct/java/tree/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../dataStruct/java/tree/out/production/tree/com/xiao/BinaryTree.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../dataStruct/java/tree/out/production/tree/com/xiao/listBinaryTree.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../dataStruct/java/tree/out/production/tree/com/xiao/node.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../dataStruct/java/tree/out/production/tree/com/xiao/test.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../dataStruct/java/tree/src/com/xiao/BinaryTree.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../dataStruct/java/tree/src/com/xiao/listBinaryTree.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../dataStruct/java/tree/src/com/xiao/node.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../dataStruct/java/tree/src/com/xiao/test.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../dataStruct/java/tree/tree.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../designPattern/abstractFactoryPattern/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../designPattern/abstractFactoryPattern/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../designPattern/abstractFactoryPattern/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../designPattern/abstractFactoryPattern/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../designPattern/abstractFactoryPattern/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../designPattern/abstractFactoryPattern/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../designPattern/abstractFactoryPattern/abstractFactoryPattern.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../designPattern/abstractFactoryPattern/out/production/abstractFactoryPattern/Blue.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../designPattern/abstractFactoryPattern/out/production/abstractFactoryPattern/Circle.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../designPattern/abstractFactoryPattern/out/production/abstractFactoryPattern/Color.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../designPattern/abstractFactoryPattern/out/production/abstractFactoryPattern/ColorFactory.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../designPattern/abstractFactoryPattern/out/production/abstractFactoryPattern/Factory.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../designPattern/abstractFactoryPattern/out/production/abstractFactoryPattern/FactoryProducer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../designPattern/abstractFactoryPattern/out/production/abstractFactoryPattern/Green.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../designPattern/abstractFactoryPattern/out/production/abstractFactoryPattern/Rectangle.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../designPattern/abstractFactoryPattern/out/production/abstractFactoryPattern/Red.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../designPattern/abstractFactoryPattern/out/production/abstractFactoryPattern/ShapeFactory.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../designPattern/abstractFactoryPattern/out/production/abstractFactoryPattern/Square.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../designPattern/abstractFactoryPattern/out/production/abstractFactoryPattern/demo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../designPattern/abstractFactoryPattern/out/production/abstractFactoryPattern/shape.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../designPattern/abstractFactoryPattern/src/Blue.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../designPattern/abstractFactoryPattern/src/Circle.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../designPattern/abstractFactoryPattern/src/Color.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../designPattern/abstractFactoryPattern/src/ColorFactory.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../designPattern/abstractFactoryPattern/src/Factory.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../designPattern/abstractFactoryPattern/src/FactoryProducer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../designPattern/abstractFactoryPattern/src/Green.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../designPattern/abstractFactoryPattern/src/Rectangle.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../designPattern/abstractFactoryPattern/src/Red.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../designPattern/abstractFactoryPattern/src/ShapeFactory.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../designPattern/abstractFactoryPattern/src/Square.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../designPattern/abstractFactoryPattern/src/demo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../designPattern/abstractFactoryPattern/src/shape.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../designPattern/factoryPattern/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../designPattern/factoryPattern/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../designPattern/factoryPattern/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../designPattern/factoryPattern/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../designPattern/factoryPattern/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../designPattern/factoryPattern/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../designPattern/factoryPattern/factoryPattern.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../designPattern/factoryPattern/out/production/factoryPattern/Circle.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../designPattern/factoryPattern/out/production/factoryPattern/Rectangle.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../designPattern/factoryPattern/out/production/factoryPattern/ShapeFactory.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../designPattern/factoryPattern/out/production/factoryPattern/Square.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../designPattern/factoryPattern/out/production/factoryPattern/demo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../designPattern/factoryPattern/out/production/factoryPattern/shape.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../designPattern/factoryPattern/src/Circle.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../designPattern/factoryPattern/src/Rectangle.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../designPattern/factoryPattern/src/ShapeFactory.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../designPattern/factoryPattern/src/Square.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../designPattern/factoryPattern/src/demo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../designPattern/factoryPattern/src/shape.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../designPattern/proxyPattern/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../designPattern/proxyPattern/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../designPattern/proxyPattern/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../designPattern/proxyPattern/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../designPattern/proxyPattern/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../designPattern/proxyPattern/out/production/proxyPattern/Image.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../designPattern/proxyPattern/out/production/proxyPattern/RealImage.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../designPattern/proxyPattern/out/production/proxyPattern/demo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../designPattern/proxyPattern/out/production/proxyPattern/proxyImage.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../designPattern/proxyPattern/proxyPattern.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../designPattern/proxyPattern/src/Image.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../designPattern/proxyPattern/src/RealImage.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../designPattern/proxyPattern/src/demo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../designPattern/proxyPattern/src/proxyImage.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../designPattern/singlePattern/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../designPattern/singlePattern/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../designPattern/singlePattern/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../designPattern/singlePattern/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../designPattern/singlePattern/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../designPattern/singlePattern/out/production/singlePattern/demo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../designPattern/singlePattern/out/production/singlePattern/singleObject.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../designPattern/singlePattern/singlePattern.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../designPattern/singlePattern/src/demo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../designPattern/singlePattern/src/singleObject.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../学习OpenCV3.pdf" beforeDir="false" />
+    </list>
+    <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
+  <component name="FUSProjectUsageTrigger">
+    <session id="2057634803">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="1" />
+          <entry key="project.open.time.1" value="1" />
+          <entry key="project.opened" value="1" />
+        </counts>
+      </usages-collector>
+    </session>
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/main.cpp">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="812" />
+    <option name="y" value="409" />
+    <option name="width" value="976" />
+    <option name="height" value="793" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="learnopencv" type="b2602c69:ProjectViewProjectNode" />
+              <item name="learnopencv" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Application.learnopencv">
+    <configuration name="Build All" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" CONFIG_NAME="Debug" EXPLICIT_BUILD_TARGET_NAME="all">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="learnopencv" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="learnopencv" TARGET_NAME="learnopencv" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="learnopencv" RUN_TARGET_NAME="learnopencv">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.Build All" />
+      <item itemvalue="Application.learnopencv" />
+    </list>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="14768ef7-0791-4642-97df-93d3e5449328" name="Default Changelist" comment="" />
+      <created>1559013265978</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1559013265978</updated>
+      <workItem from="1559013268092" duration="156000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="156000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="812" y="409" width="976" height="793" extended-state="0" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Favorites" side_tool="true" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.15658747" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Database Changes" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Terminal" />
+      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info anchor="bottom" id="CMake" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="right" id="Database" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/main.cpp">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+  </component>
+</project>

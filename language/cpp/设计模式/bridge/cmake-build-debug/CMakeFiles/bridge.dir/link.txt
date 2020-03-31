@@ -1,0 +1,1 @@
+/usr/bin/c++  -g   CMakeFiles/bridge.dir/main.cpp.o CMakeFiles/bridge.dir/device.cpp.o CMakeFiles/bridge.dir/message.cpp.o CMakeFiles/bridge.dir/pcDevice.cpp.o CMakeFiles/bridge.dir/mobileDevice.cpp.o CMakeFiles/bridge.dir/messageLite.cpp.o CMakeFiles/bridge.dir/meaagePerfect.cpp.o  -o bridge 

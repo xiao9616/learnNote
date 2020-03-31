@@ -1,0 +1,15 @@
+<!--pages/cloud/cloud.wxml-->
+<button bindtap='insert'>插入</button>
+<button bindtap='update'>修改</button>
+<button bindtap='delete'>删除</button>
+<button bindtap='search'>查找</button>
+<view>云函数</view>
+<button bindtap='add'>add</button>
+<button bindtap='getopenid'>获取用户openid</button>
+<view>云存储</view>
+<button bindtap='upload'>上传图片</button>
+<button bindtap='download'>下载图片</button>
+<block wx:for="{{images}}">
+  <image src='{{item.fileID}}'></image>
+  <button data-fileid="{{item.fileID}}" bindtap='save'>保存图片</button>
+</block>

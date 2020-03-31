@@ -1,0 +1,1 @@
+/usr/bin/c++  -g   CMakeFiles/memento.dir/main.cpp.o CMakeFiles/memento.dir/memeto.cpp.o CMakeFiles/memento.dir/originator.cpp.o  -o memento 

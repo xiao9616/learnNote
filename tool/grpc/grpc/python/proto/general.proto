@@ -1,0 +1,25 @@
+syntax = "proto3";
+//编译生产可执行文件
+//python -m grpc_tools.protoc --python_out=. --grpc_python_out=. -I. general.proto
+service General {
+    // 简单的一次请求，一次应对
+    rpc messageHandle (Request) returns (Reply) {
+    }
+
+    //双向 请求参数流传输，返回结果流传输
+    rpc messageStreamHandle (stream Request) returns (stream  Reply) {
+    }
+
+}
+// 请求参数
+message Request {
+    string jsonStr = 1;
+    bytes byteStream =2;
+
+}
+// 应答
+message Reply {
+    string jsonStr = 1;
+    bytes byteStream =2;
+}
+

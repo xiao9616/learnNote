@@ -1,0 +1,2086 @@
+<!DOCTYPE html>
+<!-- saved from url=(0038)https://www.jianshu.com/p/88d7178898c6 -->
+<html><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+
+  <!-- Start of Baidu Transcode -->
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta name="applicable-device" content="pc,mobile">
+  <meta name="MobileOptimized" content="width">
+  <meta name="HandheldFriendly" content="true">
+  <meta name="mobile-agent" content="format=html5;url=https://www.jianshu.com/p/88d7178898c6">
+  <!-- End of Baidu Transcode -->
+
+    <meta name="description" content="该系列文章为，观看“吴恩达机器学习”系列视频的学习笔记。虽然每个视频都很简单，但不得不说每一句都非常的简洁扼要，浅显易懂。非常适合我这样的小白入门。 本章含盖 15.1 目标 I：数据压缩 15.2 目标 II：可视化 15.3 主成分分析问题规划1 15.4 主成分分析问题规划2 15.5 主成分数量选择 15.6 压缩重现 15.7 应用 PCA 的建议 15.1 目标 I：数据压缩 第...">
+
+  <meta name="360-site-verification" content="604a14b53c6b871206001285921e81d8">
+  <meta property="wb:webmaster" content="294ec9de89e7fadb">
+  <meta property="qc:admins" content="104102651453316562112116375">
+  <meta property="qc:admins" content="11635613706305617">
+  <meta property="qc:admins" content="1163561616621163056375">
+  <meta name="google-site-verification" content="cV4-qkUJZR6gmFeajx_UyPe47GW9vY6cnCrYtCHYNh4">
+  <meta name="google-site-verification" content="HF7lfF8YEGs1qtCE-kPml8Z469e2RHhGajy6JPVy5XI">
+  <meta http-equiv="mobile-agent" content="format=html5; url=https://www.jianshu.com/p/88d7178898c6">
+
+  <!-- Apple -->
+  <meta name="apple-mobile-web-app-title" content="简书">
+
+    <!--  Meta for Smart App Banner -->
+  <meta name="apple-itunes-app" content="app-id=888237539, app-argument=jianshu://notes/42915752">
+  <!-- End -->
+
+  <!--  Meta for Twitter Card -->
+  <meta content="summary" property="twitter:card">
+  <meta content="@jianshucom" property="twitter:site">
+  <meta content="第十五章 降维" property="twitter:title">
+  <meta content="该系列文章为，观看“吴恩达机器学习”系列视频的学习笔记。虽然每个视频都很简单，但不得不说每一句都非常的简洁扼要，浅显易懂。非常适合我这样的小白入门。 本章含盖 15.1 目标..." property="twitter:description">
+  <meta content="https://www.jianshu.com/p/88d7178898c6" property="twitter:url">
+  <!-- End -->
+
+  <!--  Meta for OpenGraph -->
+  <meta property="fb:app_id" content="865829053512461">
+  <meta property="og:site_name" content="简书">
+  <meta property="og:title" content="第十五章 降维">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://www.jianshu.com/p/88d7178898c6">
+  <meta property="og:description" content="该系列文章为，观看“吴恩达机器学习”系列视频的学习笔记。虽然每个视频都很简单，但不得不说每一句都非常的简洁扼要，浅显易懂。非常适合我这样的小白入门。 本章含盖 15.1 目标 I：数据压缩 15...">
+  <!-- End -->
+
+  <!--  Meta for Facebook Applinks -->
+  <meta property="al:ios:url" content="jianshu://notes/42915752">
+  <meta property="al:ios:app_store_id" content="888237539">
+  <meta property="al:ios:app_name" content="简书">
+
+  <meta property="al:android:url" content="jianshu://notes/42915752">
+  <meta property="al:android:package" content="com.jianshu.haruki">
+  <meta property="al:android:app_name" content="简书">
+  <!-- End -->
+
+
+    <title>第十五章 降维 - 简书</title>
+
+  <meta name="csrf-param" content="authenticity_token">
+<meta name="csrf-token" content="fwm+YytMjSGJL8OTq2BIwhy2TIbS+SAfGQVR8t28UgIR5LeyUFSCDFIV0dhnzPfOubMy8TZgPxvVvG5HwAyatQ==">
+
+  <link rel="stylesheet" media="all" href="./第十五章 降维 - 简书_files/web-30728a1164102859481d.css">
+  
+  <link rel="stylesheet" media="all" href="./第十五章 降维 - 简书_files/entry-aa75deb505b1b600256a.css">
+
+  <link href="https://cdn2.jianshu.io/assets/favicons/favicon-e743bfb1821442341c3ab15bdbe804f7ad97676bd07a770ccc9483473aa76f06.ico" rel="shortcut icon" type="image/x-icon">
+      <link rel="apple-touch-icon-precomposed" href="https://cdn2.jianshu.io/assets/apple-touch-icons/57-a6f1f1ee62ace44f6dc2f6a08575abd3c3b163288881c78dd8d75247682a4b27.png" sizes="57x57">
+      <link rel="apple-touch-icon-precomposed" href="https://cdn2.jianshu.io/assets/apple-touch-icons/72-fb9834bcfce738fd7b9c5e31363e79443e09a81a8e931170b58bc815387c1562.png" sizes="72x72">
+      <link rel="apple-touch-icon-precomposed" href="https://cdn2.jianshu.io/assets/apple-touch-icons/76-49d88e539ff2489475d603994988d871219141ecaa0b1a7a9a1914f4fe3182d6.png" sizes="76x76">
+      <link rel="apple-touch-icon-precomposed" href="https://cdn2.jianshu.io/assets/apple-touch-icons/114-24252fe693524ed3a9d0905e49bff3cbd0228f25a320aa09053c2ebb4955de97.png" sizes="114x114">
+      <link rel="apple-touch-icon-precomposed" href="https://cdn2.jianshu.io/assets/apple-touch-icons/120-1bb7371f5e87f93ce780a5f1a05ff1b176828ee0d1d130e768575918a2e05834.png" sizes="120x120">
+      <link rel="apple-touch-icon-precomposed" href="https://cdn2.jianshu.io/assets/apple-touch-icons/152-bf209460fc1c17bfd3e2b84c8e758bc11ca3e570fd411c3bbd84149b97453b99.png" sizes="152x152">
+
+  <!-- Start of 访问统计 -->
+    <script src="./第十五章 降维 - 简书_files/push.js"></script><script src="./第十五章 降维 - 简书_files/hm.js"></script><script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?0c0e9d9b1e7d617b3e6842e85b9fb068";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+  <!-- End of 访问统计 -->
+<style type="text/css">@charset "UTF-8";.image-package .image-container .image-view-error:after,.image-package .image-container .image-view-maintain:after{position:absolute;top:50%;left:50%;width:100%;-webkit-transform:translate(-50%,-50%);-ms-transform:translate(-50%,-50%);transform:translate(-50%,-50%);color:#888;font-size:14px}.image-package .image-container{position:relative;z-index:2;background-color:#eee;-webkit-transition:background-color .1s linear;-o-transition:background-color .1s linear;transition:background-color .1s linear;margin:0 auto}body.reader-night-mode .image-package .image-container{background-color:#545454}.image-package .image-container-fill{z-index:1}.image-package .image-container .image-view{position:absolute;top:0;left:0;width:100%;height:100%;overflow:hidden}.image-package .image-container .image-view-error:after{content:"图片获取失败，请点击重试"}.image-package .image-container .image-view-maintain:after{content:"系统维护中，图片暂时无法加载"}.image-package .image-container .image-view img.image-loading{opacity:.3}.image-package .image-container .image-view img{-webkit-transition:all .15s linear;-o-transition:all .15s linear;transition:all .15s linear;z-index:2;opacity:1}</style><style type="text/css">fieldset[disabled] .multiselect {
+  pointer-events: none;
+}
+
+.multiselect__spinner {
+  position: absolute;
+  right: 1px;
+  top: 1px;
+  width: 48px;
+  height: 35px;
+  background: #fff;
+  display: block;
+}
+
+.multiselect__spinner:after,
+.multiselect__spinner:before {
+  position: absolute;
+  content: "";
+  top: 50%;
+  left: 50%;
+  margin: -8px 0 0 -8px;
+  width: 16px;
+  height: 16px;
+  border-radius: 100%;
+  border-color: #41b883 transparent transparent;
+  border-style: solid;
+  border-width: 2px;
+  box-shadow: 0 0 0 1px transparent;
+}
+
+.multiselect__spinner:before {
+  animation: a 2.4s cubic-bezier(.41,.26,.2,.62);
+  animation-iteration-count: infinite;
+}
+
+.multiselect__spinner:after {
+  animation: a 2.4s cubic-bezier(.51,.09,.21,.8);
+  animation-iteration-count: infinite;
+}
+
+.multiselect__loading-enter-active,
+.multiselect__loading-leave-active {
+  transition: opacity .4s ease-in-out;
+  opacity: 1;
+}
+
+.multiselect__loading-enter,
+.multiselect__loading-leave-active {
+  opacity: 0;
+}
+
+.multiselect,
+.multiselect__input,
+.multiselect__single {
+  font-family: inherit;
+  font-size: 14px;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+}
+
+.multiselect {
+  box-sizing: content-box;
+  display: block;
+  position: relative;
+  width: 100%;
+  min-height: 40px;
+  text-align: left;
+  color: #35495e;
+}
+
+.multiselect * {
+  box-sizing: border-box;
+}
+
+.multiselect:focus {
+  outline: none;
+}
+
+.multiselect--disabled {
+  opacity: .6;
+}
+
+.multiselect--active {
+  z-index: 1;
+}
+
+.multiselect--active:not(.multiselect--above) .multiselect__current,
+.multiselect--active:not(.multiselect--above) .multiselect__input,
+.multiselect--active:not(.multiselect--above) .multiselect__tags {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.multiselect--active .multiselect__select {
+  transform: rotate(180deg);
+}
+
+.multiselect--above.multiselect--active .multiselect__current,
+.multiselect--above.multiselect--active .multiselect__input,
+.multiselect--above.multiselect--active .multiselect__tags {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.multiselect__input,
+.multiselect__single {
+  position: relative;
+  display: inline-block;
+  min-height: 20px;
+  line-height: 20px;
+  border: none;
+  border-radius: 5px;
+  background: #fff;
+  padding: 0 0 0 5px;
+  width: 100%;
+  transition: border .1s ease;
+  box-sizing: border-box;
+  margin-bottom: 8px;
+  vertical-align: top;
+}
+
+.multiselect__tag~.multiselect__input,
+.multiselect__tag~.multiselect__single {
+  width: auto;
+}
+
+.multiselect__input:hover,
+.multiselect__single:hover {
+  border-color: #cfcfcf;
+}
+
+.multiselect__input:focus,
+.multiselect__single:focus {
+  border-color: #a8a8a8;
+  outline: none;
+}
+
+.multiselect__single {
+  padding-left: 6px;
+  margin-bottom: 8px;
+}
+
+.multiselect__tags-wrap {
+  display: inline;
+}
+
+.multiselect__tags {
+  min-height: 40px;
+  display: block;
+  padding: 8px 40px 0 8px;
+  border-radius: 5px;
+  border: 1px solid #e8e8e8;
+  background: #fff;
+}
+
+.multiselect__tag {
+  position: relative;
+  display: inline-block;
+  padding: 4px 26px 4px 10px;
+  border-radius: 5px;
+  margin-right: 10px;
+  color: #fff;
+  line-height: 1;
+  background: #41b883;
+  margin-bottom: 5px;
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: 100%;
+  text-overflow: ellipsis;
+}
+
+.multiselect__tag-icon {
+  cursor: pointer;
+  margin-left: 7px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  font-weight: 700;
+  font-style: normal;
+  width: 22px;
+  text-align: center;
+  line-height: 22px;
+  transition: all .2s ease;
+  border-radius: 5px;
+}
+
+.multiselect__tag-icon:after {
+  content: "\D7";
+  color: #266d4d;
+  font-size: 14px;
+}
+
+.multiselect__tag-icon:focus,
+.multiselect__tag-icon:hover {
+  background: #369a6e;
+}
+
+.multiselect__tag-icon:focus:after,
+.multiselect__tag-icon:hover:after {
+  color: #fff;
+}
+
+.multiselect__current {
+  min-height: 40px;
+  overflow: hidden;
+  padding: 8px 12px 0;
+  padding-right: 30px;
+  white-space: nowrap;
+  border-radius: 5px;
+  border: 1px solid #e8e8e8;
+}
+
+.multiselect__current,
+.multiselect__select {
+  line-height: 16px;
+  box-sizing: border-box;
+  display: block;
+  margin: 0;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.multiselect__select {
+  position: absolute;
+  width: 40px;
+  height: 38px;
+  right: 1px;
+  top: 1px;
+  padding: 4px 8px;
+  text-align: center;
+  transition: transform .2s ease;
+}
+
+.multiselect__select:before {
+  position: relative;
+  right: 0;
+  top: 65%;
+  color: #999;
+  margin-top: 4px;
+  border-style: solid;
+  border-width: 5px 5px 0;
+  border-color: #999 transparent transparent;
+  content: "";
+}
+
+.multiselect__placeholder {
+  color: #adadad;
+  display: inline-block;
+  margin-bottom: 10px;
+  padding-top: 2px;
+}
+
+.multiselect--active .multiselect__placeholder {
+  display: none;
+}
+
+.multiselect__content-wrapper {
+  position: absolute;
+  display: block;
+  background: #fff;
+  width: 100%;
+  max-height: 240px;
+  overflow: auto;
+  border: 1px solid #e8e8e8;
+  border-top: none;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  z-index: 1;
+  -webkit-overflow-scrolling: touch;
+}
+
+.multiselect__content {
+  list-style: none;
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+  min-width: 100%;
+  vertical-align: top;
+}
+
+.multiselect--above .multiselect__content-wrapper {
+  bottom: 100%;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  border-bottom: none;
+  border-top: 1px solid #e8e8e8;
+}
+
+.multiselect__content::webkit-scrollbar {
+  display: none;
+}
+
+.multiselect__element {
+  display: block;
+}
+
+.multiselect__option {
+  display: block;
+  padding: 12px;
+  min-height: 40px;
+  line-height: 16px;
+  text-decoration: none;
+  text-transform: none;
+  vertical-align: middle;
+  position: relative;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.multiselect__option:after {
+  top: 0;
+  right: 0;
+  position: absolute;
+  line-height: 40px;
+  padding-right: 12px;
+  padding-left: 20px;
+}
+
+.multiselect__option--highlight {
+  background: #41b883;
+  outline: none;
+  color: #fff;
+}
+
+.multiselect__option--highlight:after {
+  content: attr(data-select);
+  background: #41b883;
+  color: #fff;
+}
+
+.multiselect__option--selected {
+  background: #f3f3f3;
+  color: #35495e;
+  font-weight: 700;
+}
+
+.multiselect__option--selected:after {
+  content: attr(data-selected);
+  color: silver;
+}
+
+.multiselect__option--selected.multiselect__option--highlight {
+  background: #ff6a6a;
+  color: #fff;
+}
+
+.multiselect__option--selected.multiselect__option--highlight:after {
+  background: #ff6a6a;
+  content: attr(data-deselect);
+  color: #fff;
+}
+
+.multiselect--disabled {
+  background: #ededed;
+  pointer-events: none;
+}
+
+.multiselect--disabled .multiselect__current,
+.multiselect--disabled .multiselect__select,
+.multiselect__option--disabled {
+  background: #ededed;
+  color: #a6a6a6;
+}
+
+.multiselect__option--disabled {
+  cursor: text;
+  pointer-events: none;
+}
+
+.multiselect__option--disabled.multiselect__option--highlight {
+  background: #dedede!important;
+}
+
+.multiselect-enter-active,
+.multiselect-leave-active {
+  transition: all .15s ease;
+}
+
+.multiselect-enter,
+.multiselect-leave-active {
+  opacity: 0;
+}
+
+.multiselect__strong {
+  margin-bottom: 8px;
+  line-height: 20px;
+  display: inline-block;
+  vertical-align: top;
+}
+
+[dir=rtl] .multiselect {
+  text-align: right;
+}
+
+[dir=rtl] .multiselect__select {
+  right: auto;
+  left: 1px;
+}
+
+[dir=rtl] .multiselect__tags {
+  padding: 8px 8px 0 40px;
+}
+
+[dir=rtl] .multiselect__content {
+  text-align: right;
+}
+
+[dir=rtl] .multiselect__option:after {
+  right: auto;
+  left: 0;
+}
+
+[dir=rtl] .multiselect__clear {
+  right: auto;
+  left: 12px;
+}
+
+[dir=rtl] .multiselect__spinner {
+  right: auto;
+  left: 1px;
+}
+
+@keyframes a {
+  0% {
+    transform: rotate(0);
+  }
+
+  to {
+    transform: rotate(2turn);
+  }
+}</style><style type="text/css">
+#free-reward-panel .reward-users-modal main {
+  padding: 0;
+}
+</style><style type="text/css">
+@charset "UTF-8";
+/*
+ * 变量
+*/
+.reward-note-modal .v-modal {
+  width: 620px;
+  text-align: center;
+}
+.reward-note-modal .v-modal form {
+    margin: 0 auto 25px auto;
+    padding: 0 40px;
+}
+.reward-note-modal .v-modal .reward-intro {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 16px;
+}
+.reward-note-modal .v-modal .reward-intro .avatar {
+      cursor: default !important;
+      width: 36px;
+      height: 36px;
+      margin-right: 10px;
+      display: inline-block;
+}
+.reward-note-modal .v-modal .reward-intro .intro {
+      margin-right: 5px;
+      font-weight: bold;
+      vertical-align: middle;
+}
+.reward-note-modal .v-modal .reward-intro i {
+      color: #EA6F5A;
+      vertical-align: middle;
+}
+.reward-note-modal .v-modal .main-inputs {
+    margin: 25px 0;
+}
+.reward-note-modal .v-modal .main-inputs .amount-group {
+      margin: 0 -5px;
+}
+.reward-note-modal .v-modal .main-inputs .amount-group input {
+        display: none;
+}
+.reward-note-modal .v-modal .main-inputs .amount-group input:checked + .option {
+        color: #EA6F5A;
+        border-color: #EA6F5A;
+}
+.reward-note-modal .v-modal .main-inputs .amount-group .custom-amount:checked + .option .custom-text {
+        opacity: 0;
+}
+.reward-note-modal .v-modal .main-inputs .amount-group .custom-amount:checked + .option .custom-amount-input {
+        opacity: 1;
+}
+.reward-note-modal .v-modal .main-inputs .amount-group .option {
+        position: relative;
+        margin: 0 5px 15px;
+        width: 156px;
+        height: 56px;
+        line-height: 54px;
+        border: 1px solid #E6E6E6;
+        border-radius: 4px;
+        font-weight: normal;
+        color: #999999;
+        cursor: pointer;
+}
+.reward-note-modal .v-modal .main-inputs .amount-group .option i {
+          font-size: 16px;
+          vertical-align: middle;
+}
+.reward-note-modal .v-modal .main-inputs .amount-group .option .amount {
+          font-size: 28px;
+          vertical-align: middle;
+}
+.reward-note-modal .v-modal .main-inputs .amount-group .option .piece {
+          font-size: 13px;
+          vertical-align: sub;
+}
+.reward-note-modal .v-modal .main-inputs .amount-group .option .custom-amount-input {
+          position: absolute;
+          top: 0;
+          z-index: -1;
+          width: 100%;
+          opacity: 0;
+}
+.reward-note-modal .v-modal .main-inputs .amount-group .option .custom-amount-input i {
+            position: absolute;
+            top: 0;
+            left: 10px;
+}
+.reward-note-modal .v-modal .main-inputs .amount-group .option .custom-amount-input .piece {
+            position: absolute;
+            top: 4px;
+            right: 10px;
+}
+.reward-note-modal .v-modal .main-inputs .amount-group .option .custom-amount-input input {
+            display: block;
+            margin: 0 auto;
+            width: 80px;
+            height: 54px;
+            line-height: 54px;
+            border: none;
+            font-size: 28px;
+            text-align: center;
+            background: transparent;
+            -moz-appearance: textfield;
+}
+.reward-note-modal .v-modal .main-inputs .amount-group .option .custom-amount-input input::-webkit-outer-spin-button, .reward-note-modal .v-modal .main-inputs .amount-group .option .custom-amount-input input::-webkit-inner-spin-button {
+              -webkit-appearance: none !important;
+}
+.reward-note-modal .v-modal .main-inputs .message {
+      padding: 15px 20px;
+      margin-bottom: 0;
+      font-size: 14px;
+      border: 1px solid #E6E6E6;
+      color: #333333;
+      border-radius: 4px;
+      background-color: rgba(180, 180, 180, 0.1);
+}
+.reward-note-modal .v-modal .main-inputs .message textarea {
+        width: 100%;
+        height: 44px;
+        padding: 0;
+        margin: 0;
+        resize: none;
+        background: none !important;
+        border: none !important;
+        -webkit-box-sizing: border-box;
+                box-sizing: border-box;
+        -webkit-box-shadow: none;
+                box-shadow: none;
+}
+.reward-note-modal .v-modal .main-inputs .message textarea:focus {
+          outline: none;
+}
+.reward-note-modal .v-modal .reward-info .amount {
+    font-size: 28px;
+    font-weight: bold;
+    color: #EA6F5A;
+}
+.reward-note-modal .v-modal .reward-info .pay-method {
+    font-size: 14px;
+}
+.reward-note-modal .v-modal .reward-info .pay-method a {
+      color: #3194D0;
+}
+.reward-note-modal .v-modal .choose-pay {
+    margin: 0 -5px;
+}
+.reward-note-modal .v-modal .choose-pay input {
+      display: none;
+}
+.reward-note-modal .v-modal .choose-pay input:checked + .option {
+      color: #EA6F5A;
+      border-color: #EA6F5A;
+}
+.reward-note-modal .v-modal .choose-pay .option {
+      margin: 20px 5px 10px;
+      width: 156px;
+      height: 56px;
+      line-height: 54px;
+      text-align: center;
+      border: 1px solid #E6E6E6;
+      border-radius: 4px;
+      cursor: pointer;
+}
+.reward-note-modal .v-modal .choose-pay .option img {
+        height: 30px;
+}
+.reward-note-modal .v-modal .choose-pay .option img.day.alipay, .reward-note-modal .v-modal .choose-pay .option img.night.alipay {
+        min-width: 85px;
+}
+.reward-note-modal .v-modal .choose-pay .option img.day.wechat, .reward-note-modal .v-modal .choose-pay .option img.night.wechat {
+        min-width: 112px;
+}
+.reward-note-modal .v-modal .choose-pay .option img.night {
+        display: none;
+}
+body.reader-night-mode .reward-note-modal .v-modal .choose-pay .option img.night {
+        display: inline-block;
+}
+body.reader-night-mode .reward-note-modal .v-modal .choose-pay .option img.day {
+        display: none;
+}
+.reward-note-modal .v-modal .choose-pay .tooltip {
+      width: 230px;
+}
+.reward-note-modal .v-modal .modal-footer {
+    padding: 0 15px 20px;
+    border: none;
+    background-color: transparent;
+    text-align: center;
+}
+.reward-note-modal .v-modal .modal-footer .btn {
+      padding: 8px 45px;
+      font-size: 24px;
+}
+.reward-note-modal .v-modal .btn-pay {
+    padding: 8px 25px;
+    font-size: 16px;
+    color: #ffffff;
+    background-color: #F5A623;
+}
+.weixin-pay, .success-pay {
+  text-align: center;
+}
+.weixin-pay .v-modal, .success-pay .v-modal {
+    width: 350px;
+}
+.weixin-pay .ic-successed, .success-pay .ic-successed {
+    font-size: 60px;
+    color: #3db922;
+}
+.weixin-pay h2, .weixin-pay h3, .success-pay h2, .success-pay h3 {
+    margin-bottom: 20px;
+    color: #333333;
+}
+.weixin-pay h2, .success-pay h2 {
+    margin: 0 0 40px 0;
+    font-size: 24px;
+}
+.weixin-pay .bind-text, .success-pay .bind-text {
+    position: relative;
+    margin-bottom: 30px;
+    font-size: 14px;
+    color: #999999;
+}
+.weixin-pay .bind-text:before, .weixin-pay .bind-text:after, .success-pay .bind-text:before, .success-pay .bind-text:after {
+      content: "";
+      border-top: 1px solid #999;
+      display: block;
+      position: absolute;
+      width: 40px;
+      top: 8px;
+}
+.weixin-pay .bind-text:before, .success-pay .bind-text:before {
+      left: 30px;
+}
+.weixin-pay .bind-text:after, .success-pay .bind-text:after {
+      right: 30px;
+}
+.weixin-pay .share-bind, .success-pay .share-bind {
+    display: block;
+    margin-bottom: 30px;
+}
+.weixin-pay .share-bind i, .success-pay .share-bind i {
+      margin-right: 4px;
+      font-size: 22px;
+      vertical-align: middle;
+}
+.weixin-pay .share-bind.wechat i, .success-pay .share-bind.wechat i {
+      color: #00BB29;
+}
+.weixin-pay .share-bind.weibo i, .success-pay .share-bind.weibo i {
+      color: #E05244;
+}
+.weixin-pay .wx-qr-code, .success-pay .wx-qr-code {
+    display: inline-block;
+}
+.weixin-pay .wx-qr-code img, .success-pay .wx-qr-code img {
+      margin: 0 auto;
+      padding: 10px;
+      width: 200px;
+      background-color: #ffffff;
+}
+.weixin-pay .pay-amount, .success-pay .pay-amount {
+    margin: 20px 0;
+    color: #787878;
+}
+.weixin-pay .pay-amount span, .success-pay .pay-amount span {
+      color: #F5A623;
+}
+</style><style type="text/css">
+@charset "UTF-8";
+/*
+ * 变量
+*/
+.v-modal-wrap {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9999;
+  background-color: transparent;
+}
+.v-modal-wrap.modal-leave-active {
+    -webkit-transition: opacity 0.3s;
+    -o-transition: opacity 0.3s;
+    transition: opacity 0.3s;
+}
+.v-modal-wrap.modal-enter-active .v-modal-mask, .v-modal-wrap.modal-leave-active .v-modal-mask {
+    opacity: 0;
+}
+.v-modal-wrap.modal-enter-active .v-modal, .v-modal-wrap.modal-leave-active .v-modal {
+    -webkit-transform: translate(-50%, -70%);
+        -ms-transform: translate(-50%, -70%);
+            transform: translate(-50%, -70%);
+    opacity: 0;
+}
+.v-modal-wrap .v-modal-mask {
+    background-color: rgba(255, 255, 255, 0.7);
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    -webkit-transition: opacity 0.3s;
+    -o-transition: opacity 0.3s;
+    transition: opacity 0.3s;
+    opacity: 1;
+}
+.v-modal-wrap .v-modal {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+    border-radius: 6px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    -webkit-box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+    -webkit-transition: opacity 0.3s, -webkit-transform 0.3s;
+    transition: opacity 0.3s, -webkit-transform 0.3s;
+    -o-transition: opacity 0.3s, transform 0.3s;
+    transition: opacity 0.3s, transform 0.3s;
+    transition: opacity 0.3s, transform 0.3s, -webkit-transform 0.3s;
+    opacity: 1;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    overflow: hidden;
+}
+.v-modal-wrap .v-modal > header:before, .v-modal-wrap .v-modal > header:after, .v-modal-wrap .v-modal > main:before, .v-modal-wrap .v-modal > main:after, .v-modal-wrap .v-modal > footer:before, .v-modal-wrap .v-modal > footer:after {
+      content: '';
+      clear: both;
+      display: table;
+}
+.v-modal-wrap .v-modal > header {
+      padding: 20px;
+      border-bottom: 1px solid #F0F0F0;
+}
+.v-modal-wrap .v-modal > header h4 {
+        margin: 0;
+        color: #333;
+        text-align: left;
+}
+.v-modal-wrap .v-modal .close {
+      position: absolute;
+      right: 16px;
+      top: 20px;
+      font-size: 26px;
+      line-height: 20px;
+      color: rgba(0, 0, 0, 0.8);
+}
+.v-modal-wrap .v-modal .close:hover {
+        color: #000000;
+}
+.v-modal-wrap .v-modal > main {
+      padding: 20px 20px 20px 20px;
+      font-size: 15px;
+      color: #333;
+      -webkit-box-flex: 1;
+      -webkit-flex-grow: 1;
+          -ms-flex-positive: 1;
+              flex-grow: 1;
+      overflow-x: hidden;
+      overflow-y: auto;
+}
+.v-modal-wrap .v-modal > footer {
+      padding: 20px;
+      background-color: #fff;
+}
+.v-modal-wrap .v-modal > footer button {
+        padding: 0;
+        margin: 0;
+        background-color: transparent;
+        border: 0;
+        float: right;
+}
+.v-modal-wrap .v-modal > footer button:focus {
+          outline: 0;
+}
+.v-modal-wrap .v-modal > footer .submit {
+        padding: 4px 12px;
+        border: 1px solid;
+        border-radius: 20px;
+}
+.v-modal-wrap .v-modal > footer .cancel {
+        margin-top: 5px;
+}
+.v-modal-wrap .v-modal > footer .cancel:hover {
+          color: #333333;
+}
+.reader-night-mode .v-modal-wrap .v-modal-mask {
+  background-color: rgba(63, 63, 63, 0.7);
+}
+.reader-night-mode .v-modal-wrap .v-modal {
+  background-color: #3f3f3f;
+}
+.reader-night-mode .v-modal-wrap .v-modal header {
+    border-color: #2F2F2F;
+}
+.reader-night-mode .v-modal-wrap .v-modal header h4 {
+      color: #C8C8C8;
+}
+.reader-night-mode .v-modal-wrap .v-modal .close {
+    color: #C8C8C8;
+}
+.reader-night-mode .v-modal-wrap .v-modal .close:hover {
+      color: #ffffff;
+}
+.reader-night-mode .v-modal-wrap .v-modal main {
+    color: #C8C8C8;
+}
+.reader-night-mode .v-modal-wrap .v-modal footer {
+    background-color: #3f3f3f;
+}
+.reader-night-mode .v-modal-wrap .v-modal footer .cancel:hover {
+      color: #C8C8C8;
+}
+</style><style type="text/css">
+.nqzzJ71pC-jOnJKAfdtr6_0 {
+  float: right;
+  height: 55px;
+  padding: 15px 0px;
+  margin: 0 12px;
+}
+._3tScN0zmSdGLaUAH4SxTbM_0 {
+    width: 100%;
+    height: 100%;
+}
+.nqzzJ71pC-jOnJKAfdtr6_0 ._3f806byixOPpOPWnx8HiQP_0 {
+    height: 25px;
+}
+.nqzzJ71pC-jOnJKAfdtr6_0 ._2MIQ6sBppQZAKea91We0qf_0 {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    opacity: 0.6;
+    z-index: 1000;
+}
+.nqzzJ71pC-jOnJKAfdtr6_0 ._1RppgOJ_CQiXgzd3ke-sbJ_0 {
+    position: fixed;
+    left: -webkit-calc( 50% - 190px);
+    left: calc( 50% - 190px);
+    top: -webkit-calc( 50% - 300px);
+    top: calc( 50% - 300px);
+    width: 380px;
+    height: 425px;
+    background-color: #fff;
+    padding: 40px 72px 0;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    z-index: 1000;
+    text-align: center;
+}
+body.reader-night-mode .nqzzJ71pC-jOnJKAfdtr6_0 ._1RppgOJ_CQiXgzd3ke-sbJ_0 {
+      background-color: #3f3f3f;
+      color: #c8c8c8;
+}
+.nqzzJ71pC-jOnJKAfdtr6_0 ._1RppgOJ_CQiXgzd3ke-sbJ_0 h4 {
+      margin: 0;
+      line-height: 25px;
+}
+.nqzzJ71pC-jOnJKAfdtr6_0 ._1RppgOJ_CQiXgzd3ke-sbJ_0 h4 span {
+        color: #e9634c;
+}
+.nqzzJ71pC-jOnJKAfdtr6_0 ._1RppgOJ_CQiXgzd3ke-sbJ_0 img {
+      width: 190px;
+      height: 190px;
+      margin: 12px 0 8px 0;
+}
+.nqzzJ71pC-jOnJKAfdtr6_0 ._1RppgOJ_CQiXgzd3ke-sbJ_0 p {
+      font-size: 14px;
+      line-height: 20px;
+      margin: 0;
+}
+.nqzzJ71pC-jOnJKAfdtr6_0 ._1RppgOJ_CQiXgzd3ke-sbJ_0 ._2WUz9DZJO5DIC_O5sD1kac_0 {
+      background-color: #e9634c;
+      color: #fff;
+      margin: 25px auto 0;
+      width: 190px;
+      height: 40px;
+      border-radius: 20px;
+      line-height: 40px;
+      font-size: 14px;
+      cursor: pointer;
+      -webkit-user-select: none;
+         -moz-user-select: none;
+          -ms-user-select: none;
+              user-select: none;
+}
+</style><style type="text/css">
+@charset "UTF-8";
+/*
+ * 变量
+*/
+.youdao-fixed-ad {
+  display: block;
+  position: relative;
+  width: 180px;
+  height: 180px;
+  border: 1px solid #e8eae9;
+}
+.youdao-fixed-ad .img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+.youdao-fixed-ad .ad-badge {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    display: block;
+    font-size: 12px;
+    padding: 2px 5px 0 6px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    cursor: pointer;
+}
+.qingteng-ads {
+  border: 1px solid #e8e8e8;
+  width: 180px;
+}
+</style><style type="text/css">
+.yuxi-fixed-ad {
+  position: relative;
+  width: 180px;
+  height: 180px;
+}
+.yuxi-fixed-ad .img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-image: url(//cdn2.jianshu.io/assets/web/yuxi-ads-d73b364baf42dfeca32d518c819a0136.jpg);
+}
+.yuxi-fixed-ad .ad-badge {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    display: block;
+    font-size: 12px;
+    padding: 2px 5px 0 6px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    cursor: pointer;
+}
+</style><style type="text/css">
+@charset "UTF-8";
+/*
+ * 变量
+*/
+.like[data-v-6ddd02c6] {
+  display: inline-block;
+}
+.like .like-group[data-v-6ddd02c6] {
+    position: relative;
+    padding: 13px 0 15px 0;
+    font-size: 0;
+    border: 1px solid #EA6F5A;
+    border-radius: 40px;
+}
+.like .like-group[data-v-6ddd02c6]:hover {
+      background-color: rgba(236, 97, 73, 0.05);
+}
+.like .like-group .btn-like[data-v-6ddd02c6] {
+      display: inline-block;
+      font-size: 19px;
+}
+.like .like-group .btn-like[data-v-6ddd02c6]:before {
+        content: '';
+        position: absolute;
+        left: 12px;
+        top: 2px;
+        width: 50px;
+        height: 50px;
+        background-image: url(//cdn2.jianshu.io/assets/web/like_animation_steps-62a00a7b52377d3069927cdb8e61fd34.png);
+        background-position: left;
+        background-repeat: no-repeat;
+        background-size: 1000px 50px;
+}
+.like .like-group .btn-like a[data-v-6ddd02c6] {
+        position: relative;
+        padding: 18px 30px 18px 55px;
+        color: #EA6F5A;
+}
+.like .like-group .modal-wrap[data-v-6ddd02c6] {
+      font-size: 18px;
+      border-left: 1px solid rgba(236, 97, 73, 0.4);
+      display: inline-block;
+      margin-left: -15px;
+}
+.like .like-group .modal-wrap a[data-v-6ddd02c6] {
+        color: #EA6F5A;
+        padding: 18px 26px 18px 18px;
+}
+.like .like-group.like-animation[data-v-6ddd02c6], .like .like-group.active[data-v-6ddd02c6] {
+      background-color: #EA6F5A;
+}
+.like .like-group.like-animation .btn-like a[data-v-6ddd02c6], .like .like-group.active .btn-like a[data-v-6ddd02c6] {
+        color: white;
+}
+.like .like-group.like-animation .modal-wrap[data-v-6ddd02c6], .like .like-group.active .modal-wrap[data-v-6ddd02c6] {
+        border-left: 1px solid white;
+}
+.like .like-group.like-animation .modal-wrap a[data-v-6ddd02c6], .like .like-group.active .modal-wrap a[data-v-6ddd02c6] {
+          color: white;
+}
+.like .like-group.like-animation .btn-like[data-v-6ddd02c6]:before {
+      -webkit-animation: likeBlast-data-v-6ddd02c6 0.6s 1 steps(19);
+              animation: likeBlast-data-v-6ddd02c6 0.6s 1 steps(19);
+      background-position: right;
+}
+@-webkit-keyframes likeBlast {
+0% {
+    background-position: left;
+}
+100% {
+    background-position: right;
+}
+}
+@keyframes likeBlast-data-v-6ddd02c6 {
+0% {
+    background-position: left;
+}
+100% {
+    background-position: right;
+}
+}
+.like .like-group.active .btn-like[data-v-6ddd02c6]:before {
+      background-position: right;
+}
+</style><style type="text/css">
+@charset "UTF-8";
+/*
+ * 变量
+*/
+.main {
+  position: relative;
+  margin: 0 auto;
+  padding: 0 0 30px 0;
+  width: 620px;
+}
+.main .title {
+    padding-left: 8px;
+    border-left: 3px solid #EA6F5A;
+    line-height: 1;
+    font-size: 15px;
+}
+.main .collection-settings {
+    position: absolute;
+    top: 2px;
+    right: 0;
+    font-size: 13px;
+    color: #A0A0A0;
+}
+.main .collection-settings span {
+      padding-left: 4px;
+}
+.main .include-collection {
+    width: 100%;
+    padding-top: 20px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: start;
+    -webkit-justify-content: flex-start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+}
+.main .include-collection .item {
+      display: inline-block;
+      margin: 0 12px 12px 0;
+      min-height: 32px;
+      background-color: white;
+      border: 1px solid #DCDCDC;
+      border-radius: 4px;
+      vertical-align: top;
+      overflow: hidden;
+}
+.main .include-collection .item img {
+        width: 32px;
+        height: 32px;
+}
+.main .include-collection .item .name {
+        display: inline-block;
+        padding: 0 10px;
+        font-size: 14px;
+}
+.main .include-collection .add-collection-wrap {
+      margin: 0 12px 12px 0;
+}
+.main .include-collection .add-collection {
+      padding: 8px 12px;
+      font-size: 14px;
+      border: 1px solid #DCDCDC;
+      border-radius: 4px;
+}
+.main .include-collection .add-collection i {
+        margin-right: 4px;
+        color: #969696;
+}
+.main .recommend-note a {
+    position: relative;
+    margin: 20px 2px 0 0;
+    width: 200px;
+    height: 160px;
+    display: inline-block;
+}
+.main .recommend-note a:after {
+      content: "";
+      position: absolute;
+      width: 200px;
+      height: 160px;
+      border-radius: 0 0 4px 4px;
+      -webkit-box-shadow: inset 0px -80px 50px -22px rgba(0, 0, 0, 0.6);
+              box-shadow: inset 0px -80px 50px -22px rgba(0, 0, 0, 0.6);
+      top: 0;
+      left: 0;
+      z-index: 1;
+}
+.main .recommend-note .name {
+    position: absolute;
+    bottom: 40px;
+    left: 10px;
+    right: 10px;
+    font-size: 17px;
+    font-weight: bold;
+    color: #ffffff;
+    z-index: 2;
+}
+.main .recommend-note .author {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    right: 10px;
+    z-index: 2;
+}
+.main .recommend-note .avatar {
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+}
+.main .recommend-note .avatar img {
+      border-radius: 50%;
+}
+.main .recommend-note .author-name {
+    font-size: 12px;
+    color: #ffffff;
+    display: inline-block;
+    vertical-align: -1px;
+}
+.main .show-more {
+    margin: 0 12px 12px 0;
+    font-size: 14px;
+    color: #A0A0A0;
+}
+</style><style type="text/css">
+#featured-comment-list {
+  margin-top: 30px;
+  margin-bottom: -15px;
+}
+</style><style type="text/css">
+@charset "UTF-8";
+/*
+ * 变量
+*/
+.pc-bind-phone-modal .modal-content, .pc-bind-phone-modal .modal-body {
+  overflow: visible;
+}
+.pc-bind-phone-modal .modal-body {
+  padding-top: 14px;
+}
+.pc-bind-phone-modal .dropdown-menu {
+  max-height: 300px;
+  overflow: auto;
+}
+.pc-bind-phone-modal .dropdown-menu .tag {
+    background-color: #efefef;
+    color: #4A4A4A;
+    height: 28px;
+    line-height: 28px;
+    padding-left: 25px;
+    font-size: 12px;
+}
+.pc-bind-phone-modal .tips {
+  color: #999999;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 18px;
+  margin-bottom: 14px;
+}
+.pc-bind-phone-modal .tips a {
+    color: #3194D0;
+}
+.reader-night-mode .pc-bind-phone-modal .dropdown-menu .tag {
+  background-color: #2F2F2F;
+  color: #999999;
+}
+</style></head>
+
+  <!-- 只给10%的用户添加代码 -->
+  <!-- ###第四范式-智能推荐：代码直接复制 无需修改参数### -->
+  <!-- ###功能：上报内容并反馈用户行为### -->
+  <!--
+  -->
+  <body lang="zh-CN" class="reader-song-font">
+    <!-- 全局顶部导航栏 -->
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+  <div class="width-limit">
+    <!-- 左上方 Logo -->
+    <a class="logo" href="https://www.jianshu.com/"><img src="./第十五章 降维 - 简书_files/nav-logo-4c7bbafe27adc892f3046e6978459bac.png" alt="Nav logo"></a>
+
+    <!-- 右上角 -->
+      <!-- 登录显示写文章 -->
+      <a class="btn write-btn" target="_blank" href="https://www.jianshu.com/writer#/">
+        <i class="iconfont ic-write"></i>写文章
+</a>
+    <!-- 如果用户登录，显示下拉菜单 -->
+      <div class="user open">
+        <div data-hover="dropdown">
+          <a class="avatar" href="https://www.jianshu.com/u/5544cab98f7e"><img src="./第十五章 降维 - 简书_files/cfe0a600-b4a3-4f91-9b77-a9f3d7cd461e" alt="120"></a>
+        </div>
+        <ul class="dropdown-menu">
+          <li>
+            <a href="https://www.jianshu.com/u/5544cab98f7e">
+              <i class="iconfont ic-navigation-profile"></i><span>我的主页</span>
+</a>          </li>
+          <li>
+            <!-- TODO bookmarks_path -->
+            <a href="https://www.jianshu.com/bookmarks">
+              <i class="iconfont ic-navigation-mark"></i><span>收藏的文章</span>
+</a>          </li>
+          <li>
+            <a href="https://www.jianshu.com/users/5544cab98f7e/liked_notes">
+              <i class="iconfont ic-navigation-like"></i><span>喜欢的文章</span>
+</a>          </li>
+          <li>
+            <a href="https://www.jianshu.com/my/paid_notes">
+              <i class="iconfont ic-paid"></i><span>已购内容</span>
+</a>          </li>
+          <li>
+            <a href="https://www.jianshu.com/wallet">
+              <i class="iconfont ic-navigation-wallet"></i><span>我的钱包</span>
+</a>          </li>
+          <li>
+            <a href="https://www.jianshu.com/settings">
+              <i class="iconfont ic-navigation-settings"></i><span>设置</span>
+</a>          </li>
+          <li>
+            <a href="https://www.jianshu.com/faqs">
+              <i class="iconfont ic-navigation-feedback"></i><span>帮助与反馈</span>
+</a>          </li>
+          <li>
+            <a rel="nofollow" data-method="delete" href="https://www.jianshu.com/sign_out">
+              <i class="iconfont ic-navigation-signout"></i><span>退出</span>
+</a>          </li>
+        </ul>
+      </div>
+
+    <div class="nqzzJ71pC-jOnJKAfdtr6_0"><a class="_3tScN0zmSdGLaUAH4SxTbM_0"><img src="./第十五章 降维 - 简书_files/nav_jsds_beta-eeb44d165b8ba37680fdb7e65ae17ae4.png" class="_3f806byixOPpOPWnx8HiQP_0"></a> <!----></div>
+
+    <div class="style-mode"><a class="style-mode-btn"><i class="iconfont ic-navigation-mode"></i></a> <div class="popover-modal" style="left: 0px; display: none;"><div class="meta"><i class="iconfont ic-navigation-night"></i><span>夜间模式</span></div> <div class="switch day-night-group"><a class="switch-btn">开</a> <a class="switch-btn active">关</a></div> <hr> <div class="switch font-family-group"><a class="switch-btn font-song active">宋体</a> <a class="switch-btn font-hei">黑体</a></div> <div class="switch"><a class="switch-btn active">简</a> <a class="switch-btn">繁</a></div></div></div>
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu" aria-expanded="false">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <div class="collapse navbar-collapse" id="menu">
+        <ul class="nav navbar-nav">
+            <li class="tab ">
+              <a href="https://www.jianshu.com/">
+                <span class="menu-text">发现</span><i class="iconfont ic-navigation-discover menu-icon"></i>
+</a>            </li>
+            <li class="tab ">
+              <a href="https://www.jianshu.com/subscriptions">
+                <span class="menu-text">关注</span><i class="iconfont ic-navigation-follow menu-icon"></i>
+</a>            </li>
+            <li class="tab notification"><a data-hover="dropdown" href="https://www.jianshu.com/notifications" class="notification-btn"><span class="menu-text">消息</span> <i class="iconfont ic-navigation-notification menu-icon"></i> <!----> <!----></a> <ul class="dropdown-menu"><li><a href="https://www.jianshu.com/notifications#/comments"><i class="iconfont ic-comments"></i> <span>评论</span> <!----></a></li><li><a href="https://www.jianshu.com/notifications#/chats"><i class="iconfont ic-chats"></i> <span>简信</span> <!----></a></li><li><a href="https://www.jianshu.com/notifications#/requests"><i class="iconfont ic-requests"></i> <span>投稿请求</span> <!----></a></li><li><a href="https://www.jianshu.com/notifications#/likes"><i class="iconfont ic-likes"></i> <span>喜欢和赞</span> <!----></a></li><li><a href="https://www.jianshu.com/notifications#/follows"><i class="iconfont ic-follows"></i> <span>关注</span> <!----></a></li><li><a href="https://www.jianshu.com/notifications#/money"><i class="iconfont ic-money"></i> <span>赞赏和付费</span> <!----></a></li><li><a href="https://www.jianshu.com/notifications#/others"><i class="iconfont ic-others"></i> <span>其它提醒</span> <!----></a></li></ul></li>
+          <li class="search">
+            <form target="_blank" action="https://www.jianshu.com/search" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="✓">
+              <input type="text" name="q" id="q" value="" autocomplete="off" placeholder="搜索" class="search-input">
+              <a class="search-btn" href="javascript:void(null)"><i class="iconfont ic-search"></i></a>
+</form>          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>
+
+    
+<div class="note">
+  <div id="note-fixed-ad-container">
+    <div id="fixed-ad-container">
+      <div id="write-notes-ad"></div>
+      <div><a href="https://log-yex.youdao.com/ct?slot=30edd91dd8637d9f645baa8448ba90b3&amp;youdao_bid=c4a9ddcc-2cb7-408a-a2fa-9e06e307498f&amp;yexi=f00200b7a0b33f217d25ea14661e1778&amp;yexcb=7pEKRNhXofzkq1iRtEU39DT-3yc1cp1hCYai-3jDSJuv744wWNWO3BHBtAJHHY59oehHZKzDzgt6-So2ipcQxsQrh4qmIhXxbrAaMfzb6-1oE8DNEHZtpXQ3A_hvlEkWHAVoVAvHD1enBVw_3TeNea9XywqZn0pAIMrk_D9J_4M0-iCEpQItnLJ1SwOiXPkUalzCim94MMFvystw4Rk_GYsfLzUZ6JroBGpcSW62rKs&amp;yexr=https%3A%2F%2Fdsp-click.youdao.com%2Fclk%2Frequest.s%3Fk%3D0FIUWEJ%252FBPXZka5qUn6QRjdk8qSyfjiXj94HIvEvsAzXxo%252BoRxcJpjjAgKuViCqvIxCHqA9N%252F2c%252F9Be%252FcwcSrxEj6ZWnOryUER%252B%252F2VxZGOMWMUwQ6BlY2jLqeJHh8B5GrKIUFQIlb7WNPYjnDUXXlR0x1drq79PcjshrOub%252Bw%252BFv0yDKGUJ9hEviGVibSX2HEA7md3Hq7BOhGrSke341nqVN6BVwkooxryLvadi1XpsUmDcRLOYhYCSzGsT%252BHryqt%252B0MDz5bXHoJFk0KiyBQH8Bc8hTRkDkpUdNHMN2yVKT%252BEc%252Bd1jbbq9hGJq0XLIGZMHMNk0HBE7d6E4vICqnJAl16Cg%252BsHjwne1fg0d0rY8EN1Mk%252BRh9CWvLwHG4zp6NkL0%252ByluF5kl28Adp8t2WmkDDQ3PCn69l1aFVHVHhNaYC0ckvkITsO1u5zUtRET2JoCUIY1nS%252BU%252BiXpN%252B1mBywm%252BJCvUUbD7ARLgrbV6V7v0Ap3DXt0HuGReB8cXG4v14BvDLGB0rlms2t2kmjw3g3g3tQW%252FRVuaYRauWej6r2RkfFPQxgvCMp4t8sYQNqIYTuyN9wmDKX9QrDsoEl0ivVhydG10TWdY735R%252FLtDXf0ZRBiagcNviuBF9NmLdy38lkM5x63sKEu1XU3FWGKGmdU3RLYDaEu6hsryEg0hxnvxPHZ3jNfMVb28GCY4QnduZz9RtnTnGA0BziMuiVIZghb4HI%252FriwX6sN7nvkLDz5LvC36UtgI4B%252FWmNAnnivZLsT%252BMTWeKa5erkAcEeNOmSl62q5JkfHg2Cf1nyQwOTyIESxjg0wnnJL4PKSBwZizVUhEYrcFBX6PmYgTQBEGUI3u%252BAHuAQLIlEOGfCA1TsjVrQmHcEAyiw4VOxekei5P2b1CRYnCPwmphhHS9cpOMV6zCEIwV2cwu8Jjs0ukAULKNGo%252BOu7dTCh9Pxp4cj0Ffz%252Bqs03dydDiMznLKyx5SVYEe8XqOLtTr0GC4S92GgrlqPXxo%252BoRxcJpjjAgKuViCqv18aPqEcXCaY4wICrlYgqr170MUztPwp5ACxjn%252FtGJ72y%252FoHIVRFgeQHUtUza3roA%26isrd%3D1%26youdao_bid%3Dc4a9ddcc-2cb7-408a-a2fa-9e06e307498f&amp;iid=%7B%22-5554760552944771488%22%3A4%7D&amp;sid=17024" target="_blank" class="youdao-fixed-ad"><div class="img" style="background-image: url(&quot;https://oimageb6.ydstatic.com/image?id=-5554760552944771488&amp;product=adpublish&amp;w=360&amp;h=360&amp;sc=0&amp;rm=2&amp;gsb=0&amp;gsbd=60&quot;);"></div> <span class="ad-badge">广告</span></a> <!----></div>
+      <a href="http://e.cn.miaozhen.com/r/k=2110413&amp;p=7L9Gn&amp;dx=__IPDX__&amp;rt=2&amp;ns=__IP__&amp;ni=__IESID__&amp;v=__LOC__&amp;xa=__ADPLATFORM__&amp;tr=__REQUESTID__&amp;mo=__OS__&amp;m0=__OPENUDID__&amp;m0a=__DUID__&amp;m1=__ANDROIDID1__&amp;m1a=__ANDROIDID__&amp;m2=__IMEI__&amp;m4=__AAID__&amp;m5=__IDFA__&amp;m6=__MAC1__&amp;m6a=__MAC__&amp;vo=3f2e070eb&amp;vr=2&amp;o=https%3A%2F%2Fwww.jianshu.com%2Fp%2Fee05f7eff678" target="_blank" class="yuxi-fixed-ad" style="display: none;"><div class="img"></div> <span class="ad-badge">广告</span></a>
+      <div id="_so_pdsBy_0"></div>
+    </div>
+  </div>
+  <div class="post">
+    <div class="article">
+        <h1 class="title">第十五章 降维</h1>
+
+        <!-- 作者区域 -->
+        <div class="author">
+          <a class="avatar" href="https://www.jianshu.com/u/c4a967f15149">
+            <img src="./第十五章 降维 - 简书_files/08809d18-0a1d-4585-bfe8-8d77e5397bb3.jpeg" alt="96">
+</a>          <div class="info">
+            <span class="name"><a href="https://www.jianshu.com/u/c4a967f15149">tomas家的小拨浪鼓</a></span>
+            <!-- 关注用户按钮 -->
+            <a class="btn btn-default following"><i class="iconfont ic-followed"></i><span>已关注</span></a>
+            <!-- 文章数据信息 -->
+            <div class="meta">
+              <!-- 简书钻 -->
+                <span class="jsd-meta">
+                  <i class="iconfont ic-paid1"></i> 0.4
+                </span>
+              <!-- 如果文章更新时间大于发布时间，那么使用 tooltip 显示更新时间 -->
+                <span class="publish-time">2019.03.13 02:27</span>
+              <span class="wordage">字数 5184</span>
+            <span class="views-count">阅读 131</span><span class="comments-count">评论 0</span><span class="likes-count">喜欢 5</span></div>
+          </div>
+          <!-- 如果是当前作者，加入编辑按钮 -->
+        </div>
+
+
+        <!-- 文章内容 -->
+        <div data-note-content="" class="show-content">
+          <div class="show-content-free">
+            <blockquote>
+<p>该系列文章为，观看<a href="https://study.163.com/course/introduction/1004570029.htm" target="_blank" rel="nofollow">“吴恩达机器学习”</a>系列视频的学习笔记。虽然每个视频都很简单，但不得不说每一句都非常的简洁扼要，浅显易懂。非常适合我这样的小白入门。</p>
+</blockquote>
+<h3>本章含盖</h3>
+<ul>
+<li>15.1 目标 I：数据压缩</li>
+<li>15.2 目标 II：可视化</li>
+<li>15.3 主成分分析问题规划1</li>
+<li>15.4 主成分分析问题规划2</li>
+<li>15.5 主成分数量选择</li>
+<li>15.6 压缩重现</li>
+<li>15.7 应用 PCA 的建议</li>
+</ul>
+<h3>15.1 目标 I：数据压缩</h3>
+<p><strong>第二种类型的无监督学习问题，叫做降维。<br>
+这里有一些，你想要使用降维的原因：<br>
+① 数据压缩<br>
+数据压缩不仅能对数据进行压缩，使得数据占用较小的内存或硬盘空间。它还能对学习算法进行加速<br>
+② 可视化数据</strong></p>
+<div class="image-package">
+<div class="image-container" style="max-width: 700px; max-height: 638px; background-color: transparent;">
+<div class="image-container-fill" style="padding-bottom: 49.769999999999996%;"></div>
+<div class="image-view" data-width="1282" data-height="638"><img data-original-src="//upload-images.jianshu.io/upload_images/4235178-ce4926379b774425.png" data-original-width="1282" data-original-height="638" data-original-format="image/png" data-original-filesize="358999" class="" style="cursor: zoom-in;" src="./第十五章 降维 - 简书_files/4235178-ce4926379b774425.png"></div>
+</div>
+<div class="image-caption"></div>
+</div><p>但首先，让我们谈论降维是什么。举个例子，假设我们收集了一个数据集，它有很多很多的特征，我只在这里绘制两个特征。<br>
+假如，对我们来说，这两个特征，x_1 是某物体的厘米长度，另一个特征x_2 是同一物体的英寸长度。这实际上是一种高度冗余的表示。<br>
+对于这两个单独的特征 x_1 和 x_2，它们表示的都是基本长度。或许我们想做的是，把数据减少到一维。只有一个数字来测量某物体的长度。<br>
+这个例子可能有点牵强，这与我在行业中所见的完全是两回事。</p>
+
+<p>如果你有几百个或成千上万的特征，你很容易就会迷失，自己到底有哪些特征。有时可能有几个不同的工程团队，也许一个工程队给你二百个特征，第二工程队给你另外三百个的特征，第三工程队给你五百个特征。最后加起来你就有一千多个特征，这时就很难去了解某个特征是从哪个小组得到的，这时就比较容易产生这与高度冗余的特征。<br>
+并且，如果这里的 厘米 和 英寸 长度都被四舍五入了，这就是这个例子为什么不是完美地落在一条直线上。</p>
+<br>
+<div class="image-package">
+<div class="image-container" style="max-width: 700px; max-height: 387px; background-color: transparent;">
+<div class="image-container-fill" style="padding-bottom: 55.35%;"></div>
+<div class="image-view" data-width="1308" data-height="724"><img data-original-src="//upload-images.jianshu.io/upload_images/4235178-0b63a4bf1b53c8b1.png" data-original-width="1308" data-original-height="724" data-original-format="image/png" data-original-filesize="478959" class="" style="cursor: zoom-in;" src="./第十五章 降维 - 简书_files/4235178-0b63a4bf1b53c8b1.png"></div>
+</div>
+<div class="image-caption"></div>
+</div><p>👆另一个例子：如果你想要调查或做这些不同飞行员的测试——你可能有两个特征：x_1 是他们的技能（直升机飞行员）；x_2 表示他们是否喜欢飞行。也许这两个特征将高度相关。你真正关心的可能是这条红线的方向。它是一个不同的特征，用来真正测量飞行员能力的特征。<br>
+还是那句话，如果特征高度冗余，那么你可能真的需要降低维数</p>
+
+<p>如果我们将数据从二维（2D）降到一维（1D），究竟意味着什么？<br>
+现在我把不同的样本，用不同的颜色标出。在这时，通过降维，我的意思是我想找出这条看起来大多数样本所在的直线（绿色）。所有数据都投影到这条直线上，通过这种做法，我能够测量出每个样本在线上的位置，现在我能做的是建立新特征 z_1。我们只需要一个数，就能确定z_1所在的位置，也就是说z_1是一个全新的特征。它能够指定绿线上每一个点位置。</p>
+<br>
+<div class="image-package">
+<div class="image-container" style="max-width: 700px; max-height: 409px; background-color: transparent;">
+<div class="image-container-fill" style="padding-bottom: 58.540000000000006%;"></div>
+<div class="image-view" data-width="1370" data-height="802"><img data-original-src="//upload-images.jianshu.io/upload_images/4235178-31aa189d9880dea8.png" data-original-width="1370" data-original-height="802" data-original-format="image/png" data-original-filesize="645228" class="" style="cursor: zoom-in;" src="./第十五章 降维 - 简书_files/4235178-31aa189d9880dea8.png"></div>
+</div>
+<div class="image-caption"></div>
+</div><p>之前的样本 x_1，它是一个二维向量。在降维后，我们可用一维向量（即，实数）z_1表示第一个样本。</p>
+
+<p><strong>总结一下：<br>
+如果我们允许一个近似于原始数据集的数据集， 该数据集通过投射原始样本数据到这个绿色线上而得到。那么，我们只需要一个实数，就能指定点在直线上的位置。所以，我能够只用一个数字表示样本的位置，通过把这些原始样本都投射到绿线上（这是对原始数据集的一种近似，因为我将这些样本都投射到了同一条直线上）。这样（样本从用二维表示，变为用一个实数表示）就能把内存/数据空间的需求减半。</strong></p>
+<p><strong>另外，更有趣也更重要的是。在之前的视频中，我们将能够了解到，这么做能够让学习算法运行得更快。</strong></p>
+<p>另一个例子，将数据从 3D 降到 2D。<br>
+</p>
+<p></p>
+btw，在典型的降维例子中，我们可能会有多达1000维或则说10000D的数据，然后我们需要把数据将到100维。但是由于绘图的局限性，我们这里举例 3D 到 2D 的例子。<div class="image-package">
+<div class="image-container" style="max-width: 700px; max-height: 354px; background-color: transparent;">
+<div class="image-container-fill" style="padding-bottom: 50.580000000000005%;"></div>
+<div class="image-view" data-width="1558" data-height="788"><img data-original-src="//upload-images.jianshu.io/upload_images/4235178-224d795b7361ca22.png" data-original-width="1558" data-original-height="788" data-original-format="image/png" data-original-filesize="1132454" class="" style="cursor: zoom-in;" src="./第十五章 降维 - 简书_files/4235178-224d795b7361ca22.png"></div>
+</div>
+<div class="image-caption"></div>
+</div>把所有的数据都投射到一个二维平面上。
+<p></p>
+<p></p>
+3D 云：<div class="image-package">
+<div class="image-container" style="max-width: 700px; max-height: 690px; background-color: transparent;">
+<div class="image-container-fill" style="padding-bottom: 49.78%;"></div>
+<div class="image-view" data-width="1386" data-height="690"><img data-original-src="//upload-images.jianshu.io/upload_images/4235178-2f90dd8430e3af5f.png" data-original-width="1386" data-original-height="690" data-original-format="image/png" data-original-filesize="1134677" class="" style="cursor: zoom-in;" src="./第十五章 降维 - 简书_files/4235178-2f90dd8430e3af5f.png"></div>
+</div>
+<div class="image-caption"></div>
+</div>
+<p></p>
+<p></p>
+投射到一个二维平面上：<div class="image-package">
+<div class="image-container" style="max-width: 700px; max-height: 357px; background-color: transparent;">
+<div class="image-container-fill" style="padding-bottom: 51.07000000000001%;"></div>
+<div class="image-view" data-width="1402" data-height="716"><img data-original-src="//upload-images.jianshu.io/upload_images/4235178-9cc3b6a60f58636a.png" data-original-width="1402" data-original-height="716" data-original-format="image/png" data-original-filesize="953207" class="" style="cursor: zoom-in;" src="./第十五章 降维 - 简书_files/4235178-9cc3b6a60f58636a.png"></div>
+</div>
+<div class="image-caption"></div>
+</div>
+<h3>15.2 目标 II：可视化</h3>
+<p>降维的第二个应用：可视化数据<br>
+在许多及其学习问题中，如果我们能将数据可视化，我们便能寻找到一个更好的解决方案，降维可以帮助我们。</p>
+<p></p>
+<p></p>
+举例：<div class="image-package">
+<div class="image-container" style="max-width: 700px; max-height: 356px; background-color: transparent;">
+<div class="image-container-fill" style="padding-bottom: 50.870000000000005%;"></div>
+<div class="image-view" data-width="1612" data-height="820"><img data-original-src="//upload-images.jianshu.io/upload_images/4235178-b3493cc929e0e5ed.png" data-original-width="1612" data-original-height="820" data-original-format="image/png" data-original-filesize="1069651" class="" style="cursor: zoom-in;" src="./第十五章 降维 - 简书_files/4235178-b3493cc929e0e5ed.png"></div>
+</div>
+<div class="image-caption"></div>
+</div><br>
+<p>假使我们有关于许多不同国家的数据，每一个特征向量都有50个特征（如GDP，人均GDP，平均寿命等）。如果要将这个50维的数据可视化是不可能的。使用降维的方法将其降至2维，我们便可以将其可视化了。</p>
+<br>
+<div class="image-package">
+<div class="image-container" style="max-width: 700px; max-height: 378px; background-color: transparent;">
+<div class="image-container-fill" style="padding-bottom: 54.059999999999995%;"></div>
+<div class="image-view" data-width="1454" data-height="786"><img data-original-src="//upload-images.jianshu.io/upload_images/4235178-a5096c00af1677a8.png" data-original-width="1454" data-original-height="786" data-original-format="image/png" data-original-filesize="555167" class="" style="cursor: zoom-in;" src="./第十五章 降维 - 简书_files/4235178-a5096c00af1677a8.png"></div>
+</div>
+<div class="image-caption"></div>
+</div><br>
+当你这么做（将数据维度从50减少至2维度）之后，你会发现，当你观察降维算法的输出时，z 通常不会是你所期望的具有物理意义的特征。我们常常需要弄清楚，这些特征大致意味着什么？如果你把这些特征画出来，你就能在图中找到答案：<br>
+<div class="image-package">
+<div class="image-container" style="max-width: 700px; max-height: 350px; background-color: transparent;">
+<div class="image-container-fill" style="padding-bottom: 50.0%;"></div>
+<div class="image-view" data-width="1516" data-height="758"><img data-original-src="//upload-images.jianshu.io/upload_images/4235178-2c98af066d9a1e7d.png" data-original-width="1516" data-original-height="758" data-original-format="image/png" data-original-filesize="616349" class="" style="cursor: zoom-in;" src="./第十五章 降维 - 简书_files/4235178-2c98af066d9a1e7d.png"></div>
+</div>
+<div class="image-caption"></div>
+</div><br>
+<p>比如，你可能发现，横轴（z_1）大致相当于国家的总体规模或者国家的总体经济活跃程度，所以横轴代表的是GDP、一个国家的经济规模。而纵轴大致对应于人均GDP。你可能会发现，这50个    特征，实际上只偏离为两个主要维度。（这样做的问题在于，降维的算法只负责减少维数，新产生的特征的意义就必须由我们自己去发现了）</p>
+
+<p>一个特殊的算法：PAC，也叫做“主成分分析”。它可以用来做降维操作，可以用来实现我们之前所提到的压缩数据。</p>
+<h3>15.3 主成分分析问题规划1</h3>
+<p><strong>主成分分析(PCA)是最常见的降维算法。<br>
+在PCA中，我们要做的是找到一个方向向量（Vector direction），当我们把所有的数据都投射到该向量上时，我们希望投射平均均方误差能尽可能地小。方向向量是一个经过原点的向量，而投射误差是从特征向量向该方向向量作垂线的长度。</strong></p>
+<p>PCA 问题的公式描述。换句话说，我们会试着用公式准确地表述PCA的用途。<br>
+</p>
+<p></p>
+举例：👇是一个 R^2 空间的样本。假设我想对数据进行降维，从二维降到一维。也就是，我想要找到一条直线，能够将数据投影到上面的直线。<div class="image-package">
+<div class="image-container" style="max-width: 700px; max-height: 383px; background-color: transparent;">
+<div class="image-container-fill" style="padding-bottom: 54.82%;"></div>
+<div class="image-view" data-width="1452" data-height="796"><img data-original-src="//upload-images.jianshu.io/upload_images/4235178-a4fc2b34fd4d4a22.png" data-original-width="1452" data-original-height="796" data-original-format="image/png" data-original-filesize="606088" class="" style="cursor: zoom-in;" src="./第十五章 降维 - 简书_files/4235178-a4fc2b34fd4d4a22.png"></div>
+</div>
+<div class="image-caption"></div>
+</div>那什么是一条好的投影这些数据的直线了？每个样本点到直线的距离非常的小。<br>
+<p>所以，正式的说，PCA做的就是，它会找到一个低维平面（该例子中，是条直线），然后将数据投影在上面，使这些蓝色小线段（即，点到平面的距离）长度平方最小。这个蓝色小线段的距离，有时也称投影误差。<br>
+所以，PCA 所做的就是，它会试图寻找一个投影平面对数据进行投影，使得能最小化这个距离。<br>
+另外在应用PCA 之前，常规的做法是，先进行 均值归一化，使得特征量 x_1 和 x_2 其均值为0。并且其数值在可比较的范围之内。（本例中，我们已经处理过了）</p>
+
+<p>后面会详细讲，PCA背景下的均值归一化问题的细节。</p>
+<div class="image-package">
+<div class="image-container" style="max-width: 700px; max-height: 356px; background-color: transparent;">
+<div class="image-container-fill" style="padding-bottom: 50.88%;"></div>
+<div class="image-view" data-width="1478" data-height="752"><img data-original-src="//upload-images.jianshu.io/upload_images/4235178-7f8f5553d15a8b23.png" data-original-width="1478" data-original-height="752" data-original-format="image/png" data-original-filesize="1137358" class="" style="cursor: zoom-in;" src="./第十五章 降维 - 简书_files/4235178-7f8f5553d15a8b23.png"></div>
+</div>
+<div class="image-caption"></div>
+</div><br>
+<p>PCA做的就是，如果想将数据从二维降到一维。我们要试着找一个方向向量，使得向量 u^(i) ∈ R^n （本例中， n = 2，即，u^(i) ∈ R^2）投影到这个方向向量上的投影误差最小。</p>
+<br>
+<div class="image-package">
+<div class="image-container" style="max-width: 564px; max-height: 456px; background-color: transparent;">
+<div class="image-container-fill" style="padding-bottom: 80.85%;"></div>
+<div class="image-view" data-width="564" data-height="456"><img data-original-src="//upload-images.jianshu.io/upload_images/4235178-5f5e5b9575b8d8aa.png" data-original-width="564" data-original-height="456" data-original-format="image/png" data-original-filesize="186406" class="" style="cursor: zoom-in;" src="./第十五章 降维 - 简书_files/4235178-5f5e5b9575b8d8aa.png"></div>
+</div>
+<div class="image-caption"></div>
+</div>
+<blockquote>
+<p>注意：向量是带方向的！！！ u^(i) 与 -u^(i)</p>
+</blockquote>
+<p>更通常的情况是：我们会有N维数据，并且我们想其降到K维，这种情况下，我们不只是想找单个向量来对数据进行投影，而是想寻找K个方向来对数据进行投影，来最小化投影误差。（我们要做的是，将数据投影到这 k 个向量展开的线性子空间上）</p>
+<h6>举例：从 3D 降维到 2D：</h6>
+<div class="image-package">
+<div class="image-container" style="max-width: 688px; max-height: 480px; background-color: transparent;">
+<div class="image-container-fill" style="padding-bottom: 69.77%;"></div>
+<div class="image-view" data-width="688" data-height="480"><img data-original-src="//upload-images.jianshu.io/upload_images/4235178-ae8c8e6b43c3151a.png" data-original-width="688" data-original-height="480" data-original-format="image/png" data-original-filesize="443035" class="" style="cursor: zoom-in;" src="./第十五章 降维 - 简书_files/4235178-ae8c8e6b43c3151a.png"></div>
+</div>
+<div class="image-caption"></div>
+</div><p>u^(1) 和 u^(2) 两个向量一起定义了一个二维平面。我们将我们的数据投影到上面。</p>
+
+<p>因此，PCA做的是其视图找出一条直线，或一个平面，或其他维的空间，然后对数据进行投影，以最小化平方投影。90度投影，或正交投影的误差。</p>
+<h6>PCA和线性回归之间的关系？？</h6>
+<div class="image-package">
+<div class="image-container" style="max-width: 700px; max-height: 383px; background-color: transparent;">
+<div class="image-container-fill" style="padding-bottom: 54.83%;"></div>
+<div class="image-view" data-width="1408" data-height="772"><img data-original-src="//upload-images.jianshu.io/upload_images/4235178-3fb01864829ad84f.png" data-original-width="1408" data-original-height="772" data-original-format="image/png" data-original-filesize="536991" class="" style="cursor: zoom-in;" src="./第十五章 降维 - 简书_files/4235178-3fb01864829ad84f.png"></div>
+</div>
+<div class="image-caption"></div>
+</div><p>事实上，PCA不是线性回归，尽管看上去有一些相似，但是它们确实是两种不同的算法。<br>
+上图中，左边的是线性回归的误差（垂直于横轴投影），右边则是主要成分分析的误差（垂直于红线投影）。<br>
+主成分分析最小化的是投射误差（Projected Error），而线性回归尝试的是最小化预测误差。线性回归的目的是预测结果，而主成分分析不作任何预测。</p>
+
+<p>PCA将n个特征降维到k个，可以用来进行数据压缩，如果100维的向量最后可以用10维来表示，那么压缩率为90%。同样图像处理领域的KL变换使用PCA做图像压缩。但PCA 要保证降维后数据的特性损失最小。</p>
+<p>PCA技术的一大好处是对数据进行降维的处理。我们可以对新求出的“主元”向量的重要性进行排序，根据需要取前面最重要的部分，将后面的维数省去，可以达到降维从而简化模型或是对数据进行压缩的效果。同时最大程度的保持了原有数据的信息。</p>
+<p>PCA技术的一个很大的优点是，它是完全无参数限制的。在PCA的计算过程中完全不需要人为的设定参数或是根据任何经验模型对计算进行干预，最后的结果只与数据相关，与用户是独立的。</p>
+<p>但是，这一点同时也可以看作是缺点。如果用户对观测对象有一定的先验知识，掌握了数据的一些特征，却无法通过参数化等方法对处理过程进行干预，可能会得不到预期的效果，效率也不高。</p>
+<h3>15. 4 主成分分析问题规划2</h3>
+<p>主成分分析算法</p>
+<br>
+<div class="image-package">
+<div class="image-container" style="max-width: 700px; max-height: 369px; background-color: transparent;">
+<div class="image-container-fill" style="padding-bottom: 52.739999999999995%;"></div>
+<div class="image-view" data-width="1494" data-height="788"><img data-original-src="//upload-images.jianshu.io/upload_images/4235178-66d4b91ff4b751cf.png" data-original-width="1494" data-original-height="788" data-original-format="image/png" data-original-filesize="793975" class="" style="cursor: zoom-in;" src="./第十五章 降维 - 简书_files/4235178-66d4b91ff4b751cf.png"></div>
+</div>
+<div class="image-caption"></div>
+</div><br>
+<p>在使用PCA之前，首先要做的是，进行数据的预处理。<br>
+给定一个交易例子的集合，<br>
+预处理：<br>
+① 一定要做的一个事情是：执行均值归一化。<br>
+② 依据于你的数据，可能也要进行特征缩放。<br>
+这两个过程，即在我们有监督学习中，均值标准化过程 与 特征缩放的过程 是相似的。实际上，确实是相同的过程，除了我们现在是对未标记数据 x^(1) 到 x^(m) 做 均值标准化过程 与 特征缩放过程。</p>
+<br>
+<div class="image-package">
+<div class="image-container" style="max-width: 700px; max-height: 226px; background-color: transparent;">
+<div class="image-container-fill" style="padding-bottom: 31.39%;"></div>
+<div class="image-view" data-width="720" data-height="226"><img data-original-src="//upload-images.jianshu.io/upload_images/4235178-8ff56f69b3adda0c.png" data-original-width="720" data-original-height="226" data-original-format="image/png" data-original-filesize="142429" class="" style="cursor: zoom-in;" src="./第十五章 降维 - 简书_files/4235178-8ff56f69b3adda0c.png"></div>
+</div>
+<div class="image-caption"></div>
+</div>对于均值标准化，我们首先计算，每个特征的均值。我们用“ x_j - u_j （减去它的均值）”取代每个特征“x_j^(i)”。这将使每个特征的均值正好为0。
+<p>接下来，如果不同的特征有非常不相同的缩放，例如 x_1 是房子的尺寸， x_2 是卧室的数量。我们缩放每一个特征，一个相对的价值范围。<br>
+相对于之前的监督学习：x_j^(i) = ( (x_j^(i) - u_j) / s_j )。 s_j = x_j 预测的最大值 - 最小值。更普遍的，s_j 是特征 j 的标准偏差。</p>
+<div class="image-package">
+<div class="image-container" style="max-width: 700px; max-height: 393px; background-color: transparent;">
+<div class="image-container-fill" style="padding-bottom: 56.169999999999995%;"></div>
+<div class="image-view" data-width="1492" data-height="838"><img data-original-src="//upload-images.jianshu.io/upload_images/4235178-c4d08b9fdc053f2f.png" data-original-width="1492" data-original-height="838" data-original-format="image/png" data-original-filesize="1196822" class="" style="cursor: zoom-in;" src="./第十五章 降维 - 简书_files/4235178-c4d08b9fdc053f2f.png"></div>
+</div>
+<div class="image-caption"></div>
+</div><p>做完这一系列的数据预处理之后，我们来看PCA算法<br>
+我们能从先前的视频看到，PCA所做的就是，它尝试着找到一个 低维 子空间，对数据进行投影，我们希望找到一个向量 u^(k) （比如，从 N 维将到 K 维），是的数据到这个向量的投影误差平方和最小。<br>
+给个提示，是什么减少了数据平均值的维度？？<br>
+对于左边的例子，我们给定的样本 x^(i) 在 R^2 中（即，两个维度，x_1^(i)， x_2^(i)）。我们要做的就是在 R 中（一维）找到一个数据集 z^(i) 来代表我们原始的样本数据。所以，我们的均值从 2维 降到 1维。<br>
+所以，PCA要做的就是，要想出一个方法计算两个东西：<br>
+① 计算向量 u^(k)<br>
+② 计算 z^(i)</p>
+
+<h6>如何计算这些量了？</h6>
+<div class="image-package">
+<div class="image-container" style="max-width: 700px; max-height: 371px; background-color: transparent;">
+<div class="image-container-fill" style="padding-bottom: 53.05%;"></div>
+<div class="image-view" data-width="1542" data-height="818"><img data-original-src="//upload-images.jianshu.io/upload_images/4235178-c1a32ccd49b45b75.png" data-original-width="1542" data-original-height="818" data-original-format="image/png" data-original-filesize="1017900" class="" style="cursor: zoom-in;" src="./第十五章 降维 - 简书_files/4235178-c1a32ccd49b45b75.png"></div>
+</div>
+<div class="image-caption"></div>
+</div><br>
+<p>1，首先，我们要做的是计算这个“协方差（covariance matrix）”，通常用希腊字母 Σ。</p>
+<br>
+<div class="image-package">
+<div class="image-container" style="max-width: 574px; max-height: 152px; background-color: transparent;">
+<div class="image-container-fill" style="padding-bottom: 26.479999999999997%;"></div>
+<div class="image-view" data-width="574" data-height="152"><img data-original-src="//upload-images.jianshu.io/upload_images/4235178-aab7bd9d752ba89e.png" data-original-width="574" data-original-height="152" data-original-format="image/png" data-original-filesize="95028" class="" style="cursor: zoom-in;" src="./第十五章 降维 - 简书_files/4235178-aab7bd9d752ba89e.png"></div>
+</div>
+<div class="image-caption"></div>
+</div><p>① 希腊字母 Σ ，表示矩阵<br>
+② 累加和标记</p>
+
+<p>『 [U, S, V] = svd(Sigma); 』：计算 矩阵U = S 和 V 协方差矩阵sigma。<br>
+再补充一些细节：这个 协方差矩阵sigma，将会是一个 n*n 的矩阵。</p>
+<p>矩阵U 的每一列就是 u^(i) ，即，u ∈ R^(n*n) 。所以，我们想减少数据的维度从 n 维 到 k 维，我们需要做的是提取前 k 个向量。u^1, … , u^k ，这给了我们 k 个方向（构成了一个 k维度的 子空间），即，我们想要投影数据的方向。</p>
+<div class="image-package">
+<div class="image-container" style="max-width: 700px; max-height: 390px; background-color: transparent;">
+<div class="image-container-fill" style="padding-bottom: 55.83%;"></div>
+<div class="image-view" data-width="1476" data-height="824"><img data-original-src="//upload-images.jianshu.io/upload_images/4235178-cf5993cc692c431f.png" data-original-width="1476" data-original-height="824" data-original-format="image/png" data-original-filesize="860105" class="" style="cursor: zoom-in;" src="./第十五章 降维 - 简书_files/4235178-cf5993cc692c431f.png"></div>
+</div>
+<div class="image-caption"></div>
+</div><br>
+<p>有了 u^k 后，我们要做的就是：x ∈ R^n ——&gt; z ∈R^k<br>
+我们称 矩阵U 为 U_reduce（n*k 矩阵）。这是 矩阵U 被降维的版本，我们将用它来对我们的数据进行降维。</p>
+<br>
+<div class="image-package">
+<div class="image-container" style="max-width: 700px; max-height: 354px; background-color: transparent;">
+<div class="image-container-fill" style="padding-bottom: 26.46%;"></div>
+<div class="image-view" data-width="1338" data-height="354"><img data-original-src="//upload-images.jianshu.io/upload_images/4235178-71022e631628ae0f.png" data-original-width="1338" data-original-height="354" data-original-format="image/png" data-original-filesize="398722" class="" style="cursor: zoom-in;" src="./第十五章 降维 - 简书_files/4235178-71022e631628ae0f.png"></div>
+</div>
+<div class="image-caption"></div>
+</div><p>z = (U_reduce)^T * x<br>
+(U_reduce)^T : k * n 矩阵<br>
+x 是 “n 维度向量（即，n * 1）”<br>
+所以，z 是 “k 维度向量”</p>
+
+<h3>15.5 主成分数量选择</h3>
+<p>在PCA算法中，我们将N维特征减少为K维特征。这个数字 K 是PCA算法的一个参数。这个数 K 也被称为 主成分的数字。或者，我们保留的主成分的数字。<br>
+在一般情况下，如何考虑选取这个参数 K ？<br>
+</p>
+<p></p>
+对于 参数K 的选择，这里有几个有用的概念：<div class="image-package">
+<div class="image-container" style="max-width: 700px; max-height: 419px; background-color: transparent;">
+<div class="image-container-fill" style="padding-bottom: 51.22%;"></div>
+<div class="image-view" data-width="818" data-height="419"><img data-original-src="//upload-images.jianshu.io/upload_images/4235178-e40bff2e26260a16.png" data-original-width="818" data-original-height="419" data-original-format="image/png" data-original-filesize="200818" class="" style="cursor: zoom-in;" src="./第十五章 降维 - 简书_files/4235178-e40bff2e26260a16.png"></div>
+</div>
+<div class="image-caption"></div>
+</div>PS : x_approx^(i) 就是 x^(i) ( x ∈ R^n )到 z ( z ∈R^k ) 的投影点
+<p></p>
+<p></p>
+① PCA试图减少 投影误差平方的平均值（原始点与投影点之间的距离之和）：<div class="image-package">
+<div class="image-container" style="max-width: 700px; max-height: 54px; background-color: transparent;">
+<div class="image-container-fill" style="padding-bottom: 6.909999999999999%;"></div>
+<div class="image-view" data-width="782" data-height="54"><img data-original-src="//upload-images.jianshu.io/upload_images/4235178-9351b81696b07ff5.png" data-original-width="782" data-original-height="54" data-original-format="image/png" data-original-filesize="39097" class="" style="cursor: zoom-in;" src="./第十五章 降维 - 简书_files/4235178-9351b81696b07ff5.png"></div>
+</div>
+<div class="image-caption"></div>
+</div><br>
+<p></p>
+② 数据的总方差：<div class="image-package">
+<div class="image-container" style="max-width: 565px; max-height: 51px; background-color: transparent;">
+<div class="image-container-fill" style="padding-bottom: 9.030000000000001%;"></div>
+<div class="image-view" data-width="565" data-height="51"><img data-original-src="//upload-images.jianshu.io/upload_images/4235178-b67ad3f54bae68ee.png" data-original-width="565" data-original-height="51" data-original-format="image/png" data-original-filesize="24825" class="" style="cursor: zoom-in;" src="./第十五章 降维 - 简书_files/4235178-b67ad3f54bae68ee.png"></div>
+</div>
+<div class="image-caption"></div>
+</div><br>
+所以，数据的总方差就是，我们训练集中每个样本的平均长度。<br>
+即，“我的训练样本，距离全零向量的距离（‖ x^(i) ‖^2 就表示训练样本 x^(i) 与 零向量 的距离），的平均值”。或者说，我的训练样本距离原点有多远？<br>
+<div class="image-package">
+<div class="image-container" style="max-width: 700px; max-height: 214px; background-color: transparent;">
+<div class="image-container-fill" style="padding-bottom: 27.58%;"></div>
+<div class="image-view" data-width="776" data-height="214"><img data-original-src="//upload-images.jianshu.io/upload_images/4235178-542aae23eba570e9.png" data-original-width="776" data-original-height="214" data-original-format="image/png" data-original-filesize="94860" class="" style="cursor: zoom-in;" src="./第十五章 降维 - 简书_files/4235178-542aae23eba570e9.png"></div>
+</div>
+<div class="image-caption"></div>
+</div><p>我们希望在平均均方误差与训练集方差的比例尽可能小的情况下选择尽可能小的k值。<br>
+如果我们希望这个比例小于1%，就意味着原本数据的方差有99%都保留下来了，如果我们选择保留95%的方差，便能非常显著地降低模型中特征的维度了。<br>
+99%、95%、90% 都是一些具有代表性的范围。</p>
+
+<p>对于许多数据集，你会惊讶，为了保留99%的方差，你可以减少维度，但仍然保留大部分的方差。因为对于真实世界的数据来说，许多特征都是高度相关的。因此，结果证明：对数据进行很多压缩，仍然可以保留99%的方差。</p>
+<p>那么该如何实现了？<br>
+</p>
+<p></p>
+这里提供了一个你可能会用到的算法：<div class="image-package">
+<div class="image-container" style="max-width: 391px; max-height: 351px; background-color: transparent;">
+<div class="image-container-fill" style="padding-bottom: 89.77000000000001%;"></div>
+<div class="image-view" data-width="391" data-height="351"><img data-original-src="//upload-images.jianshu.io/upload_images/4235178-e7f3b35c380cbf73.png" data-original-width="391" data-original-height="351" data-original-format="image/png" data-original-filesize="98962" class="" style="cursor: zoom-in;" src="./第十五章 降维 - 简书_files/4235178-e7f3b35c380cbf73.png"></div>
+</div>
+<div class="image-caption"></div>
+</div>我们可以先令k=1，然后进行主要成分分析，获得U_reduce和z，然后计算比例是否小于1%。如果不是的话再令k=2，如此类推，z直到找到可以使得比例小于1%的最小k 值（原因是各个特征之间通常情况存在某种相关性）。<br>
+<p>但是，👆这个方法非常低效。</p>
+
+<h3>15.6 压缩重现</h3>
+<p>在以前的视频中，我谈论PCA作为压缩算法。在那里你可能需要把1000维的数据压缩100维特征，或具有三维数据压缩到一二维表示。所以，如果这是一个压缩算法，应该能回到这个压缩表示，回到你原有的高维数据的一种近似。<br>
+所以，给定的z<sup>(i)，这可能100维，怎么回到你原来的表示x</sup>(i)，这可能是1000维的数组？</p><div class="image-package">
+<div class="image-container" style="max-width: 700px; max-height: 435px; background-color: transparent;">
+<div class="image-container-fill" style="padding-bottom: 57.92%;"></div>
+<div class="image-view" data-width="751" data-height="435"><img data-original-src="//upload-images.jianshu.io/upload_images/4235178-1f243eb5b487221f.png" data-original-width="751" data-original-height="435" data-original-format="image/png" data-original-filesize="174858" class="" style="cursor: zoom-in;" src="./第十五章 降维 - 简书_files/4235178-1f243eb5b487221f.png"></div>
+</div>
+<div class="image-caption"></div>
+</div>PCA算法，我们可能有一个这样的样本。如图中样本x<sup>(1)，x</sup>(2)。我们做的是，我们把这些样本投射到图中这个一维平面。然后现在我们需要只使用一个实数，比如z<sup>(1)，指定这些点的位置后他们被投射到这一个三维曲面。给定一个点z</sup>(1)，我们怎么能回去这个原始的二维空间呢？x为2维，z为1维，<div class="image-package">
+<div class="image-container" style="max-width: 135px; max-height: 33px; background-color: transparent;">
+<div class="image-container-fill" style="padding-bottom: 24.44%;"></div>
+<div class="image-view" data-width="135" data-height="33"><img data-original-src="//upload-images.jianshu.io/upload_images/4235178-64d3f022624d39b9.png" data-original-width="135" data-original-height="33" data-original-format="image/png" data-original-filesize="2957" class="" style="cursor: zoom-in;" src="./第十五章 降维 - 简书_files/4235178-64d3f022624d39b9.png"></div>
+</div>
+<div class="image-caption"></div>
+</div>，相反的方程为：<div class="image-package">
+<div class="image-container" style="max-width: 319px; max-height: 31px; background-color: transparent;">
+<div class="image-container-fill" style="padding-bottom: 9.719999999999999%;"></div>
+<div class="image-view" data-width="319" data-height="31"><img data-original-src="//upload-images.jianshu.io/upload_images/4235178-a2875e492d7f38a3.png" data-original-width="319" data-original-height="31" data-original-format="image/png" data-original-filesize="5300" class="" style="cursor: zoom-in;" src="./第十五章 降维 - 简书_files/4235178-a2875e492d7f38a3.png"></div>
+</div>
+<div class="image-caption"></div>
+</div><br>
+<div class="image-package">
+<div class="image-container" style="max-width: 337px; max-height: 401px; background-color: transparent;">
+<div class="image-container-fill" style="padding-bottom: 118.99%;"></div>
+<div class="image-view" data-width="337" data-height="401"><img data-original-src="//upload-images.jianshu.io/upload_images/4235178-1f14c9c125a0adc8.png" data-original-width="337" data-original-height="401" data-original-format="image/png" data-original-filesize="92144" class="" style="cursor: zoom-in;" src="./第十五章 降维 - 简书_files/4235178-1f14c9c125a0adc8.png"></div>
+</div>
+<div class="image-caption"></div>
+</div>并且PCA的意图就是，如果平方投影误差不太大。这样 x_approx 就会很接近原先用来求 z 的 x 值了。<p></p>
+<p>我们可以把👆这个过程叫做：原始数据的重构。</p>
+<h3>15.7 应用 PCA 的建议</h3>
+<p>我们常常使用PCA算法对监督学习算法进行加速。</p>
+<br>
+<div class="image-package">
+<div class="image-container" style="max-width: 700px; max-height: 449px; background-color: transparent;">
+<div class="image-container-fill" style="padding-bottom: 54.03%;"></div>
+<div class="image-view" data-width="831" data-height="449"><img data-original-src="//upload-images.jianshu.io/upload_images/4235178-1b3d2ca5eee6e6fd.png" data-original-width="831" data-original-height="449" data-original-format="image/png" data-original-filesize="278104" class="" style="cursor: zoom-in;" src="./第十五章 降维 - 简书_files/4235178-1b3d2ca5eee6e6fd.png"></div>
+</div>
+<div class="image-caption"></div>
+</div><p>假使我们正在针对一张 100×100像素的图片进行某个计算机视觉的机器学习，即总共有10000 个特征。</p>
+
+<ol>
+<li>
+<p>第一步是运用主要成分分析将数据压缩至1000个特征</p>
+<br>
+<div class="image-package">
+<div class="image-container" style="max-width: 700px; max-height: 229px; background-color: transparent;">
+<div class="image-container-fill" style="padding-bottom: 32.07%;"></div>
+<div class="image-view" data-width="714" data-height="229"><img data-original-src="//upload-images.jianshu.io/upload_images/4235178-6914f2f8a0218167.png" data-original-width="714" data-original-height="229" data-original-format="image/png" data-original-filesize="74668" class="" style="cursor: zoom-in;" src="./第十五章 降维 - 简书_files/4235178-6914f2f8a0218167.png"></div>
+</div>
+<div class="image-caption"></div>
+</div>
+<p>检查已经被标记的训练集，并抽取输入（即，仅抽取 x），这样我们得到一个无标签的训练集。从 x^(1) 到 x^(m)，x 是10000 维向量。<br>
+接着我使用PCA，得到原始数据的低纬表示。<br>
+因此，我们就得到一个新的训练集：<br>
+( z^(1), y^(1) ), ( z^(2), y^(2) ), … , ( z^(m), y^(m) )</p>
+</li>
+<li><p>然后对训练集运行学习算法。</p></li>
+<li><p>在预测时，采用之前学习而来的U_reduce将输入的特征x转换成特征向量z，然后再进行预测</p></li>
+</ol>
+<p>最后要注意的一点是，PCA所做的是定义一个从 x  到 z 的映射。这个从 x 到 z 的映射只能通过在训练集上运行PCA来得到。这个映射（注意，这里说的是映射，而不是PCA算法）也能够被应用在 交叉校验 和 测试集 上的其他样本中。（即，如果我们有交叉验证集合测试集，也采用对训练集学习而来的U_reduce。 ）</p>
+<p>总结一下：当在运行PCA时，仅仅在训练集中的数据上运行，不能用在交叉验证和测试集上。但，当你定义了 x 到 z 的映射后，你可以应用这个映射到你的交叉验证集和你的测试集。</p>
+<p>顺便说一下，实际上，在许多问题中我们确实能减少数据的维度，大概可以减少到 1/5 或者 1/10，而且仍然保留大部分的方差，几乎不影响性能。而且使用较低的维度数据，我们的学习算法通常可以运行的更快。</p>
+<p></p>
+<p></p>
+总而言之，我们到目前为止讨论PCA的以下应用：<div class="image-package">
+<div class="image-container" style="max-width: 700px; max-height: 386px; background-color: transparent;">
+<div class="image-container-fill" style="padding-bottom: 50.99%;"></div>
+<div class="image-view" data-width="757" data-height="386"><img data-original-src="//upload-images.jianshu.io/upload_images/4235178-1de067c7caa44e94.png" data-original-width="757" data-original-height="386" data-original-format="image/png" data-original-filesize="123101" class="" style="cursor: zoom-in;" src="./第十五章 降维 - 简书_files/4235178-1de067c7caa44e94.png"></div>
+</div>
+<div class="image-caption"></div>
+</div><br>
+<div class="image-package">
+<div class="image-container" style="max-width: 700px; max-height: 399px; background-color: transparent;">
+<div class="image-container-fill" style="padding-bottom: 52.23%;"></div>
+<div class="image-view" data-width="764" data-height="399"><img data-original-src="//upload-images.jianshu.io/upload_images/4235178-9668564435147578.png" data-original-width="764" data-original-height="399" data-original-format="image/png" data-original-filesize="165047" class="" style="cursor: zoom-in;" src="./第十五章 降维 - 简书_files/4235178-9668564435147578.png"></div>
+</div>
+<div class="image-caption"></div>
+</div><p>错误的主要成分分析情况：一个常见错误使用主要成分分析的情况是，将其用于减少过拟合（减少了特征的数量）。这样做非常不好，不如尝试正则化处理。原因在于PCA不需要使用标签y，它仅仅使用输入的 x^(i) ，使用它去寻找低纬数据，来近似你的数据。因此PCA会舍掉一些信息，它扔掉或减少数据的维度，不关心 y 值是什么。所以如果99%的方差信息被保留，你保留了大部分的方差，那么这样使用PCA是可以的。但是它也可能会丢掉一些有价值的信息。<br>
+事实证明，只使用正则化来防止过拟合常常会给你带来更好的结果。因为，当你应用 线性回归 或者 logistic回归 或其他的一些方法，进行正则化时，这个最小化问题，实际上是知道 y 的值的，所以不太可能损失掉一些有价值的信息。而PCA不使用标签，更有可能丢失一些有价值的信息。</p>
+
+<p>因此，总结一下，使用PCA比较好的方式，是用它来提高学习算法的速度。但是使用PCA来防止过拟合，这不是PCA的一个好的运用。要使用正则化来防止过拟合。</p>
+<div class="image-package">
+<div class="image-container" style="max-width: 700px; max-height: 411px; background-color: transparent;">
+<div class="image-container-fill" style="padding-bottom: 52.290000000000006%;"></div>
+<div class="image-view" data-width="786" data-height="411"><img data-original-src="//upload-images.jianshu.io/upload_images/4235178-ae0c5fa228b741d7.png" data-original-width="786" data-original-height="411" data-original-format="image/png" data-original-filesize="238637" class="" style="cursor: zoom-in;" src="./第十五章 降维 - 简书_files/4235178-ae0c5fa228b741d7.png"></div>
+</div>
+<div class="image-caption"></div>
+</div><p>另一个常见的错误是，默认地将主要成分分析作为学习过程中的一部分，这虽然很多时候有效果，最好还是从所有原始特征开始，只在有必要的时候（算法运行太慢或者占用太多内存）才考虑采用主要成分分析。</p>
+
+
+          </div>
+        </div>
+    </div>
+
+    <!-- 如果是付费文章，未购买，则显示购买按钮 -->
+
+    <!-- 连载目录项 -->
+
+    <!-- 如果是付费文章 -->
+      <!-- 如果是付费连载，已购买，且作者允许赞赏，则显示付费信息和赞赏 -->
+        <div id="free-reward-panel" class="support-author"><p>小礼物走一走，来简书关注我</p> <div class="btn btn-pay">赞赏支持</div> <div class="supporter"><ul class="support-list"></ul> <!----></div> <!----> <!----></div>
+
+      <div class="show-foot">
+        <a class="notebook" href="https://www.jianshu.com/nb/34264197">
+          <i class="iconfont ic-search-notebook"></i>
+          <span>吴恩达-机器学习-笔记</span>
+</a>        <div class="copyright" data-toggle="tooltip" data-html="true" data-original-title="转载请联系作者获得授权，并标注“简书作者”。">
+          © 著作权归作者所有
+        </div>
+        <div class="modal-wrap" data-report-note="">
+          <a id="report-modal">举报文章</a>
+        </div>
+      </div>
+
+      <!-- 文章底部作者信息 -->
+        <div class="follow-detail">
+          <div class="info">
+            <a class="avatar" href="https://www.jianshu.com/u/c4a967f15149">
+              <img src="./第十五章 降维 - 简书_files/08809d18-0a1d-4585-bfe8-8d77e5397bb3.jpeg" alt="96">
+</a>            <a class="btn btn-default following"><i class="iconfont ic-followed"></i><span>已关注</span></a>
+            <a class="title" href="https://www.jianshu.com/u/c4a967f15149">tomas家的小拨浪鼓</a>
+          <p>写了 259321 字，被 1251 人关注，获得了 751 个喜欢</p></div>
+            <div class="signature">以梦为马，诗酒趁年华~
+
+
+邮箱：linling_tomas@qq.com</div>
+        </div>
+
+    <div class="meta-bottom">
+      <div data-v-6ddd02c6="" class="like"><div data-v-6ddd02c6="" class="btn like-group"><div data-v-6ddd02c6="" class="btn-like"><a data-v-6ddd02c6="">喜欢</a></div> <div data-v-6ddd02c6="" class="modal-wrap"><a data-v-6ddd02c6="">5</a></div></div> <!----></div>
+      <div class="share-group">
+        <a class="share-circle" data-action="weixin-share" data-toggle="tooltip" data-original-title="分享到微信">
+          <i class="iconfont ic-wechat"></i>
+        </a>
+        <a class="share-circle" data-action="weibo-share" data-toggle="tooltip" href="javascript:void((function(s,d,e,r,l,p,t,z,c){var%20f=&#39;http://v.t.sina.com.cn/share/share.php?appkey=1881139527&#39;,u=z||d.location,p=[&#39;&amp;url=&#39;,e(u),&#39;&amp;title=&#39;,e(t||d.title),&#39;&amp;source=&#39;,e(r),&#39;&amp;sourceUrl=&#39;,e(l),&#39;&amp;content=&#39;,c||&#39;gb2312&#39;,&#39;&amp;pic=&#39;,e(p||&#39;&#39;)].join(&#39;&#39;);function%20a(){if(!window.open([f,p].join(&#39;&#39;),&#39;mb&#39;,[&#39;toolbar=0,status=0,resizable=1,width=440,height=430,left=&#39;,(s.width-440)/2,&#39;,top=&#39;,(s.height-430)/2].join(&#39;&#39;)))u.href=[f,p].join(&#39;&#39;);};if(/Firefox/.test(navigator.userAgent))setTimeout(a,0);else%20a();})(screen,document,encodeURIComponent,&#39;&#39;,&#39;&#39;,&#39;&#39;, &#39;推荐 tomas家的小拨浪鼓 的文章《第十五章 降维》（ 分享自 @简书 ）&#39;,&#39;https://www.jianshu.com/p/88d7178898c6?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=reader_share&amp;utm_source=weibo&#39;,&#39;页面编码gb2312|utf-8默认gb2312&#39;));" data-original-title="分享到微博">
+          <i class="iconfont ic-weibo"></i>
+        </a>
+        <a class="share-circle" data-toggle="tooltip" id="longshare" target="_blank" data-original-title="" title="">
+            <div class="qrcode" id="qrcode">
+             <img src="./第十五章 降维 - 简书_files/download-index-side-qrcode-cb13fc9106a478795f8d10f9f632fccf.png" alt="Download index side qrcode">
+             <p>下载app生成长微博图片</p>
+             </div>
+          <i class="iconfont ic-picture"></i>
+        </a>
+        <a class="share-circle more-share" tabindex="0" data-toggle="popover" data-placement="top" data-html="true" data-trigger="focus" href="javascript:void(0);" data-content="
+          &lt;ul class=&quot;share-list&quot;&gt;
+            &lt;li&gt;&lt;a href=&quot;javascript:void(function(){var d=document,e=encodeURIComponent,r=&#39;http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=&#39;+e(&#39;https://www.jianshu.com/p/88d7178898c6?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=reader_share&amp;utm_source=qzone&#39;)+&#39;&amp;title=&#39;+e(&#39;推荐 tomas家的小拨浪鼓 的文章《第十五章 降维》&#39;),x=function(){if(!window.open(r,&#39;qzone&#39;,&#39;toolbar=0,resizable=1,scrollbars=yes,status=1,width=600,height=600&#39;))location.href=r};if(/Firefox/.test(navigator.userAgent)){setTimeout(x,0)}else{x()}})();&quot;&gt;&lt;i class=&quot;social-icon-sprite social-icon-zone&quot;&gt;&lt;/i&gt;&lt;span&gt;分享到QQ空间&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href=&quot;javascript:void(function(){var d=document,e=encodeURIComponent,r=&#39;https://twitter.com/share?url=&#39;+e(&#39;https://www.jianshu.com/p/88d7178898c6?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=reader_share&amp;utm_source=twitter&#39;)+&#39;&amp;text=&#39;+e(&#39;推荐 tomas家的小拨浪鼓 的文章《第十五章 降维》（ 分享自 @jianshucom ）&#39;)+&#39;&amp;related=&#39;+e(&#39;jianshucom&#39;),x=function(){if(!window.open(r,&#39;twitter&#39;,&#39;toolbar=0,resizable=1,scrollbars=yes,status=1,width=600,height=600&#39;))location.href=r};if(/Firefox/.test(navigator.userAgent)){setTimeout(x,0)}else{x()}})();&quot;&gt;&lt;i class=&quot;social-icon-sprite social-icon-twitter&quot;&gt;&lt;/i&gt;&lt;span&gt;分享到Twitter&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href=&quot;javascript:void(function(){var d=document,e=encodeURIComponent,r=&#39;https://www.facebook.com/dialog/share?app_id=483126645039390&amp;display=popup&amp;href=https://www.jianshu.com/p/88d7178898c6?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=reader_share&amp;utm_source=facebook&#39;,x=function(){if(!window.open(r,&#39;facebook&#39;,&#39;toolbar=0,resizable=1,scrollbars=yes,status=1,width=450,height=330&#39;))location.href=r};if(/Firefox/.test(navigator.userAgent)){setTimeout(x,0)}else{x()}})();&quot;&gt;&lt;i class=&quot;social-icon-sprite social-icon-facebook&quot;&gt;&lt;/i&gt;&lt;span&gt;分享到Facebook&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href=&quot;javascript:void(function(){var d=document,e=encodeURIComponent,r=&#39;https://plus.google.com/share?url=&#39;+e(&#39;https://www.jianshu.com/p/88d7178898c6?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=reader_share&amp;utm_source=google_plus&#39;),x=function(){if(!window.open(r,&#39;google_plus&#39;,&#39;toolbar=0,resizable=1,scrollbars=yes,status=1,width=450,height=330&#39;))location.href=r};if(/Firefox/.test(navigator.userAgent)){setTimeout(x,0)}else{x()}})();&quot;&gt;&lt;i class=&quot;social-icon-sprite social-icon-google&quot;&gt;&lt;/i&gt;&lt;span&gt;分享到Google+&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href=&quot;javascript:void(function(){var d=document,e=encodeURIComponent,s1=window.getSelection,s2=d.getSelection,s3=d.selection,s=s1?s1():s2?s2():s3?s3.createRange().text:&#39;&#39;,r=&#39;http://www.douban.com/recommend/?url=&#39;+e(&#39;https://www.jianshu.com/p/88d7178898c6?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=reader_share&amp;utm_source=douban&#39;)+&#39;&amp;title=&#39;+e(&#39;第十五章 降维&#39;)+&#39;&amp;sel=&#39;+e(s)+&#39;&amp;v=1&#39;,x=function(){if(!window.open(r,&#39;douban&#39;,&#39;toolbar=0,resizable=1,scrollbars=yes,status=1,width=450,height=330&#39;))location.href=r+&#39;&amp;r=1&#39;};if(/Firefox/.test(navigator.userAgent)){setTimeout(x,0)}else{x()}})()&quot;&gt;&lt;i class=&quot;social-icon-sprite social-icon-douban&quot;&gt;&lt;/i&gt;&lt;span&gt;分享到豆瓣&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+          &lt;/ul&gt;
+        " data-original-title="" title="">更多分享</a>
+      </div>
+    </div>
+
+      <a id="web-note-ad-2" target="_blank" href="https://www.jianshu.com/p/7dd2ad568a69"><img src="./第十五章 降维 - 简书_files/gupao-43e5e6af6d2d1b2639ab8da6cdcdd1ed.png" alt="Gupao"></a>
+
+    <!--
+    <div id="note-comment-above-ad-container">
+      <span id="youdao-comment-ad" class="ad-badge">广告</span>
+    </div>
+    -->
+    <div><div id="comment-list" class="comment-list"><div><form class="new-comment"><a class="avatar"><img src="./第十五章 降维 - 简书_files/cfe0a600-b4a3-4f91-9b77-a9f3d7cd461e(1)"></a> <textarea placeholder="写下你的评论..."></textarea> <!----></form> <!----></div> <!----> <div class="comments-placeholder" style="display: none;"><div class="author"><div class="avatar"></div> <div class="info"><div class="name"></div> <div class="meta"></div></div></div> <div class="text"></div> <div class="text animation-delay"></div> <div class="tool-group"><i class="iconfont ic-zan-active"></i><div class="zan"></div> <i class="iconfont ic-list-comments"></i><div class="zan"></div></div></div> <div id="normal-comment-list" class="normal-comment-list"><div><!----> <div><div class="top-title"><span>评论</span> <a class="close-btn" style="display: none;">关闭评论</a></div> <div class="no-comment"></div> <div class="text">
+            智慧如你，不想<a>发表一点想法</a>咩~
+          </div></div> <!----> <div class="comments-placeholder" style="display: none;"><div class="author"><div class="avatar"></div> <div class="info"><div class="name"></div> <div class="meta"></div></div></div> <div class="text"></div> <div class="text animation-delay"></div> <div class="tool-group"><i class="iconfont ic-zan-active"></i><div class="zan"></div> <i class="iconfont ic-list-comments"></i><div class="zan"></div></div></div> </div></div> <!----> <div><!----></div></div></div>
+  </div>
+
+  <div class="side-tool"><ul><li data-placement="left" data-toggle="tooltip" data-container="body" data-original-title="回到顶部" style=""><a class="function-button"><i class="iconfont ic-backtop"></i></a></li> <!----> <li data-placement="left" data-toggle="tooltip" data-container="body" data-original-title="将文章加入专题"><a class="js-submit-button"><i class="iconfont ic-addcollectionmodal"></i></a> <!----></li> <li data-placement="left" data-toggle="tooltip" data-container="body" data-original-title="收藏文章"><a class="function-button"><i class="iconfont ic-mark"></i></a></li> <li data-placement="left" data-toggle="tooltip" data-container="body" data-original-title="喜欢文章"><a class="function-button"><i class="iconfont ic-like"></i></a></li> <li data-placement="left" data-toggle="tooltip" data-container="body" data-original-title="分享文章" id="share"><a tabindex="0" role="button" data-toggle="popover" data-placement="left" data-html="true" data-trigger="focus" href="javascript:void(0);" data-content="&lt;ul class=&#39;share-list&#39; style=&quot;width:220px&quot;&gt;
+                  &lt;li&gt;&lt;a class=&quot;weixin-share&quot;&gt;&lt;i class=&quot;social-icon-sprite social-icon-weixin&quot;&gt;&lt;/i&gt;&lt;span&gt;分享到微信&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+                  &lt;li&gt;&lt;a href=&quot;javascript:void((function(s,d,e,r,l,p,t,z,c){var%20f=&#39;http://v.t.sina.com.cn/share/share.php?appkey=1881139527&#39;,u=z||d.location,p=[&#39;&amp;url=&#39;,e(u),&#39;&amp;title=&#39;,e(t||d.title),&#39;&amp;source=&#39;,e(r),&#39;&amp;sourceUrl=&#39;,e(l),&#39;&amp;content=&#39;,c||&#39;gb2312&#39;,&#39;&amp;pic=&#39;,e(p||&#39;&#39;)].join(&#39;&#39;);function%20a(){if(!window.open([f,p].join(&#39;&#39;),&#39;mb&#39;,[&#39;toolbar=0,status=0,resizable=1,width=440,height=430,left=&#39;,(s.width-440)/2,&#39;,top=&#39;,(s.height-430)/2].join(&#39;&#39;)))u.href=[f,p].join(&#39;&#39;);};if(/Firefox/.test(navigator.userAgent))setTimeout(a,0);else%20a();})(screen,document,encodeURIComponent,&#39;&#39;,&#39;&#39;,&#39;&#39;, &#39;推荐 tomas家的小拨浪鼓 的文章《第十五章 降维》（ 分享自 @简书 ）&#39;,&#39;https://www.jianshu.com/p/88d7178898c6?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=reader_share&amp;utm_source=weibo&#39;,&#39;页面编码gb2312|utf-8默认gb2312&#39;));&quot;&gt;&lt;i class=&#39;social-icon-sprite social-icon-weibo&#39;&gt;&lt;/i&gt;&lt;span&gt;分享到微博&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+                  
+                  &lt;li&gt;&lt;a href=&quot;javascript:void(function(){var d=document,e=encodeURIComponent,r=&#39;http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=&#39;+e(&#39;https://www.jianshu.com/p/88d7178898c6?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=reader_share&amp;utm_source=qzone&#39;)+&#39;&amp;title=&#39;+e(&#39;推荐 tomas家的小拨浪鼓 的文章《第十五章 降维》&#39;),x=function(){if(!window.open(r,&#39;qzone&#39;,&#39;toolbar=0,resizable=1,scrollbars=yes,status=1,width=600,height=600&#39;))location.href=r};if(/Firefox/.test(navigator.userAgent)){setTimeout(x,0)}else{x()}})();&quot;&gt;&lt;i class=&#39;social-icon-sprite social-icon-zone&#39;&gt;&lt;/i&gt;&lt;span&gt;分享到QQ空间&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+                  &lt;li&gt;&lt;a href=&quot;javascript:void(function(){var d=document,e=encodeURIComponent,r=&#39;https://twitter.com/share?url=&#39;+e(&#39;https://www.jianshu.com/p/88d7178898c6?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=reader_share&amp;utm_source=twitter&#39;)+&#39;&amp;text=&#39;+e(&#39;推荐 tomas家的小拨浪鼓 的文章《第十五章 降维》（ 分享自 @jianshucom ）&#39;)+&#39;&amp;related=&#39;+e(&#39;jianshucom&#39;),x=function(){if(!window.open(r,&#39;twitter&#39;,&#39;toolbar=0,resizable=1,scrollbars=yes,status=1,width=600,height=600&#39;))location.href=r};if(/Firefox/.test(navigator.userAgent)){setTimeout(x,0)}else{x()}})();&quot;&gt;&lt;i class=&#39;social-icon-sprite social-icon-twitter&#39;&gt;&lt;/i&gt;&lt;span&gt;分享到Twitter&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+                  &lt;li&gt;&lt;a href=&quot;javascript:void(function(){var d=document,e=encodeURIComponent,r=&#39;https://www.facebook.com/dialog/share?app_id=483126645039390&amp;display=popup&amp;href=https://www.jianshu.com/p/88d7178898c6?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=reader_share&amp;utm_source=facebook&#39;,x=function(){if(!window.open(r,&#39;facebook&#39;,&#39;toolbar=0,resizable=1,scrollbars=yes,status=1,width=450,height=330&#39;))location.href=r};if(/Firefox/.test(navigator.userAgent)){setTimeout(x,0)}else{x()}})();&quot;&gt;&lt;i class=&#39;social-icon-sprite social-icon-facebook&#39;&gt;&lt;/i&gt;&lt;span&gt;分享到Facebook&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+                  &lt;li&gt;&lt;a href=&quot;javascript:void(function(){var d=document,e=encodeURIComponent,r=&#39;https://plus.google.com/share?url=&#39;+e(&#39;https://www.jianshu.com/p/88d7178898c6?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=reader_share&amp;utm_source=google_plus&#39;),x=function(){if(!window.open(r,&#39;google_plus&#39;,&#39;toolbar=0,resizable=1,scrollbars=yes,status=1,width=450,height=330&#39;))location.href=r};if(/Firefox/.test(navigator.userAgent)){setTimeout(x,0)}else{x()}})();&quot;&gt;&lt;i class=&#39;social-icon-sprite social-icon-google&#39;&gt;&lt;/i&gt;&lt;span&gt;分享到Google+&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+                  &lt;li&gt;&lt;a href=&quot;javascript:void(function(){var d=document,e=encodeURIComponent,s1=window.getSelection,s2=d.getSelection,s3=d.selection,s=s1?s1():s2?s2():s3?s3.createRange().text:&#39;&#39;,r=&#39;http://www.douban.com/recommend/?url=&#39;+e(&#39;https://www.jianshu.com/p/88d7178898c6?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=reader_share&amp;utm_source=douban&#39;)+&#39;&amp;title=&#39;+e(&#39;第十五章 降维&#39;)+&#39;&amp;sel=&#39;+e(s)+&#39;&amp;v=1&#39;,x=function(){if(!window.open(r,&#39;douban&#39;,&#39;toolbar=0,resizable=1,scrollbars=yes,status=1,width=450,height=330&#39;))location.href=r+&#39;&amp;r=1&#39;};if(/Firefox/.test(navigator.userAgent)){setTimeout(x,0)}else{x()}})()&quot;&gt;&lt;i class=&#39;social-icon-sprite social-icon-douban&#39;&gt;&lt;/i&gt;&lt;span&gt;分享到豆瓣&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+                &lt;/ul&gt;" data-original-title="" title="" class="function-button"><i class="iconfont ic-share"></i></a> <!----></li> <!----></ul></div>
+</div>
+<div class="note-bottom">
+  <div><div class="main"><div class="title">被以下专题收入，发现更多相似内容</div> <!----> <div class="include-collection"><div class="modal-wrap add-collection-wrap"><a class="add-collection"><i class="iconfont ic-follow"></i>收入我的专题</a></div> <a href="https://www.jianshu.com/c/86ff829f995f?utm_source=desktop&amp;utm_medium=notes-included-collection" target="_blank" class="item"><img src="./第十五章 降维 - 简书_files/u_2582065815_2360012304_fm_21_gp_0.jpg"><div class="name">大数据，机器学...</div></a><a href="https://www.jianshu.com/c/NEt52a?utm_source=desktop&amp;utm_medium=notes-included-collection" target="_blank" class="item"><img src="./第十五章 降维 - 简书_files/computer_guy.jpg"><div class="name">程序员</div></a><a href="https://www.jianshu.com/c/e581bbab97e4?utm_source=desktop&amp;utm_medium=notes-included-collection" target="_blank" class="item"><img src="./第十五章 降维 - 简书_files/20140403130913-11922290901.jpg"><div class="name">机器学习和人工...</div></a><a href="https://www.jianshu.com/c/4b666067832d?utm_source=desktop&amp;utm_medium=notes-included-collection" target="_blank" class="item"><img src="./第十五章 降维 - 简书_files/1555117315.jpg"><div class="name">机器学习</div></a> <!----></div></div> <!----> <!----></div>
+  <div data-vcomp="recommended-notes" data-note-id="42915752"></div>
+
+  <!-- 相关文章 -->
+      <!-- 登录用户 -->
+      <div class="seo-recommended-notes">
+          <!-- % similary_notes = Recsys::SimilarNotesQuery.new(:user => current_user, :note => @note).records.map(&:note) %-->
+
+            <div class="note ">
+                            <a class="title" target="_blank" href="https://www.jianshu.com/p/61751576bc3b?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=seo_notes&amp;utm_source=recommendation">2019-01-18设计电源</a>
+              <p class="description">在任何开关电源设计中，PCB板的物理设计都是最后一个环节，如果设计方法不当，PCB可能会辐射过多的电磁干扰，造成电源工作不稳定，以下针对各个步骤中所需注意的事项进行分析。 1. 从原理图到PCB的设计流程 建立元件参数——&gt;输入原理网表-&gt;设计参数设置-&gt;手工布局-&gt;手工布...</p>
+              <a class="author" target="_blank" href="https://www.jianshu.com/u/14a501c045ad?utm_campaign=maleskine&amp;utm_content=user&amp;utm_medium=seo_notes&amp;utm_source=recommendation">
+                <div class="avatar">
+                  <img src="./第十五章 降维 - 简书_files/9-cceda3cf5072bcdd77e8ca4f21c40998.jpg" alt="48">
+                </div>
+                <span class="name">一个不开口的猫</span>
+</a>            </div>
+
+            <div class="note ">
+                            <a class="title" target="_blank" href="https://www.jianshu.com/p/e5616e05f26b?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=seo_notes&amp;utm_source=recommendation">世屹文化的产业领域</a>
+              <p class="description">民族文化一直是国家发展的主要经济支撑，像现代社会不少的企业都在企业文化上不断增进，以此让企业文化，民族产业发展更快，更有自信。在近年来的大方向规划中可以看出，文化产业是经久不衰的，不仅带动了许多产业的发展，更重要的是建立了一系列文化方面的信仰。世屹集团就是一直以来在文化产业...</p>
+              <a class="author" target="_blank" href="https://www.jianshu.com/u/755a688e1313?utm_campaign=maleskine&amp;utm_content=user&amp;utm_medium=seo_notes&amp;utm_source=recommendation">
+                <div class="avatar">
+                  <img src="./第十五章 降维 - 简书_files/5-33d2da32c552b8be9a0548c7a4576607.jpg" alt="48">
+                </div>
+                <span class="name">轴哲</span>
+</a>            </div>
+
+            <div class="note have-img">
+              <a class="cover" target="_blank" href="https://www.jianshu.com/p/f59b9ae64ca3?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=seo_notes&amp;utm_source=recommendation">
+                <img src="./第十五章 降维 - 简书_files/4190489-651fb13789094226.png" alt="240">
+</a>              <a class="title" target="_blank" href="https://www.jianshu.com/p/f59b9ae64ca3?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=seo_notes&amp;utm_source=recommendation">怎么用iMindMap提高我们的绩效</a>
+              <p class="description">iMindMap模板中的向导功能可以帮助用户快速的建立起对应类型的思维导图，帮助初学者用户更快的掌握iMindMap。本文就介绍了iMindMap模板向导中的绩效辅导思维导图。 我们打开iMindMap模板中的向导选项，在左侧的板块中选择开始。 在开始后的对话框内点击绩效辅...</p>
+              <a class="author" target="_blank" href="https://www.jianshu.com/u/c8667cd406f8?utm_campaign=maleskine&amp;utm_content=user&amp;utm_medium=seo_notes&amp;utm_source=recommendation">
+                <div class="avatar">
+                  <img src="./第十五章 降维 - 简书_files/5-33d2da32c552b8be9a0548c7a4576607.jpg" alt="48">
+                </div>
+                <span class="name">一只流浪喵</span>
+</a>            </div>
+
+            <div class="note have-img">
+              <a class="cover" target="_blank" href="https://www.jianshu.com/p/42cfdff3e619?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=seo_notes&amp;utm_source=recommendation">
+                <img src="./第十五章 降维 - 简书_files/7189864-01d4e78970c7cd5e.jpg" alt="240">
+</a>              <a class="title" target="_blank" href="https://www.jianshu.com/p/42cfdff3e619?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=seo_notes&amp;utm_source=recommendation">分析：办理入户广州人员的常见忧虑有哪些？</a>
+              <p class="description">办理入户广州，尤其是委托第三方协助代理入户的人员，他们都会有各方面的担忧，比方说，我们选择的代理公司是否正规，是否会出现收钱不办事的呢，我不知道哪种入户方式才是适合我的呢等等。下面是广东招才通【安千户18122385887】小编总结的几点，希望能帮到你解决入户广州问题吧。 ...</p>
+              <a class="author" target="_blank" href="https://www.jianshu.com/u/435ac70bd582?utm_campaign=maleskine&amp;utm_content=user&amp;utm_medium=seo_notes&amp;utm_source=recommendation">
+                <div class="avatar">
+                  <img src="./第十五章 降维 - 简书_files/5b51d017-8638-4461-8da7-339b4d506804.jpg" alt="48">
+                </div>
+                <span class="name">招才通</span>
+</a>            </div>
+
+            <div class="note have-img">
+              <a class="cover" target="_blank" href="https://www.jianshu.com/p/86ea6881f74f?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=seo_notes&amp;utm_source=recommendation">
+                <img src="./第十五章 降维 - 简书_files/12597428-6015514d64d3e0b4" alt="240">
+</a>              <a class="title" target="_blank" href="https://www.jianshu.com/p/86ea6881f74f?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=seo_notes&amp;utm_source=recommendation">分享：一款可以免费下载付费歌曲的小软件（附资源）</a>
+              <p class="description">我们都知道现在的很多音乐都慢慢开始收费了，很多喜欢听音乐但又听不到自己喜欢的歌的人很是烦恼，怎么办呢？(这里小匠希望有条件的朋友，还是多支持下歌手的作品吧，毕竟创歌不易)。 今天小匠要推荐的这一款电脑上的小软件，尽管它的体积很小，不到0.5M，但是它能帮你找到很多需要付费的...</p>
+              <a class="author" target="_blank" href="https://www.jianshu.com/u/cfbadf46f67d?utm_campaign=maleskine&amp;utm_content=user&amp;utm_medium=seo_notes&amp;utm_source=recommendation">
+                <div class="avatar">
+                  <img src="./第十五章 降维 - 简书_files/e261957e-6adf-4088-ab83-ab522193f791.jpg" alt="48">
+                </div>
+                <span class="name">盒子匠</span>
+</a>            </div>
+      </div>
+</div>
+
+    <script type="application/json" data-name="page-data">{"user_signed_in":true,"locale":"zh-CN","os":"linux","read_mode":"day","read_font":"font1","current_user":{"id":6192558,"nickname":"huifeiyu","slug":"5544cab98f7e","avatar":"http://upload.jianshu.io/users/upload_avatars/6192558/cfe0a600-b4a3-4f91-9b77-a9f3d7cd461e","unread_counts":{"chats":0,"total":0},"is_member":false,"ads_free":false,"has_editable_collection":false},"note_show":{"is_author":false,"is_following_author":true,"is_liked_note":false,"follow_state":2,"uuid":"915b40d6-fdd1-4d10-b8fd-6904f022a383"},"note":{"id":42915752,"slug":"88d7178898c6","user_id":4235178,"notebook_id":34264197,"commentable":true,"likes_count":5,"views_count":131,"public_wordage":5184,"comments_count":0,"featured_comments_count":0,"total_rewards_count":0,"is_author":false,"paid_type":"free","paid":false,"paid_content_accessible":false,"author":{"nickname":"tomas家的小拨浪鼓","total_wordage":259321,"followers_count":1251,"total_likes_count":751}}}</script>
+    
+    <script src="./第十五章 降维 - 简书_files/babel-polyfill-d171e3dec4b6c15634dd.js" crossorigin="anonymous"></script>
+    <script src="./第十五章 降维 - 简书_files/web-base-84b4bad91c60ae6099bb.js" crossorigin="anonymous"></script>
+<script src="./第十五章 降维 - 简书_files/web-9f18cd5499f0ee408e7c.js" crossorigin="anonymous"></script>
+    
+    <script src="./第十五章 降维 - 简书_files/entry-79f25afb8c7cae826fef.js" crossorigin="anonymous"></script>
+    <script>
+  (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      if (curProtocol === 'https') {
+          bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+      }
+      else {
+          bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+      }
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+  })();
+</script>
+
+  
+
+<!----><!----><!----></body></html>

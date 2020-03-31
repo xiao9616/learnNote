@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="decorator"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/home/560204/gitee/LearnNote/cpp/设计模式/decorator/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j8 -f &quot;/home/560204/gitee/LearnNote/cpp/设计模式/decorator/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/gmake -j8 -f &quot;/home/560204/gitee/LearnNote/cpp/设计模式/decorator/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j8 -f &quot;/home/560204/gitee/LearnNote/cpp/设计模式/decorator/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j8 -f &quot;/home/560204/gitee/LearnNote/cpp/设计模式/decorator/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/home/560204/gitee/LearnNote/cpp/设计模式/decorator/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j8 -f &quot;/home/560204/gitee/LearnNote/cpp/设计模式/decorator/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/gmake -j8 -f &quot;/home/560204/gitee/LearnNote/cpp/设计模式/decorator/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j8 -f &quot;/home/560204/gitee/LearnNote/cpp/设计模式/decorator/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j8 -f &quot;/home/560204/gitee/LearnNote/cpp/设计模式/decorator/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/home/560204/gitee/LearnNote/cpp/设计模式/decorator/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j8 -f &quot;/home/560204/gitee/LearnNote/cpp/设计模式/decorator/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/gmake -j8 -f &quot;/home/560204/gitee/LearnNote/cpp/设计模式/decorator/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j8 -f &quot;/home/560204/gitee/LearnNote/cpp/设计模式/decorator/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j8 -f &quot;/home/560204/gitee/LearnNote/cpp/设计模式/decorator/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="decorator">
+				<Option output="/home/560204/gitee/LearnNote/cpp/设计模式/decorator/cmake-build-debug/decorator" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/560204/gitee/LearnNote/cpp/设计模式/decorator/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/local/include"/>
+					<Add directory="."/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/x86_64-redhat-linux"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/include"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j8 -f &quot;/home/560204/gitee/LearnNote/cpp/设计模式/decorator/cmake-build-debug/Makefile&quot;  VERBOSE=1 decorator"/>
+					<CompileFile command="/usr/bin/gmake -j8 -f &quot;/home/560204/gitee/LearnNote/cpp/设计模式/decorator/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j8 -f &quot;/home/560204/gitee/LearnNote/cpp/设计模式/decorator/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j8 -f &quot;/home/560204/gitee/LearnNote/cpp/设计模式/decorator/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="decorator/fast">
+				<Option output="/home/560204/gitee/LearnNote/cpp/设计模式/decorator/cmake-build-debug/decorator" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/560204/gitee/LearnNote/cpp/设计模式/decorator/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/local/include"/>
+					<Add directory="."/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/x86_64-redhat-linux"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/include"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j8 -f &quot;/home/560204/gitee/LearnNote/cpp/设计模式/decorator/cmake-build-debug/Makefile&quot;  VERBOSE=1 decorator/fast"/>
+					<CompileFile command="/usr/bin/gmake -j8 -f &quot;/home/560204/gitee/LearnNote/cpp/设计模式/decorator/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j8 -f &quot;/home/560204/gitee/LearnNote/cpp/设计模式/decorator/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j8 -f &quot;/home/560204/gitee/LearnNote/cpp/设计模式/decorator/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/home/560204/gitee/LearnNote/cpp/设计模式/decorator/BufferedStream.cpp">
+			<Option target="decorator"/>
+		</Unit>
+		<Unit filename="/home/560204/gitee/LearnNote/cpp/设计模式/decorator/BufferedStream.h">
+			<Option target="decorator"/>
+		</Unit>
+		<Unit filename="/home/560204/gitee/LearnNote/cpp/设计模式/decorator/CryptoStream.cpp">
+			<Option target="decorator"/>
+		</Unit>
+		<Unit filename="/home/560204/gitee/LearnNote/cpp/设计模式/decorator/CryptoStream.h">
+			<Option target="decorator"/>
+		</Unit>
+		<Unit filename="/home/560204/gitee/LearnNote/cpp/设计模式/decorator/FileStream.cpp">
+			<Option target="decorator"/>
+		</Unit>
+		<Unit filename="/home/560204/gitee/LearnNote/cpp/设计模式/decorator/FileStream.h">
+			<Option target="decorator"/>
+		</Unit>
+		<Unit filename="/home/560204/gitee/LearnNote/cpp/设计模式/decorator/NetStream.cpp">
+			<Option target="decorator"/>
+		</Unit>
+		<Unit filename="/home/560204/gitee/LearnNote/cpp/设计模式/decorator/NetStream.h">
+			<Option target="decorator"/>
+		</Unit>
+		<Unit filename="/home/560204/gitee/LearnNote/cpp/设计模式/decorator/main.cpp">
+			<Option target="decorator"/>
+		</Unit>
+		<Unit filename="/home/560204/gitee/LearnNote/cpp/设计模式/decorator/stream.cpp">
+			<Option target="decorator"/>
+		</Unit>
+		<Unit filename="/home/560204/gitee/LearnNote/cpp/设计模式/decorator/stream.h">
+			<Option target="decorator"/>
+		</Unit>
+		<Unit filename="/home/560204/gitee/LearnNote/cpp/设计模式/decorator/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

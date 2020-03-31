@@ -1,0 +1,240 @@
+Compiling the CUDA compiler identification source file "CMakeCUDACompilerId.cu" failed.
+Compiler: /usr/bin/nvcc 
+Build flags: 
+Id flags:  -v;--keep;--keep-dir;tmp
+
+The output was:
+1
+#$ _SPACE_= 
+#$ _CUDART_=cudart
+#$ _HERE_=/usr/bin
+#$ _THERE_=/usr/bin
+#$ _TARGET_SIZE_=
+#$ _TARGET_DIR_=
+#$ _TARGET_SIZE_=64
+nvcc fatal   : Path to libdevice library not specified
+
+
+Compiling the CUDA compiler identification source file "CMakeCUDACompilerId.cu" failed.
+Compiler: /usr/bin/nvcc 
+Build flags: 
+Id flags:  -v;--keep;--keep-dir;tmp
+
+The output was:
+1
+#$ _SPACE_= 
+#$ _CUDART_=cudart
+#$ _HERE_=/usr/bin
+#$ _THERE_=/usr/bin
+#$ _TARGET_SIZE_=
+#$ _TARGET_DIR_=
+#$ _TARGET_SIZE_=64
+nvcc fatal   : Path to libdevice library not specified
+
+
+Determining if the CUDA compiler works failed with the following output:
+Change Dir: /home/560204/gitee/LearnNote/Tool/cuda/cudaTest/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/gmake" "cmTC_3a532/fast"
+/usr/bin/gmake -f CMakeFiles/cmTC_3a532.dir/build.make CMakeFiles/cmTC_3a532.dir/build
+gmake[1]: 进入目录“/home/560204/gitee/LearnNote/Tool/cuda/cudaTest/cmake-build-debug/CMakeFiles/CMakeTmp”
+Building CUDA object CMakeFiles/cmTC_3a532.dir/main.cu.o
+/usr/bin/nvcc     -x cu -c /home/560204/gitee/LearnNote/Tool/cuda/cudaTest/cmake-build-debug/CMakeFiles/CMakeTmp/main.cu -o CMakeFiles/cmTC_3a532.dir/main.cu.o
+nvcc fatal   : Path to libdevice library not specified
+gmake[1]: *** [CMakeFiles/cmTC_3a532.dir/main.cu.o] 错误 1
+gmake[1]: 离开目录“/home/560204/gitee/LearnNote/Tool/cuda/cudaTest/cmake-build-debug/CMakeFiles/CMakeTmp”
+gmake: *** [cmTC_3a532/fast] 错误 2
+
+
+Compiling the CUDA compiler identification source file "CMakeCUDACompilerId.cu" failed.
+Compiler: /usr/bin/nvcc 
+Build flags: 
+Id flags:  -v;--keep;--keep-dir;tmp
+
+The output was:
+1
+#$ _SPACE_= 
+#$ _CUDART_=cudart
+#$ _HERE_=/usr/bin
+#$ _THERE_=/usr/bin
+#$ _TARGET_SIZE_=
+#$ _TARGET_DIR_=
+#$ _TARGET_SIZE_=64
+nvcc fatal   : Path to libdevice library not specified
+
+
+Compiling the CUDA compiler identification source file "CMakeCUDACompilerId.cu" failed.
+Compiler: /usr/bin/nvcc 
+Build flags: 
+Id flags:  -v;--keep;--keep-dir;tmp
+
+The output was:
+1
+#$ _SPACE_= 
+#$ _CUDART_=cudart
+#$ _HERE_=/usr/bin
+#$ _THERE_=/usr/bin
+#$ _TARGET_SIZE_=
+#$ _TARGET_DIR_=
+#$ _TARGET_SIZE_=64
+nvcc fatal   : Path to libdevice library not specified
+
+
+Determining if the CUDA compiler works failed with the following output:
+Change Dir: /home/560204/gitee/LearnNote/Tool/cuda/cudaTest/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/gmake" "cmTC_561f5/fast"
+/usr/bin/gmake -f CMakeFiles/cmTC_561f5.dir/build.make CMakeFiles/cmTC_561f5.dir/build
+gmake[1]: 进入目录“/home/560204/gitee/LearnNote/Tool/cuda/cudaTest/cmake-build-debug/CMakeFiles/CMakeTmp”
+Building CUDA object CMakeFiles/cmTC_561f5.dir/main.cu.o
+/usr/bin/nvcc     -x cu -c /home/560204/gitee/LearnNote/Tool/cuda/cudaTest/cmake-build-debug/CMakeFiles/CMakeTmp/main.cu -o CMakeFiles/cmTC_561f5.dir/main.cu.o
+nvcc fatal   : Path to libdevice library not specified
+gmake[1]: *** [CMakeFiles/cmTC_561f5.dir/main.cu.o] 错误 1
+gmake[1]: 离开目录“/home/560204/gitee/LearnNote/Tool/cuda/cudaTest/cmake-build-debug/CMakeFiles/CMakeTmp”
+gmake: *** [cmTC_561f5/fast] 错误 2
+
+
+Compiling the CUDA compiler identification source file "CMakeCUDACompilerId.cu" failed.
+Compiler: /usr/bin/nvcc 
+Build flags: 
+Id flags:  -v;--keep;--keep-dir;tmp
+
+The output was:
+1
+#$ _SPACE_= 
+#$ _CUDART_=cudart
+#$ _HERE_=/usr/bin
+#$ _THERE_=/usr/bin
+#$ _TARGET_SIZE_=
+#$ _TARGET_DIR_=
+#$ _TARGET_SIZE_=64
+nvcc fatal   : Path to libdevice library not specified
+
+
+Compiling the CUDA compiler identification source file "CMakeCUDACompilerId.cu" failed.
+Compiler: /usr/bin/nvcc 
+Build flags: 
+Id flags:  -v;--keep;--keep-dir;tmp
+
+The output was:
+1
+#$ _SPACE_= 
+#$ _CUDART_=cudart
+#$ _HERE_=/usr/bin
+#$ _THERE_=/usr/bin
+#$ _TARGET_SIZE_=
+#$ _TARGET_DIR_=
+#$ _TARGET_SIZE_=64
+nvcc fatal   : Path to libdevice library not specified
+
+
+Determining if the CUDA compiler works failed with the following output:
+Change Dir: /home/560204/gitee/LearnNote/Tool/cuda/cudaTest/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/gmake" "cmTC_9f3d5/fast"
+/usr/bin/gmake -f CMakeFiles/cmTC_9f3d5.dir/build.make CMakeFiles/cmTC_9f3d5.dir/build
+gmake[1]: 进入目录“/home/560204/gitee/LearnNote/Tool/cuda/cudaTest/cmake-build-debug/CMakeFiles/CMakeTmp”
+Building CUDA object CMakeFiles/cmTC_9f3d5.dir/main.cu.o
+/usr/bin/nvcc     -x cu -c /home/560204/gitee/LearnNote/Tool/cuda/cudaTest/cmake-build-debug/CMakeFiles/CMakeTmp/main.cu -o CMakeFiles/cmTC_9f3d5.dir/main.cu.o
+nvcc fatal   : Path to libdevice library not specified
+gmake[1]: *** [CMakeFiles/cmTC_9f3d5.dir/main.cu.o] 错误 1
+gmake[1]: 离开目录“/home/560204/gitee/LearnNote/Tool/cuda/cudaTest/cmake-build-debug/CMakeFiles/CMakeTmp”
+gmake: *** [cmTC_9f3d5/fast] 错误 2
+
+
+Compiling the CUDA compiler identification source file "CMakeCUDACompilerId.cu" failed.
+Compiler: /usr/bin/nvcc 
+Build flags: 
+Id flags:  -v;--keep;--keep-dir;tmp
+
+The output was:
+1
+#$ _SPACE_= 
+#$ _CUDART_=cudart
+#$ _HERE_=/usr/bin
+#$ _THERE_=/usr/bin
+#$ _TARGET_SIZE_=
+#$ _TARGET_DIR_=
+#$ _TARGET_SIZE_=64
+nvcc fatal   : Path to libdevice library not specified
+
+
+Compiling the CUDA compiler identification source file "CMakeCUDACompilerId.cu" failed.
+Compiler: /usr/bin/nvcc 
+Build flags: 
+Id flags:  -v;--keep;--keep-dir;tmp
+
+The output was:
+1
+#$ _SPACE_= 
+#$ _CUDART_=cudart
+#$ _HERE_=/usr/bin
+#$ _THERE_=/usr/bin
+#$ _TARGET_SIZE_=
+#$ _TARGET_DIR_=
+#$ _TARGET_SIZE_=64
+nvcc fatal   : Path to libdevice library not specified
+
+
+Determining if the CUDA compiler works failed with the following output:
+Change Dir: /home/560204/gitee/LearnNote/Tool/cuda/cudaTest/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/gmake" "cmTC_be545/fast"
+/usr/bin/gmake -f CMakeFiles/cmTC_be545.dir/build.make CMakeFiles/cmTC_be545.dir/build
+gmake[1]: 进入目录“/home/560204/gitee/LearnNote/Tool/cuda/cudaTest/cmake-build-debug/CMakeFiles/CMakeTmp”
+Building CUDA object CMakeFiles/cmTC_be545.dir/main.cu.o
+/usr/bin/nvcc     -x cu -c /home/560204/gitee/LearnNote/Tool/cuda/cudaTest/cmake-build-debug/CMakeFiles/CMakeTmp/main.cu -o CMakeFiles/cmTC_be545.dir/main.cu.o
+nvcc fatal   : Path to libdevice library not specified
+gmake[1]: *** [CMakeFiles/cmTC_be545.dir/main.cu.o] 错误 1
+gmake[1]: 离开目录“/home/560204/gitee/LearnNote/Tool/cuda/cudaTest/cmake-build-debug/CMakeFiles/CMakeTmp”
+gmake: *** [cmTC_be545/fast] 错误 2
+
+
+Compiling the CUDA compiler identification source file "CMakeCUDACompilerId.cu" failed.
+Compiler: /usr/bin/nvcc 
+Build flags: 
+Id flags:  -v;--keep;--keep-dir;tmp
+
+The output was:
+1
+#$ _SPACE_= 
+#$ _CUDART_=cudart
+#$ _HERE_=/usr/bin
+#$ _THERE_=/usr/bin
+#$ _TARGET_SIZE_=
+#$ _TARGET_DIR_=
+#$ _TARGET_SIZE_=64
+nvcc fatal   : Path to libdevice library not specified
+
+
+Compiling the CUDA compiler identification source file "CMakeCUDACompilerId.cu" failed.
+Compiler: /usr/bin/nvcc 
+Build flags: 
+Id flags:  -v;--keep;--keep-dir;tmp
+
+The output was:
+1
+#$ _SPACE_= 
+#$ _CUDART_=cudart
+#$ _HERE_=/usr/bin
+#$ _THERE_=/usr/bin
+#$ _TARGET_SIZE_=
+#$ _TARGET_DIR_=
+#$ _TARGET_SIZE_=64
+nvcc fatal   : Path to libdevice library not specified
+
+
+Determining if the CUDA compiler works failed with the following output:
+Change Dir: /home/560204/gitee/LearnNote/Tool/cuda/cudaTest/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/gmake" "cmTC_07e75/fast"
+/usr/bin/gmake -f CMakeFiles/cmTC_07e75.dir/build.make CMakeFiles/cmTC_07e75.dir/build
+gmake[1]: 进入目录“/home/560204/gitee/LearnNote/Tool/cuda/cudaTest/cmake-build-debug/CMakeFiles/CMakeTmp”
+Building CUDA object CMakeFiles/cmTC_07e75.dir/main.cu.o
+/usr/bin/nvcc     -x cu -c /home/560204/gitee/LearnNote/Tool/cuda/cudaTest/cmake-build-debug/CMakeFiles/CMakeTmp/main.cu -o CMakeFiles/cmTC_07e75.dir/main.cu.o
+nvcc fatal   : Path to libdevice library not specified
+gmake[1]: *** [CMakeFiles/cmTC_07e75.dir/main.cu.o] 错误 1
+gmake[1]: 离开目录“/home/560204/gitee/LearnNote/Tool/cuda/cudaTest/cmake-build-debug/CMakeFiles/CMakeTmp”
+gmake: *** [cmTC_07e75/fast] 错误 2
+
+

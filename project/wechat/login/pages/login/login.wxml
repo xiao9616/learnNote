@@ -1,0 +1,36 @@
+<!--pages/login/login.wxml-->
+<view>
+  <view>
+    <image src='/image/logo.png' class='image'></image>
+  </view>
+
+  <view class='item'>
+    <view class='login-item'>
+      <view class='login-item-info'>用户名</view>
+      <view><input bindinput='username'/></view>
+    </view>
+
+    <view class='login-item'>
+      <view class='login-item-info'>密码</view>
+      <view class='login-pwd'>
+
+      <input style='flex-grow:1' password='true' bindinput='password'></input>
+      <text>忘记密码？</text>
+      </view> 
+    </view>
+
+    <view class='login-item bottom'>
+      <button class='login-btn' bindtap='loginBtnClick'>登录</button>
+    </view>
+
+  </view>
+
+  <view class='item buttom-info'>
+    <view>
+      没有账户？<text>注册</text>
+    </view>
+    <view class='wechat-icon'>
+      <image src='/image/wechat.png'></image>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,1 @@
+/usr/bin/c++  -g   CMakeFiles/observer.dir/main.cpp.o CMakeFiles/observer.dir/oberverInterFace.cpp.o CMakeFiles/observer.dir/oberver.cpp.o CMakeFiles/observer.dir/objectInterface.cpp.o CMakeFiles/observer.dir/object.cpp.o  -o observer 

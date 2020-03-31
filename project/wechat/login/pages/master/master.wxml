@@ -1,0 +1,60 @@
+<!--pages/master/master.wxml-->
+
+<view class='container'>
+  <view class='selection'>
+      <swiper
+      indicator-dots="true"
+      autoplay="true"
+      interval="3000"
+      duration="1000"
+    >
+    <block wx:for="{{imgUrls}}">
+      <swiper-item>
+        <image src="{{item}}" width="100%" height="100%"/>
+      </swiper-item>
+    </block>
+    </swiper>
+  </view>
+  
+  <view class='selection'>
+    <view class='header'>
+      <text>精品推荐</text>
+      <text class='text-all'>全部精品</text>
+    </view>
+
+    <view class='content'>
+      <view class='content-item' wx:for="{{contentItems}}">
+        <image src='../../image/img1.png' ></image>
+        <view class='content-item-text'>
+          <text>锤子手机测评</text>
+        </view>
+      </view>
+
+    </view>
+
+  </view>
+
+  <view class='selection'>
+    <view class='header'>
+      <text>热门评测</text>
+      <text class='text-all'>全部评测</text>
+    </view>
+
+    <view class='list-item' wx:for="{{contentItems}}">
+      <view class='list-item-images'>
+        <image src='../../image/img2.png' class='list-item-images-img'></image>
+        <image src='../../image/avatar.png' class='avatar'></image>
+      </view>
+      <view class='list-item-text'>
+        <view class='list-item-text-title'>
+          <text>标题</text>
+        </view>
+        <view class='list-item-text-content'>
+          <text>内容</text>
+        </view>
+      </view>
+    </view>
+
+  </view>
+
+</view>

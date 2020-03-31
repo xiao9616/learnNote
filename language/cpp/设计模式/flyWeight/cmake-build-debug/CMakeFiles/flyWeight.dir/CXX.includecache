@@ -1,0 +1,26 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/560204/gitee/LearnNote/cpp/设计模式/flyWeight/Font.h
+string
+-
+
+/home/560204/gitee/LearnNote/cpp/设计模式/flyWeight/FontFactory.h
+map
+-
+Font.h
+/home/560204/gitee/LearnNote/cpp/设计模式/flyWeight/Font.h
+
+/home/560204/gitee/LearnNote/cpp/设计模式/flyWeight/main.cpp
+iostream
+-
+Font.h
+/home/560204/gitee/LearnNote/cpp/设计模式/flyWeight/Font.h
+FontFactory.h
+/home/560204/gitee/LearnNote/cpp/设计模式/flyWeight/FontFactory.h
+

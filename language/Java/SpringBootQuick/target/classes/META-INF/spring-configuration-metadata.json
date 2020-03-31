@@ -1,0 +1,33 @@
+{
+  "groups": [
+    {
+      "name": "person",
+      "type": "com.xiao.xiao.bean.Person",
+      "sourceType": "com.xiao.xiao.bean.Person"
+    }
+  ],
+  "properties": [
+    {
+      "name": "person.age",
+      "type": "java.lang.Integer",
+      "sourceType": "com.xiao.xiao.bean.Person"
+    },
+    {
+      "name": "person.birth",
+      "type": "java.util.Date",
+      "sourceType": "com.xiao.xiao.bean.Person"
+    },
+    {
+      "name": "person.boss",
+      "type": "java.lang.Boolean",
+      "sourceType": "com.xiao.xiao.bean.Person",
+      "defaultValue": false
+    },
+    {
+      "name": "person.lastname",
+      "type": "java.lang.String",
+      "sourceType": "com.xiao.xiao.bean.Person"
+    }
+  ],
+  "hints": []
+}

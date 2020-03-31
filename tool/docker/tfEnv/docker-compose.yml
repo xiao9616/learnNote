@@ -1,0 +1,23 @@
+version: '2'
+services:
+  tensorflow:
+    image: tensorflow/tensorflow:latest-py3
+    container_name: tensorflow
+    ports:
+     - "6000:6000"
+    volumes:
+     - .:/code
+    tty: true
+  tensorboard:
+    image: tensorflow/tensorflow:latest-py3
+    container_name: tensorboard
+    ports:
+      - "6006:6006"
+    volumes:
+      - .:/code
+    command:
+      - "tensorboard"
+      - "--logdir"
+      - "/code/tmp/tensorflow_logs"
+      - "--host"
+      - "0.0.0.0"

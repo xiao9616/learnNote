@@ -1,0 +1,19 @@
+mysql:
+   image: xiao/mysql:5.5
+   ports: 
+     - "3306:3306"
+   volumes:
+     - ~/data:/var/lib/mysql
+   hostname: mydb.server.com
+
+wordpress:
+   image: xiao/wordpress:latest
+   ports:
+      - "80:80"
+   links:
+      - mysql
+   environment:
+      - WORDPRESS_DB_HOST=172.28.4.109
+      - WORDPRESS_DB_USER=admin
+      - WORDPRESS_DB_PASSWORD=csphere2015
+   hostname: wordpress.server.com

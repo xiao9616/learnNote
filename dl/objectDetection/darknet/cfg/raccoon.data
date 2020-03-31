@@ -1,0 +1,7 @@
+classes= 1
+train  = /home/560204/SD/sd1/darknet/dataset/raccoon/trainImagePath.txt
+valid  = /home/560204/SD/sd1/darknet/dataset/raccoon/validateImagePath.txt
+names = data/raccoon.names
+backup = /home/560204/SD/sd1/darknet/backup
+
+

@@ -1,0 +1,1 @@
+/usr/bin/c++  -g   CMakeFiles/composite.dir/main.cpp.o  -o composite 

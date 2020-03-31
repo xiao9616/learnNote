@@ -1,0 +1,30 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/560204/gitee/LearnNote/cpp/设计模式/template/app.cpp
+app.h
+/home/560204/gitee/LearnNote/cpp/设计模式/template/app.h
+
+/home/560204/gitee/LearnNote/cpp/设计模式/template/app.h
+lib.h
+/home/560204/gitee/LearnNote/cpp/设计模式/template/lib.h
+
+/home/560204/gitee/LearnNote/cpp/设计模式/template/lib.cpp
+lib.h
+/home/560204/gitee/LearnNote/cpp/设计模式/template/lib.h
+
+/home/560204/gitee/LearnNote/cpp/设计模式/template/lib.h
+iostream
+-
+
+/home/560204/gitee/LearnNote/cpp/设计模式/template/main.cpp
+iostream
+-
+app.h
+/home/560204/gitee/LearnNote/cpp/设计模式/template/app.h
+

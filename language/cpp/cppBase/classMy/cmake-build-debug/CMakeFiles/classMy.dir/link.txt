@@ -1,0 +1,1 @@
+/usr/bin/c++  -g   CMakeFiles/classMy.dir/main.cpp.o  -o classMy 

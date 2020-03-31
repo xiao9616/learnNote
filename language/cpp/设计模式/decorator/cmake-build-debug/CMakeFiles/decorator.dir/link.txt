@@ -1,0 +1,1 @@
+/usr/bin/c++  -g   CMakeFiles/decorator.dir/main.cpp.o CMakeFiles/decorator.dir/stream.cpp.o CMakeFiles/decorator.dir/FileStream.cpp.o CMakeFiles/decorator.dir/NetStream.cpp.o CMakeFiles/decorator.dir/CryptoStream.cpp.o CMakeFiles/decorator.dir/BufferedStream.cpp.o  -o decorator 
