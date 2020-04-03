@@ -330,5 +330,7 @@ PermitRootLogin yes
 ps aux|grep ssh
 4.查看系统版本
 cat /etc/issue
+5.添加运行时动态库位置
+sudo vi /etc/ld.so.conf //添加动态库的路径
 ```
 
