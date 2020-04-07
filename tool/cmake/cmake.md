@@ -95,6 +95,20 @@ project(test VERSION 1.0)
 include_directories(" ")
 ```
 
+### link_directories
+
+```
+#相当于环境变量中增加LD_LIBRARY_PATH的路径的作用s
+link_directories(directory1 directory2 ...)
+```
+
+### link_libraries
+
+```
+#添加需要链接的库文件路径LINK_LIBRARIES
+link_libraries(library1 <debug | optimized> library2 ...)
+```
+
 ### add_executable
 
 将目标cpp h文件生成可执行文件

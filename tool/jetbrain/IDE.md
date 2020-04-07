@@ -223,3 +223,18 @@ docker run -itd --runtime=nvidia --name tf1 -p 9616:8888 -p 9626:22 -v /home/xwx
 docker run -itd --runtime=nvidia --name tf2 -p 9617:8888 -p 9627:22 -v /home/xwx/tf2:/tf2 -v /home/xwx/notebook/tf2:/tf tfpu2:ssh
 ```
 
+## 4.文件模板
+
+.py
+
+```
+# =============================================
+# -*- coding: utf-8 -*-           
+# @Time    : ${DATE} ${TIME}    
+# @Author  : xiao9616           
+# @Email   : 749935253@qq.com   
+# @File    : ${NAME}.py         
+# @Software: ${PRODUCT_NAME}
+# ============================================
+```
+
