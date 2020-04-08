@@ -30,7 +30,7 @@ select * from tablename;
 //重命名
 select field1 as f1 ,field2 as f2 from tablename;
 select field1 f1 ,field2 f2 from tablename;
-
+select field1 as f1 from tablename as tn;
 //去重 distinct
 select distinct field from tablename;
 
@@ -112,7 +112,41 @@ select count(1) from tablename;	//同上
 
 ### 分组查询
 
+```sql
+select sum(field1) , field2 from tablename group by field2;
+//筛选后分组
+select sum(field1) , field2 from tablename where field3 < 3 group by field2;
+
+//having 分组后筛选
+select count(*) , field1 from tablename group by field1 having count(*)>2;
+
+//按函数分组
+select count(*) , length(field1) from tablename group by length(field1);
+
+//按多个字段分组
+select avg(*) , field1 , field2 from tablename group by field1 , field2;
+
+//分组排序
+select avg(*) , field1 , field2 from tablename group by field1 , field2 order by avg(*) desc;
 ```
 
-```
+### 连接查询
 
+```sql
+//等值链接
+//从多个表中取数据，需要加链接条件
+select field1 , field2 from tablename1 , tablename2 where tablename1.field3 = tablename2.field4;
+
+//非等值链接
+select field1 , field2 from tablename1 t1 , tablename2 t2 where t1.field3 between t2.field4 and field5
+
+//自连接
+select t1.field1 , t2.field2 from tablename1 t1 , tablename1 t2 where t1.field3 = t2.field4;
+
+//sql99 join on
+//连接类型：inner(内连接) left(左外) right(右外) full(全外) cross(交叉)
+//内链接包括等值，非等值，自连接
+select field1 , field2 from tablename1 t1 inner join tablename2 t2 on t1.field3 = t2.field4;
+//外联接：查询这个表，另一个表没有
+select field1 , field2 from tablename1 t1 left join tablename2 t2 on t1.field3 = t2.field4;
+```
