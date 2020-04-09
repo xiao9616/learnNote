@@ -166,6 +166,7 @@ select * from tablename where field1 all (select filed2 from tablename2); //any 
 ### 分页查询
 
 ```
-
+//limit 分页提交sql  offset初始值为0 size为要查询的数据条数
+select * from tablename limit offset,size;
 ```
 
