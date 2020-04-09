@@ -150,3 +150,22 @@ select field1 , field2 from tablename1 t1 inner join tablename2 t2 on t1.field3 
 //外联接：查询这个表，另一个表没有
 select field1 , field2 from tablename1 t1 left join tablename2 t2 on t1.field3 = t2.field4;
 ```
+
+### 子查询
+
+```sql
+//where 和 having 后面
+select * from tablename where field1 > (select filed2 from tablename2);
+select * from tablename where field1 all (select filed2 from tablename2); //any in
+
+//select 后面
+//from后面
+//exists后面
+```
+
+### 分页查询
+
+```
+
+```
+

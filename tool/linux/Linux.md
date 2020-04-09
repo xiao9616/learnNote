@@ -332,5 +332,6 @@ ps aux|grep ssh
 cat /etc/issue
 5.添加运行时动态库位置
 sudo vi /etc/ld.so.conf //添加动态库的路径
+ldconfig
 ```
 

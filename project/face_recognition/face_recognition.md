@@ -10,9 +10,13 @@
 
 [LFW（Labelled Faces in the Wild）](http://vis-www.cs.umass.edu/lfw/)YFW（Youtube Faces in the Wild）SFC（Social Face Classification Dataset）
 
+FDDB 
+
+AFW MALF、IJB-A和Wider Face
+
 ## 开源项目
 
-[SeetaFaceEngine](https://github.com/seetaface/SeetaFaceEngine)
+[SeetaFace2](https://github.com/seetafaceengine/SeetaFace2)
 
 [face_recognition](https://github.com/ageitgey/face_recognition)
 
@@ -25,5 +29,9 @@ DeepFace
 DeepId
 
 FaceNet
+
+FacenessNet
+
+Cascade CNN
 
 LBP && joint Beyesian

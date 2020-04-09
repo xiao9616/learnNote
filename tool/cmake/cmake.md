@@ -184,16 +184,7 @@ option(
 ### opencv
 
 ```cmake
-cmake_minimum_required(VERSION 3.14)
-project(unsigined)
 
-set(CMAKE_CXX_STANDARD 14)
-set(OpenCV_DIR /opt/intel/openvino/opencv/cmake)
-
-find_package(OpenCV 4.2 REQUIRED)
-include_directories( ${OpenCV_INCLUDE_DIRS} )
-add_executable(unsigined main.cpp)
-target_link_libraries(unsigined  ${OpenCV_LIBS})
 ```
 
 ### 生成库文件
@@ -306,7 +297,35 @@ target_link_libraries(${PROJECT_NAME} ${lib_path}/lib/libmath.so)
 
 ### 安装
 
-```
+```shell
 sudo apt-get install python-catkin-pkg python-catkin-tools
+```
+
+
+
+## demo
+
+#### quickstart
+
+```cmake
+find_package(OpenCV 4.2 REQUIRED)
+include_directories( ${OpenCV_INCLUDE_DIRS} )
+link_directories()
+target_link_libraries(unsigined  ${OpenCV_LIBS})
+```
+
+#### opencv
+
+```cmake
+cmake_minimum_required(VERSION 3.14)
+project(unsigined)
+
+set(CMAKE_CXX_STANDARD 14)
+set(OpenCV_DIR /opt/intel/openvino/opencv/cmake)
+
+find_package(OpenCV 4.2 REQUIRED)
+include_directories( ${OpenCV_INCLUDE_DIRS} )
+add_executable(unsigined main.cpp)
+target_link_libraries(unsigined  ${OpenCV_LIBS})
 ```
 
