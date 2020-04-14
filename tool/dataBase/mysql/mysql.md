@@ -6,6 +6,26 @@
 mysql -h localhost -P 3306 -u root -p
 ```
 
+## 模板
+
+```mysql
+select distinct 
+	field1,field2,......
+from
+	table1  join类型
+join table2 on join条件
+where
+	筛选条件
+group by
+	分组条件
+having
+	分组筛选条件
+order by
+	排序条件
+limit 
+	分页数量;
+```
+
 ## 基本命令
 
 ```mysql
@@ -585,7 +605,38 @@ show create function 函数名;
 
 ![image-20200413234813389](mysql.assets/image-20200413234813389.png)
 
-## 索引优化
+## 索引
+
+索引的底层有B树，B+树，hash索引
+
+单值索引：一个表可以有多个单列索引
+
+唯一索引：索引列的值必须唯一，单允许有空值，unique
+
+复合索引：一个索引包含多个列
+
+```sql
+//创建
+create [unique] index indexname on tablename(field(length));
+alter tablename add [unique] index indexname on (field(length));
+
+//删除
+drop index indexname on tablename;
+
+//查看
+show index from tablename;
+```
+
+何时建立索引:
+
+1.主键自动建立索引 2.频繁查询的字段 3.关联字段，外键关系建立索引 4.频繁更新字段不适合索引 5.where里面不会用到的字段 6.排序字段 7.高并发下倾向建立组合索引 8.分组或者统计都需建立索引 9.经常增删改的表不要建立索引（插入删除也需要更新索引）
+
+### explain
+
+```mysql
+// explain sql语句
+
+```
 
 
 
