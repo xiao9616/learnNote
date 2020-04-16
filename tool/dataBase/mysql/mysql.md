@@ -635,7 +635,32 @@ show index from tablename;
 
 ```mysql
 // explain sql语句
+id
+select_type
+type
+key
 
+```
+
+### 索引优化
+
+```
+1.最佳左前缀法则：建立复合索引时，要先使用最左的索引，不然就会索引失效
+2.中间不可断：同上，中间索引不使用会导致后续的索引失效
+3.在索引列，使用函数，改变数据类型，会使索引失效
+4.范围 之后的索引全部失效
+5.select 字段尽量和索引对应，减少使用select *
+6.!=会导致索引失效
+7.like "%aa%" %号在左边会索引失效，覆盖索引可以解决
+8.字符窜不加‘’会索引失效，同理隐式类型转换都会
+9.少用or，链接时会索引失效
+```
+
+### 小表驱动大表
+
+```mysql
+select * from A where id in (select id from B);	// A>B
+select * from A where exists (select * from B where B.id=A.id);	//B>A
 ```
 
 
