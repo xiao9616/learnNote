@@ -34,7 +34,7 @@ public class hello {
     @ResponseBody
     @RequestMapping("/redis")
     String redis() {
-        String result = service.getString("xuan");
+        String result = service.getString("xiao");
         return result;
     }
 }

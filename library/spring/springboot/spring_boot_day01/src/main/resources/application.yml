@@ -11,7 +11,7 @@ spring:
   redis:
     password: xiao9616
     port: 6379
-    host: 172.28.4.109
+    host: 47.113.103.242
     jedis:
       pool:
         max-active: 10
