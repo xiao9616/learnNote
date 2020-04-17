@@ -642,6 +642,48 @@ key
 
 ```
 
+### 慢查询日志
+
+记录mysql中响应时间超过阈值的语句，具体指超过long_query_time的sql，默认为10秒
+
+```sql
+//默认没有开启，需要手动开启
+show variables like "%slow_query_log%";
+
+slow_query_log	ON
+slow_query_log_file	W56-560164-slow.log
+
+set global slow_query_log = 1;
+
+//设置时间
+show variables like "%long_query_time%";
+
+long_query_time	10.000000
+
+set global long_query_time 5.0
+
+//查询日志
+cat /usr/local/mysql/***.log
+```
+
+辅助分析工具mysqldumpslow
+
+### show profiles
+
+```sql
+show variables like 'profiling';
+show profiles;
+```
+
+### 全局日志查询
+
+```sql
+//my.conf
+set global general_log = 1;
+set global log_otput='table';
+select * from mysql general_log;
+```
+
 ### 索引优化
 
 ```
@@ -660,14 +702,36 @@ key
 
 ```mysql
 select * from A where id in (select id from B);	// A>B
-select * from A where exists (select * from B where B.id=A.id);	//B>A
+select * from A where exists (select * from B where B.id=A.id);	// B>A
 ```
-
-
 
 ## 锁
 
+### 读写锁
 
+读锁（共享锁）：针对同一份数据，多个读操作可以同时进行而不会相互影响
+
+写锁（排它锁）：当前写操作没有完成，它会阻断其他写锁和读锁
+
+```
+session1加读锁
+session1 可读，不可写，不可读写其他表  session2 可读 ，写时会阻塞 ，可读写其他表
+
+session1加写锁
+session1 可读，可写，不可读写其他表 session2 读 ，写都会阻塞 ，可读写其他表
+```
+
+表锁（偏读）：
+
+行锁（偏写）：
+
+```mysql
+//给表加锁
+lock table tablename read , tablename write;
+
+//解锁
+unlock tables;
+```
 
 ## 主从复制
 
