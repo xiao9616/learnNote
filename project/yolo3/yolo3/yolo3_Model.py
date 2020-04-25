@@ -6,14 +6,17 @@
 # @File    : yolo3_Model.py         
 # @Software: PyCharm
 # ============================================
-from keras.layers.normalization import BatchNormalization
-from keras.layers import Conv2D
-from keras.layers.advanced_activations import LeakyReLU
-from keras.regularizers import l2
-from keras.layers import ZeroPadding2D
-from keras.layers import Add
-from keras.layers import UpSampling2D
-from keras.layers import Concatenate
+import tensorflow.keras as keras
+from tensorflow.keras.layers import BatchNormalization
+from tensorflow.keras.layers import Conv2D
+from tensorflow.keras.layers import LeakyReLU
+from tensorflow.keras.regularizers import l2
+from tensorflow.keras.layers import ZeroPadding2D
+from tensorflow.keras.layers import Add
+from tensorflow.keras.layers import UpSampling2D
+from tensorflow.keras.layers import Concatenate
+
+
 def conv(x, *args, **kwargs):
     new_kwargs = {'kernel_regularizer': l2(5e-4), 'use_bias': False}
     new_kwargs['padding'] = 'valid' if kwargs.get('strides') == (2, 2) else 'same'
@@ -50,15 +53,18 @@ def CBL5(x, num_filters):
     x = CBL(x, num_filters, (1, 1))
     return x
 
+
 def CBLC(x, num_filters, out_filters):
     x = CBL(x, num_filters * 2, (3, 3))
     x = conv(x, out_filters, (1, 1))
     return x
 
-def CBLU(x,num_filters):
-    x=CBL(x,num_filters,(1,1))
-    x=UpSampling2D(1)(x)
+
+def CBLU(x, num_filters):
+    x = CBL(x, num_filters, (1, 1))
+    x = UpSampling2D(1)(x)
     return x
+
 
 def yolo3Model(inputs, num_anchors, num_classes):
     x = CBL(inputs, 32, (3, 3))
@@ -73,16 +79,16 @@ def yolo3Model(inputs, num_anchors, num_classes):
     x1 = CBL5(out[2], 512)
     y1 = CBLC(x, 512, num_anchors * (num_classes + 5))
 
-    x=CBLU(x1,256)
-    x=Concatenate()([x,out[1]])
+    x = CBLU(x1, 256)
+    x = Concatenate()([x, out[1]])
 
-    x2=CBL5(x,256)
-    y2=CBLC(x2,256,num_anchors * (num_classes + 5))
+    x2 = CBL5(x, 256)
+    y2 = CBLC(x2, 256, num_anchors * (num_classes + 5))
 
     x = CBLU(x2, 128)
     x = Concatenate()([x, out[0]])
 
-    x3=CBL5(x,128)
-    y3=CBLC(x3,128,num_anchors * (num_classes + 5))
+    x3 = CBL5(x, 128)
+    y3 = CBLC(x3, 128, num_anchors * (num_classes + 5))
 
-    return [y1,y2,y3]
+    return [y1, y2, y3]
