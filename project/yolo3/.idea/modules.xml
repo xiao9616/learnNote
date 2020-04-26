@@ -3,6 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/yolo3.iml" filepath="$PROJECT_DIR$/.idea/yolo3.iml" />
+      <module fileurl="file://$USER_HOME$/git/yolo3-keras/.idea/yolo3-keras.iml" filepath="$USER_HOME$/git/yolo3-keras/.idea/yolo3-keras.iml" />
+      <module fileurl="file://$USER_HOME$/git/yolo4_tensorflow2/.idea/yolo4_tensorflow2.iml" filepath="$USER_HOME$/git/yolo4_tensorflow2/.idea/yolo4_tensorflow2.iml" />
     </modules>
   </component>
 </project>
