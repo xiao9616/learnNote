@@ -6,5 +6,6 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="detection-master" />
     <orderEntry type="module" module-name="yolo4_tensorflow2" />
+    <orderEntry type="module" module-name="keras-yolo3" />
   </component>
 </module>
