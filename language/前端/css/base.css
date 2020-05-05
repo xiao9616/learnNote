@@ -1,0 +1,67 @@
+/*格式：
+    选择器{属性：值；属性：值 .....}*/
+/*先复合，再单一样式*/
+
+/*id选择器：*/
+/*    css：#elem*/
+/*    html：id="elem"*/
+
+/*class选择器*/
+/*    css:.elem*/
+/*    html:class="elem"*/
+
+/*标签选择器：*/
+/*    css：elem*/
+/*    html：<elem>*/
+
+/*群组选择器：*/
+/*    css：elem，#elem，.elem{}*/
+
+/*通配选择器：*/
+/*    css：*{}*/
+
+/*层次选择器：*/
+/*    css : */
+/*  M N {}  //对所有后代都起作用*/
+/*  M > N {}  //只对子起作用 */
+/*  M ～ N {}    //对M下面的所有N兄弟起作用*/
+/*  M + N {}    //对M相邻的N起作用*/
+
+/*属性选择器：*/
+/*M【class=】{} //完全匹配*/
+/*M【class*=】{}    //部分匹配*/
+/*M【class^=】{}    //起始匹配*/
+/*M【class$=】{}    //结束匹配*/
+/*M【】【】{} //组合匹配*/
+
+/*伪类选择器：*/
+/*M：link  //访问前的样式*/
+/*M：visited   //访问后的样式*/
+/*M：hover //鼠标移入时的样式*/
+/*M：active    //鼠标点击时的样式*/
+
+#div_blue {
+    width: 200px;
+    height: 100px;
+    background-color: #ccf8ff;
+    border-color: #998c44;
+    border-style: dashed;
+    border-width: 1px;
+    font-family: "Apple Chancery";
+    font-size: 20px;
+    font-weight: bold;
+    font-style: italic;
+    text-decoration: underline;
+    text-transform: capitalize;
+    text-indent: 2em;
+    text-align: justify;
+    line-height: 2em;
+    letter-spacing: 1em;
+    word-break: break-all;
+}
+
+.div_class {
+    width: 300px;
+    height: auto;
+    background: blue;
+}

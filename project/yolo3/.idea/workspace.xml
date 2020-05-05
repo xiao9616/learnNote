@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="ac953e79-b9f2-470c-a872-536e42975fdb" name="Default Changelist" comment="">
+      <change beforePath="$USER_HOME$/git/yolo3-keras/VOCdevkit/VOC2007/voc2yolo3.py" beforeDir="false" afterPath="$USER_HOME$/git/yolo3-keras/VOCdevkit/VOC2007/voc2yolo3.py" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/yolo3/yolo3_Model.py" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/yolo3/util.py" root0="SKIP_INSPECTION" />
+  </component>
+  <component name="IgnoredFileRootStore">
+    <option name="generatedRoots">
+      <set>
+        <option value="$PROJECT_DIR$/.idea" />
+      </set>
+    </option>
+  </component>
+  <component name="ProjectId" id="1azU3E3Izl3i8WHcUBRNMR5QiRb" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="restartRequiresConfirmation" value="false" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$USER_HOME$/git/yolo4_tensorflow2/sources/dataSet/Annotations" />
+      <recent name="$USER_HOME$/git/yolo4_tensorflow2/sources/dataSet/Annotations/yolo" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Python.train (1)">
+    <configuration name="genTrainFile" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="yolo4_tensorflow2" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$USER_HOME$/git/yolo4_tensorflow2/sources/dataSet" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$USER_HOME$/git/yolo4_tensorflow2/sources/dataSet/genTrainFile.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="spliteDataSet" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="yolo4_tensorflow2" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$USER_HOME$/git/yolo4_tensorflow2/sources/dataSet" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$USER_HOME$/git/yolo4_tensorflow2/sources/dataSet/spliteDataSet.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="train (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="yolo4_tensorflow2" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$USER_HOME$/git/yolo4_tensorflow2/src" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$USER_HOME$/git/yolo4_tensorflow2/src/train.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="train" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="yolo3" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/train.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="yolo3_Model" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="yolo3" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/yolo3" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/yolo3/yolo3_Model.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.train (1)" />
+        <item itemvalue="Python.genTrainFile" />
+        <item itemvalue="Python.spliteDataSet" />
+        <item itemvalue="Python.train" />
+        <item itemvalue="Python.yolo3_Model" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="ac953e79-b9f2-470c-a872-536e42975fdb" name="Default Changelist" comment="" />
+      <created>1587737714527</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1587737714527</updated>
+      <workItem from="1587737716189" duration="25223000" />
+      <workItem from="1587992115956" duration="4528000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="184" y="112" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1587914887553">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="184" y="112" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1440.900@0.0.1440.900" timestamp="1587914887553" />
+    <state x="415" y="143" key="#train" timestamp="1587827375479">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state x="415" y="143" key="#train/0.23.1440.877@0.23.1440.877" timestamp="1587827375479" />
+    <state x="507" y="201" key="FileChooserDialogImpl" timestamp="1587874576979">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="507" y="201" key="FileChooserDialogImpl/0.0.1440.900@0.0.1440.900" timestamp="1587874576979" />
+    <state width="544" height="801" key="GridCell.Tab.0.bottom" timestamp="1588476083040">
+      <screen x="0" y="23" width="1440" height="821" />
+    </state>
+    <state width="544" height="801" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1588087550987" />
+    <state width="544" height="801" key="GridCell.Tab.0.bottom/0.23.1440.821@0.23.1440.821" timestamp="1588476083040" />
+    <state width="434" height="756" key="GridCell.Tab.0.bottom/0.23.1440.877@0.23.1440.877" timestamp="1587873080308" />
+    <state width="544" height="801" key="GridCell.Tab.0.center" timestamp="1588476083039">
+      <screen x="0" y="23" width="1440" height="821" />
+    </state>
+    <state width="544" height="801" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1588087550984" />
+    <state width="544" height="801" key="GridCell.Tab.0.center/0.23.1440.821@0.23.1440.821" timestamp="1588476083039" />
+    <state width="434" height="756" key="GridCell.Tab.0.center/0.23.1440.877@0.23.1440.877" timestamp="1587873080305" />
+    <state width="544" height="801" key="GridCell.Tab.0.left" timestamp="1588476083038">
+      <screen x="0" y="23" width="1440" height="821" />
+    </state>
+    <state width="544" height="801" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1588087550982" />
+    <state width="544" height="801" key="GridCell.Tab.0.left/0.23.1440.821@0.23.1440.821" timestamp="1588476083038" />
+    <state width="434" height="756" key="GridCell.Tab.0.left/0.23.1440.877@0.23.1440.877" timestamp="1587873080304" />
+    <state width="544" height="801" key="GridCell.Tab.0.right" timestamp="1588476083039">
+      <screen x="0" y="23" width="1440" height="821" />
+    </state>
+    <state width="544" height="801" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1588087550986" />
+    <state width="544" height="801" key="GridCell.Tab.0.right/0.23.1440.821@0.23.1440.821" timestamp="1588476083039" />
+    <state width="434" height="756" key="GridCell.Tab.0.right/0.23.1440.877@0.23.1440.877" timestamp="1587873080307" />
+    <state width="1398" height="215" key="GridCell.Tab.1.bottom" timestamp="1587992071114">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="215" key="GridCell.Tab.1.bottom/0.0.1440.900@0.0.1440.900" timestamp="1587992071114" />
+    <state width="1398" height="215" key="GridCell.Tab.1.center" timestamp="1587992071113">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="215" key="GridCell.Tab.1.center/0.0.1440.900@0.0.1440.900" timestamp="1587992071113" />
+    <state width="1398" height="215" key="GridCell.Tab.1.left" timestamp="1587992071112">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="215" key="GridCell.Tab.1.left/0.0.1440.900@0.0.1440.900" timestamp="1587992071112" />
+    <state width="1398" height="215" key="GridCell.Tab.1.right" timestamp="1587992071114">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="215" key="GridCell.Tab.1.right/0.0.1440.900@0.0.1440.900" timestamp="1587992071114" />
+    <state x="221" y="79" key="SettingsEditor" timestamp="1587874606001">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="221" y="79" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1587874606001" />
+    <state x="221" y="100" key="SettingsEditor/0.23.1440.877@0.23.1440.877" timestamp="1587869210771" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/yolo3$yolo3_Model.coverage" NAME="yolo3_Model Coverage Results" MODIFIED="1587743175342" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/yolo3" />
+    <SUITE FILE_PATH="coverage/yolo3$genTrainFile.coverage" NAME="genTrainFile Coverage Results" MODIFIED="1587910074167" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$USER_HOME$/git/yolo4_tensorflow2/sources/dataSet" />
+    <SUITE FILE_PATH="coverage/yolo3$voc2yolo.coverage" NAME="spliteDataSet Coverage Results" MODIFIED="1587906036352" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$USER_HOME$/git/yolo4_tensorflow2/sources/dataSet" />
+    <SUITE FILE_PATH="coverage/yolo3$train.coverage" NAME="train Coverage Results" MODIFIED="1587874608628" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/yolo3$train__1_.coverage" NAME="train (1) Coverage Results" MODIFIED="1587996988443" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$USER_HOME$/git/yolo4_tensorflow2/src" />
+  </component>
+</project>
