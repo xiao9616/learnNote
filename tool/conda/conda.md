@@ -162,7 +162,6 @@ linux下：
 添加以下内容：
 [global]
 index-url=https://pypi.tuna.tsinghua.edu.cn/simple/ 
-timeout = 10000
 ```
 
 win下：
