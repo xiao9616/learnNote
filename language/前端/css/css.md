@@ -79,3 +79,6 @@ div,p{color: red}	//red覆盖blue
 style:1000 id:100 class:10 标签:1
 ```
 
+## 盒子模型
+
+conent -> padding -> border -> margin
