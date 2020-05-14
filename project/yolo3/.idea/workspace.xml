@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6d5dc4ab-33df-4103-86a3-3c3bd060c3f8" name="默认更改列表" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/yolo3.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/yolo3.iml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,8 +30,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Python Script" />
         <option value="HTML File" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
@@ -35,11 +39,9 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$USER_HOME$/github/keras-yolo3/kmeans.py" root0="SKIP_INSPECTION" />
-    <setting file="file://$USER_HOME$/github/keras-yolo3/train.py" root0="SKIP_INSPECTION" />
-    <setting file="file://$USER_HOME$/github/yolo4_tensorflow2/sources/dataSet/kMeansAnchor.py" root0="SKIP_INSPECTION" />
-    <setting file="file://$USER_HOME$/github/yolo4_tensorflow2/src/yolo4/util.py" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$USER_HOME$/github/yolo4_tensorflow2/src/train.py" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/GitHub/yolo4_tensorflow2/src/train.py" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/GitHub/yolo4_tensorflow2/src/yolo4/util.py" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/GitHub/yolo4_tensorflow2/sources/dataSet/kMeansAnchor.py" root0="SKIP_INSPECTION" />
   </component>
   <component name="ProjectId" id="1b1MZlgp4Dcacs6SG2lUZqwAEja" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -61,7 +63,7 @@
     <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
     <property name="last_opened_file_path" value="$USER_HOME$/github/keras-yolo4" />
-    <property name="settings.editor.selected.configurable" value="fileTemplates" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -72,7 +74,7 @@
       <recent name="$USER_HOME$/github/yolo4_tensorflow2/src" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.yolo4_Model">
+  <component name="RunManager" selected="Python.test">
     <configuration name="kMeansData" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="yolo4_tensorflow2" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -87,6 +89,28 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$USER_HOME$/github/yolo4_tensorflow2/sources/dataSet/kMeansAnchor.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="test" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="yolo3" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/yolo3" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/yolo3/test.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -166,9 +190,11 @@
       <item itemvalue="Python.kMeansData" />
       <item itemvalue="Python.util" />
       <item itemvalue="Python.util (1)" />
+      <item itemvalue="Python.test" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.test" />
         <item itemvalue="Python.util (1)" />
         <item itemvalue="Python.util" />
         <item itemvalue="Python.kMeansData" />
@@ -208,6 +234,10 @@
       <workItem from="1588038262394" duration="18938000" />
       <workItem from="1588065344098" duration="14437000" />
       <workItem from="1588757619312" duration="22000" />
+      <workItem from="1589381059049" duration="85000" />
+      <workItem from="1589381162287" duration="28000" />
+      <workItem from="1589381224484" duration="10000" />
+      <workItem from="1589381505748" duration="4585000" />
     </task>
     <servers />
   </component>
@@ -236,25 +266,33 @@
       <screen x="61" y="24" width="1859" height="1056" />
     </state>
     <state x="582" y="338" key="#com.intellij.fileTypes.FileTypeChooser/61.24.1859.1056@61.24.1859.1056" timestamp="1587982108192" />
+    <state x="533" y="173" key="#com.intellij.ide.util.MemberChooser" timestamp="1589467468662">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="533" y="173" key="#com.intellij.ide.util.MemberChooser/0.0.1440.900@0.0.1440.900" timestamp="1589467468662" />
     <state x="718" y="297" key="FileChooserDialogImpl" timestamp="1588757354636">
       <screen x="61" y="24" width="1859" height="1056" />
     </state>
     <state x="718" y="297" key="FileChooserDialogImpl/61.24.1859.1056@61.24.1859.1056" timestamp="1588757354636" />
-    <state width="1807" height="363" key="GridCell.Tab.0.bottom" timestamp="1588757406227">
-      <screen x="61" y="24" width="1859" height="1056" />
+    <state width="1398" height="329" key="GridCell.Tab.0.bottom" timestamp="1589471782628">
+      <screen x="0" y="0" width="1440" height="900" />
     </state>
+    <state width="1398" height="329" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1589471782628" />
     <state width="1807" height="363" key="GridCell.Tab.0.bottom/61.24.1859.1056@61.24.1859.1056" timestamp="1588757406227" />
-    <state width="1807" height="363" key="GridCell.Tab.0.center" timestamp="1588757406225">
-      <screen x="61" y="24" width="1859" height="1056" />
+    <state width="1398" height="329" key="GridCell.Tab.0.center" timestamp="1589471782621">
+      <screen x="0" y="0" width="1440" height="900" />
     </state>
+    <state width="1398" height="329" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1589471782621" />
     <state width="1807" height="363" key="GridCell.Tab.0.center/61.24.1859.1056@61.24.1859.1056" timestamp="1588757406225" />
-    <state width="1807" height="363" key="GridCell.Tab.0.left" timestamp="1588757406224">
-      <screen x="61" y="24" width="1859" height="1056" />
+    <state width="1398" height="329" key="GridCell.Tab.0.left" timestamp="1589471782621">
+      <screen x="0" y="0" width="1440" height="900" />
     </state>
+    <state width="1398" height="329" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1589471782621" />
     <state width="1807" height="363" key="GridCell.Tab.0.left/61.24.1859.1056@61.24.1859.1056" timestamp="1588757406224" />
-    <state width="1807" height="363" key="GridCell.Tab.0.right" timestamp="1588757406226">
-      <screen x="61" y="24" width="1859" height="1056" />
+    <state width="1398" height="329" key="GridCell.Tab.0.right" timestamp="1589471782627">
+      <screen x="0" y="0" width="1440" height="900" />
     </state>
+    <state width="1398" height="329" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1589471782627" />
     <state width="1807" height="363" key="GridCell.Tab.0.right/61.24.1859.1056@61.24.1859.1056" timestamp="1588757406226" />
     <state width="1807" height="363" key="GridCell.Tab.1.bottom" timestamp="1588037886571">
       <screen x="61" y="24" width="1859" height="1056" />
@@ -272,22 +310,24 @@
       <screen x="61" y="24" width="1859" height="1056" />
     </state>
     <state width="1807" height="363" key="GridCell.Tab.1.right/61.24.1859.1056@61.24.1859.1056" timestamp="1588037886570" />
-    <state x="514" y="174" width="1227" height="728" key="SettingsEditor" timestamp="1588068155167">
-      <screen x="61" y="24" width="1859" height="1056" />
+    <state x="351" y="128" width="951" height="722" key="SettingsEditor" timestamp="1589382837977">
+      <screen x="0" y="0" width="1440" height="900" />
     </state>
+    <state x="351" y="128" width="951" height="722" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1589382837977" />
     <state x="514" y="174" width="1227" height="728" key="SettingsEditor/61.24.1859.1056@61.24.1859.1056" timestamp="1588068155167" />
-    <state x="600" y="381" key="com.intellij.ide.util.TipDialog" timestamp="1588757620499">
-      <screen x="61" y="24" width="1859" height="1056" />
+    <state x="418" y="304" key="com.intellij.ide.util.TipDialog" timestamp="1589381525003">
+      <screen x="0" y="0" width="1440" height="900" />
     </state>
+    <state x="418" y="304" key="com.intellij.ide.util.TipDialog/0.0.1440.900@0.0.1440.900" timestamp="1589381525003" />
     <state x="600" y="381" key="com.intellij.ide.util.TipDialog/61.24.1859.1056@61.24.1859.1056" timestamp="1588757620499" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/yolo3$test.coverage" NAME="test Coverage Results" MODIFIED="1587795243678" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/yolo3$test.coverage" NAME="test Coverage Results" MODIFIED="1589471782612" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/yolo3" />
     <SUITE FILE_PATH="coverage/yolo3$util.coverage" NAME="util Coverage Results" MODIFIED="1588065405983" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$USER_HOME$/github/yolo4_tensorflow2/src" />
-    <SUITE FILE_PATH="coverage/yolo3$train__1_.coverage" NAME="train (1) Coverage Results" MODIFIED="1588236477029" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$USER_HOME$/github/yolo4_tensorflow2/src" />
-    <SUITE FILE_PATH="coverage/yolo3$train.coverage" NAME="train Coverage Results" MODIFIED="1587800052144" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/yolo3$kMeansData.coverage" NAME="kMeansData Coverage Results" MODIFIED="1588040617407" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$USER_HOME$/github/yolo4_tensorflow2/sources/dataSet" />
-    <SUITE FILE_PATH="coverage/yolo3$util__1_.coverage" NAME="util (1) Coverage Results" MODIFIED="1588065534629" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$USER_HOME$/github/yolo4_tensorflow2/src/yolo4" />
     <SUITE FILE_PATH="coverage/yolo3$yolo4_Model.coverage" NAME="yolo4_Model Coverage Results" MODIFIED="1587976420263" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$USER_HOME$/github/yolo4_tensorflow2/src/yolo4" />
+    <SUITE FILE_PATH="coverage/yolo3$train.coverage" NAME="train Coverage Results" MODIFIED="1587800052144" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/yolo3$util__1_.coverage" NAME="util (1) Coverage Results" MODIFIED="1588065534629" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$USER_HOME$/github/yolo4_tensorflow2/src/yolo4" />
+    <SUITE FILE_PATH="coverage/yolo3$train__1_.coverage" NAME="train (1) Coverage Results" MODIFIED="1588236477029" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$USER_HOME$/github/yolo4_tensorflow2/src" />
   </component>
 </project>

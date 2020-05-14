@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .box1 {
+            width: 300px;
+            height: 300px;
+            border: 1px black solid;
+            margin: 30px auto;
+
+        }
+        .box2 {
+            width: 100px;
+            height: 100px;
+            background: red;
+            animation: mybox;
+            animation-duration: 4s;
+            animation-delay: 1s;
+            animation-iteration-count: infinite;
+            animation-timing-function: cubic-bezier();
+        }
+
+        @keyframes mybox {
+            0% {
+                transform: translate(0, 0);
+
+            }
+            50% {
+                transform: translate(200px, 0);
+
+            }
+            100% {
+                transform: translate(0px, 0);
+
+            }
+        }
+        .box3 {
+            width: 300px;
+            height: 300px;
+            border: 1px black solid;
+            margin: 30px auto;
+
+        }
+
+        .box4 {
+            width: 100px;
+            height: 100px;
+            background: red;
+            margin: 100px;
+            transition: 1s;
+            transform: rotateX(0);
+        }
+
+        .box3 :hover .box4{
+            transform: rotateX(90deg);
+        }
+
+    </style>
+
+</head>
+<body>
+<div class="box1">
+    <div class="box2">
+
+    </div>
+</div>
+
+<div class="box3">
+    <div class="box4">
+
+    </div>
+</div>
+</body>
+</html>
