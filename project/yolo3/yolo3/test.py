@@ -6,8 +6,14 @@
 # @File    : test.py         
 # @Software: PyCharm
 # ============================================
+import contextlib
 
-a=None
-b=None
-print(a==b)
-print(id(a)==id(b))
+@contextlib.contextmanager
+def file_open(filename):
+    print("file open")
+    yield {}
+    print("file end")
+
+
+with file_open("xiao.txt") as f:
+    print("file process")

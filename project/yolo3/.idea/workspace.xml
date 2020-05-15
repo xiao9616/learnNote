@@ -2,11 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6d5dc4ab-33df-4103-86a3-3c3bd060c3f8" name="默认更改列表" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../language/py/python_advance.md" beforeDir="false" afterPath="$PROJECT_DIR$/../../language/py/python_advance.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/yolo3.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/yolo3.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yolo3/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/yolo3/test.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -237,7 +235,7 @@
       <workItem from="1589381059049" duration="85000" />
       <workItem from="1589381162287" duration="28000" />
       <workItem from="1589381224484" duration="10000" />
-      <workItem from="1589381505748" duration="4585000" />
+      <workItem from="1589381505748" duration="6055000" />
     </task>
     <servers />
   </component>
@@ -266,49 +264,53 @@
       <screen x="61" y="24" width="1859" height="1056" />
     </state>
     <state x="582" y="338" key="#com.intellij.fileTypes.FileTypeChooser/61.24.1859.1056@61.24.1859.1056" timestamp="1587982108192" />
-    <state x="533" y="173" key="#com.intellij.ide.util.MemberChooser" timestamp="1589467468662">
+    <state x="533" y="173" key="#com.intellij.ide.util.MemberChooser" timestamp="1589546720222">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="533" y="173" key="#com.intellij.ide.util.MemberChooser/0.0.1440.900@0.0.1440.900" timestamp="1589467468662" />
+    <state x="533" y="173" key="#com.intellij.ide.util.MemberChooser/0.0.1440.900@0.0.1440.900" timestamp="1589546720222" />
     <state x="718" y="297" key="FileChooserDialogImpl" timestamp="1588757354636">
       <screen x="61" y="24" width="1859" height="1056" />
     </state>
     <state x="718" y="297" key="FileChooserDialogImpl/61.24.1859.1056@61.24.1859.1056" timestamp="1588757354636" />
-    <state width="1398" height="329" key="GridCell.Tab.0.bottom" timestamp="1589471782628">
+    <state width="1398" height="303" key="GridCell.Tab.0.bottom" timestamp="1589548439240">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="329" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1589471782628" />
+    <state width="1398" height="303" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1589548439240" />
     <state width="1807" height="363" key="GridCell.Tab.0.bottom/61.24.1859.1056@61.24.1859.1056" timestamp="1588757406227" />
-    <state width="1398" height="329" key="GridCell.Tab.0.center" timestamp="1589471782621">
+    <state width="1398" height="303" key="GridCell.Tab.0.center" timestamp="1589548439239">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="329" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1589471782621" />
+    <state width="1398" height="303" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1589548439239" />
     <state width="1807" height="363" key="GridCell.Tab.0.center/61.24.1859.1056@61.24.1859.1056" timestamp="1588757406225" />
-    <state width="1398" height="329" key="GridCell.Tab.0.left" timestamp="1589471782621">
+    <state width="1398" height="303" key="GridCell.Tab.0.left" timestamp="1589548439238">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="329" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1589471782621" />
+    <state width="1398" height="303" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1589548439238" />
     <state width="1807" height="363" key="GridCell.Tab.0.left/61.24.1859.1056@61.24.1859.1056" timestamp="1588757406224" />
-    <state width="1398" height="329" key="GridCell.Tab.0.right" timestamp="1589471782627">
+    <state width="1398" height="303" key="GridCell.Tab.0.right" timestamp="1589548439240">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="329" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1589471782627" />
+    <state width="1398" height="303" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1589548439240" />
     <state width="1807" height="363" key="GridCell.Tab.0.right/61.24.1859.1056@61.24.1859.1056" timestamp="1588757406226" />
-    <state width="1807" height="363" key="GridCell.Tab.1.bottom" timestamp="1588037886571">
-      <screen x="61" y="24" width="1859" height="1056" />
+    <state width="1398" height="303" key="GridCell.Tab.1.bottom" timestamp="1589548439242">
+      <screen x="0" y="0" width="1440" height="900" />
     </state>
+    <state width="1398" height="303" key="GridCell.Tab.1.bottom/0.0.1440.900@0.0.1440.900" timestamp="1589548439242" />
     <state width="1807" height="363" key="GridCell.Tab.1.bottom/61.24.1859.1056@61.24.1859.1056" timestamp="1588037886571" />
-    <state width="1807" height="363" key="GridCell.Tab.1.center" timestamp="1588037886569">
-      <screen x="61" y="24" width="1859" height="1056" />
+    <state width="1398" height="303" key="GridCell.Tab.1.center" timestamp="1589548439241">
+      <screen x="0" y="0" width="1440" height="900" />
     </state>
+    <state width="1398" height="303" key="GridCell.Tab.1.center/0.0.1440.900@0.0.1440.900" timestamp="1589548439241" />
     <state width="1807" height="363" key="GridCell.Tab.1.center/61.24.1859.1056@61.24.1859.1056" timestamp="1588037886569" />
-    <state width="1807" height="363" key="GridCell.Tab.1.left" timestamp="1588037886568">
-      <screen x="61" y="24" width="1859" height="1056" />
+    <state width="1398" height="303" key="GridCell.Tab.1.left" timestamp="1589548439241">
+      <screen x="0" y="0" width="1440" height="900" />
     </state>
+    <state width="1398" height="303" key="GridCell.Tab.1.left/0.0.1440.900@0.0.1440.900" timestamp="1589548439241" />
     <state width="1807" height="363" key="GridCell.Tab.1.left/61.24.1859.1056@61.24.1859.1056" timestamp="1588037886568" />
-    <state width="1807" height="363" key="GridCell.Tab.1.right" timestamp="1588037886570">
-      <screen x="61" y="24" width="1859" height="1056" />
+    <state width="1398" height="303" key="GridCell.Tab.1.right" timestamp="1589548439242">
+      <screen x="0" y="0" width="1440" height="900" />
     </state>
+    <state width="1398" height="303" key="GridCell.Tab.1.right/0.0.1440.900@0.0.1440.900" timestamp="1589548439242" />
     <state width="1807" height="363" key="GridCell.Tab.1.right/61.24.1859.1056@61.24.1859.1056" timestamp="1588037886570" />
     <state x="351" y="128" width="951" height="722" key="SettingsEditor" timestamp="1589382837977">
       <screen x="0" y="0" width="1440" height="900" />
@@ -322,7 +324,7 @@
     <state x="600" y="381" key="com.intellij.ide.util.TipDialog/61.24.1859.1056@61.24.1859.1056" timestamp="1588757620499" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/yolo3$test.coverage" NAME="test Coverage Results" MODIFIED="1589471782612" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/yolo3" />
+    <SUITE FILE_PATH="coverage/yolo3$test.coverage" NAME="test Coverage Results" MODIFIED="1589548439223" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/yolo3" />
     <SUITE FILE_PATH="coverage/yolo3$util.coverage" NAME="util Coverage Results" MODIFIED="1588065405983" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$USER_HOME$/github/yolo4_tensorflow2/src" />
     <SUITE FILE_PATH="coverage/yolo3$kMeansData.coverage" NAME="kMeansData Coverage Results" MODIFIED="1588040617407" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$USER_HOME$/github/yolo4_tensorflow2/sources/dataSet" />
     <SUITE FILE_PATH="coverage/yolo3$yolo4_Model.coverage" NAME="yolo4_Model Coverage Results" MODIFIED="1587976420263" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$USER_HOME$/github/yolo4_tensorflow2/src/yolo4" />

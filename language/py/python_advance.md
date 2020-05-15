@@ -562,11 +562,7 @@ print(isinstance(b, imp)) 	#True
 print(isinstance(b, base))	#True
 ```
 
-### 7.is ==
 
-is判断对象的id是否相等
-
-==判断值是否相等
 
 ### 8.staticmethod 	classmethod 	abstractmethod
 
@@ -620,4 +616,110 @@ _ClassName__attr
 
 的格式，所以python不是绝对安全的和绝对私有封装的
 
-10.
+### 10.类和实例查找顺序
+
+![image-20200515204221173](python_advance.assets/image-20200515204221173.png)
+
+![image-20200515204228393](python_advance.assets/image-20200515204228393.png)
+
+特别说明,super的执行顺序也是如此
+
+### 11.python自省机制
+
+```python
+class person:
+
+    def __init__(self) -> None:
+        self.name = "xiao"
+
+
+class student(person):
+    def __init__(self, schoolname) -> None:
+        self.school_name = schoolname
+
+
+stu = student("yixiao")
+
+print(stu.__dict__)
+print(person.__dict__)
+print(dir(stu))
+print(dir(person))
+```
+
+```shell
+{'school_name': 'yixiao'}
+{'__module__': '__main__', '__init__': <function person.__init__ at 0x10f835950>, '__dict__': <attribute '__dict__' of 'person' objects>, '__weakref__': <attribute '__weakref__' of 'person' objects>, '__doc__': None}
+['__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__le__', '__lt__', '__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '__weakref__', 'school_name']
+['__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__le__', '__lt__', '__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '__weakref__']
+```
+
+```python
+stu.__dict__["school_name"]="erxiao"
+print(stu.__dict__)
+```
+
+```
+{'school_name': 'erxiao'}
+```
+
+## 关键字
+
+### 1. is ==
+
+is判断对象的id是否相等
+
+==判断值是否相等
+
+### 2.with上下文管理器
+
+简化try finally语法
+
+需要实现enter和exit魔法函数,分别表示with进入时执行enter,离开with时执行exit
+
+```python 
+class person:
+    def __enter__(self):
+        print("enter")
+        return self
+
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        print("exit")
+
+    def doSomething(self):
+        print("doing something")
+
+
+with person() as p:
+    print("do 1")
+    p.doSomething()
+```
+
+```shell
+enter
+do 1
+doing something
+exit
+```
+
+使用 contextlib来简化使用
+
+```python
+import contextlib
+
+@contextlib.contextmanager
+def file_open(filename):
+    print("file open")
+    yield {}
+    print("file end")
+
+
+with file_open("xiao.txt") as f:
+    print("file process")
+```
+
+```
+file open
+file process
+file end
+```
+
