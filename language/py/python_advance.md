@@ -138,57 +138,7 @@ print(Student.__bases__)
 
 2.所有的class对象的基类__bases__都是object
 
-### 3.内置类型(内置class对象)
 
-对象由三个信息组成:地址,类型,值
-
-```python
-a=1
-id(a)	#地址
-type(a)	#类型
-a	#1就是a指向的值
-```
-
-#### None
-
-None是解释器中唯一的对象,所以地址相同
-
-```python
-a=None
-b=None
-print(a==b)	#True
-print(id(a)==id(b)) #True
-```
-
-#### 数值
-
-float int complex bool
-
-#### 迭代类型
-
-只要对象实现了next iter方法就可以称作迭代类型（只实现iter叫做可迭代iterable，同时实现iter next叫做迭代器iterator）
-
-可以使用for进行迭代
-
-class对象可以实现getItem方法，可以将class生成的对象变成可迭代的
-
-#### 序列类型
-
-list bytes bytesarray memoryview  range tuple str array
-
-通过实现getitem，setitem，delitem就可以将该对象转换为序列类型
-
-#### 映射类型
-
-dict
-
-#### 集合
-
-set frozenset
-
-#### 上下文管理器
-
-with
 
 ### 4.抽象基类
 
@@ -670,7 +620,104 @@ is判断对象的id是否相等
 
 ==判断值是否相等
 
-### 2.with上下文管理器
+## 内置类型(内置class对象)
+
+对象由三个信息组成:地址,类型,值
+
+```python
+a=1
+id(a)	#地址
+type(a)	#类型
+a	#1就是a指向的值
+```
+
+### None
+
+None是解释器中唯一的对象,所以地址相同
+
+```python
+a=None
+b=None
+print(a==b)	#True
+print(id(a)==id(b)) #True
+```
+
+### 数值
+
+float int complex bool
+
+### 迭代类型
+
+只要对象实现了next iter方法就可以称作迭代类型（只实现iter叫做可迭代iterable，同时实现iter next叫做迭代器iterator）
+
+可以使用for进行迭代
+
+class对象可以实现getItem方法，可以将class生成的对象变成可迭代的
+
+### 序列类型
+
+list bytes bytesarray memoryview  range tuple str array
+
+通过实现getitem，setitem，delitem就可以将该对象转换为序列类型
+
+```python
+import numbers
+from collections.abc import Sequence, MutableSequence
+
+
+class Group(Sequence):
+
+    def __init__(self, grouop_name, company_name, staffs) -> None:
+        self.group_name = grouop_name
+        self.company_name = company_name
+        self.staffs = staffs
+
+    def __getitem__(self, item):
+        cls=type(self)
+        if isinstance(item,slice):
+            return cls(grouop_name=self.group_name,company_name=self.company_name,staffs=self.staffs[item])
+        elif isinstance(item,numbers.Integral):
+            return cls(grouop_name=self.group_name,company_name=self.company_name,staffs=[self.staffs[item]])
+
+    def __contains__(self, item):
+        if item in self.staffs:
+            return True
+        else:
+            return False
+
+    def __iter__(self):
+        return iter(self.staffs)
+
+    def __reversed__(self):
+        return reversed(staffs)
+
+    def __len__(self):
+        return len(self.staffs)
+
+staffs = ["xiao", "wen", "xuan"]
+group = Group(company_name="gree", grouop_name="user", staffs=staffs)
+print(group[0:2].staffs)
+print(group[0].staffs)
+print(len(group))
+for i in group:
+    print(i)
+```
+
+### 映射类型
+
+dict
+
+
+
+### 集合
+
+set frozenset
+
+
+
+### with上下文管理器
+
+需要实现enter和exit魔法函数,分别表示with进入时执行enter,离开with时执行exit
 
 简化try finally语法
 
@@ -721,5 +768,41 @@ with file_open("xiao.txt") as f:
 file open
 file process
 file end
+```
+
+## 列表生成式 生成器表达式 字典推导式 集合推导式
+
+```python
+list = [i for i in range(10) if i % 2 == 0]
+print(type(list))
+print(list)
+
+iter = (i for i in range(10) if i % 2 == 0)
+print(type(iter))
+for i in iter:
+    print(i)
+
+origin_dict = {"xiao": 22, "wen": 23, "xuan": 24}
+reverse_dict = {value: key for key, value in origin_dict.items()}
+print(type(reverse_dict))
+print(reverse_dict)
+
+reverse_set={value for key, value in origin_dict.items()}
+print(type(reverse_set))
+print(reverse_set)
+```
+
+```shell
+<class 'list'>
+[0, 2, 4, 6, 8]
+
+<class 'generator'>
+0 2 4 6 8
+
+<class 'dict'>
+{24: 'xuan', 22: 'xiao', 23: 'wen'}
+
+<class 'set'>
+{24, 22, 23}
 ```
 
