@@ -138,7 +138,72 @@ print(Student.__bases__)
 
 2.所有的class对象的基类__bases__都是object
 
+### 3.元类编程
 
+动态属性
+
+```python
+class Person:
+    def __init__(self):
+        self._age = 0
+
+    @property
+    def age(self):
+        return self._age
+
+    @age.setter
+    def age(self, value):
+        self._age = value
+
+
+p = Person()
+
+p.age = 21
+print(p._age)
+print(p.age)
+```
+
+getattr是在找不到属性时调用,getattribute是在所有属性访问之前被调用
+
+属性描述符
+
+```python
+class IntField:
+    def __get__(self, instance, owner):
+        return self.value
+
+    def __set__(self, instance, value):
+        if not isinstance(value, numbers.Integral):
+            raise ValueError("int value need")
+        self.value = value
+
+    def __delete__(self, instance):
+        pass
+
+
+class Person:
+    def __init__(self):
+        self._age = IntField()
+```
+
+new和init
+
+```python
+class Person:
+    def __new__(cls, *args, **kwargs):
+        print("in new")
+        return super().__new__(cls)
+
+    def __init__(self):
+        print("in init")
+        pass
+```
+
+new用来控制对象生成过程,在对象生成之前
+
+init是用来完善对象的
+
+如果new不返回对象,则不会调用init函数
 
 ### 4.抽象基类
 
@@ -512,7 +577,33 @@ print(isinstance(b, imp)) 	#True
 print(isinstance(b, base))	#True
 ```
 
+### 7.垃圾回收机制
 
+```python
+ a = object()
+ b = a
+ del a
+ print(b)
+ print(a)
+```
+
+```shell
+<object object at 0x1138a2840>
+Traceback (most recent call last):
+  File "/Users/xuan/learnNote/project/yolo3/yolo3/test.py", line 14, in <module>
+    print(a)
+NameError: name 'a' is not defined
+```
+
+垃圾回收机制通过引用计数来实现,只有引用计数为0时,对象才会被回收
+
+对于类来说,当引用计数为0时,调用del魔法函数
+
+```python
+class A:
+    def __del__(self):
+        pass
+```
 
 ### 8.staticmethod 	classmethod 	abstractmethod
 
@@ -806,3 +897,150 @@ print(reverse_set)
 {24, 22, 23}
 ```
 
+## 多线程
+
+### GIL
+
+```python
+import dis
+
+
+def add(a):
+    a += 1
+    return a
+
+
+print(dis.dis(add))
+```
+
+```
+ 12           0 LOAD_FAST                0 (a)
+              2 LOAD_CONST               1 (1)
+              4 INPLACE_ADD
+              6 STORE_FAST               0 (a)
+
+ 13           8 LOAD_FAST                0 (a)
+             10 RETURN_VALUE
+None
+```
+
+dis反编译为字节码
+
+GIL会根据执行的字节码行数或者时间片释放GIL,在遇到io操作时会主动释放
+
+### 线程创建运行
+
+方式1:
+
+```python
+import threading
+import time
+
+
+def thread1(name):
+    print("thread1 start")
+    time.sleep(2)
+    print("thread1 end")
+
+
+def thread2(name):
+    print("thread2 start")
+    time.sleep(4)
+    print("thread2 end")
+
+
+if __name__ == '__main__':
+    thread1 = threading.Thread(target=thread1,args=("xiao",))
+    thread2 = threading.Thread(target=thread2,args=("xuan",))
+    thread1.start()
+    thread2.start()
+
+    thread1.join()
+    thread2.join()
+
+    print("end")
+
+```
+
+```
+thread1 start
+thread2 start
+thread1 end
+thread2 end
+end
+```
+
+方式2:
+
+```python
+class thread2(threading.Thread):
+
+    def run(self) -> None:
+        print("thread2 start")
+        time.sleep(2)
+        print("thread2 end")
+```
+
+### 线程中通讯
+
+方式一:共享全局变量
+
+方式二:消息队列
+
+### 线程同步
+
+#### 锁lock
+
+```python
+import threading
+import time
+from threading import Lock
+
+lock=Lock()
+def thread1(name):
+    global lock
+    lock.acquire()
+    print("thread1 start")
+    time.sleep(2)
+    print("thread1 end")
+    lock.release()
+
+
+def thread2(name):
+    global lock
+    lock.acquire()
+    print("thread2 start")
+    time.sleep(4)
+    print("thread2 end")
+    lock.release()
+
+
+if __name__ == '__main__':
+    thread1 = threading.Thread(target=thread1,args=("xiao",))
+    thread2 = threading.Thread(target=thread2,args=("xuan",))
+    thread1.start()
+    thread2.start()
+
+    thread1.join()
+    thread2.join()
+
+    print("end")
+```
+
+```
+thread1 start
+thread1 end
+thread2 start
+thread2 end
+end
+```
+
+#### 可重入锁rlock
+
+在同一个线程中,可以连续调用多次acquire
+
+#### 条件锁Condition
+
+通过wait等待,通过notify通知其他线程
+
+## 协程

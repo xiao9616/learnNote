@@ -6,14 +6,37 @@
 # @File    : test.py         
 # @Software: PyCharm
 # ============================================
-import contextlib
 
-@contextlib.contextmanager
-def file_open(filename):
-    print("file open")
-    yield {}
-    print("file end")
+import threading
+import time
+from threading import Lock
+
+lock=Lock()
+def thread1(name):
+    global lock
+    lock.acquire()
+    print("thread1 start")
+    time.sleep(2)
+    print("thread1 end")
+    lock.release()
 
 
-with file_open("xiao.txt") as f:
-    print("file process")
+def thread2(name):
+    global lock
+    lock.acquire()
+    print("thread2 start")
+    time.sleep(4)
+    print("thread2 end")
+    lock.release()
+
+
+if __name__ == '__main__':
+    thread1 = threading.Thread(target=thread1,args=("xiao",))
+    thread2 = threading.Thread(target=thread2,args=("xuan",))
+    thread1.start()
+    thread2.start()
+
+    thread1.join()
+    thread2.join()
+
+    print("end")
