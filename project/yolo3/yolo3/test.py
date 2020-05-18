@@ -6,37 +6,24 @@
 # @File    : test.py         
 # @Software: PyCharm
 # ============================================
-
-import threading
+from concurrent.futures import ThreadPoolExecutor
 import time
-from threading import Lock
 
-lock=Lock()
-def thread1(name):
-    global lock
-    lock.acquire()
-    print("thread1 start")
+
+def get_html(times):
     time.sleep(2)
-    print("thread1 end")
-    lock.release()
+    print("get page {} sucess".format(times))
 
 
-def thread2(name):
-    global lock
-    lock.acquire()
-    print("thread2 start")
-    time.sleep(4)
-    print("thread2 end")
-    lock.release()
+executor = ThreadPoolExecutor(max_workers=2)
+task1 = executor.submit(get_html, (3))
+task2 = executor.submit(get_html, (2))
 
-
-if __name__ == '__main__':
-    thread1 = threading.Thread(target=thread1,args=("xiao",))
-    thread2 = threading.Thread(target=thread2,args=("xuan",))
-    thread1.start()
-    thread2.start()
-
-    thread1.join()
-    thread2.join()
-
-    print("end")
+# 判定某个任务是否完成
+print(task1.done())
+# 如果任务没有被执行，则可以取消
+print(task2.cancel())
+time.sleep(3)
+print(task1.done())
+# 显示任务的结果
+print(task1.result())

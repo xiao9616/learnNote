@@ -1043,4 +1043,69 @@ end
 
 通过wait等待,通过notify通知其他线程
 
+#### Semaphare
+
+用于控制进入数量的锁
+
+```python
+import threading
+import time
+
+
+class HtmlSpider(threading.Thread):
+    def __init__(self,sem):
+        super().__init__()
+        self.sem=sem
+    def run(self) -> None:
+        time.sleep(2)
+        print("get html")
+        self.sem.release()
+
+
+class UrlProducer(threading.Thread):
+    def __init__(self, sem):
+        super().__init__()
+        self.sem = sem
+
+    def run(self) -> None:
+        for i in range(20):
+            self.sem.acquire()
+            html_thread = HtmlSpider(self.sem)
+            html_thread.start()
+
+
+if __name__ == '__main__':
+    sem=threading.Semaphore(3)
+    url_producer = UrlProducer(sem)
+    url_producer.start()
+```
+
+### 线程池
+
+```python
+from concurrent.futures import ThreadPoolExecutor
+import time
+
+
+def get_html(times):
+    time.sleep(2)
+    print("get page {} sucess".format(times))
+
+
+executor = ThreadPoolExecutor(max_workers=2)
+task1 = executor.submit(get_html, (3))
+task2 = executor.submit(get_html, (2))
+
+# 判定某个任务是否完成
+print(task1.done())
+# 如果任务没有被执行，则可以取消
+print(task2.cancel())
+time.sleep(3)
+print(task1.done())
+# 显示任务的结果
+print(task1.result())
+```
+
+
+
 ## 协程
