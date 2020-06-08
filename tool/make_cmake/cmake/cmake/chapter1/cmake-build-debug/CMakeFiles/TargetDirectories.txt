@@ -1,0 +1,4 @@
+/home/user/learnNote/tool/make_cmake/cmake/cmake/chapter1/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/user/learnNote/tool/make_cmake/cmake/cmake/chapter1/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/user/learnNote/tool/make_cmake/cmake/cmake/chapter1/cmake-build-debug/CMakeFiles/chapter1.dir
+/home/user/learnNote/tool/make_cmake/cmake/cmake/chapter1/cmake-build-debug/CMakeFiles/message.dir

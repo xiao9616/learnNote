@@ -10,7 +10,7 @@
 
 [python](https://mp.weixin.qq.com/s?__biz=MzA3NDIyMjM1NA==&mid=2649030876&idx=1&sn=75710e10e1503c9c6bab16cc83b73ef0&chksm=8712bea1b06537b7977c67676122f544c9a3d09abe77362556403252c173c5bca0bee10f7351&scene=21#wechat_redirect)
 
-[图像基础](https://mp.weixin.qq.com/s?__biz=MzA3NDIyMjM1NA==&mid=2649030907&idx=1&sn=79f1123869a14254e31b21f57961b524&chksm=8712be86b06537907c5664f1244f6bca2ce6e9f6a2593440c57dfff646038cf46fe3afd0d49b&scene=21#wechat_redirect)
+[图像基础](https://mp.weixin.qqcom/s?__biz=MzA3NDIyMjM1NA==&mid=2649030907&idx=1&sn=79f1123869a14254e31b21f57961b524&chksm=8712be86b06537907c5664f1244f6bca2ce6e9f6a2593440c57dfff646038cf46fe3afd0d49b&scene=21#wechat_redirect)
 
 [opencv](https://mp.weixin.qq.com/s?__biz=MzA3NDIyMjM1NA==&mid=2649030969&idx=1&sn=ec1cabf9fa52ece790f8a5ab19f2458b&chksm=8712bf44b06536524b97130198905b1fdda03c4432f4e136f665a1a3b93bd9f806eeaedef155&scene=21#wechat_redirect)
 
