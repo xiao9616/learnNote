@@ -144,7 +144,23 @@ namespace xiao{
 int xiao::age = 27;	//在编译器处理完成后变量名变为 @age@xiao?3HA
 ```
 
+#### 调用约定
 
+
+
+#### explicit delete default
+
+在类的构造函数前面添加该关键字,表示不能使用隐式转换
+
+delete用来将这个构造函数删除
+
+```c++
+class Student{
+	Student() = delete;
+}
+```
+
+default表示该构造函数为默认
 
 ### 1.2 python
 
