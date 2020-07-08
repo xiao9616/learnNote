@@ -60,16 +60,46 @@ void *memset(void *s,int c,size_t n)
 
 ### 内存分配-对齐机制
 
-```
+```c
 struct stu{
 	char sex;
 	int age;
 }student;
 
-sizeof(student);	// 8
+sizeof(student);	// 8字节
 ```
 
 结构体分配内存的时候，会去结构体中找基本数据类型的成员，哪个基本数据类型占字节数多，就以它的大小为单位开辟。存储的顺序是按照结构体定义顺序来的。
+
+### 指定对齐规则
+
+#pragma pack（value）value可以是1 2 4 8
+
+指定对齐值与数据类型对齐值相比取较小的值
+
+### 位段
+
+```
+struct stu{
+	char sex：4;
+	int age;
+}student;
+```
+
+## 共用体
+
+几个不同的变量占用同一段内存地址，共用体的大小是占内存长度最大的成员的大小
+
+```c
+union stu{
+	char sex;
+	int age;
+}student; 
+
+sizeof(student);	// 4字节
+```
+
+
 
 
 
