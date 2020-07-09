@@ -224,8 +224,10 @@ CMakeFiles/fingervein.dir/curvature/MaxCurvatures.cpp.o
 CMakeFiles/fingervein.dir/main.cpp.o
  /home/user/learnNote/project/fingervein/curvature/MaxCurvatures.h
  /home/user/learnNote/project/fingervein/main.cpp
- /home/user/learnNote/project/fingervein/pre_treatment/fft.h
+ /home/user/learnNote/project/fingervein/pre_treatment/FFT.h
  /home/user/learnNote/project/fingervein/sift_lbp/DetectFeature.h
+ /home/user/learnNote/project/fingervein/test/SimpleTest.h
+ /home/user/learnNote/project/fingervein/test/StringTest.h
  /home/user/learnNote/project/fingervein/test/testAllImage.h
  /home/user/learnNote/project/fingervein/test/testInterface.h
  /home/user/learnNote/project/fingervein/test/testMaxCurvature.h
@@ -337,9 +339,9 @@ CMakeFiles/fingervein.dir/main.cpp.o
  /usr/local/include/opencv4/opencv2/videoio.hpp
  /usr/local/include/opencv4/opencv2/xfeatures2d.hpp
  /usr/local/include/opencv4/opencv2/xfeatures2d/nonfree.hpp
-CMakeFiles/fingervein.dir/pre_treatment/fft.cpp.o
- /home/user/learnNote/project/fingervein/pre_treatment/fft.cpp
- /home/user/learnNote/project/fingervein/pre_treatment/fft.h
+CMakeFiles/fingervein.dir/pre_treatment/FFT.cpp.o
+ /home/user/learnNote/project/fingervein/pre_treatment/FFT.cpp
+ /home/user/learnNote/project/fingervein/pre_treatment/FFT.h
  /home/user/learnNote/project/fingervein/util/Common.h
  /usr/local/include/opencv4/opencv2/calib3d.hpp
  /usr/local/include/opencv4/opencv2/core.hpp
@@ -557,6 +559,12 @@ CMakeFiles/fingervein.dir/sift_lbp/DetectFeature.cpp.o
  /usr/local/include/opencv4/opencv2/videoio.hpp
  /usr/local/include/opencv4/opencv2/xfeatures2d.hpp
  /usr/local/include/opencv4/opencv2/xfeatures2d/nonfree.hpp
+CMakeFiles/fingervein.dir/test/SimpleTest.cpp.o
+ /home/user/learnNote/project/fingervein/test/SimpleTest.cpp
+ /home/user/learnNote/project/fingervein/test/SimpleTest.h
+CMakeFiles/fingervein.dir/test/StringTest.cpp.o
+ /home/user/learnNote/project/fingervein/test/StringTest.cpp
+ /home/user/learnNote/project/fingervein/test/StringTest.h
 CMakeFiles/fingervein.dir/test/testAllImage.cpp.o
  /home/user/learnNote/project/fingervein/sift_lbp/DetectFeature.h
  /home/user/learnNote/project/fingervein/test/testAllImage.cpp

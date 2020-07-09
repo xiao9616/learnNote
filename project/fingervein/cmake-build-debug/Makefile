@@ -204,32 +204,32 @@ main.cpp.s:
 	$(MAKE) -f CMakeFiles/fingervein.dir/build.make CMakeFiles/fingervein.dir/main.cpp.s
 .PHONY : main.cpp.s
 
-pre_treatment/fft.o: pre_treatment/fft.cpp.o
+pre_treatment/FFT.o: pre_treatment/FFT.cpp.o
 
-.PHONY : pre_treatment/fft.o
+.PHONY : pre_treatment/FFT.o
 
 # target to build an object file
-pre_treatment/fft.cpp.o:
-	$(MAKE) -f CMakeFiles/fingervein.dir/build.make CMakeFiles/fingervein.dir/pre_treatment/fft.cpp.o
-.PHONY : pre_treatment/fft.cpp.o
+pre_treatment/FFT.cpp.o:
+	$(MAKE) -f CMakeFiles/fingervein.dir/build.make CMakeFiles/fingervein.dir/pre_treatment/FFT.cpp.o
+.PHONY : pre_treatment/FFT.cpp.o
 
-pre_treatment/fft.i: pre_treatment/fft.cpp.i
+pre_treatment/FFT.i: pre_treatment/FFT.cpp.i
 
-.PHONY : pre_treatment/fft.i
+.PHONY : pre_treatment/FFT.i
 
 # target to preprocess a source file
-pre_treatment/fft.cpp.i:
-	$(MAKE) -f CMakeFiles/fingervein.dir/build.make CMakeFiles/fingervein.dir/pre_treatment/fft.cpp.i
-.PHONY : pre_treatment/fft.cpp.i
+pre_treatment/FFT.cpp.i:
+	$(MAKE) -f CMakeFiles/fingervein.dir/build.make CMakeFiles/fingervein.dir/pre_treatment/FFT.cpp.i
+.PHONY : pre_treatment/FFT.cpp.i
 
-pre_treatment/fft.s: pre_treatment/fft.cpp.s
+pre_treatment/FFT.s: pre_treatment/FFT.cpp.s
 
-.PHONY : pre_treatment/fft.s
+.PHONY : pre_treatment/FFT.s
 
 # target to generate assembly for a file
-pre_treatment/fft.cpp.s:
-	$(MAKE) -f CMakeFiles/fingervein.dir/build.make CMakeFiles/fingervein.dir/pre_treatment/fft.cpp.s
-.PHONY : pre_treatment/fft.cpp.s
+pre_treatment/FFT.cpp.s:
+	$(MAKE) -f CMakeFiles/fingervein.dir/build.make CMakeFiles/fingervein.dir/pre_treatment/FFT.cpp.s
+.PHONY : pre_treatment/FFT.cpp.s
 
 sift_lbp/DetectFeature.o: sift_lbp/DetectFeature.cpp.o
 
@@ -257,6 +257,60 @@ sift_lbp/DetectFeature.s: sift_lbp/DetectFeature.cpp.s
 sift_lbp/DetectFeature.cpp.s:
 	$(MAKE) -f CMakeFiles/fingervein.dir/build.make CMakeFiles/fingervein.dir/sift_lbp/DetectFeature.cpp.s
 .PHONY : sift_lbp/DetectFeature.cpp.s
+
+test/SimpleTest.o: test/SimpleTest.cpp.o
+
+.PHONY : test/SimpleTest.o
+
+# target to build an object file
+test/SimpleTest.cpp.o:
+	$(MAKE) -f CMakeFiles/fingervein.dir/build.make CMakeFiles/fingervein.dir/test/SimpleTest.cpp.o
+.PHONY : test/SimpleTest.cpp.o
+
+test/SimpleTest.i: test/SimpleTest.cpp.i
+
+.PHONY : test/SimpleTest.i
+
+# target to preprocess a source file
+test/SimpleTest.cpp.i:
+	$(MAKE) -f CMakeFiles/fingervein.dir/build.make CMakeFiles/fingervein.dir/test/SimpleTest.cpp.i
+.PHONY : test/SimpleTest.cpp.i
+
+test/SimpleTest.s: test/SimpleTest.cpp.s
+
+.PHONY : test/SimpleTest.s
+
+# target to generate assembly for a file
+test/SimpleTest.cpp.s:
+	$(MAKE) -f CMakeFiles/fingervein.dir/build.make CMakeFiles/fingervein.dir/test/SimpleTest.cpp.s
+.PHONY : test/SimpleTest.cpp.s
+
+test/StringTest.o: test/StringTest.cpp.o
+
+.PHONY : test/StringTest.o
+
+# target to build an object file
+test/StringTest.cpp.o:
+	$(MAKE) -f CMakeFiles/fingervein.dir/build.make CMakeFiles/fingervein.dir/test/StringTest.cpp.o
+.PHONY : test/StringTest.cpp.o
+
+test/StringTest.i: test/StringTest.cpp.i
+
+.PHONY : test/StringTest.i
+
+# target to preprocess a source file
+test/StringTest.cpp.i:
+	$(MAKE) -f CMakeFiles/fingervein.dir/build.make CMakeFiles/fingervein.dir/test/StringTest.cpp.i
+.PHONY : test/StringTest.cpp.i
+
+test/StringTest.s: test/StringTest.cpp.s
+
+.PHONY : test/StringTest.s
+
+# target to generate assembly for a file
+test/StringTest.cpp.s:
+	$(MAKE) -f CMakeFiles/fingervein.dir/build.make CMakeFiles/fingervein.dir/test/StringTest.cpp.s
+.PHONY : test/StringTest.cpp.s
 
 test/testAllImage.o: test/testAllImage.cpp.o
 
@@ -357,12 +411,18 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
-	@echo "... pre_treatment/fft.o"
-	@echo "... pre_treatment/fft.i"
-	@echo "... pre_treatment/fft.s"
+	@echo "... pre_treatment/FFT.o"
+	@echo "... pre_treatment/FFT.i"
+	@echo "... pre_treatment/FFT.s"
 	@echo "... sift_lbp/DetectFeature.o"
 	@echo "... sift_lbp/DetectFeature.i"
 	@echo "... sift_lbp/DetectFeature.s"
+	@echo "... test/SimpleTest.o"
+	@echo "... test/SimpleTest.i"
+	@echo "... test/SimpleTest.s"
+	@echo "... test/StringTest.o"
+	@echo "... test/StringTest.i"
+	@echo "... test/StringTest.s"
 	@echo "... test/testAllImage.o"
 	@echo "... test/testAllImage.i"
 	@echo "... test/testAllImage.s"

@@ -122,18 +122,18 @@ CMakeFiles/fingervein.dir/test/testAllImage.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/fingervein.dir/test/testAllImage.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/user/learnNote/project/fingervein/test/testAllImage.cpp -o CMakeFiles/fingervein.dir/test/testAllImage.cpp.s
 
-CMakeFiles/fingervein.dir/pre_treatment/fft.cpp.o: CMakeFiles/fingervein.dir/flags.make
-CMakeFiles/fingervein.dir/pre_treatment/fft.cpp.o: ../pre_treatment/fft.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/user/learnNote/project/fingervein/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/fingervein.dir/pre_treatment/fft.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/fingervein.dir/pre_treatment/fft.cpp.o -c /home/user/learnNote/project/fingervein/pre_treatment/fft.cpp
+CMakeFiles/fingervein.dir/pre_treatment/FFT.cpp.o: CMakeFiles/fingervein.dir/flags.make
+CMakeFiles/fingervein.dir/pre_treatment/FFT.cpp.o: ../pre_treatment/FFT.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/user/learnNote/project/fingervein/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/fingervein.dir/pre_treatment/FFT.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/fingervein.dir/pre_treatment/FFT.cpp.o -c /home/user/learnNote/project/fingervein/pre_treatment/FFT.cpp
 
-CMakeFiles/fingervein.dir/pre_treatment/fft.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/fingervein.dir/pre_treatment/fft.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/user/learnNote/project/fingervein/pre_treatment/fft.cpp > CMakeFiles/fingervein.dir/pre_treatment/fft.cpp.i
+CMakeFiles/fingervein.dir/pre_treatment/FFT.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/fingervein.dir/pre_treatment/FFT.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/user/learnNote/project/fingervein/pre_treatment/FFT.cpp > CMakeFiles/fingervein.dir/pre_treatment/FFT.cpp.i
 
-CMakeFiles/fingervein.dir/pre_treatment/fft.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/fingervein.dir/pre_treatment/fft.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/user/learnNote/project/fingervein/pre_treatment/fft.cpp -o CMakeFiles/fingervein.dir/pre_treatment/fft.cpp.s
+CMakeFiles/fingervein.dir/pre_treatment/FFT.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/fingervein.dir/pre_treatment/FFT.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/user/learnNote/project/fingervein/pre_treatment/FFT.cpp -o CMakeFiles/fingervein.dir/pre_treatment/FFT.cpp.s
 
 CMakeFiles/fingervein.dir/curvature/MaxCurvatures.cpp.o: CMakeFiles/fingervein.dir/flags.make
 CMakeFiles/fingervein.dir/curvature/MaxCurvatures.cpp.o: ../curvature/MaxCurvatures.cpp
@@ -161,6 +161,32 @@ CMakeFiles/fingervein.dir/test/testMaxCurvature.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/fingervein.dir/test/testMaxCurvature.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/user/learnNote/project/fingervein/test/testMaxCurvature.cpp -o CMakeFiles/fingervein.dir/test/testMaxCurvature.cpp.s
 
+CMakeFiles/fingervein.dir/test/SimpleTest.cpp.o: CMakeFiles/fingervein.dir/flags.make
+CMakeFiles/fingervein.dir/test/SimpleTest.cpp.o: ../test/SimpleTest.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/user/learnNote/project/fingervein/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/fingervein.dir/test/SimpleTest.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/fingervein.dir/test/SimpleTest.cpp.o -c /home/user/learnNote/project/fingervein/test/SimpleTest.cpp
+
+CMakeFiles/fingervein.dir/test/SimpleTest.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/fingervein.dir/test/SimpleTest.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/user/learnNote/project/fingervein/test/SimpleTest.cpp > CMakeFiles/fingervein.dir/test/SimpleTest.cpp.i
+
+CMakeFiles/fingervein.dir/test/SimpleTest.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/fingervein.dir/test/SimpleTest.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/user/learnNote/project/fingervein/test/SimpleTest.cpp -o CMakeFiles/fingervein.dir/test/SimpleTest.cpp.s
+
+CMakeFiles/fingervein.dir/test/StringTest.cpp.o: CMakeFiles/fingervein.dir/flags.make
+CMakeFiles/fingervein.dir/test/StringTest.cpp.o: ../test/StringTest.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/user/learnNote/project/fingervein/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/fingervein.dir/test/StringTest.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/fingervein.dir/test/StringTest.cpp.o -c /home/user/learnNote/project/fingervein/test/StringTest.cpp
+
+CMakeFiles/fingervein.dir/test/StringTest.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/fingervein.dir/test/StringTest.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/user/learnNote/project/fingervein/test/StringTest.cpp > CMakeFiles/fingervein.dir/test/StringTest.cpp.i
+
+CMakeFiles/fingervein.dir/test/StringTest.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/fingervein.dir/test/StringTest.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/user/learnNote/project/fingervein/test/StringTest.cpp -o CMakeFiles/fingervein.dir/test/StringTest.cpp.s
+
 # Object files for target fingervein
 fingervein_OBJECTS = \
 "CMakeFiles/fingervein.dir/main.cpp.o" \
@@ -168,9 +194,11 @@ fingervein_OBJECTS = \
 "CMakeFiles/fingervein.dir/sift_lbp/DetectFeature.cpp.o" \
 "CMakeFiles/fingervein.dir/util/IO.cpp.o" \
 "CMakeFiles/fingervein.dir/test/testAllImage.cpp.o" \
-"CMakeFiles/fingervein.dir/pre_treatment/fft.cpp.o" \
+"CMakeFiles/fingervein.dir/pre_treatment/FFT.cpp.o" \
 "CMakeFiles/fingervein.dir/curvature/MaxCurvatures.cpp.o" \
-"CMakeFiles/fingervein.dir/test/testMaxCurvature.cpp.o"
+"CMakeFiles/fingervein.dir/test/testMaxCurvature.cpp.o" \
+"CMakeFiles/fingervein.dir/test/SimpleTest.cpp.o" \
+"CMakeFiles/fingervein.dir/test/StringTest.cpp.o"
 
 # External object files for target fingervein
 fingervein_EXTERNAL_OBJECTS =
@@ -180,9 +208,11 @@ fingervein: CMakeFiles/fingervein.dir/curvature/CurvatureCalculator.cpp.o
 fingervein: CMakeFiles/fingervein.dir/sift_lbp/DetectFeature.cpp.o
 fingervein: CMakeFiles/fingervein.dir/util/IO.cpp.o
 fingervein: CMakeFiles/fingervein.dir/test/testAllImage.cpp.o
-fingervein: CMakeFiles/fingervein.dir/pre_treatment/fft.cpp.o
+fingervein: CMakeFiles/fingervein.dir/pre_treatment/FFT.cpp.o
 fingervein: CMakeFiles/fingervein.dir/curvature/MaxCurvatures.cpp.o
 fingervein: CMakeFiles/fingervein.dir/test/testMaxCurvature.cpp.o
+fingervein: CMakeFiles/fingervein.dir/test/SimpleTest.cpp.o
+fingervein: CMakeFiles/fingervein.dir/test/StringTest.cpp.o
 fingervein: CMakeFiles/fingervein.dir/build.make
 fingervein: /usr/local/lib/libopencv_stitching.so.4.4.0
 fingervein: /usr/local/lib/libopencv_gapi.so.4.4.0
@@ -236,7 +266,7 @@ fingervein: /usr/local/lib/libopencv_flann.so.4.4.0
 fingervein: /usr/local/lib/libopencv_imgproc.so.4.4.0
 fingervein: /usr/local/lib/libopencv_core.so.4.4.0
 fingervein: CMakeFiles/fingervein.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/user/learnNote/project/fingervein/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking CXX executable fingervein"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/user/learnNote/project/fingervein/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Linking CXX executable fingervein"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/fingervein.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

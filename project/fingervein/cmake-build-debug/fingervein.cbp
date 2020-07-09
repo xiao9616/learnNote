@@ -101,16 +101,28 @@
 		<Unit filename="/home/user/learnNote/project/fingervein/main.cpp">
 			<Option target="fingervein"/>
 		</Unit>
-		<Unit filename="/home/user/learnNote/project/fingervein/pre_treatment/fft.cpp">
+		<Unit filename="/home/user/learnNote/project/fingervein/pre_treatment/FFT.cpp">
 			<Option target="fingervein"/>
 		</Unit>
-		<Unit filename="/home/user/learnNote/project/fingervein/pre_treatment/fft.h">
+		<Unit filename="/home/user/learnNote/project/fingervein/pre_treatment/FFT.h">
 			<Option target="fingervein"/>
 		</Unit>
 		<Unit filename="/home/user/learnNote/project/fingervein/sift_lbp/DetectFeature.cpp">
 			<Option target="fingervein"/>
 		</Unit>
 		<Unit filename="/home/user/learnNote/project/fingervein/sift_lbp/DetectFeature.h">
+			<Option target="fingervein"/>
+		</Unit>
+		<Unit filename="/home/user/learnNote/project/fingervein/test/SimpleTest.cpp">
+			<Option target="fingervein"/>
+		</Unit>
+		<Unit filename="/home/user/learnNote/project/fingervein/test/SimpleTest.h">
+			<Option target="fingervein"/>
+		</Unit>
+		<Unit filename="/home/user/learnNote/project/fingervein/test/StringTest.cpp">
+			<Option target="fingervein"/>
+		</Unit>
+		<Unit filename="/home/user/learnNote/project/fingervein/test/StringTest.h">
 			<Option target="fingervein"/>
 		</Unit>
 		<Unit filename="/home/user/learnNote/project/fingervein/test/testAllImage.cpp">

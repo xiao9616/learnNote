@@ -7,11 +7,11 @@
 
 #include "../util/Common.h"
 
-class fft {
+class FFT {
     Mat image_input;
     Mat image_output;
 public:
-    fft(const String &imageInput);
+    FFT(const String &imageInput);
 
     void process();
 

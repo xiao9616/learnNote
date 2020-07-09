@@ -4,9 +4,11 @@ file(REMOVE_RECURSE
   "CMakeFiles/fingervein.dir/sift_lbp/DetectFeature.cpp.o"
   "CMakeFiles/fingervein.dir/util/IO.cpp.o"
   "CMakeFiles/fingervein.dir/test/testAllImage.cpp.o"
-  "CMakeFiles/fingervein.dir/pre_treatment/fft.cpp.o"
+  "CMakeFiles/fingervein.dir/pre_treatment/FFT.cpp.o"
   "CMakeFiles/fingervein.dir/curvature/MaxCurvatures.cpp.o"
   "CMakeFiles/fingervein.dir/test/testMaxCurvature.cpp.o"
+  "CMakeFiles/fingervein.dir/test/SimpleTest.cpp.o"
+  "CMakeFiles/fingervein.dir/test/StringTest.cpp.o"
   "fingervein.pdb"
   "fingervein"
 )
