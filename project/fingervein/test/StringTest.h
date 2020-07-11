@@ -16,7 +16,7 @@
 
 using namespace CppUnit;
 
-class StringTest: public TestFixture {
+class StringTest : public TestFixture {
 
 public:
     void setUp() override;
@@ -26,9 +26,10 @@ public:
     void testSwap();
 
     void testFind();
+
 private:
-    std::string     m_str1;
-    std::string     m_str2;
+    std::string m_str1;
+    std::string m_str2;
 };
 
 

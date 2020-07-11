@@ -123,6 +123,33 @@ fingervein/fast:
 	$(MAKE) -f CMakeFiles/fingervein.dir/build.make CMakeFiles/fingervein.dir/build
 .PHONY : fingervein/fast
 
+GMS/GMS.o: GMS/GMS.cpp.o
+
+.PHONY : GMS/GMS.o
+
+# target to build an object file
+GMS/GMS.cpp.o:
+	$(MAKE) -f CMakeFiles/fingervein.dir/build.make CMakeFiles/fingervein.dir/GMS/GMS.cpp.o
+.PHONY : GMS/GMS.cpp.o
+
+GMS/GMS.i: GMS/GMS.cpp.i
+
+.PHONY : GMS/GMS.i
+
+# target to preprocess a source file
+GMS/GMS.cpp.i:
+	$(MAKE) -f CMakeFiles/fingervein.dir/build.make CMakeFiles/fingervein.dir/GMS/GMS.cpp.i
+.PHONY : GMS/GMS.cpp.i
+
+GMS/GMS.s: GMS/GMS.cpp.s
+
+.PHONY : GMS/GMS.s
+
+# target to generate assembly for a file
+GMS/GMS.cpp.s:
+	$(MAKE) -f CMakeFiles/fingervein.dir/build.make CMakeFiles/fingervein.dir/GMS/GMS.cpp.s
+.PHONY : GMS/GMS.cpp.s
+
 curvature/CurvatureCalculator.o: curvature/CurvatureCalculator.cpp.o
 
 .PHONY : curvature/CurvatureCalculator.o
@@ -402,6 +429,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... fingervein"
 	@echo "... edit_cache"
+	@echo "... GMS/GMS.o"
+	@echo "... GMS/GMS.i"
+	@echo "... GMS/GMS.s"
 	@echo "... curvature/CurvatureCalculator.o"
 	@echo "... curvature/CurvatureCalculator.i"
 	@echo "... curvature/CurvatureCalculator.s"

@@ -10,6 +10,9 @@
 #include <opencv2/core/core.hpp>
 #include <opencv2/highgui/highgui.hpp>
 #include <opencv2/imgproc/imgproc.hpp>
+#include <opencv2/features2d.hpp>
+#include <opencv2/flann.hpp>
+#include <opencv2/xfeatures2d.hpp>
 #include <iostream>
 #include <bits/unique_ptr.h>
 #include <unistd.h>
@@ -19,6 +22,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <math.h>
+#include "IO.h"
 
 using namespace std;
 using namespace cv;

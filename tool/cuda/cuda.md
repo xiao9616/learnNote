@@ -4,6 +4,16 @@
 
 ### 1.下载安装[cuda](https://developer.nvidia.com/cuda-downloads)
 
+1.1查看显卡是否支持CUDA
+
+```
+ lspci | grep -i nvidia
+```
+
+官网查看是否支持[CUDA](https://developer.nvidia.com/cuda-gpus)
+
+1.2安装cuda
+
 ```
 chmod +x filename.run
 sudo ./filename.run
@@ -30,6 +40,16 @@ sudo cp cuda/include/cudnn.h /usr/local/cuda/include
 sudo cp cuda/lib64/libcudnn* /usr/local/cuda/lib64
 sudo chmod a+r /usr/local/cuda/include/cudnn.h
 ```
+
+### 4.安装gcc
+
+查看gcc版本
+
+```
+gcc --version
+```
+
+
 
 ## 二.cuda编程
 

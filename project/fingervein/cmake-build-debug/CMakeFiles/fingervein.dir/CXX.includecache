@@ -31,6 +31,12 @@ test/SimpleTest.h
 /home/user/learnNote/project/fingervein/test/SimpleTest.h
 test/StringTest.h
 /home/user/learnNote/project/fingervein/test/StringTest.h
+cuda.h
+-
+driver_types.h
+-
+cuda_runtime_api.h
+-
 
 /home/user/learnNote/project/fingervein/pre_treatment/FFT.h
 ../util/Common.h

@@ -8,7 +8,7 @@
 #include "test/testMaxCurvature.h"
 #include "test/SimpleTest.h"
 #include "test/StringTest.h"
-
+#include <cuda.h>
 #define image1 "./1.png"
 #define image2 "./2.png"
 
@@ -52,10 +52,10 @@ void test() {
 }
 
 int main() {
-//    testInterface *test = new testMaxCurvature();
-//    test->setDataBase("/home/user/learnNote/project/fingervein/cmake-build-debug/dataset/malai/");
-//    test->setInput("/home/user/learnNote/project/fingervein/cmake-build-debug/dataset/malai/");
-//    test->run();
+/*    testInterface *test = new testMaxCurvature();
+    test->setDataBase("/home/user/learnNote/project/fingervein/cmake-build-debug/dataset/malai/");
+    test->setInput("/home/user/learnNote/project/fingervein/cmake-build-debug/dataset/malai/");
+    test->run();
     TestResult result;
     TestResultCollector resultCollector;
     result.addListener(&resultCollector);
@@ -73,7 +73,11 @@ int main() {
 
     CppUnit::TextOutputter o(&resultCollector, std::cout);
     o.write();
-//    FFT *fft = new FFT("/home/user/learnNote/project/fingervein/cmake-build-debug/dataset/malai/vein005_1/02.jpg");
-//    fft->process();
-//    return 0;
+
+
+    FFT *fft = new FFT("/home/user/learnNote/project/fingervein/cmake-build-debug/dataset/malai/vein005_1/02.jpg");
+    fft->process();
+    return 0;*/
+
+
 }

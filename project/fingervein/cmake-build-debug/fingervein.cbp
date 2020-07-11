@@ -86,6 +86,12 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/home/user/learnNote/project/fingervein/GMS/GMS.cpp">
+			<Option target="fingervein"/>
+		</Unit>
+		<Unit filename="/home/user/learnNote/project/fingervein/GMS/GMS.h">
+			<Option target="fingervein"/>
+		</Unit>
 		<Unit filename="/home/user/learnNote/project/fingervein/curvature/CurvatureCalculator.cpp">
 			<Option target="fingervein"/>
 		</Unit>
