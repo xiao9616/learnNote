@@ -6,8 +6,28 @@
 #define FINGERVEIN_GMS_H
 
 
+#include "../util/Common.h"
+
+enum KeyPointFeature {
+    ORB_FEATURE,
+    SURF_FEATURE,
+    SIFT_FEATURE
+};
+
 class GMS {
-    void detection();
+private:
+    Mat image1;
+    Mat image2;
+public:
+    GMS(const Mat &image1, const Mat &image2);
+
+    GMS(const String &image1_path, const String &image2_path);
+
+    void detection(KeyPointFeature method);
+
+    Mat anisotropy(Mat &image, float k, float lambda);
+
+    void preProcess();
 };
 
 

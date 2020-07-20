@@ -10,6 +10,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/fingervein.dir/test/SimpleTest.cpp.o"
   "CMakeFiles/fingervein.dir/test/StringTest.cpp.o"
   "CMakeFiles/fingervein.dir/GMS/GMS.cpp.o"
+  "CMakeFiles/fingervein.dir/test/GmsTest.cpp.o"
   "fingervein.pdb"
   "fingervein"
 )

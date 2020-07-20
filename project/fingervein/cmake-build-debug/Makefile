@@ -285,6 +285,33 @@ sift_lbp/DetectFeature.cpp.s:
 	$(MAKE) -f CMakeFiles/fingervein.dir/build.make CMakeFiles/fingervein.dir/sift_lbp/DetectFeature.cpp.s
 .PHONY : sift_lbp/DetectFeature.cpp.s
 
+test/GmsTest.o: test/GmsTest.cpp.o
+
+.PHONY : test/GmsTest.o
+
+# target to build an object file
+test/GmsTest.cpp.o:
+	$(MAKE) -f CMakeFiles/fingervein.dir/build.make CMakeFiles/fingervein.dir/test/GmsTest.cpp.o
+.PHONY : test/GmsTest.cpp.o
+
+test/GmsTest.i: test/GmsTest.cpp.i
+
+.PHONY : test/GmsTest.i
+
+# target to preprocess a source file
+test/GmsTest.cpp.i:
+	$(MAKE) -f CMakeFiles/fingervein.dir/build.make CMakeFiles/fingervein.dir/test/GmsTest.cpp.i
+.PHONY : test/GmsTest.cpp.i
+
+test/GmsTest.s: test/GmsTest.cpp.s
+
+.PHONY : test/GmsTest.s
+
+# target to generate assembly for a file
+test/GmsTest.cpp.s:
+	$(MAKE) -f CMakeFiles/fingervein.dir/build.make CMakeFiles/fingervein.dir/test/GmsTest.cpp.s
+.PHONY : test/GmsTest.cpp.s
+
 test/SimpleTest.o: test/SimpleTest.cpp.o
 
 .PHONY : test/SimpleTest.o
@@ -447,6 +474,9 @@ help:
 	@echo "... sift_lbp/DetectFeature.o"
 	@echo "... sift_lbp/DetectFeature.i"
 	@echo "... sift_lbp/DetectFeature.s"
+	@echo "... test/GmsTest.o"
+	@echo "... test/GmsTest.i"
+	@echo "... test/GmsTest.s"
 	@echo "... test/SimpleTest.o"
 	@echo "... test/SimpleTest.i"
 	@echo "... test/SimpleTest.s"

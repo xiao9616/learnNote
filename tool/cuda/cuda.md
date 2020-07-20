@@ -49,8 +49,6 @@ sudo chmod a+r /usr/local/cuda/include/cudnn.h
 gcc --version
 ```
 
-
-
 ## 二.cuda编程
 
 #### 1.声明

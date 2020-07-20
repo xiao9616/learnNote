@@ -24,6 +24,14 @@
 #include <math.h>
 #include "IO.h"
 
+//cppunit
+#include <cppunit/TestCase.h>
+#include <cppunit/TestResult.h>
+#include <cppunit/TestResultCollector.h>
+#include <cppunit/TestFixture.h>
+#include <cppunit/TestCaller.h>
+#include <cppunit/TextTestResult.h>
+#include <cppunit/TestRunner.h>
 using namespace std;
 using namespace cv;
 

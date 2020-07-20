@@ -10,6 +10,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/home/user/learnNote/project/fingervein/main.cpp" "/home/user/learnNote/project/fingervein/cmake-build-debug/CMakeFiles/fingervein.dir/main.cpp.o"
   "/home/user/learnNote/project/fingervein/pre_treatment/FFT.cpp" "/home/user/learnNote/project/fingervein/cmake-build-debug/CMakeFiles/fingervein.dir/pre_treatment/FFT.cpp.o"
   "/home/user/learnNote/project/fingervein/sift_lbp/DetectFeature.cpp" "/home/user/learnNote/project/fingervein/cmake-build-debug/CMakeFiles/fingervein.dir/sift_lbp/DetectFeature.cpp.o"
+  "/home/user/learnNote/project/fingervein/test/GmsTest.cpp" "/home/user/learnNote/project/fingervein/cmake-build-debug/CMakeFiles/fingervein.dir/test/GmsTest.cpp.o"
   "/home/user/learnNote/project/fingervein/test/SimpleTest.cpp" "/home/user/learnNote/project/fingervein/cmake-build-debug/CMakeFiles/fingervein.dir/test/SimpleTest.cpp.o"
   "/home/user/learnNote/project/fingervein/test/StringTest.cpp" "/home/user/learnNote/project/fingervein/cmake-build-debug/CMakeFiles/fingervein.dir/test/StringTest.cpp.o"
   "/home/user/learnNote/project/fingervein/test/testAllImage.cpp" "/home/user/learnNote/project/fingervein/cmake-build-debug/CMakeFiles/fingervein.dir/test/testAllImage.cpp.o"

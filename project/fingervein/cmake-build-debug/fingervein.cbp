@@ -119,6 +119,12 @@
 		<Unit filename="/home/user/learnNote/project/fingervein/sift_lbp/DetectFeature.h">
 			<Option target="fingervein"/>
 		</Unit>
+		<Unit filename="/home/user/learnNote/project/fingervein/test/GmsTest.cpp">
+			<Option target="fingervein"/>
+		</Unit>
+		<Unit filename="/home/user/learnNote/project/fingervein/test/GmsTest.h">
+			<Option target="fingervein"/>
+		</Unit>
 		<Unit filename="/home/user/learnNote/project/fingervein/test/SimpleTest.cpp">
 			<Option target="fingervein"/>
 		</Unit>
